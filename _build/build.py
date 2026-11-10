@@ -35,7 +35,7 @@ NAME = "Md. Hossain"
 EMAIL = "mdhossain.cloud@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/mdhossain-cloud"
 GITHUB = "https://github.com/mdhossaincloud"
-VERSION = "4.1.0"
+VERSION = "4.1.1"
 
 # code, label in its own language, BCP 47 tag, URL prefix ("" = default)
 LANGS = [

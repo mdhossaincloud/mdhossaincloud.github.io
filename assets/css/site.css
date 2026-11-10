@@ -727,7 +727,7 @@ main, .site-footer { position: relative; z-index: 1; }
 .hero-grid { width: 100%; }
 .hero-visual { min-height: 26rem; }
 .hero-id { gap: .75rem; }
-.avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none;
+.avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex: none;
   box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--ln-2); }
 .hero h1 { margin-bottom: var(--s5); }
 .h-name { display: block; font-size: clamp(3rem, 6vw, 5.1rem); white-space: nowrap; font-stretch: 116%; font-weight: 700; letter-spacing: -.035em; line-height: .95; }
