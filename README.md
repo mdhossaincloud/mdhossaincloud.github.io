@@ -17,9 +17,9 @@ Personal website of **Md. Hossain**, IT support specialist and systems & network
 | `assets/js/scene.js` | Dependency-free 3D network scene (Canvas 2D + perspective projection) |
 | `assets/js/lab-data.js`, `lab.js` | Infrastructure Lab content and renderer |
 | `assets/js/articles.js`, `hub.js` | Published guides list and Knowledge Hub search |
-| `assets/js/portrait.js` | Portrait that assembles from fragments on scroll |
+| `assets/js/bg.js` | Background data sphere that dissolves into binary on scroll |
 | `assets/media/` | 8-second motion loop (MP4) and poster |
-| `assets/img/portrait.jpg` | Portrait image: replace with a real photo (640×800 or larger, 4:5) |
+| `assets/img/hossain-*.jpg` | Duotone portrait and avatar |
 | `assets/fonts/` | Self-hosted Archivo and IBM Plex, Latin subset (SIL Open Font License) |
 | `_build/i18n/*.json` | Translations; English is the source and fallback |
 | `cv/MD_Hossain_CV.pdf` | Downloadable CV |

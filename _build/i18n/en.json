@@ -1,10 +1,9 @@
 {
   "meta.title": "Md. Hossain | IT Professional, Systems & Network Administrator, Dhaka",
   "meta.description": "Md. Hossain is a Dhaka-based IT professional and founder of Fixible IT with 8+ years in enterprise IT: Microsoft 365, Active Directory, MikroTik networks, site-to-site VPN and IP CCTV.",
-
   "ui.skip": "Skip to content",
   "ui.home": "home",
-  "ui.brandline": "IT Professional & Entrepreneur",
+  "ui.brandline": "IT Infrastructure & Systems",
   "ui.mainnav": "Main",
   "ui.footnav": "Footer",
   "ui.language": "Language",
@@ -15,7 +14,6 @@
   "ui.place": "Dhaka, Bangladesh",
   "ui.hub": "Knowledge Hub",
   "ui.cv": "CV (PDF)",
-
   "nav.about": "About",
   "nav.experience": "Experience",
   "nav.expertise": "Expertise",
@@ -23,26 +21,17 @@
   "nav.projects": "Projects",
   "nav.insights": "Insights",
   "nav.contact": "Contact",
-
   "common.dhaka": "Dhaka",
-
-  "hero.id": "Md. Hossain, IT professional and technology entrepreneur in Dhaka",
-  "hero.h1a": "Engineering technology.",
-  "hero.h1b": "Empowering businesses.",
-  "hero.h1c": "Building what’s next.",
-  "hero.lead": "I’m an IT professional with <b>8+ years</b> of hands-on experience running enterprise IT for multi-site businesses in Bangladesh, and the founder of <b>Fixible IT</b>. I build reliable infrastructure, solve difficult technical problems and turn them into practical solutions for businesses.",
-  "hero.cta1": "Explore my work",
-  "hero.cta2": "Download CV",
-  "hero.cta3": "Work with me",
+  "hero.id": "Based in Dhaka, Bangladesh",
+  "hero.lead": "I keep multi-site businesses running. For more than eight years I have looked after the networks, Microsoft 365 and Active Directory environments and security systems that over 150 people across four offices rely on every day.",
+  "hero.cta1": "View experience",
+  "hero.cta2": "Get in touch",
   "spec.exp.k": "Experience",
   "spec.exp.v": "8+ years in enterprise IT",
   "spec.role.k": "Current role",
   "spec.role.v": "Senior IT Officer, MKR Group",
-  "spec.founder.k": "Founder",
-  "spec.founder.v": "Fixible IT, Dhaka",
   "spec.avail.k": "Availability",
   "spec.avail.v": "Open to roles and projects",
-
   "scene.aria": "Rotating 3D illustration of a multi-site business network: a cloud and internet layer connected to a head office and two branch offices by site-to-site VPN tunnels. Each office has a router or firewall, switch, Wi-Fi access point, workstations, IP cameras and an NVR.",
   "scene.legend": "Highlight part of the network",
   "scene.highlight": "Highlight",
@@ -53,8 +42,7 @@
   "scene.c.cctv": "CCTV & NVR",
   "scene.c.endpoints": "Endpoints",
   "scene.note": "Illustrative topology for explanation only. It does not represent any employer’s network. Hover or tap a device to see its role.",
-
-  "about.title": "From the server room to the founder’s desk",
+  "about.title": "Keeping people and systems connected",
   "about.portraitalt": "Md. Hossain",
   "about.p1": "My IT career began in 2018 on the support desk of a Bangladeshi manufacturer, keeping 250+ people productive on the factory floor and in the office. Since 2020 I have been Senior IT Officer at MKR Group, responsible for users, networks and security systems across four regional offices.",
   "about.p2": "I care about the quiet kind of IT: networks that stay up, accounts that are created and removed correctly, cameras that keep recording, and documentation that lets someone else take over tomorrow.",
@@ -66,7 +54,6 @@
   "about.f.lang.v": "Bengali (native), English (professional)",
   "about.f.edu.k": "Education",
   "about.f.edu.v": "Bachelor of Theology and Islamic Studies, 2019",
-
   "xp.title": "Eight years of hands-on IT work",
   "xp.sub": "Manufacturing and group-company environments in Bangladesh, from first-line support to multi-site infrastructure.",
   "xp.mkr.when": "Feb 2020 – Present",
@@ -83,7 +70,6 @@
   "xp.alif.b1": "First-line L1/L2 support for 250+ employees: Windows, peripherals and core office software.",
   "xp.alif.b2": "Workstation rollouts: OS installation, network configuration, antivirus deployment and user set-up.",
   "xp.alif.b3": "LAN and Wi-Fi stability and asset inventory across production facilities.",
-
   "ex.title": "Expertise, grouped by how I use it",
   "ex.sub": "No percentage bars. Each skill is marked by how often it is part of my real work.",
   "ex.key": "Skill level key",
@@ -118,9 +104,8 @@
   "ex.g4.a": "WordPress and WooCommerce",
   "ex.g4.b": "Python and PySide6 desktop applications",
   "ex.g4.c": "SQLite databases",
-
   "sv.title": "Services for businesses in Bangladesh",
-  "sv.sub": "The same work I do every day for a multi-site group, available to offices, factories, shops and homes, directly or through Fixible IT.",
+  "sv.sub": "The work I do every day for a multi-site group, available to offices, factories, shops and homes in Bangladesh.",
   "sv.reel": "Reliable IT is mostly invisible: traffic flowing between offices, backups running, cameras recording. My job is to keep it that way.",
   "sv.s1.t": "Managed IT support",
   "sv.s1.d": "Monthly or on-demand support for users, PCs, printers and email, on-site in Dhaka or remotely.",
@@ -144,9 +129,8 @@
   "sv.e2.t": "Project basis",
   "sv.e2.d": "A defined job: a network upgrade, a Microsoft 365 migration, a new branch set-up.",
   "sv.e3.t": "Monthly support",
-  "sv.e3.d": "Ongoing IT care for small businesses through Fixible IT.",
+  "sv.e3.d": "Ongoing IT care for small offices, on-site in Dhaka or remotely.",
   "sv.cta": "Discuss your requirement",
-
   "pj.title": "Projects",
   "pj.sub": "What I build outside my day job, kept separate from my employment.",
   "pj.od": "Offline-first Windows productivity and IT task management application.",
@@ -156,30 +140,12 @@
   "pj.cc": "This website: a static, dependency-light portfolio with a hand-built 3D network and an interactive lab.",
   "pj.cc.s": "Version 4, November 2026",
   "pj.ennote": "",
-  "fx.role": "Founder & project lead",
-  "fx.desc": "An IT services and technology commerce business in Bangladesh. Fixible IT supports homes and offices with networks, Microsoft 365, CCTV, Active Directory and monthly IT support, and sells PC components, networking, surveillance and office technology online.",
-  "fx.previewnote": "Schematic of the live website’s home page.",
-  "fx.live": "Live",
-  "fx.l1": "Website and online store on WordPress and WooCommerce",
-  "fx.l2": "Product catalogue across PC, networking, CCTV and office categories",
-  "fx.l3": "Service pages from Wi-Fi set-up to servers and backups",
-  "fx.now": "In progress",
-  "fx.n1": "Redesigned cart and checkout",
-  "fx.n2": "PC builder inside the shop",
-  "fx.n3": "Social media launch",
-  "fx.next": "Planned",
-  "fx.p1": "Central admin app for orders, inventory and invoices",
-  "fx.p2": "Customer portal",
-  "fx.visit": "Visit fixibleit.com",
-  "fx.details": "Project details",
-
   "in.title": "Insights: learn how business IT works",
   "in.sub": "Interactive explainers of the networking and systems concepts behind everyday IT support. Pick a topic and step through it.",
   "in.tabs": "Lab topics",
   "in.noscript": "The interactive lab needs JavaScript.",
   "in.disclaimer": "Generic educational examples. They are not configurations, addresses or diagrams from any employer.",
   "in.hub": "Open the Knowledge Hub",
-
   "ac.title": "Achievements",
   "ac.sub": "Milestones from my work, as stated in my CV, and credentials with public verification links.",
   "ac.f1.k": "Experience",
@@ -201,7 +167,6 @@
   "ac.c2.type": "Training certificate",
   "ac.c2.when": "Jan 2023",
   "ac.verify": "Verify",
-
   "ct.title": "Let’s build reliable IT together.",
   "ct.sub": "Open to IT support, systems and network administration roles, and to IT projects for businesses. Email is the fastest way to reach me.",
   "ct.copy": "Copy",
@@ -218,7 +183,6 @@
   "ct.form.send": "Open in email app",
   "ct.form.error": "Please add your name, a valid email address and a message.",
   "ct.form.note": "This opens your email app with the message ready to send. Nothing is stored on this website.",
-
   "js": {
     "copied": "Email address copied",
     "copyfail": "Copy failed. The address is ",
@@ -230,18 +194,60 @@
     "labnote": "",
     "mailsubject": "Website enquiry",
     "types": {
-      "cloud": ["Cloud services", "Microsoft 365 and other online services: email, identity and files, reached over the internet."],
-      "isp": ["Internet / ISP", "The public network that links every office. Link health and ISP escalation live here."],
-      "fw": ["Edge firewall & router", "Filters traffic, performs NAT and terminates the site-to-site VPN tunnels."],
-      "rt": ["Branch router", "MikroTik-class edge router: internet access, routing and the VPN tunnel back to head office."],
-      "sw": ["Core / access switch", "Connects wired devices and keeps traffic separated into VLANs."],
-      "srv": ["Server", "On-premises services such as file shares, directory or management tools."],
-      "ap": ["Wi-Fi access point", "Wireless coverage. Channel planning and authentication decide how reliable it feels."],
-      "pc": ["Workstation", "Where most support work ends: set-up, access, updates and troubleshooting."],
-      "cam": ["IP camera", "Powered over Ethernet (PoE), streaming video to the NVR on its own VLAN."],
-      "nvr": ["NVR", "Network video recorder: records the cameras and keeps footage for the retention period."]
+      "cloud": [
+        "Cloud services",
+        "Microsoft 365 and other online services: email, identity and files, reached over the internet."
+      ],
+      "isp": [
+        "Internet / ISP",
+        "The public network that links every office. Link health and ISP escalation live here."
+      ],
+      "fw": [
+        "Edge firewall & router",
+        "Filters traffic, performs NAT and terminates the site-to-site VPN tunnels."
+      ],
+      "rt": [
+        "Branch router",
+        "MikroTik-class edge router: internet access, routing and the VPN tunnel back to head office."
+      ],
+      "sw": [
+        "Core / access switch",
+        "Connects wired devices and keeps traffic separated into VLANs."
+      ],
+      "srv": [
+        "Server",
+        "On-premises services such as file shares, directory or management tools."
+      ],
+      "ap": [
+        "Wi-Fi access point",
+        "Wireless coverage. Channel planning and authentication decide how reliable it feels."
+      ],
+      "pc": [
+        "Workstation",
+        "Where most support work ends: set-up, access, updates and troubleshooting."
+      ],
+      "cam": [
+        "IP camera",
+        "Powered over Ethernet (PoE), streaming video to the NVR on its own VLAN."
+      ],
+      "nvr": [
+        "NVR",
+        "Network video recorder: records the cameras and keeps footage for the retention period."
+      ]
     },
-    "sites": ["Head office", "Branch office A", "Branch office B"],
+    "sites": [
+      "Head office",
+      "Branch office A",
+      "Branch office B"
+    ],
     "vpn": "site-to-site VPN"
-  }
+  },
+  "hero.role": "IT infrastructure & systems administrator",
+  "spec.scope.k": "Scope",
+  "spec.scope.v": "150+ users, 4 offices",
+  "xp.cv": "Download full CV (PDF)",
+  "pj.fx.role": "Venture, founder",
+  "pj.fx": "IT services and technology products for homes and small businesses in Bangladesh.",
+  "pj.fx.s": "Live at fixibleit.com",
+  "in.scene": "A multi-site network in 3D"
 }

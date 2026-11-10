@@ -35,7 +35,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=4.0.1">
+<link rel="stylesheet" href="../assets/css/site.css?v=4.1.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"copied":"Adresse e-mail copiée","copyfail":"Échec de la copie. L’adresse est ","step":"Étape {n} sur {m}","prev":"Étape précédente","next":"Étape suivante","play":"Lire toutes les étapes","pause":"Pause","mailsubject":"Demande via le site web","types":{"cloud":["Services cloud","Microsoft 365 et autres services en ligne : messagerie, identité et fichiers, accessibles par internet."],"isp":["Internet / FAI","Le réseau public qui relie tous les sites. On y suit la qualité des liens et les escalades auprès du fournisseur."],"fw":["Pare-feu & routeur de bordure","Filtre le trafic, assure la NAT et termine les tunnels VPN site à site."],"rt":["Routeur d’agence","Routeur de bordure de type MikroTik : accès internet, routage et tunnel VPN vers le siège."],"sw":["Commutateur cœur / accès","Raccorde les équipements filaires et sépare le trafic en VLAN."],"srv":["Serveur","Services locaux comme les partages de fichiers, l’annuaire ou les outils d’administration."],"ap":["Point d’accès Wi-Fi","Couverture sans fil. Le plan de canaux et l’authentification font sa fiabilité."],"pc":["Poste de travail","Là où se termine la plupart du support : installation, accès, mises à jour et dépannage."],"cam":["Caméra IP","Alimentée par Ethernet (PoE), elle envoie la vidéo au NVR sur son propre VLAN."],"nvr":["NVR","Enregistreur vidéo réseau : enregistre les caméras et conserve les images pendant la durée prévue."]},"sites":["Siège","Agence A","Agence B"],"vpn":"VPN site à site"};</script>
@@ -47,7 +47,7 @@
 <header class="site-header" id="top">
   <div class="wrap bar">
     <a class="brand" href="../" aria-label="Md. Hossain, accueil">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="var(--sf-2)" stroke="var(--ln-2)"/><path d="M6 22V10l4.5 6 4.5-6v12" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M19 10v12M26 10v12M19 16h7" fill="none" stroke="var(--acc)" stroke-width="2.2" stroke-linecap="round"/></svg><span>Md. Hossain<small>Informatique &amp; entrepreneuriat</small></span>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="var(--sf-2)" stroke="var(--ln-2)"/><path d="M6 22V10l4.5 6 4.5-6v12" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M19 10v12M26 10v12M19 16h7" fill="none" stroke="var(--acc)" stroke-width="2.2" stroke-linecap="round"/></svg><span>Md. Hossain<small>Infrastructure IT &amp; systèmes</small></span>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
       <ul class="nav-links"><li><a href="#about" data-spy="about">À propos</a></li><li><a href="#experience" data-spy="experience">Expérience</a></li><li><a href="#expertise" data-spy="expertise">Compétences</a></li><li><a href="#services" data-spy="services">Services</a></li><li><a href="#projects" data-spy="projects">Projets</a></li><li><a href="#insights" data-spy="insights">Ressources</a></li><li><a href="#contact" data-spy="contact">Contact</a></li></ul>
@@ -60,68 +60,40 @@
     <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
+<canvas id="bg" aria-hidden="true"></canvas>
 <main id="main">
 
 <!-- Hero -->
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="hero-id"><span class="live-dot" aria-hidden="true"></span>Md. Hossain, professionnel de l’informatique et entrepreneur tech à Dhaka</p>
-      <h1 id="hero-title">Concevoir la technologie. Renforcer les entreprises. <span class="l2">Bâtir l’avenir.</span></h1>
-      <p class="lead">Je suis un professionnel de l’informatique avec <b>plus de 8 ans</b> d’expérience terrain dans la gestion de l’informatique d’entreprises multisites au Bangladesh, et le fondateur de <b>Fixible IT</b>. Je construis des infrastructures fiables, je résous des problèmes techniques complexes et j’en tire des solutions concrètes pour les entreprises.</p>
+      <p class="hero-id"><img class="avatar" src="../assets/img/hossain-avatar.jpg" alt="" width="40" height="40">Basé à Dhaka, Bangladesh</p>
+      <h1 id="hero-title"><span class="h-name">Md. Hossain</span> <span class="h-role">Administrateur infrastructure informatique et systèmes</span></h1>
+      <p class="lead">Je fais tourner l’informatique d’entreprises multisites. Depuis plus de huit ans, je gère les réseaux, les environnements Microsoft 365 et Active Directory et les systèmes de sécurité sur lesquels plus de 150 personnes réparties sur quatre sites comptent chaque jour.</p>
       <div class="btns">
-        <a class="btn primary" href="#projects">Découvrir mon travail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn" href="../cv/MD_Hossain_CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Télécharger le CV</a>
-        <a class="btn quiet" href="#contact">Travailler ensemble</a>
+        <a class="btn primary" href="#experience">Voir mon parcours <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> Me contacter</a>
       </div>
       <dl class="spec">
         <div><dt>Expérience</dt><dd>Plus de 8 ans en informatique d’entreprise</dd></div>
         <div><dt>Poste actuel</dt><dd>Senior IT Officer, MKR Group</dd></div>
-        <div><dt>Fondateur</dt><dd>Fixible IT, Dhaka</dd></div>
+        <div><dt>Périmètre</dt><dd>150+ utilisateurs, 4 sites</dd></div>
         <div><dt>Disponibilité</dt><dd>Ouvert aux postes et projets</dd></div>
       </dl>
     </div>
-
-    <figure class="scene-wrap" aria-labelledby="scene-cap">
-      <div class="scene-frame" id="scene-frame">
-        <canvas id="scene" role="img" aria-label="Illustration 3D en rotation d’un réseau d’entreprise multisite : une couche cloud et internet reliée à un siège et à deux agences par des tunnels VPN site à site. Chaque site dispose d’un routeur ou pare-feu, d’un commutateur, d’un point d’accès Wi-Fi, de postes de travail, de caméras IP et d’un NVR."></canvas>
-        <svg class="scene-fallback" viewBox="0 0 600 500" aria-hidden="true">
-          <g fill="none" stroke="var(--ln-2)" stroke-width="1.5">
-            <path d="M300 70 160 300M300 70 440 300M300 70 300 400" stroke-dasharray="5 6"/>
-            <path d="M160 300Q300 200 440 300M160 300Q230 330 300 400M440 300Q370 330 300 400" stroke="var(--acc)"/>
-            <path d="M90 300l70-40 70 40-70 40zM370 300l70-40 70 40-70 40zM230 400l70-40 70 40-70 40z" fill="var(--sf)"/>
-          </g>
-          <g fill="var(--sf-2)" stroke="var(--cy)" stroke-width="2">
-            <circle cx="300" cy="70" r="22"/><circle cx="160" cy="300" r="12"/><circle cx="440" cy="300" r="12"/><circle cx="300" cy="400" r="12"/>
-          </g>
-        </svg>
-        <div class="scene-tip" id="scene-tip" aria-hidden="true"></div>
-      </div>
-      <div class="scene-legend" role="group" aria-label="Mettre en évidence une partie du réseau">
-        <span>Afficher</span>
-        <button class="chip" type="button" data-cat="routing" aria-pressed="false" style="--c:var(--acc)"><i></i>Routage & VPN</button>
-        <button class="chip" type="button" data-cat="switching" aria-pressed="false" style="--c:#8b9cff"><i></i>Commutation</button>
-        <button class="chip" type="button" data-cat="wireless" aria-pressed="false" style="--c:var(--cy)"><i></i>Wi-Fi</button>
-        <button class="chip" type="button" data-cat="servers" aria-pressed="false" style="--c:var(--ok)"><i></i>Cloud & serveurs</button>
-        <button class="chip" type="button" data-cat="cctv" aria-pressed="false" style="--c:var(--warn)"><i></i>Vidéo & NVR</button>
-        <button class="chip" type="button" data-cat="endpoints" aria-pressed="false" style="--c:#c792ea"><i></i>Postes</button>
-      </div>
-      <figcaption id="scene-cap" class="scene-note">Topologie d’illustration à but explicatif. Elle ne représente le réseau d’aucun employeur. Survolez ou touchez un équipement pour voir son rôle.</figcaption>
-    </figure>
+    <div class="hero-visual" aria-hidden="true"></div>
   </div>
 </section>
 
 <!-- About -->
 <section class="section" id="about" aria-labelledby="about-title">
   <div class="wrap about-grid">
-    <div class="portrait-col">
-      <div class="portrait" id="portrait" data-src="../assets/img/portrait.jpg">
-        <img src="../assets/img/portrait.jpg" alt="Md. Hossain" width="640" height="800" loading="lazy" decoding="async">
-        <canvas aria-hidden="true"></canvas>
-      </div>
-    </div>
+    <figure class="about-photo">
+      <img src="../assets/img/hossain-portrait.jpg" alt="Md. Hossain" width="360" height="450" loading="lazy" decoding="async">
+      <figcaption>Md. Hossain<span>Dhaka, Bangladesh</span></figcaption>
+    </figure>
     <div class="about-copy">
-      <h2 id="about-title">De la salle serveur au bureau de fondateur</h2>
+      <h2 id="about-title">Garder les personnes et les systèmes connectés</h2>
       <div class="prose">
         <p class="big">Ma carrière a commencé en 2018 au support informatique d’un industriel bangladais, où je permettais à plus de 250 personnes de travailler, à l’usine comme au bureau. Depuis 2020, je suis Senior IT Officer chez MKR Group, responsable des utilisateurs, des réseaux et des systèmes de sécurité de quatre sites régionaux.</p>
         <p>Ce qui m’importe, c’est l’informatique discrète : des réseaux qui restent disponibles, des comptes créés et supprimés correctement, des caméras qui enregistrent sans interruption et une documentation qui permet à quelqu’un d’autre de reprendre le travail demain.</p>
@@ -176,6 +148,7 @@
         </div>
       </li>
     </ol>
+    <p class="cv-row"><a class="btn" href="../cv/MD_Hossain_CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Télécharger le CV complet (PDF)</a></p>
   </div>
 </section>
 
@@ -243,7 +216,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2 id="sv-title">Services pour les entreprises au Bangladesh</h2>
-      <p>Le travail que je réalise chaque jour pour un groupe multisite, proposé aux bureaux, usines, commerces et particuliers, directement ou via Fixible IT.</p>
+      <p>Le travail que je réalise chaque jour pour un groupe multisite, proposé aux bureaux, usines, commerces et particuliers au Bangladesh.</p>
     </div>
     <div class="reel">
       <video id="reel" muted loop playsinline preload="none" poster="../assets/media/infrastructure-loop.jpg" aria-hidden="true">
@@ -268,7 +241,7 @@
       <ol class="engage-list">
         <li><span class="engage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></span><div><h4>Poste à temps plein</h4><p>Postes en support informatique, administration systèmes ou réseaux, au Bangladesh ou à l’étranger.</p></div></li>
         <li><span class="engage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h3"/></svg></span><div><h4>Au projet</h4><p>Une mission définie : modernisation réseau, migration Microsoft 365, ouverture d’une agence.</p></div></li>
-        <li><span class="engage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19a3 3 0 0 1-3 3h-3"/></svg></span><div><h4>Contrat mensuel</h4><p>Un suivi informatique continu pour les petites entreprises via Fixible IT.</p></div></li>
+        <li><span class="engage-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19a3 3 0 0 1-3 3h-3"/></svg></span><div><h4>Contrat mensuel</h4><p>Un suivi informatique continu pour les petits bureaux, sur site à Dhaka ou à distance.</p></div></li>
       </ol>
       <a class="btn primary" href="#contact">Parler de votre besoin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
@@ -283,37 +256,12 @@
       <p>Ce que je construis en dehors de mon emploi, sans lien avec mon employeur.</p>
     </div>
 
-    <article class="feature" aria-labelledby="fx-title">
-      <div class="feature-preview" aria-hidden="true">
-        <div class="browser">
-          <div class="browser-bar"><i></i><i></i><i></i><span>fixibleit.com</span></div>
-          <div class="browser-body">
-            <div class="bb-nav"><b>FIXIBLE IT</b><span>Home</span><span>Products</span><span>Services</span><span>About</span><span>Contact</span></div>
-            <p class="bb-h">Your Technology Partner, From Setup to Support.</p>
-            <div class="bb-chips"><span>Office network &amp; Wi-Fi</span><span>Email &amp; Microsoft 365</span><span>Monthly IT support</span><span>VLAN, VPN &amp; MikroTik</span><span>CCTV &amp; access</span><span>Custom PC builds</span></div>
-            <div class="bb-cats"><span>PC components</span><span>Networking</span><span>CCTV &amp; surveillance</span><span>Office &amp; productivity</span></div>
-          </div>
-        </div>
-        <p class="preview-note">Schéma de la page d’accueil du site en ligne.</p>
-      </div>
-      <div class="feature-copy">
-        <p class="feature-role">Fondateur & chef de projet</p>
-        <h3 id="fx-title">Fixible IT</h3>
-        <p>Une entreprise de services informatiques et de commerce de produits technologiques au Bangladesh. Fixible IT accompagne particuliers et bureaux pour les réseaux, Microsoft 365, la vidéosurveillance, Active Directory et le support mensuel, et vend en ligne composants PC, matériel réseau, de surveillance et de bureau.</p>
-        <div class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">Kadence child theme</span><span class="tag">PHP</span><span class="tag">cPanel</span></div>
-        <div class="status-cols">
-          <div><h4><span class="status"></span>En ligne</h4><ul><li>Site et boutique en ligne sous WordPress et WooCommerce</li><li>Catalogue PC, réseau, vidéosurveillance et bureautique</li><li>Pages de services, de l’installation Wi-Fi aux serveurs et sauvegardes</li></ul></div>
-          <div><h4><span class="status dev"></span>En cours</h4><ul><li>Panier et paiement repensés</li><li>Configurateur de PC dans la boutique</li><li>Lancement sur les réseaux sociaux</li></ul></div>
-          <div><h4><span class="status info"></span>Prévu</h4><ul><li>Application de gestion centralisée des commandes, du stock et des factures</li><li>Espace client</li></ul></div>
-        </div>
-        <div class="btns">
-          <a class="btn primary" href="https://fixibleit.com/" rel="noopener">Visiter fixibleit.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a>
-          <a class="btn" href="../projects/fixible-it/">Détails du projet</a>
-        </div>
-      </div>
-    </article>
-
     <div class="projects">
+      <a class="project venture" href="../projects/fixible-it/">
+        <div><p class="venture-role">Entreprise, fondateur</p><h3>Fixible IT</h3><p>Services informatiques et produits technologiques pour particuliers et petites entreprises au Bangladesh.</p></div>
+        <div><div class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span></div><span class="status">En ligne sur fixibleit.com</span></div>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
       <a class="project" href="../projects/hossain-onedesk/">
         <div><h3>Hossain OneDesk</h3><p>Application Windows hors ligne de productivité et de suivi des tâches informatiques.</p></div>
         <div><div class="meta"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span></div><span class="status">Application fonctionnelle, en usage personnel</span></div>
@@ -341,6 +289,33 @@
       <h2 id="in-title">Ressources : comprendre l’informatique d’entreprise</h2>
       <p>Explications interactives des notions réseau et systèmes derrière le support au quotidien. Choisissez un sujet et avancez pas à pas. Les explications sont en anglais.</p>
     </div>
+    <figure class="scene-wrap in-scene" aria-labelledby="scene-cap">
+          <h3 class="scene-title">Un réseau multisite en 3D</h3>
+          <div class="scene-frame" id="scene-frame">
+            <canvas id="scene" role="img" aria-label="Illustration 3D en rotation d’un réseau d’entreprise multisite : une couche cloud et internet reliée à un siège et à deux agences par des tunnels VPN site à site. Chaque site dispose d’un routeur ou pare-feu, d’un commutateur, d’un point d’accès Wi-Fi, de postes de travail, de caméras IP et d’un NVR."></canvas>
+            <svg class="scene-fallback" viewBox="0 0 600 500" aria-hidden="true">
+              <g fill="none" stroke="var(--ln-2)" stroke-width="1.5">
+                <path d="M300 70 160 300M300 70 440 300M300 70 300 400" stroke-dasharray="5 6"/>
+                <path d="M160 300Q300 200 440 300M160 300Q230 330 300 400M440 300Q370 330 300 400" stroke="var(--acc)"/>
+                <path d="M90 300l70-40 70 40-70 40zM370 300l70-40 70 40-70 40zM230 400l70-40 70 40-70 40z" fill="var(--sf)"/>
+              </g>
+              <g fill="var(--sf-2)" stroke="var(--cy)" stroke-width="2">
+                <circle cx="300" cy="70" r="22"/><circle cx="160" cy="300" r="12"/><circle cx="440" cy="300" r="12"/><circle cx="300" cy="400" r="12"/>
+              </g>
+            </svg>
+            <div class="scene-tip" id="scene-tip" aria-hidden="true"></div>
+          </div>
+          <div class="scene-legend" role="group" aria-label="Mettre en évidence une partie du réseau">
+            <span>Afficher</span>
+            <button class="chip" type="button" data-cat="routing" aria-pressed="false" style="--c:var(--acc)"><i></i>Routage & VPN</button>
+            <button class="chip" type="button" data-cat="switching" aria-pressed="false" style="--c:#8b9cff"><i></i>Commutation</button>
+            <button class="chip" type="button" data-cat="wireless" aria-pressed="false" style="--c:var(--cy)"><i></i>Wi-Fi</button>
+            <button class="chip" type="button" data-cat="servers" aria-pressed="false" style="--c:var(--ok)"><i></i>Cloud & serveurs</button>
+            <button class="chip" type="button" data-cat="cctv" aria-pressed="false" style="--c:var(--warn)"><i></i>Vidéo & NVR</button>
+            <button class="chip" type="button" data-cat="endpoints" aria-pressed="false" style="--c:#c792ea"><i></i>Postes</button>
+          </div>
+          <figcaption id="scene-cap" class="scene-note">Topologie d’illustration à but explicatif. Elle ne représente le réseau d’aucun employeur. Survolez ou touchez un équipement pour voir son rôle.</figcaption>
+        </figure>
     <div class="lab-shell" id="lab-app">
       <div class="lab-tabs" role="tablist" aria-label="Sujets du lab" id="lab-tabs"></div>
       <div class="lab-stage" id="lab-stage" role="tabpanel" tabindex="0" aria-live="polite">
@@ -401,6 +376,7 @@
         <li><a href="https://github.com/mdhossaincloud" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg><span>GitHub</span><small>mdhossaincloud</small></a></li>
         <li><a href="https://fixibleit.com/" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Fixible IT</span><small>info@fixibleit.com</small></a></li>
         <li><a href="https://facebook.com/fixibleit" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg><span>Facebook</span><small>Fixible IT</small></a></li>
+        <li><a href="../cv/MD_Hossain_CV.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>CV (PDF)</span><small>PDF</small></a></li>
         <li><span class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Localisation</span><small>Dhaka, Bangladesh</small></span></li>
       </ul>
     </div>
@@ -434,10 +410,10 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=4.0.1" defer></script>
-<script src="../assets/js/scene.js?v=4.0.1" defer></script>
-<script src="../assets/js/portrait.js?v=4.0.1" defer></script>
-<script src="../assets/js/lab-data.js?v=4.0.1" defer></script>
-<script src="../assets/js/lab.js?v=4.0.1" defer></script>
+<script src="../assets/js/site.js?v=4.1.0" defer></script>
+<script src="../assets/js/bg.js?v=4.1.0" defer></script>
+<script src="../assets/js/scene.js?v=4.1.0" defer></script>
+<script src="../assets/js/lab-data.js?v=4.1.0" defer></script>
+<script src="../assets/js/lab.js?v=4.1.0" defer></script>
 </body>
 </html>

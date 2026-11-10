@@ -1,10 +1,9 @@
 {
   "meta.title": "Md. Hossain | Professionista IT, amministratore di sistemi e reti, Dhaka",
   "meta.description": "Md. Hossain è un professionista IT di Dhaka e fondatore di Fixible IT, con oltre 8 anni di esperienza nell’IT aziendale: Microsoft 365, Active Directory, reti MikroTik, VPN site-to-site e videosorveglianza IP.",
-
   "ui.skip": "Vai al contenuto",
   "ui.home": "home",
-  "ui.brandline": "Professionista IT e imprenditore",
+  "ui.brandline": "Infrastruttura IT e sistemi",
   "ui.mainnav": "Navigazione principale",
   "ui.footnav": "Piè di pagina",
   "ui.language": "Lingua",
@@ -15,7 +14,6 @@
   "ui.place": "Dhaka, Bangladesh",
   "ui.hub": "Centro conoscenze",
   "ui.cv": "CV (PDF)",
-
   "nav.about": "Chi sono",
   "nav.experience": "Esperienza",
   "nav.expertise": "Competenze",
@@ -23,26 +21,17 @@
   "nav.projects": "Progetti",
   "nav.insights": "Risorse",
   "nav.contact": "Contatti",
-
   "common.dhaka": "Dhaka",
-
-  "hero.id": "Md. Hossain, professionista IT e imprenditore tecnologico a Dhaka",
-  "hero.h1a": "Progettare la tecnologia.",
-  "hero.h1b": "Rafforzare le aziende.",
-  "hero.h1c": "Costruire il futuro.",
-  "hero.lead": "Sono un professionista IT con <b>oltre 8 anni</b> di esperienza pratica nella gestione dell’IT di aziende multisede in Bangladesh e fondatore di <b>Fixible IT</b>. Costruisco infrastrutture affidabili, risolvo problemi tecnici complessi e li trasformo in soluzioni concrete per le aziende.",
-  "hero.cta1": "Scopri il mio lavoro",
-  "hero.cta2": "Scarica il CV",
-  "hero.cta3": "Lavoriamo insieme",
+  "hero.id": "Con sede a Dhaka, Bangladesh",
+  "hero.lead": "Mantengo operative le aziende multisede. Da oltre otto anni gestisco le reti, gli ambienti Microsoft 365 e Active Directory e i sistemi di sicurezza su cui ogni giorno contano più di 150 persone in quattro sedi.",
+  "hero.cta1": "Vedi l’esperienza",
+  "hero.cta2": "Contattami",
   "spec.exp.k": "Esperienza",
   "spec.exp.v": "Oltre 8 anni nell’IT aziendale",
   "spec.role.k": "Ruolo attuale",
   "spec.role.v": "Senior IT Officer, MKR Group",
-  "spec.founder.k": "Fondatore",
-  "spec.founder.v": "Fixible IT, Dhaka",
   "spec.avail.k": "Disponibilità",
   "spec.avail.v": "Aperto a ruoli e progetti",
-
   "scene.aria": "Illustrazione 3D rotante di una rete aziendale multisede: un livello cloud e internet collegato a una sede centrale e a due filiali tramite tunnel VPN site-to-site. Ogni sede ha router o firewall, switch, access point Wi-Fi, postazioni, telecamere IP e un NVR.",
   "scene.legend": "Evidenzia una parte della rete",
   "scene.highlight": "Evidenzia",
@@ -53,8 +42,7 @@
   "scene.c.cctv": "Video e NVR",
   "scene.c.endpoints": "Postazioni",
   "scene.note": "Topologia illustrativa a scopo esplicativo. Non rappresenta la rete di alcun datore di lavoro. Passa sopra o tocca un dispositivo per vederne il ruolo.",
-
-  "about.title": "Dalla sala server alla scrivania del fondatore",
+  "about.title": "Tenere connesse persone e sistemi",
   "about.portraitalt": "Md. Hossain",
   "about.p1": "La mia carriera IT è iniziata nel 2018 nel supporto tecnico di un’azienda manifatturiera del Bangladesh, mantenendo operative oltre 250 persone tra reparti produttivi e uffici. Dal 2020 sono Senior IT Officer presso MKR Group, responsabile di utenti, reti e sistemi di sicurezza in quattro sedi regionali.",
   "about.p2": "Mi sta a cuore l’IT che non si nota: reti che restano attive, account creati e rimossi correttamente, telecamere che continuano a registrare e una documentazione che permette a chiunque di subentrare domani.",
@@ -66,7 +54,6 @@
   "about.f.lang.v": "Bengalese (madrelingua), inglese (professionale)",
   "about.f.edu.k": "Formazione",
   "about.f.edu.v": "Laurea in Teologia e Studi Islamici, 2019",
-
   "xp.title": "Otto anni di lavoro IT sul campo",
   "xp.sub": "Ambienti manifatturieri e di gruppi aziendali in Bangladesh, dal supporto di primo livello all’infrastruttura multisede.",
   "xp.mkr.when": "Feb. 2020 – oggi",
@@ -83,7 +70,6 @@
   "xp.alif.b1": "Supporto di primo livello (L1/L2) per oltre 250 dipendenti: Windows, periferiche e software da ufficio.",
   "xp.alif.b2": "Rollout delle postazioni: installazione del sistema, configurazione di rete, antivirus e configurazione utenti.",
   "xp.alif.b3": "Stabilità di LAN e Wi-Fi e inventario dei beni negli stabilimenti produttivi.",
-
   "ex.title": "Competenze, ordinate per uso reale",
   "ex.sub": "Nessuna barra percentuale. Ogni competenza indica quanto spesso fa parte del mio lavoro reale.",
   "ex.key": "Legenda dei livelli",
@@ -118,9 +104,8 @@
   "ex.g4.a": "WordPress e WooCommerce",
   "ex.g4.b": "Applicazioni desktop con Python e PySide6",
   "ex.g4.c": "Database SQLite",
-
   "sv.title": "Servizi per le aziende in Bangladesh",
-  "sv.sub": "Lo stesso lavoro che svolgo ogni giorno per un gruppo multisede, disponibile per uffici, fabbriche, negozi e abitazioni, direttamente o tramite Fixible IT.",
+  "sv.sub": "Il lavoro che svolgo ogni giorno per un gruppo multisede, disponibile per uffici, fabbriche, negozi e abitazioni in Bangladesh.",
   "sv.reel": "Un’IT affidabile è quasi invisibile: traffico tra le sedi, backup in esecuzione, telecamere che registrano. Il mio compito è mantenerla così.",
   "sv.s1.t": "Assistenza IT gestita",
   "sv.s1.d": "Supporto mensile o su richiesta per utenti, PC, stampanti ed e-mail, in sede a Dhaka o da remoto.",
@@ -144,9 +129,8 @@
   "sv.e2.t": "A progetto",
   "sv.e2.d": "Un incarico definito: aggiornamento della rete, migrazione a Microsoft 365, apertura di una filiale.",
   "sv.e3.t": "Assistenza mensile",
-  "sv.e3.d": "Assistenza IT continuativa per piccole imprese tramite Fixible IT.",
+  "sv.e3.d": "Assistenza IT continuativa per piccoli uffici, in sede a Dhaka o da remoto.",
   "sv.cta": "Parliamo delle sue esigenze",
-
   "pj.title": "Progetti",
   "pj.sub": "Ciò che costruisco al di fuori del mio impiego, separato dal mio datore di lavoro.",
   "pj.od": "Applicazione Windows offline per la produttività e la gestione delle attività IT.",
@@ -156,30 +140,12 @@
   "pj.cc": "Questo sito: un portfolio statico e leggero, con una rete 3D realizzata a mano e un laboratorio interattivo.",
   "pj.cc.s": "Versione 4, novembre 2026",
   "pj.ennote": "I casi di studio dettagliati sono in inglese.",
-  "fx.role": "Fondatore e responsabile del progetto",
-  "fx.desc": "Un’azienda di servizi IT e commercio di prodotti tecnologici in Bangladesh. Fixible IT supporta abitazioni e uffici per reti, Microsoft 365, videosorveglianza, Active Directory e assistenza mensile, e vende online componenti PC, prodotti di rete, videosorveglianza e tecnologia per l’ufficio.",
-  "fx.previewnote": "Schema della home page del sito online.",
-  "fx.live": "Online",
-  "fx.l1": "Sito e negozio online con WordPress e WooCommerce",
-  "fx.l2": "Catalogo PC, rete, videosorveglianza e ufficio",
-  "fx.l3": "Pagine dei servizi, dall’installazione Wi-Fi a server e backup",
-  "fx.now": "In corso",
-  "fx.n1": "Carrello e checkout riprogettati",
-  "fx.n2": "Configuratore PC nel negozio",
-  "fx.n3": "Lancio sui social media",
-  "fx.next": "Previsto",
-  "fx.p1": "App centrale per ordini, magazzino e fatture",
-  "fx.p2": "Area clienti",
-  "fx.visit": "Visita fixibleit.com",
-  "fx.details": "Dettagli del progetto",
-
   "in.title": "Risorse: come funziona l’IT aziendale",
   "in.sub": "Spiegazioni interattive dei concetti di rete e di sistema alla base del supporto quotidiano. Scegli un argomento e procedi passo dopo passo. Le spiegazioni sono in inglese.",
   "in.tabs": "Argomenti del laboratorio",
   "in.noscript": "Il laboratorio interattivo richiede JavaScript.",
   "in.disclaimer": "Esempi didattici generici. Non sono configurazioni, indirizzi o schemi di alcun datore di lavoro.",
   "in.hub": "Apri il centro conoscenze",
-
   "ac.title": "Risultati",
   "ac.sub": "Traguardi del mio lavoro, come indicati nel CV, e credenziali con link pubblici di verifica.",
   "ac.f1.k": "Esperienza",
@@ -201,7 +167,6 @@
   "ac.c2.type": "Attestato di formazione",
   "ac.c2.when": "Gen. 2023",
   "ac.verify": "Verifica",
-
   "ct.title": "Costruiamo insieme un’IT affidabile.",
   "ct.sub": "Aperto a ruoli di supporto IT e di amministrazione di sistemi e reti, e a progetti IT per le aziende. L’e-mail è il modo più rapido per contattarmi.",
   "ct.copy": "Copia",
@@ -218,7 +183,6 @@
   "ct.form.send": "Apri nell’app di posta",
   "ct.form.error": "Inserisca il suo nome, un indirizzo e-mail valido e un messaggio.",
   "ct.form.note": "Si aprirà la sua app di posta con il messaggio pronto da inviare. Questo sito non salva nulla.",
-
   "js": {
     "copied": "Indirizzo e-mail copiato",
     "copyfail": "Copia non riuscita. L’indirizzo è ",
@@ -229,18 +193,60 @@
     "pause": "Pausa",
     "mailsubject": "Richiesta dal sito web",
     "types": {
-      "cloud": ["Servizi cloud", "Microsoft 365 e altri servizi online: posta, identità e file, raggiunti tramite internet."],
-      "isp": ["Internet / provider", "La rete pubblica che collega tutte le sedi. Qui si controllano i collegamenti e le segnalazioni al provider."],
-      "fw": ["Firewall e router perimetrale", "Filtra il traffico, esegue il NAT e termina i tunnel VPN site-to-site."],
-      "rt": ["Router di filiale", "Router perimetrale di classe MikroTik: accesso a internet, routing e tunnel VPN verso la sede centrale."],
-      "sw": ["Switch core / di accesso", "Collega i dispositivi cablati e separa il traffico in VLAN."],
-      "srv": ["Server", "Servizi locali come condivisioni di file, directory o strumenti di gestione."],
-      "ap": ["Access point Wi-Fi", "Copertura wireless. Pianificazione dei canali e autenticazione ne determinano l’affidabilità."],
-      "pc": ["Postazione di lavoro", "Dove si conclude gran parte del supporto: configurazione, accessi, aggiornamenti e risoluzione dei problemi."],
-      "cam": ["Telecamera IP", "Alimentata tramite Ethernet (PoE), invia il video all’NVR sulla propria VLAN."],
-      "nvr": ["NVR", "Videoregistratore di rete: registra le telecamere e conserva le immagini per il periodo previsto."]
+      "cloud": [
+        "Servizi cloud",
+        "Microsoft 365 e altri servizi online: posta, identità e file, raggiunti tramite internet."
+      ],
+      "isp": [
+        "Internet / provider",
+        "La rete pubblica che collega tutte le sedi. Qui si controllano i collegamenti e le segnalazioni al provider."
+      ],
+      "fw": [
+        "Firewall e router perimetrale",
+        "Filtra il traffico, esegue il NAT e termina i tunnel VPN site-to-site."
+      ],
+      "rt": [
+        "Router di filiale",
+        "Router perimetrale di classe MikroTik: accesso a internet, routing e tunnel VPN verso la sede centrale."
+      ],
+      "sw": [
+        "Switch core / di accesso",
+        "Collega i dispositivi cablati e separa il traffico in VLAN."
+      ],
+      "srv": [
+        "Server",
+        "Servizi locali come condivisioni di file, directory o strumenti di gestione."
+      ],
+      "ap": [
+        "Access point Wi-Fi",
+        "Copertura wireless. Pianificazione dei canali e autenticazione ne determinano l’affidabilità."
+      ],
+      "pc": [
+        "Postazione di lavoro",
+        "Dove si conclude gran parte del supporto: configurazione, accessi, aggiornamenti e risoluzione dei problemi."
+      ],
+      "cam": [
+        "Telecamera IP",
+        "Alimentata tramite Ethernet (PoE), invia il video all’NVR sulla propria VLAN."
+      ],
+      "nvr": [
+        "NVR",
+        "Videoregistratore di rete: registra le telecamere e conserva le immagini per il periodo previsto."
+      ]
     },
-    "sites": ["Sede centrale", "Filiale A", "Filiale B"],
+    "sites": [
+      "Sede centrale",
+      "Filiale A",
+      "Filiale B"
+    ],
     "vpn": "VPN site-to-site"
-  }
+  },
+  "hero.role": "Amministratore di infrastrutture IT e sistemi",
+  "spec.scope.k": "Ambito",
+  "spec.scope.v": "150+ utenti, 4 sedi",
+  "xp.cv": "Scarica il CV completo (PDF)",
+  "pj.fx.role": "Impresa propria, fondatore",
+  "pj.fx": "Servizi IT e prodotti tecnologici per famiglie e piccole imprese in Bangladesh.",
+  "pj.fx.s": "Online su fixibleit.com",
+  "in.scene": "Una rete multisede in 3D"
 }

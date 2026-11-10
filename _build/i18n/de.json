@@ -1,10 +1,9 @@
 {
   "meta.title": "Md. Hossain | IT-Fachmann, System- und Netzwerkadministrator, Dhaka",
   "meta.description": "Md. Hossain ist IT-Fachmann in Dhaka und Gründer von Fixible IT, mit mehr als 8 Jahren Erfahrung in Unternehmens-IT: Microsoft 365, Active Directory, MikroTik-Netzwerke, Site-to-Site-VPN und IP-Videoüberwachung.",
-
   "ui.skip": "Zum Inhalt springen",
   "ui.home": "Startseite",
-  "ui.brandline": "IT-Fachmann & Unternehmer",
+  "ui.brandline": "IT-Infrastruktur & Systeme",
   "ui.mainnav": "Hauptnavigation",
   "ui.footnav": "Fußzeile",
   "ui.language": "Sprache",
@@ -15,7 +14,6 @@
   "ui.place": "Dhaka, Bangladesch",
   "ui.hub": "Wissensbereich",
   "ui.cv": "Lebenslauf (PDF)",
-
   "nav.about": "Über mich",
   "nav.experience": "Erfahrung",
   "nav.expertise": "Kompetenzen",
@@ -23,26 +21,17 @@
   "nav.projects": "Projekte",
   "nav.insights": "Wissen",
   "nav.contact": "Kontakt",
-
   "common.dhaka": "Dhaka",
-
-  "hero.id": "Md. Hossain, IT-Fachmann und Technologie-Unternehmer in Dhaka",
-  "hero.h1a": "Technologie gestalten.",
-  "hero.h1b": "Unternehmen stärken.",
-  "hero.h1c": "Die Zukunft bauen.",
-  "hero.lead": "Ich bin IT-Fachmann mit <b>mehr als 8 Jahren</b> Praxiserfahrung im Betrieb von Unternehmens-IT für Firmen mit mehreren Standorten in Bangladesch und Gründer von <b>Fixible IT</b>. Ich baue zuverlässige Infrastruktur, löse schwierige technische Probleme und mache daraus praktische Lösungen für Unternehmen.",
-  "hero.cta1": "Meine Arbeit ansehen",
-  "hero.cta2": "Lebenslauf herunterladen",
-  "hero.cta3": "Zusammenarbeiten",
+  "hero.id": "Wohnhaft in Dhaka, Bangladesch",
+  "hero.lead": "Ich sorge dafür, dass Unternehmen mit mehreren Standorten laufen. Seit mehr als acht Jahren betreue ich die Netzwerke, die Microsoft-365- und Active-Directory-Umgebungen und die Sicherheitssysteme, auf die sich über 150 Menschen an vier Standorten täglich verlassen.",
+  "hero.cta1": "Erfahrung ansehen",
+  "hero.cta2": "Kontakt aufnehmen",
   "spec.exp.k": "Erfahrung",
   "spec.exp.v": "8+ Jahre Unternehmens-IT",
   "spec.role.k": "Aktuelle Position",
   "spec.role.v": "Senior IT Officer, MKR Group",
-  "spec.founder.k": "Gründer",
-  "spec.founder.v": "Fixible IT, Dhaka",
   "spec.avail.k": "Verfügbarkeit",
   "spec.avail.v": "Offen für Stellen und Projekte",
-
   "scene.aria": "Rotierende 3D-Darstellung eines Firmennetzwerks mit mehreren Standorten: eine Cloud- und Internetebene, verbunden mit einer Zentrale und zwei Niederlassungen über Site-to-Site-VPN-Tunnel. Jeder Standort hat Router oder Firewall, Switch, WLAN-Access-Point, Arbeitsplätze, IP-Kameras und einen NVR.",
   "scene.legend": "Teil des Netzwerks hervorheben",
   "scene.highlight": "Hervorheben",
@@ -53,8 +42,7 @@
   "scene.c.cctv": "Video & NVR",
   "scene.c.endpoints": "Endgeräte",
   "scene.note": "Beispieltopologie zur Erklärung. Sie zeigt kein Netzwerk eines Arbeitgebers. Fahren Sie über ein Gerät oder tippen Sie darauf, um seine Rolle zu sehen.",
-
-  "about.title": "Vom Serverraum an den Gründerschreibtisch",
+  "about.title": "Menschen und Systeme verbunden halten",
   "about.portraitalt": "Md. Hossain",
   "about.p1": "Meine IT-Laufbahn begann 2018 im Support eines bangladeschischen Produktionsunternehmens, wo ich über 250 Mitarbeitende in Fertigung und Büro arbeitsfähig hielt. Seit 2020 bin ich Senior IT Officer bei der MKR Group und verantwortlich für Benutzer, Netzwerke und Sicherheitssysteme an vier Regionalstandorten.",
   "about.p2": "Mir liegt die unauffällige Seite der IT am Herzen: Netzwerke, die laufen, Konten, die korrekt angelegt und entfernt werden, Kameras, die zuverlässig aufzeichnen, und eine Dokumentation, mit der morgen jemand anderes übernehmen kann.",
@@ -66,7 +54,6 @@
   "about.f.lang.v": "Bengalisch (Muttersprache), Englisch (beruflich)",
   "about.f.edu.k": "Ausbildung",
   "about.f.edu.v": "Bachelor in Theologie und Islamwissenschaften, 2019",
-
   "xp.title": "Acht Jahre praktische IT-Arbeit",
   "xp.sub": "Produktions- und Konzernumgebungen in Bangladesch, vom First-Level-Support bis zur Infrastruktur mehrerer Standorte.",
   "xp.mkr.when": "Feb. 2020 – heute",
@@ -83,7 +70,6 @@
   "xp.alif.b1": "First-Level-Support (L1/L2) für über 250 Mitarbeitende: Windows, Peripheriegeräte und Büroanwendungen.",
   "xp.alif.b2": "Rollout von Arbeitsplätzen: Betriebssysteminstallation, Netzwerkkonfiguration, Virenschutz und Benutzereinrichtung.",
   "xp.alif.b3": "Stabiles LAN und WLAN sowie Geräteinventar in den Produktionsstätten.",
-
   "ex.title": "Kompetenzen, geordnet nach praktischer Nutzung",
   "ex.sub": "Keine Prozentbalken. Jede Fähigkeit ist danach markiert, wie oft sie Teil meiner tatsächlichen Arbeit ist.",
   "ex.key": "Legende der Kompetenzstufen",
@@ -118,9 +104,8 @@
   "ex.g4.a": "WordPress und WooCommerce",
   "ex.g4.b": "Desktop-Anwendungen mit Python und PySide6",
   "ex.g4.c": "SQLite-Datenbanken",
-
   "sv.title": "Leistungen für Unternehmen in Bangladesch",
-  "sv.sub": "Die Arbeit, die ich täglich für eine Unternehmensgruppe mit mehreren Standorten leiste, für Büros, Fabriken, Geschäfte und Haushalte, direkt oder über Fixible IT.",
+  "sv.sub": "Die Arbeit, die ich täglich für eine Unternehmensgruppe mit mehreren Standorten leiste, für Büros, Fabriken, Geschäfte und Haushalte in Bangladesch.",
   "sv.reel": "Zuverlässige IT ist meist unsichtbar: Datenverkehr zwischen Standorten, laufende Backups, aufzeichnende Kameras. Meine Aufgabe ist es, dass das so bleibt.",
   "sv.s1.t": "IT-Betreuung",
   "sv.s1.d": "Monatlicher oder bedarfsweiser Support für Benutzer, PCs, Drucker und E-Mail, vor Ort in Dhaka oder per Fernwartung.",
@@ -144,9 +129,8 @@
   "sv.e2.t": "Projektbasis",
   "sv.e2.d": "Ein klar umrissener Auftrag: Netzwerk-Upgrade, Migration zu Microsoft 365, Einrichtung einer neuen Filiale.",
   "sv.e3.t": "Monatliche Betreuung",
-  "sv.e3.d": "Laufende IT-Betreuung für kleine Unternehmen über Fixible IT.",
+  "sv.e3.d": "Laufende IT-Betreuung für kleine Büros, vor Ort in Dhaka oder per Fernwartung.",
   "sv.cta": "Anliegen besprechen",
-
   "pj.title": "Projekte",
   "pj.sub": "Was ich neben meiner Anstellung aufbaue, klar getrennt von meinem Arbeitgeber.",
   "pj.od": "Offline-fähige Windows-Anwendung für Produktivität und IT-Aufgabenverwaltung.",
@@ -156,30 +140,12 @@
   "pj.cc": "Diese Website: ein statisches, schlankes Portfolio mit selbst entwickeltem 3D-Netzwerk und interaktivem Lab.",
   "pj.cc.s": "Version 4, November 2026",
   "pj.ennote": "Ausführliche Fallstudien sind auf Englisch verfasst.",
-  "fx.role": "Gründer & Projektleiter",
-  "fx.desc": "Ein Unternehmen für IT-Dienstleistungen und Technikhandel in Bangladesch. Fixible IT unterstützt Haushalte und Büros bei Netzwerken, Microsoft 365, Videoüberwachung, Active Directory und monatlicher IT-Betreuung und verkauft online PC-Komponenten, Netzwerk-, Überwachungs- und Bürotechnik.",
-  "fx.previewnote": "Schematische Darstellung der Startseite der Live-Website.",
-  "fx.live": "Live",
-  "fx.l1": "Website und Onlineshop mit WordPress und WooCommerce",
-  "fx.l2": "Produktkatalog mit PC-, Netzwerk-, Überwachungs- und Bürokategorien",
-  "fx.l3": "Leistungsseiten von WLAN-Einrichtung bis zu Servern und Backups",
-  "fx.now": "In Arbeit",
-  "fx.n1": "Neu gestalteter Warenkorb und Checkout",
-  "fx.n2": "PC-Konfigurator im Shop",
-  "fx.n3": "Start in den sozialen Medien",
-  "fx.next": "Geplant",
-  "fx.p1": "Zentrale Verwaltungs-App für Bestellungen, Lager und Rechnungen",
-  "fx.p2": "Kundenportal",
-  "fx.visit": "fixibleit.com besuchen",
-  "fx.details": "Projektdetails",
-
   "in.title": "Wissen: So funktioniert Unternehmens-IT",
   "in.sub": "Interaktive Erklärungen der Netzwerk- und Systemkonzepte hinter dem IT-Alltag. Wählen Sie ein Thema und gehen Sie es Schritt für Schritt durch. Die Erklärungen sind auf Englisch.",
   "in.tabs": "Lab-Themen",
   "in.noscript": "Das interaktive Lab benötigt JavaScript.",
   "in.disclaimer": "Allgemeine Lehrbeispiele. Es handelt sich nicht um Konfigurationen, Adressen oder Pläne eines Arbeitgebers.",
   "in.hub": "Wissensbereich öffnen",
-
   "ac.title": "Erfolge",
   "ac.sub": "Meilensteine aus meiner Arbeit, wie in meinem Lebenslauf angegeben, und Nachweise mit öffentlichen Prüflinks.",
   "ac.f1.k": "Erfahrung",
@@ -201,7 +167,6 @@
   "ac.c2.type": "Schulungszertifikat",
   "ac.c2.when": "Jan. 2023",
   "ac.verify": "Prüfen",
-
   "ct.title": "Lassen Sie uns zuverlässige IT aufbauen.",
   "ct.sub": "Offen für Stellen im IT-Support sowie in der System- und Netzwerkadministration und für IT-Projekte von Unternehmen. Per E-Mail erreichen Sie mich am schnellsten.",
   "ct.copy": "Kopieren",
@@ -218,7 +183,6 @@
   "ct.form.send": "In E-Mail-Programm öffnen",
   "ct.form.error": "Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und eine Nachricht ein.",
   "ct.form.note": "Ihr E-Mail-Programm öffnet sich mit der fertigen Nachricht. Auf dieser Website wird nichts gespeichert.",
-
   "js": {
     "copied": "E-Mail-Adresse kopiert",
     "copyfail": "Kopieren fehlgeschlagen. Die Adresse lautet ",
@@ -229,18 +193,60 @@
     "pause": "Pause",
     "mailsubject": "Anfrage über die Website",
     "types": {
-      "cloud": ["Cloud-Dienste", "Microsoft 365 und andere Onlinedienste: E-Mail, Identität und Dateien, erreichbar über das Internet."],
-      "isp": ["Internet / Provider", "Das öffentliche Netz, das alle Standorte verbindet. Hier geht es um Leitungsqualität und Eskalationen beim Provider."],
-      "fw": ["Firewall & Router am Netzrand", "Filtert den Datenverkehr, übernimmt NAT und terminiert die Site-to-Site-VPN-Tunnel."],
-      "rt": ["Filial-Router", "Edge-Router der MikroTik-Klasse: Internetzugang, Routing und VPN-Tunnel zur Zentrale."],
-      "sw": ["Core-/Access-Switch", "Verbindet kabelgebundene Geräte und trennt den Verkehr in VLANs."],
-      "srv": ["Server", "Lokale Dienste wie Dateifreigaben, Verzeichnis- oder Verwaltungswerkzeuge."],
-      "ap": ["WLAN-Access-Point", "Funkabdeckung. Kanalplanung und Authentifizierung bestimmen, wie zuverlässig das WLAN wirkt."],
-      "pc": ["Arbeitsplatz", "Hier endet der meiste Support: Einrichtung, Zugriff, Updates und Fehlerbehebung."],
-      "cam": ["IP-Kamera", "Über PoE mit Strom versorgt, überträgt Video in einem eigenen VLAN an den NVR."],
-      "nvr": ["NVR", "Netzwerk-Videorekorder: zeichnet die Kameras auf und speichert die Aufnahmen für die Aufbewahrungsdauer."]
+      "cloud": [
+        "Cloud-Dienste",
+        "Microsoft 365 und andere Onlinedienste: E-Mail, Identität und Dateien, erreichbar über das Internet."
+      ],
+      "isp": [
+        "Internet / Provider",
+        "Das öffentliche Netz, das alle Standorte verbindet. Hier geht es um Leitungsqualität und Eskalationen beim Provider."
+      ],
+      "fw": [
+        "Firewall & Router am Netzrand",
+        "Filtert den Datenverkehr, übernimmt NAT und terminiert die Site-to-Site-VPN-Tunnel."
+      ],
+      "rt": [
+        "Filial-Router",
+        "Edge-Router der MikroTik-Klasse: Internetzugang, Routing und VPN-Tunnel zur Zentrale."
+      ],
+      "sw": [
+        "Core-/Access-Switch",
+        "Verbindet kabelgebundene Geräte und trennt den Verkehr in VLANs."
+      ],
+      "srv": [
+        "Server",
+        "Lokale Dienste wie Dateifreigaben, Verzeichnis- oder Verwaltungswerkzeuge."
+      ],
+      "ap": [
+        "WLAN-Access-Point",
+        "Funkabdeckung. Kanalplanung und Authentifizierung bestimmen, wie zuverlässig das WLAN wirkt."
+      ],
+      "pc": [
+        "Arbeitsplatz",
+        "Hier endet der meiste Support: Einrichtung, Zugriff, Updates und Fehlerbehebung."
+      ],
+      "cam": [
+        "IP-Kamera",
+        "Über PoE mit Strom versorgt, überträgt Video in einem eigenen VLAN an den NVR."
+      ],
+      "nvr": [
+        "NVR",
+        "Netzwerk-Videorekorder: zeichnet die Kameras auf und speichert die Aufnahmen für die Aufbewahrungsdauer."
+      ]
     },
-    "sites": ["Zentrale", "Niederlassung A", "Niederlassung B"],
+    "sites": [
+      "Zentrale",
+      "Niederlassung A",
+      "Niederlassung B"
+    ],
     "vpn": "Site-to-Site-VPN"
-  }
+  },
+  "hero.role": "IT-Infrastruktur- und Systemadministrator",
+  "spec.scope.k": "Umfang",
+  "spec.scope.v": "150+ Benutzer, 4 Standorte",
+  "xp.cv": "Vollständigen Lebenslauf herunterladen (PDF)",
+  "pj.fx.role": "Eigenes Unternehmen, Gründer",
+  "pj.fx": "IT-Dienstleistungen und Technikprodukte für Haushalte und kleine Unternehmen in Bangladesch.",
+  "pj.fx.s": "Live auf fixibleit.com",
+  "in.scene": "Ein Netzwerk mit mehreren Standorten in 3D"
 }

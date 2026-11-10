@@ -1,10 +1,9 @@
 {
   "meta.title": "Md. Hossain | IT-professional, systeem- en netwerkbeheerder, Dhaka",
   "meta.description": "Md. Hossain is IT-professional in Dhaka en oprichter van Fixible IT, met meer dan 8 jaar ervaring in zakelijke IT: Microsoft 365, Active Directory, MikroTik-netwerken, site-to-site-VPN en IP-camerabewaking.",
-
   "ui.skip": "Naar de inhoud",
   "ui.home": "startpagina",
-  "ui.brandline": "IT-professional & ondernemer",
+  "ui.brandline": "IT-infrastructuur & systemen",
   "ui.mainnav": "Hoofdmenu",
   "ui.footnav": "Voettekst",
   "ui.language": "Taal",
@@ -15,7 +14,6 @@
   "ui.place": "Dhaka, Bangladesh",
   "ui.hub": "Kenniscentrum",
   "ui.cv": "Cv (PDF)",
-
   "nav.about": "Over mij",
   "nav.experience": "Ervaring",
   "nav.expertise": "Expertise",
@@ -23,26 +21,17 @@
   "nav.projects": "Projecten",
   "nav.insights": "Kennis",
   "nav.contact": "Contact",
-
   "common.dhaka": "Dhaka",
-
-  "hero.id": "Md. Hossain, IT-professional en technologieondernemer in Dhaka",
-  "hero.h1a": "Technologie bouwen.",
-  "hero.h1b": "Bedrijven versterken.",
-  "hero.h1c": "Werken aan morgen.",
-  "hero.lead": "Ik ben een IT-professional met <b>meer dan 8 jaar</b> praktijkervaring in het beheren van zakelijke IT voor bedrijven met meerdere vestigingen in Bangladesh, en oprichter van <b>Fixible IT</b>. Ik bouw betrouwbare infrastructuur, los lastige technische problemen op en maak daar praktische oplossingen voor bedrijven van.",
-  "hero.cta1": "Bekijk mijn werk",
-  "hero.cta2": "Cv downloaden",
-  "hero.cta3": "Samenwerken",
+  "hero.id": "Gevestigd in Dhaka, Bangladesh",
+  "hero.lead": "Ik houd bedrijven met meerdere vestigingen draaiende. Al meer dan acht jaar beheer ik de netwerken, de Microsoft 365- en Active Directory-omgevingen en de beveiligingssystemen waar ruim 150 mensen op vier vestigingen elke dag op vertrouwen.",
+  "hero.cta1": "Bekijk ervaring",
+  "hero.cta2": "Neem contact op",
   "spec.exp.k": "Ervaring",
   "spec.exp.v": "8+ jaar in zakelijke IT",
   "spec.role.k": "Huidige functie",
   "spec.role.v": "Senior IT Officer, MKR Group",
-  "spec.founder.k": "Oprichter",
-  "spec.founder.v": "Fixible IT, Dhaka",
   "spec.avail.k": "Beschikbaarheid",
   "spec.avail.v": "Open voor functies en projecten",
-
   "scene.aria": "Draaiende 3D-illustratie van een bedrijfsnetwerk met meerdere vestigingen: een cloud- en internetlaag verbonden met een hoofdkantoor en twee filialen via site-to-site-VPN-tunnels. Elke vestiging heeft een router of firewall, switch, wifi-accesspoint, werkplekken, IP-camera’s en een NVR.",
   "scene.legend": "Een deel van het netwerk uitlichten",
   "scene.highlight": "Uitlichten",
@@ -53,8 +42,7 @@
   "scene.c.cctv": "Camera’s & NVR",
   "scene.c.endpoints": "Werkplekken",
   "scene.note": "Voorbeeldtopologie ter uitleg. Het is niet het netwerk van een werkgever. Beweeg over een apparaat of tik erop om de rol te zien.",
-
-  "about.title": "Van de serverruimte naar het bureau van de oprichter",
+  "about.title": "Mensen en systemen verbonden houden",
   "about.portraitalt": "Md. Hossain",
   "about.p1": "Mijn IT-loopbaan begon in 2018 bij de helpdesk van een Bengaalse fabrikant, waar ik ruim 250 mensen in de productie en op kantoor aan het werk hield. Sinds 2020 ben ik Senior IT Officer bij MKR Group, verantwoordelijk voor gebruikers, netwerken en beveiligingssystemen op vier regionale vestigingen.",
   "about.p2": "Ik geef om IT die je niet merkt: netwerken die blijven werken, accounts die correct worden aangemaakt en verwijderd, camera’s die blijven opnemen en documentatie waarmee iemand anders het morgen kan overnemen.",
@@ -66,7 +54,6 @@
   "about.f.lang.v": "Bengaals (moedertaal), Engels (professioneel)",
   "about.f.edu.k": "Opleiding",
   "about.f.edu.v": "Bachelor Theologie en Islamitische Studies, 2019",
-
   "xp.title": "Acht jaar praktisch IT-werk",
   "xp.sub": "Productie- en concernomgevingen in Bangladesh, van eerstelijnssupport tot infrastructuur voor meerdere vestigingen.",
   "xp.mkr.when": "Feb. 2020 – heden",
@@ -83,7 +70,6 @@
   "xp.alif.b1": "Eerstelijnssupport (L1/L2) voor ruim 250 medewerkers: Windows, randapparatuur en kantoorsoftware.",
   "xp.alif.b2": "Uitrol van werkplekken: installatie van het besturingssysteem, netwerkconfiguratie, antivirus en gebruikersinrichting.",
   "xp.alif.b3": "Stabiel LAN en wifi en inventarisbeheer op de productielocaties.",
-
   "ex.title": "Expertise, ingedeeld naar praktijkgebruik",
   "ex.sub": "Geen percentagebalken. Bij elke vaardigheid staat hoe vaak die deel uitmaakt van mijn echte werk.",
   "ex.key": "Legenda van de niveaus",
@@ -118,9 +104,8 @@
   "ex.g4.a": "WordPress en WooCommerce",
   "ex.g4.b": "Desktopapplicaties met Python en PySide6",
   "ex.g4.c": "SQLite-databases",
-
   "sv.title": "Diensten voor bedrijven in Bangladesh",
-  "sv.sub": "Hetzelfde werk dat ik elke dag doe voor een concern met meerdere vestigingen, beschikbaar voor kantoren, fabrieken, winkels en huishoudens, rechtstreeks of via Fixible IT.",
+  "sv.sub": "Het werk dat ik elke dag doe voor een concern met meerdere vestigingen, beschikbaar voor kantoren, fabrieken, winkels en huishoudens in Bangladesh.",
   "sv.reel": "Betrouwbare IT zie je meestal niet: verkeer tussen vestigingen, back-ups die draaien, camera’s die opnemen. Mijn werk is ervoor te zorgen dat dat zo blijft.",
   "sv.s1.t": "Beheerde IT-support",
   "sv.s1.d": "Maandelijkse of incidentele support voor gebruikers, pc’s, printers en e-mail, op locatie in Dhaka of op afstand.",
@@ -144,9 +129,8 @@
   "sv.e2.t": "Projectbasis",
   "sv.e2.d": "Een afgebakende opdracht: netwerkupgrade, migratie naar Microsoft 365, inrichting van een nieuw filiaal.",
   "sv.e3.t": "Maandelijkse support",
-  "sv.e3.d": "Doorlopende IT-zorg voor kleine bedrijven via Fixible IT.",
+  "sv.e3.d": "Doorlopende IT-zorg voor kleine kantoren, op locatie in Dhaka of op afstand.",
   "sv.cta": "Bespreek uw vraag",
-
   "pj.title": "Projecten",
   "pj.sub": "Wat ik naast mijn baan bouw, los van mijn werkgever.",
   "pj.od": "Offline Windows-applicatie voor productiviteit en IT-taakbeheer.",
@@ -156,30 +140,12 @@
   "pj.cc": "Deze website: een statisch, licht portfolio met een zelfgebouwd 3D-netwerk en een interactief lab.",
   "pj.cc.s": "Versie 4, november 2026",
   "pj.ennote": "Uitgebreide casestudy’s zijn in het Engels geschreven.",
-  "fx.role": "Oprichter & projectleider",
-  "fx.desc": "Een bedrijf voor IT-diensten en technologiehandel in Bangladesh. Fixible IT ondersteunt huishoudens en kantoren met netwerken, Microsoft 365, camerabewaking, Active Directory en maandelijkse IT-support, en verkoopt online pc-onderdelen, netwerk-, bewakings- en kantoortechnologie.",
-  "fx.previewnote": "Schematische weergave van de startpagina van de live website.",
-  "fx.live": "Live",
-  "fx.l1": "Website en webwinkel op WordPress en WooCommerce",
-  "fx.l2": "Productcatalogus met pc-, netwerk-, bewakings- en kantoorcategorieën",
-  "fx.l3": "Dienstpagina’s, van wifi-installatie tot servers en back-ups",
-  "fx.now": "Bezig",
-  "fx.n1": "Vernieuwde winkelwagen en checkout",
-  "fx.n2": "Pc-configurator in de winkel",
-  "fx.n3": "Lancering op sociale media",
-  "fx.next": "Gepland",
-  "fx.p1": "Centrale beheerapp voor bestellingen, voorraad en facturen",
-  "fx.p2": "Klantenportaal",
-  "fx.visit": "Bezoek fixibleit.com",
-  "fx.details": "Projectdetails",
-
   "in.title": "Kennis: zo werkt zakelijke IT",
   "in.sub": "Interactieve uitleg van de netwerk- en systeemconcepten achter dagelijkse IT-support. Kies een onderwerp en doorloop het stap voor stap. De uitleg is in het Engels.",
   "in.tabs": "Lab-onderwerpen",
   "in.noscript": "Het interactieve lab heeft JavaScript nodig.",
   "in.disclaimer": "Algemene lesvoorbeelden. Het zijn geen configuraties, adressen of schema’s van een werkgever.",
   "in.hub": "Kenniscentrum openen",
-
   "ac.title": "Prestaties",
   "ac.sub": "Mijlpalen uit mijn werk, zoals vermeld in mijn cv, en certificaten met openbare verificatielinks.",
   "ac.f1.k": "Ervaring",
@@ -201,7 +167,6 @@
   "ac.c2.type": "Opleidingscertificaat",
   "ac.c2.when": "Jan. 2023",
   "ac.verify": "Verifiëren",
-
   "ct.title": "Laten we samen betrouwbare IT bouwen.",
   "ct.sub": "Open voor functies in IT-support en systeem- en netwerkbeheer, en voor IT-projecten van bedrijven. Via e-mail bent u mij het snelst kwijt.",
   "ct.copy": "Kopiëren",
@@ -218,7 +183,6 @@
   "ct.form.send": "Openen in e-mailapp",
   "ct.form.error": "Vul uw naam, een geldig e-mailadres en een bericht in.",
   "ct.form.note": "Uw e-mailapp opent met het bericht klaar om te verzenden. Deze website slaat niets op.",
-
   "js": {
     "copied": "E-mailadres gekopieerd",
     "copyfail": "Kopiëren mislukt. Het adres is ",
@@ -229,18 +193,60 @@
     "pause": "Pauze",
     "mailsubject": "Vraag via de website",
     "types": {
-      "cloud": ["Clouddiensten", "Microsoft 365 en andere onlinediensten: e-mail, identiteit en bestanden, bereikbaar via internet."],
-      "isp": ["Internet / provider", "Het openbare netwerk dat alle vestigingen verbindt. Hier draait het om verbindingskwaliteit en escalaties bij de provider."],
-      "fw": ["Firewall & edge-router", "Filtert verkeer, doet NAT en beëindigt de site-to-site-VPN-tunnels."],
-      "rt": ["Filiaalrouter", "Edge-router van MikroTik-klasse: internettoegang, routing en de VPN-tunnel naar het hoofdkantoor."],
-      "sw": ["Core-/accessswitch", "Verbindt bekabelde apparaten en scheidt verkeer in VLAN’s."],
-      "srv": ["Server", "Lokale diensten zoals bestandsshares, directory- of beheertools."],
-      "ap": ["Wifi-accesspoint", "Draadloze dekking. Kanaalplanning en authenticatie bepalen hoe betrouwbaar het voelt."],
-      "pc": ["Werkplek", "Waar de meeste support eindigt: inrichting, toegang, updates en probleemoplossing."],
-      "cam": ["IP-camera", "Gevoed via Ethernet (PoE), stuurt beeld naar de NVR via een eigen VLAN."],
-      "nvr": ["NVR", "Netwerkvideorecorder: neemt de camera’s op en bewaart beelden voor de vastgestelde periode."]
+      "cloud": [
+        "Clouddiensten",
+        "Microsoft 365 en andere onlinediensten: e-mail, identiteit en bestanden, bereikbaar via internet."
+      ],
+      "isp": [
+        "Internet / provider",
+        "Het openbare netwerk dat alle vestigingen verbindt. Hier draait het om verbindingskwaliteit en escalaties bij de provider."
+      ],
+      "fw": [
+        "Firewall & edge-router",
+        "Filtert verkeer, doet NAT en beëindigt de site-to-site-VPN-tunnels."
+      ],
+      "rt": [
+        "Filiaalrouter",
+        "Edge-router van MikroTik-klasse: internettoegang, routing en de VPN-tunnel naar het hoofdkantoor."
+      ],
+      "sw": [
+        "Core-/accessswitch",
+        "Verbindt bekabelde apparaten en scheidt verkeer in VLAN’s."
+      ],
+      "srv": [
+        "Server",
+        "Lokale diensten zoals bestandsshares, directory- of beheertools."
+      ],
+      "ap": [
+        "Wifi-accesspoint",
+        "Draadloze dekking. Kanaalplanning en authenticatie bepalen hoe betrouwbaar het voelt."
+      ],
+      "pc": [
+        "Werkplek",
+        "Waar de meeste support eindigt: inrichting, toegang, updates en probleemoplossing."
+      ],
+      "cam": [
+        "IP-camera",
+        "Gevoed via Ethernet (PoE), stuurt beeld naar de NVR via een eigen VLAN."
+      ],
+      "nvr": [
+        "NVR",
+        "Netwerkvideorecorder: neemt de camera’s op en bewaart beelden voor de vastgestelde periode."
+      ]
     },
-    "sites": ["Hoofdkantoor", "Filiaal A", "Filiaal B"],
+    "sites": [
+      "Hoofdkantoor",
+      "Filiaal A",
+      "Filiaal B"
+    ],
     "vpn": "site-to-site-VPN"
-  }
+  },
+  "hero.role": "IT-infrastructuur- en systeembeheerder",
+  "spec.scope.k": "Omvang",
+  "spec.scope.v": "150+ gebruikers, 4 vestigingen",
+  "xp.cv": "Volledig cv downloaden (PDF)",
+  "pj.fx.role": "Eigen onderneming, oprichter",
+  "pj.fx": "IT-diensten en technologieproducten voor huishoudens en kleine bedrijven in Bangladesh.",
+  "pj.fx.s": "Live op fixibleit.com",
+  "in.scene": "Een netwerk met meerdere vestigingen in 3D"
 }

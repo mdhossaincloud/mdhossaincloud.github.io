@@ -4,68 +4,40 @@
   "title_key": "meta.title",
   "desc_key": "meta.description",
   "ogtype": "profile",
-  "scripts": ["scene.js", "portrait.js", "lab-data.js", "lab.js"]
+  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js"]
 } -->
+<canvas id="bg" aria-hidden="true"></canvas>
 <main id="main">
 
 <!-- Hero -->
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="hero-id"><span class="live-dot" aria-hidden="true"></span>{{t:hero.id}}</p>
-      <h1 id="hero-title">{{t:hero.h1a}} {{t:hero.h1b}} <span class="l2">{{t:hero.h1c}}</span></h1>
+      <p class="hero-id"><img class="avatar" src="{{root}}assets/img/hossain-avatar.jpg" alt="" width="40" height="40">{{t:hero.id}}</p>
+      <h1 id="hero-title"><span class="h-name">Md. Hossain</span> <span class="h-role">{{t:hero.role}}</span></h1>
       <p class="lead">{{t:hero.lead}}</p>
       <div class="btns">
-        <a class="btn primary" href="#projects">{{t:hero.cta1}} {{icon:arrow}}</a>
-        <a class="btn" href="{{root}}cv/MD_Hossain_CV.pdf" download>{{icon:download}} {{t:hero.cta2}}</a>
-        <a class="btn quiet" href="#contact">{{t:hero.cta3}}</a>
+        <a class="btn primary" href="#experience">{{t:hero.cta1}} {{icon:arrow}}</a>
+        <a class="btn" href="#contact">{{icon:mail}} {{t:hero.cta2}}</a>
       </div>
       <dl class="spec">
         <div><dt>{{t:spec.exp.k}}</dt><dd>{{t:spec.exp.v}}</dd></div>
         <div><dt>{{t:spec.role.k}}</dt><dd>{{t:spec.role.v}}</dd></div>
-        <div><dt>{{t:spec.founder.k}}</dt><dd>{{t:spec.founder.v}}</dd></div>
+        <div><dt>{{t:spec.scope.k}}</dt><dd>{{t:spec.scope.v}}</dd></div>
         <div><dt>{{t:spec.avail.k}}</dt><dd>{{t:spec.avail.v}}</dd></div>
       </dl>
     </div>
-
-    <figure class="scene-wrap" aria-labelledby="scene-cap">
-      <div class="scene-frame" id="scene-frame">
-        <canvas id="scene" role="img" aria-label="{{t:scene.aria}}"></canvas>
-        <svg class="scene-fallback" viewBox="0 0 600 500" aria-hidden="true">
-          <g fill="none" stroke="var(--ln-2)" stroke-width="1.5">
-            <path d="M300 70 160 300M300 70 440 300M300 70 300 400" stroke-dasharray="5 6"/>
-            <path d="M160 300Q300 200 440 300M160 300Q230 330 300 400M440 300Q370 330 300 400" stroke="var(--acc)"/>
-            <path d="M90 300l70-40 70 40-70 40zM370 300l70-40 70 40-70 40zM230 400l70-40 70 40-70 40z" fill="var(--sf)"/>
-          </g>
-          <g fill="var(--sf-2)" stroke="var(--cy)" stroke-width="2">
-            <circle cx="300" cy="70" r="22"/><circle cx="160" cy="300" r="12"/><circle cx="440" cy="300" r="12"/><circle cx="300" cy="400" r="12"/>
-          </g>
-        </svg>
-        <div class="scene-tip" id="scene-tip" aria-hidden="true"></div>
-      </div>
-      <div class="scene-legend" role="group" aria-label="{{t:scene.legend}}">
-        <span>{{t:scene.highlight}}</span>
-        <button class="chip" type="button" data-cat="routing" aria-pressed="false" style="--c:var(--acc)"><i></i>{{t:scene.c.routing}}</button>
-        <button class="chip" type="button" data-cat="switching" aria-pressed="false" style="--c:#8b9cff"><i></i>{{t:scene.c.switching}}</button>
-        <button class="chip" type="button" data-cat="wireless" aria-pressed="false" style="--c:var(--cy)"><i></i>{{t:scene.c.wireless}}</button>
-        <button class="chip" type="button" data-cat="servers" aria-pressed="false" style="--c:var(--ok)"><i></i>{{t:scene.c.servers}}</button>
-        <button class="chip" type="button" data-cat="cctv" aria-pressed="false" style="--c:var(--warn)"><i></i>{{t:scene.c.cctv}}</button>
-        <button class="chip" type="button" data-cat="endpoints" aria-pressed="false" style="--c:#c792ea"><i></i>{{t:scene.c.endpoints}}</button>
-      </div>
-      <figcaption id="scene-cap" class="scene-note">{{t:scene.note}}</figcaption>
-    </figure>
+    <div class="hero-visual" aria-hidden="true"></div>
   </div>
 </section>
 
 <!-- About -->
 <section class="section" id="about" aria-labelledby="about-title">
   <div class="wrap about-grid">
-    <div class="portrait-col">
-      <div class="portrait" id="portrait" data-src="{{root}}assets/img/portrait.jpg">
-        <img src="{{root}}assets/img/portrait.jpg" alt="{{t:about.portraitalt}}" width="640" height="800" loading="lazy" decoding="async">
-        <canvas aria-hidden="true"></canvas>
-      </div>
-    </div>
+    <figure class="about-photo">
+      <img src="{{root}}assets/img/hossain-portrait.jpg" alt="{{t:about.portraitalt}}" width="360" height="450" loading="lazy" decoding="async">
+      <figcaption>Md. Hossain<span>{{t:about.f.base.v}}</span></figcaption>
+    </figure>
     <div class="about-copy">
       <h2 id="about-title">{{t:about.title}}</h2>
       <div class="prose">
@@ -122,6 +94,7 @@
         </div>
       </li>
     </ol>
+    <p class="cv-row"><a class="btn" href="{{root}}cv/MD_Hossain_CV.pdf" download>{{icon:download}} {{t:xp.cv}}</a></p>
   </div>
 </section>
 
@@ -229,37 +202,12 @@
       <p>{{t:pj.sub}}</p>
     </div>
 
-    <article class="feature" aria-labelledby="fx-title">
-      <div class="feature-preview" aria-hidden="true">
-        <div class="browser">
-          <div class="browser-bar"><i></i><i></i><i></i><span>fixibleit.com</span></div>
-          <div class="browser-body">
-            <div class="bb-nav"><b>FIXIBLE IT</b><span>Home</span><span>Products</span><span>Services</span><span>About</span><span>Contact</span></div>
-            <p class="bb-h">Your Technology Partner, From Setup to Support.</p>
-            <div class="bb-chips"><span>Office network &amp; Wi-Fi</span><span>Email &amp; Microsoft 365</span><span>Monthly IT support</span><span>VLAN, VPN &amp; MikroTik</span><span>CCTV &amp; access</span><span>Custom PC builds</span></div>
-            <div class="bb-cats"><span>PC components</span><span>Networking</span><span>CCTV &amp; surveillance</span><span>Office &amp; productivity</span></div>
-          </div>
-        </div>
-        <p class="preview-note">{{t:fx.previewnote}}</p>
-      </div>
-      <div class="feature-copy">
-        <p class="feature-role">{{t:fx.role}}</p>
-        <h3 id="fx-title">Fixible IT</h3>
-        <p>{{t:fx.desc}}</p>
-        <div class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">Kadence child theme</span><span class="tag">PHP</span><span class="tag">cPanel</span></div>
-        <div class="status-cols">
-          <div><h4><span class="status"></span>{{t:fx.live}}</h4><ul><li>{{t:fx.l1}}</li><li>{{t:fx.l2}}</li><li>{{t:fx.l3}}</li></ul></div>
-          <div><h4><span class="status dev"></span>{{t:fx.now}}</h4><ul><li>{{t:fx.n1}}</li><li>{{t:fx.n2}}</li><li>{{t:fx.n3}}</li></ul></div>
-          <div><h4><span class="status info"></span>{{t:fx.next}}</h4><ul><li>{{t:fx.p1}}</li><li>{{t:fx.p2}}</li></ul></div>
-        </div>
-        <div class="btns">
-          <a class="btn primary" href="https://fixibleit.com/" rel="noopener">{{t:fx.visit}} {{icon:external}}</a>
-          <a class="btn" href="{{root}}projects/fixible-it/">{{t:fx.details}}</a>
-        </div>
-      </div>
-    </article>
-
     <div class="projects">
+      <a class="project venture" href="{{root}}projects/fixible-it/">
+        <div><p class="venture-role">{{t:pj.fx.role}}</p><h3>Fixible IT</h3><p>{{t:pj.fx}}</p></div>
+        <div><div class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span></div><span class="status">{{t:pj.fx.s}}</span></div>
+        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
+      </a>
       <a class="project" href="{{root}}projects/hossain-onedesk/">
         <div><h3>Hossain OneDesk</h3><p>{{t:pj.od}}</p></div>
         <div><div class="meta"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span></div><span class="status">{{t:pj.od.s}}</span></div>
@@ -287,6 +235,33 @@
       <h2 id="in-title">{{t:in.title}}</h2>
       <p>{{t:in.sub}}</p>
     </div>
+    <figure class="scene-wrap in-scene" aria-labelledby="scene-cap">
+          <h3 class="scene-title">{{t:in.scene}}</h3>
+          <div class="scene-frame" id="scene-frame">
+            <canvas id="scene" role="img" aria-label="{{t:scene.aria}}"></canvas>
+            <svg class="scene-fallback" viewBox="0 0 600 500" aria-hidden="true">
+              <g fill="none" stroke="var(--ln-2)" stroke-width="1.5">
+                <path d="M300 70 160 300M300 70 440 300M300 70 300 400" stroke-dasharray="5 6"/>
+                <path d="M160 300Q300 200 440 300M160 300Q230 330 300 400M440 300Q370 330 300 400" stroke="var(--acc)"/>
+                <path d="M90 300l70-40 70 40-70 40zM370 300l70-40 70 40-70 40zM230 400l70-40 70 40-70 40z" fill="var(--sf)"/>
+              </g>
+              <g fill="var(--sf-2)" stroke="var(--cy)" stroke-width="2">
+                <circle cx="300" cy="70" r="22"/><circle cx="160" cy="300" r="12"/><circle cx="440" cy="300" r="12"/><circle cx="300" cy="400" r="12"/>
+              </g>
+            </svg>
+            <div class="scene-tip" id="scene-tip" aria-hidden="true"></div>
+          </div>
+          <div class="scene-legend" role="group" aria-label="{{t:scene.legend}}">
+            <span>{{t:scene.highlight}}</span>
+            <button class="chip" type="button" data-cat="routing" aria-pressed="false" style="--c:var(--acc)"><i></i>{{t:scene.c.routing}}</button>
+            <button class="chip" type="button" data-cat="switching" aria-pressed="false" style="--c:#8b9cff"><i></i>{{t:scene.c.switching}}</button>
+            <button class="chip" type="button" data-cat="wireless" aria-pressed="false" style="--c:var(--cy)"><i></i>{{t:scene.c.wireless}}</button>
+            <button class="chip" type="button" data-cat="servers" aria-pressed="false" style="--c:var(--ok)"><i></i>{{t:scene.c.servers}}</button>
+            <button class="chip" type="button" data-cat="cctv" aria-pressed="false" style="--c:var(--warn)"><i></i>{{t:scene.c.cctv}}</button>
+            <button class="chip" type="button" data-cat="endpoints" aria-pressed="false" style="--c:#c792ea"><i></i>{{t:scene.c.endpoints}}</button>
+          </div>
+          <figcaption id="scene-cap" class="scene-note">{{t:scene.note}}</figcaption>
+        </figure>
     <div class="lab-shell" id="lab-app">
       <div class="lab-tabs" role="tablist" aria-label="{{t:in.tabs}}" id="lab-tabs"></div>
       <div class="lab-stage" id="lab-stage" role="tabpanel" tabindex="0" aria-live="polite">
@@ -347,6 +322,7 @@
         <li><a href="https://github.com/mdhossaincloud" rel="noopener">{{icon:github}}<span>GitHub</span><small>mdhossaincloud</small></a></li>
         <li><a href="https://fixibleit.com/" rel="noopener">{{icon:external}}<span>Fixible IT</span><small>info@fixibleit.com</small></a></li>
         <li><a href="https://facebook.com/fixibleit" rel="noopener">{{icon:facebook}}<span>Facebook</span><small>Fixible IT</small></a></li>
+        <li><a href="{{root}}cv/MD_Hossain_CV.pdf" download>{{icon:file}}<span>{{t:ui.cv}}</span><small>PDF</small></a></li>
         <li><span class="row">{{icon:pin}}<span>{{t:ct.loc}}</span><small>{{t:ui.place}}</small></span></li>
       </ul>
     </div>
