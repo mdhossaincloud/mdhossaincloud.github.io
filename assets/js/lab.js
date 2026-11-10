@@ -7,6 +7,7 @@
   if (!tabs || !stage || !topics.length) return;
 
   const SVGNS = 'http://www.w3.org/2000/svg';
+  const L = Object.assign({ step: 'Step {n} of {m}', prev: 'Previous step', next: 'Next step', play: 'Play all steps', pause: 'Pause' }, window.I18N || {});
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const ICON = {
     prev: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>',
@@ -148,9 +149,9 @@
     const body = el('p', { class: 'lab-step-text' });
     txt.append(count, title, body);
     const ctr = el('div', { class: 'lab-controls' });
-    const bPrev = el('button', { class: 'icon-btn', type: 'button', 'aria-label': 'Previous step' }); bPrev.innerHTML = ICON.prev;
-    const bPlay = el('button', { class: 'icon-btn', type: 'button', 'aria-label': 'Play all steps' }); bPlay.innerHTML = ICON.play;
-    const bNext = el('button', { class: 'icon-btn', type: 'button', 'aria-label': 'Next step' }); bNext.innerHTML = ICON.next;
+    const bPrev = el('button', { class: 'icon-btn', type: 'button', 'aria-label': L.prev }); bPrev.innerHTML = ICON.prev;
+    const bPlay = el('button', { class: 'icon-btn', type: 'button', 'aria-label': L.play }); bPlay.innerHTML = ICON.play;
+    const bNext = el('button', { class: 'icon-btn', type: 'button', 'aria-label': L.next }); bNext.innerHTML = ICON.next;
     ctr.append(bPrev, bPlay, bNext);
     foot.append(txt, ctr);
     stage.appendChild(foot);
@@ -159,7 +160,7 @@
     function go(i) {
       step = Math.max(0, Math.min(t.steps.length - 1, i));
       const s = t.steps[step];
-      count.textContent = `Step ${step + 1} of ${t.steps.length}`;
+      count.textContent = L.step.replace('{n}', step + 1).replace('{m}', t.steps.length);
       title.textContent = s.title;
       body.textContent = s.text;
       bPrev.disabled = step === 0;
@@ -206,7 +207,7 @@
     bPlay.addEventListener('click', () => {
       if (timer) { stopAuto(); return; }
       if (step === t.steps.length - 1) go(0);
-      bPlay.innerHTML = ICON.pause; bPlay.setAttribute('aria-label', 'Pause');
+      bPlay.innerHTML = ICON.pause; bPlay.setAttribute('aria-label', L.pause);
       timer = setInterval(() => {
         if (step >= t.steps.length - 1) { stopAuto(); return; }
         go(step + 1);
@@ -219,7 +220,7 @@
   function stopAuto() {
     if (timer) clearInterval(timer);
     timer = null;
-    if (stopAuto.btn) { stopAuto.btn.innerHTML = ICON.play; stopAuto.btn.setAttribute('aria-label', 'Play all steps'); }
+    if (stopAuto.btn) { stopAuto.btn.innerHTML = ICON.play; stopAuto.btn.setAttribute('aria-label', L.play); }
   }
 
   /* ---------- Deep links: #lab-<id> ---------- */
@@ -228,7 +229,7 @@
     const i = m ? topics.findIndex((t) => t.id === m[1]) : -1;
     if (i >= 0) {
       select(i, false);
-      document.getElementById('lab')?.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth' });
+      document.getElementById('insights')?.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth' });
       return true;
     }
     return false;

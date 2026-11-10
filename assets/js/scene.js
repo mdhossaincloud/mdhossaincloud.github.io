@@ -31,6 +31,10 @@
     nvr:    { cat: 'cctv',      name: 'NVR',                     role: 'Network video recorder: records the cameras and keeps footage for the retention period.' },
   };
 
+  /* ---------- Translations (window.I18N is set on non-English pages) ---------- */
+  const L = window.I18N || {};
+  if (L.types) Object.keys(L.types).forEach((k) => { if (TYPES[k]) { TYPES[k].name = L.types[k][0]; TYPES[k].role = L.types[k][1]; } });
+
   /* ---------- World model ---------- */
   const nodes = [];
   const edges = [];
@@ -42,6 +46,7 @@
     { name: 'Branch office A', a: Math.PI / 6 },
     { name: 'Branch office B', a: (5 * Math.PI) / 6 },
   ];
+  if (L.sites) SITES.forEach((st, i) => { if (L.sites[i]) st.name = L.sites[i]; });
   const R = 2.25;
   const cloud = add('cloud', 0, 2.05, 0, 'Internet');
   const isp = add('isp', 0, 1.05, 0, 'Internet');
@@ -259,7 +264,7 @@
       ctx.fillStyle = C.acc;
       ctx.font = '400 11px "IBM Plex Mono", ui-monospace, monospace';
       ctx.textAlign = 'center';
-      ctx.fillText('site-to-site VPN', m.x, m.y - 8);
+      ctx.fillText(L.vpn || 'site-to-site VPN', m.x, m.y - 8);
     }
 
     // packets
@@ -283,7 +288,7 @@
     });
 
     // site labels on top, with a halo so they stay readable over devices
-    ctx.font = '500 12px "IBM Plex Sans", system-ui, sans-serif';
+    ctx.font = '500 12px "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif';
     ctx.textAlign = 'center';
     ctx.lineJoin = 'round';
     platforms.forEach((pl) => {

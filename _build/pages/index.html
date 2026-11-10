@@ -1,9 +1,10 @@
 <!--meta {
   "path": "",
-  "title": "Md. Hossain | IT Infrastructure, Microsoft 365 & Network Administration, Dhaka",
-  "description": "Md. Hossain is a Dhaka-based IT support specialist and systems & network administrator with 8+ years of enterprise experience: Microsoft 365, Active Directory, MikroTik, site-to-site VPN and IP CCTV.",
+  "i18n": true,
+  "title_key": "meta.title",
+  "desc_key": "meta.description",
   "ogtype": "profile",
-  "scripts": ["scene.js", "lab-data.js", "lab.js"]
+  "scripts": ["scene.js", "portrait.js", "lab-data.js", "lab.js"]
 } -->
 <main id="main">
 
@@ -11,25 +12,25 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="hero-id"><span class="live-dot" aria-hidden="true"></span>Md. Hossain, IT infrastructure specialist in Dhaka</p>
-      <h1 id="hero-title">Engineering reliable <span class="l2">IT infrastructure.</span></h1>
-      <p class="lead">Connecting people, systems, networks and technology through dependable enterprise IT operations. For more than <strong>eight years</strong> I have kept multi-site businesses in Bangladesh running: <b>Microsoft 365 and Active Directory, MikroTik networks, site-to-site VPN and IP CCTV.</b></p>
+      <p class="hero-id"><span class="live-dot" aria-hidden="true"></span>{{t:hero.id}}</p>
+      <h1 id="hero-title">{{t:hero.h1a}} {{t:hero.h1b}} <span class="l2">{{t:hero.h1c}}</span></h1>
+      <p class="lead">{{t:hero.lead}}</p>
       <div class="btns">
-        <a class="btn primary" href="#projects">Explore projects {{icon:arrow}}</a>
-        <a class="btn" href="cv/MD_Hossain_CV.pdf" download>{{icon:download}} Download CV</a>
-        <a class="btn quiet" href="#contact">Contact me</a>
+        <a class="btn primary" href="#projects">{{t:hero.cta1}} {{icon:arrow}}</a>
+        <a class="btn" href="{{root}}cv/MD_Hossain_CV.pdf" download>{{icon:download}} {{t:hero.cta2}}</a>
+        <a class="btn quiet" href="#contact">{{t:hero.cta3}}</a>
       </div>
       <dl class="spec">
-        <div><dt>Experience</dt><dd>8+ years in enterprise IT</dd></div>
-        <div><dt>Current role</dt><dd>Senior IT Officer, MKR Group</dd></div>
-        <div><dt>Scope</dt><dd>150+ users across 4 regional offices</dd></div>
-        <div><dt>Availability</dt><dd>Open to relevant IT roles</dd></div>
+        <div><dt>{{t:spec.exp.k}}</dt><dd>{{t:spec.exp.v}}</dd></div>
+        <div><dt>{{t:spec.role.k}}</dt><dd>{{t:spec.role.v}}</dd></div>
+        <div><dt>{{t:spec.founder.k}}</dt><dd>{{t:spec.founder.v}}</dd></div>
+        <div><dt>{{t:spec.avail.k}}</dt><dd>{{t:spec.avail.v}}</dd></div>
       </dl>
     </div>
 
     <figure class="scene-wrap" aria-labelledby="scene-cap">
       <div class="scene-frame" id="scene-frame">
-        <canvas id="scene" role="img" aria-label="Rotating 3D illustration of a multi-site enterprise network: a cloud and internet layer connected to a head office and two branch offices by site-to-site VPN tunnels. Each office contains a router or firewall, switch, Wi-Fi access point, workstations, IP cameras and an NVR; the head office also has a server."></canvas>
+        <canvas id="scene" role="img" aria-label="{{t:scene.aria}}"></canvas>
         <svg class="scene-fallback" viewBox="0 0 600 500" aria-hidden="true">
           <g fill="none" stroke="var(--ln-2)" stroke-width="1.5">
             <path d="M300 70 160 300M300 70 440 300M300 70 300 400" stroke-dasharray="5 6"/>
@@ -42,209 +43,44 @@
         </svg>
         <div class="scene-tip" id="scene-tip" aria-hidden="true"></div>
       </div>
-      <div class="scene-legend" role="group" aria-label="Highlight part of the network">
-        <span>Highlight</span>
-        <button class="chip" type="button" data-cat="routing" aria-pressed="false" style="--c:var(--acc)"><i></i>Routing &amp; VPN</button>
-        <button class="chip" type="button" data-cat="switching" aria-pressed="false" style="--c:#8b9cff"><i></i>Switching</button>
-        <button class="chip" type="button" data-cat="wireless" aria-pressed="false" style="--c:var(--cy)"><i></i>Wi-Fi</button>
-        <button class="chip" type="button" data-cat="servers" aria-pressed="false" style="--c:var(--ok)"><i></i>Cloud &amp; servers</button>
-        <button class="chip" type="button" data-cat="cctv" aria-pressed="false" style="--c:var(--warn)"><i></i>CCTV &amp; NVR</button>
-        <button class="chip" type="button" data-cat="endpoints" aria-pressed="false" style="--c:#c792ea"><i></i>Endpoints</button>
+      <div class="scene-legend" role="group" aria-label="{{t:scene.legend}}">
+        <span>{{t:scene.highlight}}</span>
+        <button class="chip" type="button" data-cat="routing" aria-pressed="false" style="--c:var(--acc)"><i></i>{{t:scene.c.routing}}</button>
+        <button class="chip" type="button" data-cat="switching" aria-pressed="false" style="--c:#8b9cff"><i></i>{{t:scene.c.switching}}</button>
+        <button class="chip" type="button" data-cat="wireless" aria-pressed="false" style="--c:var(--cy)"><i></i>{{t:scene.c.wireless}}</button>
+        <button class="chip" type="button" data-cat="servers" aria-pressed="false" style="--c:var(--ok)"><i></i>{{t:scene.c.servers}}</button>
+        <button class="chip" type="button" data-cat="cctv" aria-pressed="false" style="--c:var(--warn)"><i></i>{{t:scene.c.cctv}}</button>
+        <button class="chip" type="button" data-cat="endpoints" aria-pressed="false" style="--c:#c792ea"><i></i>{{t:scene.c.endpoints}}</button>
       </div>
-      <figcaption id="scene-cap" class="scene-note">Illustrative topology for explanation only. It does not represent any employer's network. Hover or tap a device to see its role.</figcaption>
+      <figcaption id="scene-cap" class="scene-note">{{t:scene.note}}</figcaption>
     </figure>
   </div>
 </section>
 
 <!-- About -->
 <section class="section" id="about" aria-labelledby="about-title">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="about-title">The person who keeps the office connected</h2>
+  <div class="wrap about-grid">
+    <div class="portrait-col">
+      <div class="portrait" id="portrait" data-src="{{root}}assets/img/portrait.jpg">
+        <img src="{{root}}assets/img/portrait.jpg" alt="{{t:about.portraitalt}}" width="640" height="800" loading="lazy" decoding="async">
+        <canvas aria-hidden="true"></canvas>
+      </div>
     </div>
-    <div class="about-grid">
+    <div class="about-copy">
+      <h2 id="about-title">{{t:about.title}}</h2>
       <div class="prose">
-        <p>I am an IT support specialist and systems &amp; network administrator. Since 2018 I have worked inside Bangladeshi manufacturing and group-company environments, where IT has to keep pace with production schedules, regional offices and people who simply need things to work.</p>
-        <p>At MKR Group I provide L2/L3 support for more than 150 users across four regional offices. My week moves between Microsoft 365 and Active Directory administration, MikroTik routing and site-to-site VPN tunnels, IP CCTV and NVR operations, ISP and vendor escalations, and keeping the asset registers and network documentation accurate.</p>
-        <p>Before that, at Alif Embroidery Village Ltd, I handled first-line L1/L2 support for 250+ employees, workstation rollouts and network stability across production facilities.</p>
-        <p>Outside my job I build small Windows desktop tools in Python, and I run <a href="projects/fixible-it/">Fixible IT</a>, my own technology services and e-commerce venture.</p>
+        <p class="big">{{t:about.p1}}</p>
+        <p>{{t:about.p2}}</p>
+        <p>{{t:about.p3}}</p>
       </div>
-      <div>
-        <h3>Where I spend my working hours</h3>
-        <ul class="areas">
-          <li>Enterprise IT operations and L1–L3 support</li>
-          <li>Multi-site support across regional offices</li>
-          <li>Infrastructure management: LAN/WAN, Wi-Fi, VPN</li>
-          <li>Microsoft 365 and Outlook administration</li>
-          <li>Network troubleshooting with ISPs and vendors</li>
-          <li>Windows Enterprise, Active Directory and Group Policy</li>
-          <li>IP CCTV and NVR deployment and maintenance</li>
-          <li>Technical documentation and topology records</li>
-          <li>IT asset management and preventive maintenance</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Expertise -->
-<section class="section" id="expertise" aria-labelledby="exp-title">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="exp-title">Skills, grouped by how often I actually use them</h2>
-      <p>No percentage bars. Each skill is marked by its honest level of use.</p>
-    </div>
-    <ul class="levels" aria-label="Skill level key">
-      <li><span class="lv daily" aria-hidden="true"></span>Daily practice: part of my regular job</li>
-      <li><span class="lv working" aria-hidden="true"></span>Working knowledge: used regularly, still deepening</li>
-      <li><span class="lv learning" aria-hidden="true"></span>Learning now</li>
-    </ul>
-
-    <div class="skill-grid">
-      <section class="skill-group" aria-labelledby="sg1">
-        <header><h3 id="sg1">Enterprise IT support</h3></header>
-        <p>Keeping people productive across offices, with tickets that close properly.</p>
-        <ul>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>L1–L3 troubleshooting for users and devices</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>ServiceNow incident and request management</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Remote support</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>SLA-driven service delivery</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Vendor and ISP coordination</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg2">
-        <header><h3 id="sg2">Microsoft 365 &amp; productivity</h3></header>
-        <p>Account lifecycle, mailboxes and permissions for a multi-site organisation.</p>
-        <ul>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Microsoft 365 user, group and permission administration</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Outlook and mailbox administration</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>User onboarding and offboarding</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>Automated account setup with PowerShell</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg3">
-        <header><h3 id="sg3">Windows administration</h3></header>
-        <p>Directory, policy and workstation standards that stay consistent.</p>
-        <ul>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Windows Enterprise support</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Active Directory users, groups and access</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Group Policy for security and workstation settings</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>OS installation and workstation rollouts</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg4">
-        <header><h3 id="sg4">Networking &amp; infrastructure</h3></header>
-        <p>LAN/WAN design and day-to-day reliability between offices.</p>
-        <ul>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>TCP/IP and LAN/WAN troubleshooting</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Switching and VLANs</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Wi-Fi networks</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Site-to-site VPN tunnels</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>Network topology design and multi-site planning</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>IP telephony for new branches</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg5">
-        <header><h3 id="sg5">MikroTik networking</h3></header>
-        <p>RouterOS is the backbone of the networks I maintain.</p>
-        <ul>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>MikroTik routing across multiple sites</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>GRE and site-to-site VPN tunnels on RouterOS</li>
-          <li><span class="lv learning" title="Learning now"></span><span class="sr-only">Learning now: </span>MTCNA-level MikroTik training</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg6">
-        <header><h3 id="sg6">IP CCTV &amp; surveillance</h3></header>
-        <p>Camera networks that record reliably and are documented properly.</p>
-        <ul>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>IP camera and NVR deployment across multiple locations</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>IP allocation and CCTV infrastructure records</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>Preventive maintenance cycles</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg7">
-        <header><h3 id="sg7">Hardware &amp; endpoint management</h3></header>
-        <p>Desktops, laptops, printers and network gear through their whole life.</p>
-        <ul>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Hardware diagnostics and troubleshooting</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Desktops, laptops, printers and peripherals</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>Endpoint deployment for new branches</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg8">
-        <header><h3 id="sg8">IT operations &amp; documentation</h3></header>
-        <p>The records that let someone else run the network tomorrow.</p>
-        <ul>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>IT asset registers and hardware lifecycle records</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Network topology and IP allocation documentation</li>
-          <li><span class="lv daily" title="Daily practice"></span><span class="sr-only">Daily practice: </span>Technical documentation and procedures</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg9">
-        <header><h3 id="sg9">Automation &amp; scripting</h3></header>
-        <p>Removing repetitive steps from routine administration.</p>
-        <ul>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>PowerShell scripting for account provisioning</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>Python for small internal tools</li>
-        </ul>
-      </section>
-      <section class="skill-group" aria-labelledby="sg10">
-        <header><h3 id="sg10">Desktop application development</h3></header>
-        <p>Offline-first Windows tools for everyday office work.</p>
-        <ul>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>Python with PySide6 (Qt) desktop interfaces</li>
-          <li><span class="lv working" title="Working knowledge"></span><span class="sr-only">Working knowledge: </span>SQLite local databases</li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</section>
-
-<!-- Infrastructure Lab -->
-<section class="section lab" id="lab" aria-labelledby="lab-title">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="lab-title">How enterprise networks actually work, one step at a time</h2>
-      <p>Interactive explainers of the concepts I work with every day. Pick a topic, then step through it.</p>
-    </div>
-    <div class="lab-shell" id="lab-app">
-      <div class="lab-tabs" role="tablist" aria-label="Lab topics" id="lab-tabs"></div>
-      <div class="lab-stage" id="lab-stage" role="tabpanel" tabindex="0" aria-live="polite">
-        <noscript><p style="padding:1.5rem">The interactive lab needs JavaScript. Every topic is also listed in the <a href="knowledge/">Knowledge Hub</a>.</p></noscript>
-      </div>
-    </div>
-    <p class="lab-disclaimer">Educational demonstrations using generic examples. They are not configurations, addresses or diagrams from any employer.</p>
-  </div>
-</section>
-
-<!-- Projects -->
-<section class="section" id="projects" aria-labelledby="proj-title">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="proj-title">Things I have built outside the ticket queue</h2>
-      <p>Independent projects, kept separate from my employment. Each one has a short case study.</p>
-    </div>
-    <div class="projects">
-      <a class="project" href="projects/hossain-onedesk/">
-        <div><h3>Hossain OneDesk</h3><p>Offline-first Windows productivity and IT task management application.</p></div>
-        <div><div class="meta"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span></div><span class="status">Working app, in personal use</span></div>
-        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
-      </a>
-      <a class="project" href="projects/onedesk-cheque-writer/">
-        <div><h3>OneDesk Cheque Writer</h3><p>Windows application for printing on Bangladeshi bank cheques and managing office cheque workflows.</p></div>
-        <div><div class="meta"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span></div><span class="status dev">In development</span></div>
-        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
-      </a>
-      <a class="project" href="projects/fixible-it/">
-        <div><h3>Fixible IT</h3><p>My technology services and e-commerce venture: IT support, networking, CCTV, PC builds and gadgets.</p></div>
-        <div><div class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">Kadence child theme</span></div><span class="status">Live at fixibleit.com</span></div>
-        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
-      </a>
-      <a class="project" href="projects/it-command-center/">
-        <div><h3>Personal IT Command Center</h3><p>This website: a static, dependency-light portfolio with a hand-built 3D network and an interactive lab.</p></div>
-        <div><div class="meta"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Canvas</span></div><span class="status info">Version 3, November 2026</span></div>
-        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
-      </a>
+      <blockquote class="philosophy">
+        <p>{{t:about.quote}}</p>
+      </blockquote>
+      <dl class="mini-facts">
+        <div><dt>{{t:about.f.base.k}}</dt><dd>{{t:about.f.base.v}}</dd></div>
+        <div><dt>{{t:about.f.lang.k}}</dt><dd>{{t:about.f.lang.v}}</dd></div>
+        <div><dt>{{t:about.f.edu.k}}</dt><dd>{{t:about.f.edu.v}}</dd></div>
+      </dl>
     </div>
   </div>
 </section>
@@ -253,110 +89,244 @@
 <section class="section" id="experience" aria-labelledby="xp-title">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="xp-title">Eight years of hands-on IT work</h2>
-      <p>Manufacturing and group-company environments in Bangladesh, from first-line support to multi-site infrastructure.</p>
+      <h2 id="xp-title">{{t:xp.title}}</h2>
+      <p>{{t:xp.sub}}</p>
     </div>
     <ol class="timeline">
       <li class="role current">
-        <div class="when">Feb 2020 – Present</div>
+        <div class="when">{{t:xp.mkr.when}}</div>
         <div class="body">
-          <h3>Senior IT Officer</h3>
-          <p class="org">MKR Group, Dhaka</p>
+          <h3>{{t:xp.mkr.title}}</h3>
+          <p class="org">MKR Group, {{t:common.dhaka}}</p>
           <ul>
-            <li>L2/L3 support for 150+ users across four regional offices, managed through ServiceNow.</li>
-            <li>Microsoft 365 and Active Directory administration: provisioning, group permissions and PowerShell-scripted account setup.</li>
-            <li>Multi-site LAN/WAN on MikroTik routers with site-to-site VPN tunnels.</li>
-            <li>Security and access policies through Group Policy, including workstation update settings.</li>
-            <li>Deployment and maintenance of IP CCTV systems and NVRs across six locations.</li>
-            <li>IT set-up for new regional branches: workstations, network devices and IP telephony.</li>
-            <li>Central asset registers and documentation for hardware lifecycles, network topology, IP allocation and CCTV.</li>
-            <li>ISP and vendor coordination for connectivity and infrastructure issues.</li>
+            <li>{{t:xp.mkr.b1}}</li>
+            <li>{{t:xp.mkr.b2}}</li>
+            <li>{{t:xp.mkr.b3}}</li>
+            <li>{{t:xp.mkr.b4}}</li>
+            <li>{{t:xp.mkr.b5}}</li>
+            <li>{{t:xp.mkr.b6}}</li>
+            <li>{{t:xp.mkr.b7}}</li>
           </ul>
         </div>
       </li>
       <li class="role">
-        <div class="when">Jul 2018 – Jan 2020</div>
+        <div class="when">{{t:xp.alif.when}}</div>
         <div class="body">
-          <h3>IT Officer</h3>
-          <p class="org">Alif Embroidery Village Ltd, Dhaka</p>
+          <h3>{{t:xp.alif.title}}</h3>
+          <p class="org">Alif Embroidery Village Ltd, {{t:common.dhaka}}</p>
           <ul>
-            <li>First-line L1/L2 support for 250+ employees: Windows, peripherals and core office software.</li>
-            <li>Workstation rollouts: OS installation, network configuration, antivirus deployment and user set-up.</li>
-            <li>LAN and Wi-Fi stability and asset inventory across production facilities.</li>
+            <li>{{t:xp.alif.b1}}</li>
+            <li>{{t:xp.alif.b2}}</li>
+            <li>{{t:xp.alif.b3}}</li>
           </ul>
         </div>
       </li>
     </ol>
-    <div class="facts">
-      <div class="fact"><h3>Education</h3><p>Bachelor of Theology and Islamic Studies (BTIS), Haidergonj T. R. M. Kamil (M.A.) Madrasah, Lakshmipur, 2016–2019</p></div>
-      <div class="fact"><h3>Languages</h3><p>Bengali, native. English, professional working proficiency (self-assessed CEFR B1–B2).</p></div>
+  </div>
+</section>
+
+<!-- Expertise -->
+<section class="section" id="expertise" aria-labelledby="exp-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="exp-title">{{t:ex.title}}</h2>
+      <p>{{t:ex.sub}}</p>
+    </div>
+    <ul class="levels" aria-label="{{t:ex.key}}">
+      <li><span class="lv daily" aria-hidden="true"></span>{{t:ex.daily}}</li>
+      <li><span class="lv working" aria-hidden="true"></span>{{t:ex.working}}</li>
+    </ul>
+    <div class="skill-grid">
+      <section class="skill-group" aria-labelledby="sg1">
+        <header><span class="sg-icon">{{icon:server}}</span><h3 id="sg1">{{t:ex.g1}}</h3></header>
+        <ul>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g1.a}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g1.b}}</li>
+          <li><span class="lv working" title="{{t:ex.working.s}}"></span><span class="sr-only">{{t:ex.working.s}}: </span>{{t:ex.g1.c}}</li>
+          <li><span class="lv working" title="{{t:ex.working.s}}"></span><span class="sr-only">{{t:ex.working.s}}: </span>{{t:ex.g1.d}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g1.e}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g1.f}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g1.g}}</li>
+        </ul>
+      </section>
+      <section class="skill-group" aria-labelledby="sg2">
+        <header><span class="sg-icon">{{icon:network}}</span><h3 id="sg2">{{t:ex.g2}}</h3></header>
+        <ul>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g2.a}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g2.b}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g2.c}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g2.d}}</li>
+          <li><span class="lv working" title="{{t:ex.working.s}}"></span><span class="sr-only">{{t:ex.working.s}}: </span>{{t:ex.g2.e}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g2.f}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g2.g}}</li>
+        </ul>
+      </section>
+      <section class="skill-group" aria-labelledby="sg3">
+        <header><span class="sg-icon">{{icon:support}}</span><h3 id="sg3">{{t:ex.g3}}</h3></header>
+        <ul>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g3.a}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g3.b}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g3.c}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g3.d}}</li>
+          <li><span class="lv working" title="{{t:ex.working.s}}"></span><span class="sr-only">{{t:ex.working.s}}: </span>{{t:ex.g3.e}}</li>
+          <li><span class="lv daily" title="{{t:ex.daily.s}}"></span><span class="sr-only">{{t:ex.daily.s}}: </span>{{t:ex.g3.f}}</li>
+        </ul>
+      </section>
+      <section class="skill-group" aria-labelledby="sg4">
+        <header><span class="sg-icon">{{icon:code}}</span><h3 id="sg4">{{t:ex.g4}}</h3></header>
+        <ul>
+          <li><span class="lv working" title="{{t:ex.working.s}}"></span><span class="sr-only">{{t:ex.working.s}}: </span>{{t:ex.g4.a}}</li>
+          <li><span class="lv working" title="{{t:ex.working.s}}"></span><span class="sr-only">{{t:ex.working.s}}: </span>{{t:ex.g4.b}}</li>
+          <li><span class="lv working" title="{{t:ex.working.s}}"></span><span class="sr-only">{{t:ex.working.s}}: </span>{{t:ex.g4.c}}</li>
+        </ul>
+      </section>
     </div>
   </div>
 </section>
 
-<!-- Credentials -->
-<section class="section" id="credentials" aria-labelledby="cr-title">
+<!-- Services -->
+<section class="section services" id="services" aria-labelledby="sv-title">
   <div class="wrap">
     <div class="section-head">
-      <h2 id="cr-title">Credentials, training and what I am studying now</h2>
-      <p>Each item is labelled by what it is, so a training course is never mistaken for a vendor certification.</p>
+      <h2 id="sv-title">{{t:sv.title}}</h2>
+      <p>{{t:sv.sub}}</p>
     </div>
+    <div class="reel">
+      <video id="reel" muted loop playsinline preload="none" poster="{{root}}assets/media/infrastructure-loop.jpg" aria-hidden="true">
+        <source src="{{root}}assets/media/infrastructure-loop.mp4" type="video/mp4">
+      </video>
+      <div class="reel-copy">
+        <p>{{t:sv.reel}}</p>
+      </div>
+    </div>
+    <ul class="svc-grid">
+      <li class="svc"><span class="svc-icon">{{icon:support}}</span><h3>{{t:sv.s1.t}}</h3><p>{{t:sv.s1.d}}</p></li>
+      <li class="svc"><span class="svc-icon">{{icon:network}}</span><h3>{{t:sv.s2.t}}</h3><p>{{t:sv.s2.d}}</p></li>
+      <li class="svc"><span class="svc-icon">{{icon:cloud}}</span><h3>{{t:sv.s3.t}}</h3><p>{{t:sv.s3.d}}</p></li>
+      <li class="svc"><span class="svc-icon">{{icon:users}}</span><h3>{{t:sv.s4.t}}</h3><p>{{t:sv.s4.d}}</p></li>
+      <li class="svc"><span class="svc-icon">{{icon:camera}}</span><h3>{{t:sv.s5.t}}</h3><p>{{t:sv.s5.d}}</p></li>
+      <li class="svc"><span class="svc-icon">{{icon:server}}</span><h3>{{t:sv.s6.t}}</h3><p>{{t:sv.s6.d}}</p></li>
+      <li class="svc"><span class="svc-icon">{{icon:building}}</span><h3>{{t:sv.s7.t}}</h3><p>{{t:sv.s7.d}}</p></li>
+      <li class="svc"><span class="svc-icon">{{icon:code}}</span><h3>{{t:sv.s8.t}}</h3><p>{{t:sv.s8.d}}</p></li>
+    </ul>
+    <div class="engage">
+      <h3>{{t:sv.how}}</h3>
+      <ol class="engage-list">
+        <li><span class="engage-icon">{{icon:briefcase}}</span><div><h4>{{t:sv.e1.t}}</h4><p>{{t:sv.e1.d}}</p></div></li>
+        <li><span class="engage-icon">{{icon:calendar}}</span><div><h4>{{t:sv.e2.t}}</h4><p>{{t:sv.e2.d}}</p></div></li>
+        <li><span class="engage-icon">{{icon:support}}</span><div><h4>{{t:sv.e3.t}}</h4><p>{{t:sv.e3.d}}</p></div></li>
+      </ol>
+      <a class="btn primary" href="#contact">{{t:sv.cta}} {{icon:arrow}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section" id="projects" aria-labelledby="proj-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="proj-title">{{t:pj.title}}</h2>
+      <p>{{t:pj.sub}}</p>
+    </div>
+
+    <article class="feature" aria-labelledby="fx-title">
+      <div class="feature-preview" aria-hidden="true">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><i></i><span>fixibleit.com</span></div>
+          <div class="browser-body">
+            <div class="bb-nav"><b>FIXIBLE IT</b><span>Home</span><span>Products</span><span>Services</span><span>About</span><span>Contact</span></div>
+            <p class="bb-h">Your Technology Partner, From Setup to Support.</p>
+            <div class="bb-chips"><span>Office network &amp; Wi-Fi</span><span>Email &amp; Microsoft 365</span><span>Monthly IT support</span><span>VLAN, VPN &amp; MikroTik</span><span>CCTV &amp; access</span><span>Custom PC builds</span></div>
+            <div class="bb-cats"><span>PC components</span><span>Networking</span><span>CCTV &amp; surveillance</span><span>Office &amp; productivity</span></div>
+          </div>
+        </div>
+        <p class="preview-note">{{t:fx.previewnote}}</p>
+      </div>
+      <div class="feature-copy">
+        <p class="feature-role">{{t:fx.role}}</p>
+        <h3 id="fx-title">Fixible IT</h3>
+        <p>{{t:fx.desc}}</p>
+        <div class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">Kadence child theme</span><span class="tag">PHP</span><span class="tag">cPanel</span></div>
+        <div class="status-cols">
+          <div><h4><span class="status"></span>{{t:fx.live}}</h4><ul><li>{{t:fx.l1}}</li><li>{{t:fx.l2}}</li><li>{{t:fx.l3}}</li></ul></div>
+          <div><h4><span class="status dev"></span>{{t:fx.now}}</h4><ul><li>{{t:fx.n1}}</li><li>{{t:fx.n2}}</li><li>{{t:fx.n3}}</li></ul></div>
+          <div><h4><span class="status info"></span>{{t:fx.next}}</h4><ul><li>{{t:fx.p1}}</li><li>{{t:fx.p2}}</li></ul></div>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="https://fixibleit.com/" rel="noopener">{{t:fx.visit}} {{icon:external}}</a>
+          <a class="btn" href="{{root}}projects/fixible-it/">{{t:fx.details}}</a>
+        </div>
+      </div>
+    </article>
+
+    <div class="projects">
+      <a class="project" href="{{root}}projects/hossain-onedesk/">
+        <div><h3>Hossain OneDesk</h3><p>{{t:pj.od}}</p></div>
+        <div><div class="meta"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span></div><span class="status">{{t:pj.od.s}}</span></div>
+        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
+      </a>
+      <a class="project" href="{{root}}projects/onedesk-cheque-writer/">
+        <div><h3>OneDesk Cheque Writer</h3><p>{{t:pj.cw}}</p></div>
+        <div><div class="meta"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span></div><span class="status dev">{{t:pj.cw.s}}</span></div>
+        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
+      </a>
+      <a class="project" href="{{root}}projects/it-command-center/">
+        <div><h3>Personal IT Command Center</h3><p>{{t:pj.cc}}</p></div>
+        <div><div class="meta"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Canvas</span></div><span class="status info">{{t:pj.cc.s}}</span></div>
+        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
+      </a>
+    </div>
+    <p class="en-note">{{t:pj.ennote}}</p>
+  </div>
+</section>
+
+<!-- Insights -->
+<section class="section lab" id="insights" aria-labelledby="in-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="in-title">{{t:in.title}}</h2>
+      <p>{{t:in.sub}}</p>
+    </div>
+    <div class="lab-shell" id="lab-app">
+      <div class="lab-tabs" role="tablist" aria-label="{{t:in.tabs}}" id="lab-tabs"></div>
+      <div class="lab-stage" id="lab-stage" role="tabpanel" tabindex="0" aria-live="polite">
+        <noscript><p style="padding:1.5rem">{{t:in.noscript}}</p></noscript>
+      </div>
+    </div>
+    <div class="insights-foot">
+      <p class="lab-disclaimer">{{t:in.disclaimer}}</p>
+      <a class="btn" href="{{root}}knowledge/">{{t:in.hub}} {{icon:arrow}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Achievements -->
+<section class="section" id="achievements" aria-labelledby="ac-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="ac-title">{{t:ac.title}}</h2>
+      <p>{{t:ac.sub}}</p>
+    </div>
+    <dl class="figures">
+      <div><dt>{{t:ac.f1.k}}</dt><dd><b>8+</b> {{t:ac.f1.v}}</dd></div>
+      <div><dt>{{t:ac.f2.k}}</dt><dd><b>150+</b> {{t:ac.f2.v}}</dd></div>
+      <div><dt>{{t:ac.f3.k}}</dt><dd><b>256</b> {{t:ac.f3.v}}</dd></div>
+      <div><dt>{{t:ac.f4.k}}</dt><dd><b>98%+</b> {{t:ac.f4.v}}</dd></div>
+      <div><dt>{{t:ac.f5.k}}</dt><dd><b>99.9%</b> {{t:ac.f5.v}}</dd></div>
+    </dl>
+    <h3 class="creds-title">{{t:ac.creds}}</h3>
     <div class="creds">
       <div class="cred">
-        <div><h3>Google IT Support Professional Certificate</h3><p>Troubleshooting, networking, operating systems, system administration and security.</p></div>
-        <div><span class="badge pro">Professional certificate</span><p>Google, via Coursera</p></div>
-        <div class="when">Sep 2026</div>
-        <div><a href="https://www.coursera.org/account/accomplishments/professional-cert/3IWOZXU2M3HX" rel="noopener">Verify on Coursera</a></div>
+        <div><h4>Google IT Support Professional Certificate</h4><p>{{t:ac.c1.d}}</p></div>
+        <div><span class="badge pro">{{t:ac.c1.type}}</span><p>Google, Coursera</p></div>
+        <div class="when">{{t:ac.c1.when}}</div>
+        <div><a href="https://www.coursera.org/account/accomplishments/professional-cert/3IWOZXU2M3HX" rel="noopener">{{t:ac.verify}}</a></div>
       </div>
       <div class="cred">
-        <div><h3>CCNA 200-301 course</h3><p>IP addressing and subnetting, IPv4/IPv6, VLANs, routing, switching and network security. Course ran April–October 2022.</p></div>
-        <div><span class="badge train">Training certificate</span><p>Creative IT Institute</p></div>
-        <div class="when">Jan 2023</div>
-        <div><a href="https://certificate.citsmp.com/?certificate_id=ECCNA-22020102" rel="noopener">Verify certificate</a></div>
-      </div>
-      <div class="cred">
-        <div><h3>Cisco CCNA</h3><p>Continuing professional development towards the official Cisco certification, building on the completed course above.</p></div>
-        <div><span class="badge learn">Learning now</span><p>Cisco</p></div>
-        <div class="when">In progress</div>
-        <div></div>
-      </div>
-      <div class="cred">
-        <div><h3>MikroTik MTCNA</h3><p>MikroTik networking training towards the MikroTik Certified Network Associate level.</p></div>
-        <div><span class="badge learn">Learning now</span><p>MikroTik</p></div>
-        <div class="when">In progress</div>
-        <div></div>
-      </div>
-    </div>
-    <p class="cred-note">The CCNA course certificate is issued by a training institute. It is not the official Cisco Certified Network Associate credential, which is listed separately as in progress.</p>
-  </div>
-</section>
-
-<!-- Knowledge & resources -->
-<section class="section" id="knowledge" aria-labelledby="kn-title">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 id="kn-title">Practical material you can use</h2>
-    </div>
-    <div class="split">
-      <div class="panel">
-        <h3>Knowledge Hub</h3>
-        <p>A searchable library of the Infrastructure Lab explainers, organised by topic. Written guides will be added here as they are published.</p>
-        <ul class="linklist">
-          <li><a href="knowledge/?topic=Networking">Networking <small>explainers</small></a></li>
-          <li><a href="knowledge/?topic=Microsoft%20365">Microsoft 365 <small>explainers</small></a></li>
-          <li><a href="knowledge/?topic=Cybersecurity%20fundamentals">Cybersecurity fundamentals <small>explainers</small></a></li>
-        </ul>
-        <a class="btn" href="knowledge/">Open the Knowledge Hub {{icon:arrow}}</a>
-      </div>
-      <div class="panel">
-        <h3>Documents</h3>
-        <p>Material that is safe to share publicly.</p>
-        <ul class="linklist">
-          <li><a href="cv/MD_Hossain_CV.pdf" download>Curriculum vitae <small>PDF, 100 KB</small></a></li>
-          <li><a href="#lab">Interactive network diagrams <small>11 topics</small></a></li>
-          <li><a href="#credentials">Learning roadmap <small>CCNA, MTCNA</small></a></li>
-          <li><a href="projects/it-command-center/">How this site was built <small>case study</small></a></li>
-        </ul>
+        <div><h4>{{t:ac.c2.name}}</h4><p>{{t:ac.c2.d}}</p></div>
+        <div><span class="badge train">{{t:ac.c2.type}}</span><p>Creative IT Institute</p></div>
+        <div class="when">{{t:ac.c2.when}}</div>
+        <div><a href="https://certificate.citsmp.com/?certificate_id=ECCNA-22020102" rel="noopener">{{t:ac.verify}}</a></div>
       </div>
     </div>
   </div>
@@ -366,22 +336,33 @@
 <section class="section contact" id="contact" aria-labelledby="ct-title">
   <div class="wrap contact-card">
     <div>
-      <h2 id="ct-title">Let’s build reliable IT together.</h2>
-      <p class="muted">Open to IT support, systems administration, network infrastructure and multi-site operations roles. Email is the fastest way to reach me.</p>
+      <h2 id="ct-title">{{t:ct.title}}</h2>
+      <p class="muted">{{t:ct.sub}}</p>
       <div class="email-row">
         <a href="mailto:mdhossain.cloud@gmail.com">mdhossain.cloud@gmail.com</a>
-        <button class="btn quiet" type="button" data-copy="mdhossain.cloud@gmail.com">{{icon:copy}} Copy</button>
+        <button class="btn quiet" type="button" data-copy="mdhossain.cloud@gmail.com">{{icon:copy}} {{t:ct.copy}}</button>
       </div>
-      <div class="btns">
-        <a class="btn primary" href="mailto:mdhossain.cloud@gmail.com">{{icon:mail}} Email me</a>
-        <a class="btn" href="cv/MD_Hossain_CV.pdf" download>{{icon:download}} Download CV</a>
-      </div>
+      <ul class="channels">
+        <li><a href="https://www.linkedin.com/in/mdhossain-cloud" rel="noopener">{{icon:linkedin}}<span>LinkedIn</span><small>mdhossain-cloud</small></a></li>
+        <li><a href="https://github.com/mdhossaincloud" rel="noopener">{{icon:github}}<span>GitHub</span><small>mdhossaincloud</small></a></li>
+        <li><a href="https://fixibleit.com/" rel="noopener">{{icon:external}}<span>Fixible IT</span><small>info@fixibleit.com</small></a></li>
+        <li><a href="https://facebook.com/fixibleit" rel="noopener">{{icon:facebook}}<span>Facebook</span><small>Fixible IT</small></a></li>
+        <li><span class="row">{{icon:pin}}<span>{{t:ct.loc}}</span><small>{{t:ui.place}}</small></span></li>
+      </ul>
     </div>
-    <ul class="channels">
-      <li><a href="https://www.linkedin.com/in/mdhossain-cloud" rel="noopener">{{icon:linkedin}}<span>LinkedIn</span><small>mdhossain-cloud</small></a></li>
-      <li><a href="https://github.com/mdhossaincloud" rel="noopener">{{icon:github}}<span>GitHub</span><small>mdhossaincloud</small></a></li>
-      <li><span class="row">{{icon:pin}}<span>Location</span><small>Dhaka, Bangladesh</small></span></li>
-    </ul>
+    <form class="compose" id="compose" novalidate>
+      <h3>{{t:ct.form.title}}</h3>
+      <div class="field"><label for="c-name">{{t:ct.form.name}}</label><input id="c-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="c-email">{{t:ct.form.email}}</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="c-topic">{{t:ct.form.topic}}</label>
+        <select id="c-topic" name="topic">
+          <option>{{t:ct.form.o1}}</option><option>{{t:ct.form.o2}}</option><option>{{t:ct.form.o3}}</option><option>{{t:ct.form.o4}}</option>
+        </select></div>
+      <div class="field"><label for="c-msg">{{t:ct.form.msg}}</label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+      <p class="form-error" id="c-error" role="alert" hidden>{{t:ct.form.error}}</p>
+      <button class="btn primary" type="submit">{{icon:mail}} {{t:ct.form.send}}</button>
+      <p class="form-note">{{t:ct.form.note}}</p>
+    </form>
   </div>
 </section>
 

@@ -8,7 +8,7 @@ Personal website of **Md. Hossain**, IT support specialist and systems & network
 
 | Path | Purpose |
 |---|---|
-| `index.html` | Home: hero with 3D network scene, about, expertise, Infrastructure Lab, projects, experience, certifications, resources, contact |
+| `index.html`, `de/` `fr/` `es/` `it/` `pt/` `nl/` `zh/` | Home page in 8 languages: hero with 3D network, about with scroll-assembled portrait, experience, expertise, services, Fixible IT feature, insights lab, achievements, contact |
 | `projects/*/index.html` | Case studies: Hossain OneDesk, OneDesk Cheque Writer, Fixible IT, this website |
 | `knowledge/index.html` | Knowledge Hub: searchable library of lab explainers and published guides |
 | `404.html` | Not-found page (root-absolute paths) |
@@ -17,13 +17,17 @@ Personal website of **Md. Hossain**, IT support specialist and systems & network
 | `assets/js/scene.js` | Dependency-free 3D network scene (Canvas 2D + perspective projection) |
 | `assets/js/lab-data.js`, `lab.js` | Infrastructure Lab content and renderer |
 | `assets/js/articles.js`, `hub.js` | Published guides list and Knowledge Hub search |
-| `assets/fonts/` | Self-hosted Archivo and IBM Plex (SIL Open Font License) |
+| `assets/js/portrait.js` | Portrait that assembles from fragments on scroll |
+| `assets/media/` | 8-second motion loop (MP4) and poster |
+| `assets/img/portrait.jpg` | Portrait image: replace with a real photo (640×800 or larger, 4:5) |
+| `assets/fonts/` | Self-hosted Archivo and IBM Plex, Latin subset (SIL Open Font License) |
+| `_build/i18n/*.json` | Translations; English is the source and fallback |
 | `cv/MD_Hossain_CV.pdf` | Downloadable CV |
 | `_build/` | Page sources and `build.py` (not published by GitHub Pages) |
 
 ## Editing content
 
-1. Edit the page source in `_build/pages/` (not the generated HTML).
+1. Edit the page source in `_build/pages/` and text in `_build/i18n/` (not the generated HTML).
 2. Run `python3 _build/build.py` to regenerate the pages and `sitemap.xml`.
 3. Preview locally: `python3 -m http.server 8000` and open http://localhost:8000.
 4. Commit both the source and the generated files.
