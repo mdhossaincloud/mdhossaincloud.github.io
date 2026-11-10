@@ -140,6 +140,39 @@
     });
   }
 
+
+  /* ---------- Local time in Dhaka (footer) ---------- */
+  const clock = d.getElementById('dhaka-time');
+  if (clock && window.Intl) {
+    const fmt = new Intl.DateTimeFormat(root.lang || 'en', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Dhaka' });
+    const tick = () => { clock.textContent = fmt.format(new Date()) + ' (GMT+6)'; };
+    tick();
+    setInterval(tick, 30000);
+  }
+
+  /* ---------- Section headings: one quiet reveal ---------- */
+  if ('IntersectionObserver' in window && !reduce.matches) {
+    const heads = [...d.querySelectorAll('main .section .section-head')];
+    const io = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    }), { rootMargin: '0px 0px -12% 0px' });
+    heads.forEach((h) => {
+      if (h.getBoundingClientRect().top > innerHeight) { h.classList.add('rv'); io.observe(h); }
+    });
+  }
+
+  /* ---------- Guide pages: highlight the current section in the contents ---------- */
+  const tocLinks = [...d.querySelectorAll('.toc a')];
+  if (tocLinks.length && 'IntersectionObserver' in window) {
+    const map = new Map(tocLinks.map((a) => [decodeURIComponent(a.hash.slice(1)), a]));
+    const tio = new IntersectionObserver((entries) => entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      tocLinks.forEach((a) => a.removeAttribute('aria-current'));
+      map.get(en.target.id)?.setAttribute('aria-current', 'true');
+    }), { rootMargin: '-20% 0px -70% 0px' });
+    map.forEach((_, id) => { const h = d.getElementById(id); if (h) tio.observe(h); });
+  }
+
   /* ---------- Motion reel: plays only on screen, never under reduced motion ---------- */
   const reel = d.getElementById('reel');
   if (reel && 'IntersectionObserver' in window) {

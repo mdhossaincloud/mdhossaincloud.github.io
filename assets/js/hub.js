@@ -11,16 +11,17 @@
     'Cybersecurity fundamentals', 'IT infrastructure', 'IT career development', 'Practical IT guides'];
 
   const items = [
+    ...(window.ARTICLES || []).map((a) => ({
+      title: a.title, summary: a.summary, topic: a.topic, url: a.url, kind: 'Guide', level: a.level,
+      extra: a.minutes ? a.minutes + ' min read' : '', text: [a.title, a.summary, a.topic, a.text].join(' '),
+    })),
     ...(window.LAB_TOPICS || []).map((t) => ({
       title: t.title, summary: t.intro, topic: t.topic, url: '../#lab-' + t.id,
       kind: 'Interactive explainer', extra: t.kind === 'stack' ? t.layers.length + ' layers' : t.steps.length + ' steps',
       text: [t.title, t.intro, t.short, ...(t.steps || []).map((s) => s.title + ' ' + s.text), ...(t.layers || []).map((l) => l.name + ' ' + l.ex + ' ' + l.what)].join(' '),
     })),
-    ...(window.ARTICLES || []).map((a) => ({
-      title: a.title, summary: a.summary, topic: a.topic, url: a.url, kind: 'Guide',
-      extra: a.minutes ? a.minutes + ' min read' : '', text: a.title + ' ' + a.summary,
-    })),
   ];
+  const gloss = [...document.querySelectorAll('#glossary-list > div')];
 
   const params = new URLSearchParams(location.search);
   let topic = CATEGORIES.includes(params.get('topic')) ? params.get('topic') : null;
@@ -55,6 +56,7 @@
       const a = mk('a'); a.href = i.url;
       const meta = mk('div', 'meta');
       meta.append(mk('span', 'tag', i.kind), mk('span', 'tag', i.topic));
+      if (i.level) meta.append(mk('span', 'tag lvl', i.level));
       if (i.extra) meta.append(mk('span', 'tag', i.extra));
       a.append(mk('h3', null, i.title), mk('p', null, i.summary), meta);
       li.appendChild(a);
@@ -69,10 +71,11 @@
     }
     count.textContent = `${res.length} ${res.length === 1 ? 'item' : 'items'}${topic ? ' in ' + topic : ''}${terms.length ? ' matching "' + q.value.trim() + '"' : ''}`;
     renderFilters();
+    gloss.forEach((g) => { g.hidden = terms.length > 0 && !terms.every((t) => g.textContent.toLowerCase().includes(t)); });
     const p = new URLSearchParams();
     if (topic) p.set('topic', topic);
     if (q.value.trim()) p.set('q', q.value.trim());
-    history.replaceState?.(null, '', location.pathname + (p.toString() ? '?' + p : ''));
+    history.replaceState?.(null, '', location.pathname + (p.toString() ? '?' + p : '') + location.hash);
   }
   q.addEventListener('input', update);
   update();

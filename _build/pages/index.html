@@ -4,7 +4,7 @@
   "title_key": "meta.title",
   "desc_key": "meta.description",
   "ogtype": "profile",
-  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js"]
+  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js", "rack.js"]
 } -->
 <canvas id="bg" aria-hidden="true"></canvas>
 <main id="main">
@@ -224,6 +224,7 @@
         <span class="go" aria-hidden="true">{{icon:arrow}}</span>
       </a>
     </div>
+    <p class="src-note">{{icon:code}}<span>{{t:pj.src}}</span></p>
     <p class="en-note">{{t:pj.ennote}}</p>
   </div>
 </section>
@@ -270,7 +271,43 @@
     </div>
     <div class="insights-foot">
       <p class="lab-disclaimer">{{t:in.disclaimer}}</p>
+    </div>
+    <div class="guides-row">
+      <h3>{{t:in.guides}}</h3>
+      <p class="en-note">{{t:in.guides.note}}</p>
+      <ul class="guide-cards">
+        <li><a href="{{root}}knowledge/microsoft-365-basics/" lang="en"><span>Microsoft 365</span><b>Microsoft 365 basics: what is inside and how it fits together</b></a></li>
+        <li><a href="{{root}}knowledge/no-internet-troubleshooting/" lang="en"><span>IT troubleshooting</span><b>“The internet is down”: a step-by-step method</b></a></li>
+        <li><a href="{{root}}knowledge/cctv-storage-planning/" lang="en"><span>IT infrastructure</span><b>How much storage does a CCTV system need? With a calculator</b></a></li>
+      </ul>
       <a class="btn" href="{{root}}knowledge/">{{t:in.hub}} {{icon:arrow}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Server rack: scroll-driven 3D walkthrough -->
+<section class="section rack" id="rack" aria-labelledby="rk-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="rk-title">{{t:rk.title}}</h2>
+      <p>{{t:rk.sub}}</p>
+    </div>
+    <div class="rack-story" id="rack-story">
+      <div class="rack-pin">
+        <figure class="rack-fig">
+          <canvas id="rack3d" role="img" aria-label="{{t:rk.aria}}"></canvas>
+          <figcaption class="scene-note">{{t:rk.note}}</figcaption>
+        </figure>
+      </div>
+      <ol class="rack-steps">
+        <li><span class="rk-u">U23</span><h3>{{t:rk.u1.t}}</h3><p>{{t:rk.u1.d}}</p></li>
+        <li><span class="rk-u">U22</span><h3>{{t:rk.u2.t}}</h3><p>{{t:rk.u2.d}}</p></li>
+        <li><span class="rk-u">U20</span><h3>{{t:rk.u3.t}}</h3><p>{{t:rk.u3.d}}</p></li>
+        <li><span class="rk-u">U15–U18</span><h3>{{t:rk.u4.t}}</h3><p>{{t:rk.u4.d}}</p></li>
+        <li><span class="rk-u">U10–U11</span><h3>{{t:rk.u5.t}}</h3><p>{{t:rk.u5.d}}</p></li>
+        <li><span class="rk-u">U2–U3</span><h3>{{t:rk.u6.t}}</h3><p>{{t:rk.u6.d}}</p></li>
+        <li class="rk-end"><span class="rk-u">01001001 01010100</span><h3>{{t:rk.end.t}}</h3><p>{{t:rk.end.d}}</p></li>
+      </ol>
     </div>
   </div>
 </section>

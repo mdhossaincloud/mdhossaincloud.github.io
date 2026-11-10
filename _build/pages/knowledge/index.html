@@ -1,7 +1,7 @@
 <!--meta {
   "path": "knowledge/",
-  "title": "Knowledge Hub: networking, Microsoft 365 and IT infrastructure explainers | Md. Hossain",
-  "description": "Searchable, interactive explainers on the OSI model, VLANs, site-to-site VPN, DNS, DHCP, firewalls, Microsoft 365 identity and CCTV/NVR networks.",
+  "title": "Knowledge Hub: practical IT guides, interactive explainers and glossary | Md. Hossain",
+  "description": "Free, practical IT learning: Microsoft 365, Active Directory, PowerShell, networking, MikroTik, CCTV storage, backups and security basics, with interactive explainers and a plain-English glossary.",
   "active": "knowledge",
   "scripts": ["lab-data.js", "articles.js", "hub.js"],
   "trail": [["Home", ""], ["Knowledge Hub", "knowledge/"]]
@@ -13,24 +13,110 @@
       <li><a href="{{root}}">Home</a></li><li><span aria-current="page">Knowledge Hub</span></li>
     </ol></nav>
     <h1>Knowledge Hub</h1>
-    <p class="lead">Practical explanations of the networking and systems concepts behind everyday IT support. Start with the interactive explainers; written guides are added as they are published.</p>
+    <p class="lead">Practical IT knowledge from eight years of supporting real offices: written guides, interactive explainers and a plain-English glossary. Useful whether you are starting out in IT, managing a team, or simply want to understand how business technology works.</p>
   </div>
 </section>
 
-<section class="section" aria-labelledby="lib-title">
+<section class="section" id="paths" aria-labelledby="paths-title">
   <div class="wrap">
-    <h2 id="lib-title" class="sr-only">Library</h2>
+    <h2 id="paths-title" class="hub-sec-title">Learning paths</h2>
+    <div class="hub-intro">
+      <div class="path">
+        <h3>Starting out in IT</h3>
+        <p>For students, new help-desk staff and career changers.</p>
+        <ol>
+          <li><a href="it-support-career-roadmap/">A practical IT support career roadmap</a></li>
+          <li><a href="no-internet-troubleshooting/">A step-by-step troubleshooting method</a></li>
+          <li><a href="ip-addressing-subnetting-basics/">IP addresses, subnets and gateways</a></li>
+          <li><a href="{{root}}#lab-osi">The OSI model <small>interactive</small></a></li>
+        </ol>
+      </div>
+      <div class="path">
+        <h3>Running Microsoft 365 and Windows</h3>
+        <p>For administrators of small and medium offices.</p>
+        <ol>
+          <li><a href="microsoft-365-basics/">Microsoft 365 basics</a></li>
+          <li><a href="m365-mfa-security-defaults/">Turning on MFA in Microsoft 365</a></li>
+          <li><a href="active-directory-basics/">Active Directory basics</a></li>
+          <li><a href="powershell-first-commands/">PowerShell for IT support</a></li>
+          <li><a href="it-onboarding-offboarding-checklist/">Onboarding and offboarding checklist</a></li>
+        </ol>
+      </div>
+      <div class="path">
+        <h3>Networks, security and resilience</h3>
+        <p>For anyone responsible for keeping an office connected and safe.</p>
+        <ol>
+          <li><a href="mikrotik-first-day-hardening/">Securing a new MikroTik router</a></li>
+          <li><a href="{{root}}#lab-vpn">Site-to-site VPN <small>interactive</small></a></li>
+          <li><a href="security-basics-for-staff/">Security basics for every employee</a></li>
+          <li><a href="backup-3-2-1-rule/">The 3-2-1 backup rule</a></li>
+          <li><a href="cctv-storage-planning/">CCTV storage planning, with a calculator</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="library" aria-labelledby="lib-title">
+  <div class="wrap">
+    <h2 id="lib-title" class="hub-sec-title">Library</h2>
     <div class="hub-tools">
       <label class="search" for="hub-q">
-        <span class="sr-only">Search the Knowledge Hub</span>
+        <span class="sr-only">Search guides, explainers and glossary</span>
         {{icon:search}}
-        <input id="hub-q" type="search" placeholder="Search, for example VPN, DNS or VLAN" autocomplete="off">
+        <input id="hub-q" type="search" placeholder="Search, for example MFA, DNS or VLAN" autocomplete="off">
       </label>
     </div>
     <div class="filters" id="hub-filters" role="group" aria-label="Filter by category"></div>
     <p class="hub-count" id="hub-count" aria-live="polite"></p>
     <ul class="hub-list" id="hub-list"></ul>
-    <noscript><p class="hub-empty">Search needs JavaScript. All explainers are in the <a href="{{root}}#insights">Infrastructure Lab</a> on the home page.</p></noscript>
+    <noscript><p class="hub-empty">Search needs JavaScript. Use the learning paths above, or the <a href="{{root}}#insights">Infrastructure Lab</a> on the home page.</p></noscript>
+  </div>
+</section>
+
+<section class="section" id="glossary" aria-labelledby="gl-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="gl-title">IT glossary</h2>
+      <p>The terms that come up most in business IT, in one or two plain sentences. The search box above filters this list too.</p>
+    </div>
+    <dl class="glossary" id="glossary-list">
+      <div><dt>Access point <small>AP</small></dt><dd>A device that provides Wi-Fi to wired networks. Offices use several, managed together, for even coverage.</dd></div>
+      <div><dt>Active Directory <small>AD</small></dt><dd>Microsoft's directory for on-premises Windows networks: user accounts, computers, groups and policies. <a href="active-directory-basics/">Guide</a></dd></div>
+      <div><dt>Backup</dt><dd>A separate copy of data kept so it can be restored after deletion, failure or attack. Follow the <a href="backup-3-2-1-rule/">3-2-1 rule</a>.</dd></div>
+      <div><dt>Bandwidth</dt><dd>How much data a connection can carry per second, usually in megabits per second (Mbps).</dd></div>
+      <div><dt>Conditional Access</dt><dd>Microsoft Entra rules that decide whether a sign-in is allowed, for example only with MFA or only from company devices.</dd></div>
+      <div><dt>DHCP</dt><dd>The service that automatically gives devices an IP address, gateway and DNS settings when they join a network. <a href="{{root}}#lab-dhcp">Explainer</a></dd></div>
+      <div><dt>DNS</dt><dd>The internet's phone book: it turns names like microsoft.com into IP addresses. <a href="{{root}}#lab-dns">Explainer</a></dd></div>
+      <div><dt>Domain controller <small>DC</small></dt><dd>A Windows Server that stores Active Directory and checks every sign-in on the network.</dd></div>
+      <div><dt>Endpoint</dt><dd>Any device people use or that connects to the network: laptops, desktops, phones, printers.</dd></div>
+      <div><dt>Entra ID</dt><dd>Microsoft's cloud identity service (formerly Azure AD) behind every Microsoft 365 sign-in.</dd></div>
+      <div><dt>Exchange Online</dt><dd>The email and calendar service in Microsoft 365.</dd></div>
+      <div><dt>Firewall</dt><dd>A device or service that allows or blocks network traffic according to rules. <a href="{{root}}#lab-firewall">Explainer</a></dd></div>
+      <div><dt>Gateway</dt><dd>The router address a device sends traffic to when the destination is on another network, usually the internet.</dd></div>
+      <div><dt>Group Policy <small>GPO</small></dt><dd>Settings pushed from Active Directory to users and computers, such as password rules or mapped drives.</dd></div>
+      <div><dt>Intune</dt><dd>Microsoft's service for managing and securing laptops and phones from the cloud.</dd></div>
+      <div><dt>IP address</dt><dd>The number that identifies a device on a network, such as 192.168.1.20. <a href="ip-addressing-subnetting-basics/">Guide</a></dd></div>
+      <div><dt>ISP</dt><dd>Internet service provider: the company that supplies an office's internet connection.</dd></div>
+      <div><dt>LAN / WAN</dt><dd>A local area network connects devices in one site; a wide area network connects sites to each other. <a href="{{root}}#lab-lanwan">Explainer</a></dd></div>
+      <div><dt>MFA</dt><dd>Multifactor authentication: a second proof, such as an app approval, on top of the password. <a href="m365-mfa-security-defaults/">Guide</a></dd></div>
+      <div><dt>NAS</dt><dd>Network-attached storage: a small box of disks on the network, often used for file shares and backups.</dd></div>
+      <div><dt>NAT</dt><dd>Network address translation: lets many private devices share one public internet address.</dd></div>
+      <div><dt>NVR</dt><dd>Network video recorder: records IP cameras over the network. <a href="cctv-storage-planning/">Storage guide</a></dd></div>
+      <div><dt>OneDrive / SharePoint</dt><dd>Microsoft 365 file storage: OneDrive for personal work files, SharePoint for shared team files. <a href="onedrive-sharepoint-teams/">Guide</a></dd></div>
+      <div><dt>Phishing</dt><dd>A fake message designed to make someone click a link, share a password or send money. <a href="security-basics-for-staff/">Guide</a></dd></div>
+      <div><dt>PoE</dt><dd>Power over Ethernet: one network cable carries both data and power, common for cameras and access points.</dd></div>
+      <div><dt>PowerShell</dt><dd>Windows' command line and scripting language for automating administration. <a href="powershell-first-commands/">Guide</a></dd></div>
+      <div><dt>Ransomware</dt><dd>Malware that encrypts files and demands payment. Offline backups and MFA are the best defences.</dd></div>
+      <div><dt>Router</dt><dd>Moves traffic between networks, for example between the office LAN and the internet. <a href="{{root}}#lab-routing">Explainer</a></dd></div>
+      <div><dt>SLA</dt><dd>Service level agreement: the agreed response and resolution times for support requests.</dd></div>
+      <div><dt>Subnet</dt><dd>A slice of a network defined by an address and mask, such as 10.10.10.0/24.</dd></div>
+      <div><dt>Switch</dt><dd>Connects wired devices within a network and forwards traffic to the right port.</dd></div>
+      <div><dt>Ticket</dt><dd>A recorded support request with its history, owner and status, kept in a help-desk tool such as ServiceNow.</dd></div>
+      <div><dt>UPS</dt><dd>Uninterruptible power supply: batteries that keep equipment running through short power cuts.</dd></div>
+      <div><dt>VLAN</dt><dd>A virtual LAN: separates traffic, such as staff, guests and cameras, on the same physical switches. <a href="{{root}}#lab-vlan">Explainer</a></dd></div>
+      <div><dt>VPN</dt><dd>An encrypted tunnel across the internet, linking a user or a whole branch to the office network. <a href="{{root}}#lab-vpn">Explainer</a></dd></div>
+    </dl>
   </div>
 </section>
 </main>
