@@ -1,0 +1,92 @@
+<!--meta {
+  "path": "projects/it-command-center/",
+  "title": "Personal IT Command Center: how this portfolio was built | Md. Hossain",
+  "description": "Case study: a static, dependency-light portfolio on GitHub Pages with a hand-built 3D network scene, an interactive infrastructure lab, self-hosted fonts and verified content.",
+  "active": "projects",
+  "trail": [["Home", ""], ["Projects", "#projects"], ["Personal IT Command Center", "projects/it-command-center/"]]
+} -->
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol>
+      <li><a href="{{root}}">Home</a></li><li><a href="{{root}}#projects">Projects</a></li><li><span aria-current="page">Personal IT Command Center</span></li>
+    </ol></nav>
+    <h1>Personal IT Command Center</h1>
+    <p class="lead">This website. A static portfolio that explains enterprise infrastructure visually, loads fast on a phone, and only says things that can be backed up.</p>
+    <div class="btns">
+      <a class="btn" href="https://github.com/mdhossaincloud/mdhossaincloud.github.io" rel="noopener">{{icon:github}} Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap case">
+  <article class="prose">
+    <h2>Problem</h2>
+    <p>The previous version (Cyber Command v2) was a clean single page, but it could not show how infrastructure fits together, had no room for project case studies or learning material, and mixed a training certificate with vendor certifications.</p>
+
+    <h2>Objective</h2>
+    <ul>
+      <li>Say who I am, what I solve and why I can be trusted within the first screen.</li>
+      <li>Use 3D only where it explains something: how offices, devices and tunnels connect.</li>
+      <li>Stay a plain static site on GitHub Pages, with no framework to maintain.</li>
+      <li>Keep every claim traceable to my CV or a public verification link.</li>
+    </ul>
+
+    <h2>Architecture</h2>
+    <div class="arch" role="img" aria-label="Architecture: page sources and a small Python build script produce static HTML pages; GitHub Pages serves them together with CSS, JavaScript modules for the 3D scene, the lab and the knowledge hub, and self-hosted fonts.">
+      <svg viewBox="0 0 640 190" aria-hidden="true">
+        <rect x="10" y="20" width="170" height="56" rx="10"/><text x="95" y="46" text-anchor="middle">Page sources</text><text class="sub" x="95" y="64" text-anchor="middle">_build/pages</text>
+        <rect x="10" y="100" width="170" height="56" rx="10"/><text x="95" y="126" text-anchor="middle">build.py</text><text class="sub" x="95" y="144" text-anchor="middle">header, footer, SEO</text>
+        <path d="M180 48h40l20 40M180 128h40l20-40"/>
+        <rect class="hl" x="240" y="60" width="160" height="60" rx="10"/><text x="320" y="87" text-anchor="middle">Static HTML</text><text class="sub" x="320" y="105" text-anchor="middle">committed output</text>
+        <path d="M400 90h50"/><path d="M440 84l10 6-10 6"/>
+        <rect x="450" y="20" width="180" height="44" rx="10"/><text x="540" y="47" text-anchor="middle">scene.js · 3D</text>
+        <rect x="450" y="70" width="180" height="44" rx="10"/><text x="540" y="97" text-anchor="middle">lab.js · explainers</text>
+        <rect x="450" y="120" width="180" height="44" rx="10"/><text x="540" y="147" text-anchor="middle">hub.js · search</text>
+      </svg>
+    </div>
+
+    <h2>Technology decisions</h2>
+    <ul>
+      <li><strong>No framework.</strong> The content is mostly static. Vanilla HTML, CSS and JavaScript keep the site fast and easy to maintain without a build pipeline on the server.</li>
+      <li><strong>3D without a 3D library.</strong> Three.js would add well over 100 KB of compressed JavaScript for a scene of a few dozen devices. Instead, a small script rotates and projects 3D coordinates itself and draws with Canvas 2D. It works in every modern browser, so there is no separate WebGL fallback to maintain.</li>
+      <li><strong>Data-driven lab.</strong> Each Infrastructure Lab topic is a data object (nodes, links, steps), drawn by one renderer. Adding a topic means adding data, not code.</li>
+      <li><strong>Self-hosted fonts.</strong> Archivo and IBM Plex are served from the site itself: no third-party font requests, and predictable loading.</li>
+      <li><strong>Templated pages.</strong> A short Python script adds the shared header, footer and metadata to each page, then the output is committed. GitHub Pages ignores the underscore folder that holds it.</li>
+    </ul>
+
+    <h2>Performance and accessibility</h2>
+    <ul>
+      <li>The 3D scene pauses when it is off-screen or the tab is hidden, and caps resolution on high-density screens.</li>
+      <li>With reduced motion enabled, the scene and the lab stop animating while staying fully usable.</li>
+      <li>Every interactive element works with a keyboard; the 3D scene has keyboard-accessible highlight controls and a text description.</li>
+      <li>Both themes are designed for readable contrast.</li>
+    </ul>
+
+    <h2>Challenges</h2>
+    <ul>
+      <li>Separating training certificates from vendor certifications, and showing ongoing study honestly as in progress.</li>
+      <li>Making a 3D scene that adds meaning on a phone without draining the battery.</li>
+      <li>Explaining networking concepts with generic examples, never with employer configurations.</li>
+    </ul>
+
+    <h2>Current status</h2>
+    <p>Version 3, released in November 2026. Earlier versions remain in the repository history.</p>
+  </article>
+
+  <aside aria-label="Project facts">
+    <dl>
+      <div><dt>Type</dt><dd>Personal website</dd></div>
+      <div><dt>Hosting</dt><dd>GitHub Pages</dd></div>
+      <div><dt>Stack</dt><dd class="meta"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Canvas 2D</span><span class="tag">Python build</span></dd></div>
+      <div><dt>Dependencies</dt><dd>None at runtime</dd></div>
+      <div><dt>Status</dt><dd><span class="status info">Version 3</span></dd></div>
+    </dl>
+  </aside>
+</div>
+
+<div class="wrap next-proj">
+  <a class="btn" href="{{root}}projects/fixible-it/">{{icon:prev}} Fixible IT</a>
+  <a class="btn" href="{{root}}#projects">All projects {{icon:arrow}}</a>
+</div>
+</main>

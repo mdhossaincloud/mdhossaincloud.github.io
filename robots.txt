@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mdhossaincloud.github.io/sitemap.xml

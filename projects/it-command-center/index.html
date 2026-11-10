@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal IT Command Center: how this portfolio was built | Md. Hossain</title>
+<meta name="description" content="Case study: a static, dependency-light portfolio on GitHub Pages with a hand-built 3D network scene, an interactive infrastructure lab, self-hosted fonts and verified content.">
+<link rel="canonical" href="https://mdhossaincloud.github.io/projects/it-command-center/">
+<meta name="author" content="Md. Hossain">
+<meta name="theme-color" content="#070d1a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Md. Hossain">
+<meta property="og:title" content="Personal IT Command Center: how this portfolio was built | Md. Hossain">
+<meta property="og:description" content="Case study: a static, dependency-light portfolio on GitHub Pages with a hand-built 3D network scene, an interactive infrastructure lab, self-hosted fonts and verified content.">
+<meta property="og:url" content="https://mdhossaincloud.github.io/projects/it-command-center/">
+<meta property="og:image" content="https://mdhossaincloud.github.io/assets/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Md. Hossain, IT infrastructure and systems support specialist, Dhaka">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Personal IT Command Center: how this portfolio was built | Md. Hossain">
+<meta name="twitter:description" content="Case study: a static, dependency-light portfolio on GitHub Pages with a hand-built 3D network scene, an interactive infrastructure lab, self-hosted fonts and verified content.">
+<meta name="twitter:image" content="https://mdhossaincloud.github.io/assets/img/og-card.png">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+<link rel="preload" href="../../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css?v=3.0.0">
+<script>/* theme before paint: dark by default, remembered choice wins */
+(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mdhossaincloud.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://mdhossaincloud.github.io/#projects"},{"@type":"ListItem","position":3,"name":"Personal IT Command Center","item":"https://mdhossaincloud.github.io/projects/it-command-center/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<header class="site-header" id="top">
+  <div class="wrap bar">
+    <a class="brand" href="../../" aria-label="Md. Hossain, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="var(--sf-2)" stroke="var(--ln-2)"/><path d="M6 22V10l4.5 6 4.5-6v12" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M19 10v12M26 10v12M19 16h7" fill="none" stroke="var(--acc)" stroke-width="2.2" stroke-linecap="round"/></svg><span>Md. Hossain<small>IT Infrastructure &amp; Systems</small></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="nav-links"><li><a href="../../#about" data-spy="about">About</a></li><li><a href="../../#expertise" data-spy="expertise">Expertise</a></li><li><a href="../../#lab" data-spy="lab">Infrastructure Lab</a></li><li><a href="../../#projects" data-spy="projects" aria-current="page">Projects</a></li><li><a href="../../#experience" data-spy="experience">Experience</a></li><li><a href="../../#credentials" data-spy="credentials">Certifications</a></li><li><a href="../../knowledge/" data-spy="knowledge">Knowledge Hub</a></li><li><a href="../../#contact" data-spy="contact">Contact</a></li></ul>
+    </nav>
+    <button class="icon-btn theme-btn" id="theme-btn" type="button" aria-label="Switch to light theme"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol>
+      <li><a href="../../">Home</a></li><li><a href="../../#projects">Projects</a></li><li><span aria-current="page">Personal IT Command Center</span></li>
+    </ol></nav>
+    <h1>Personal IT Command Center</h1>
+    <p class="lead">This website. A static portfolio that explains enterprise infrastructure visually, loads fast on a phone, and only says things that can be backed up.</p>
+    <div class="btns">
+      <a class="btn" href="https://github.com/mdhossaincloud/mdhossaincloud.github.io" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg> Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap case">
+  <article class="prose">
+    <h2>Problem</h2>
+    <p>The previous version (Cyber Command v2) was a clean single page, but it could not show how infrastructure fits together, had no room for project case studies or learning material, and mixed a training certificate with vendor certifications.</p>
+
+    <h2>Objective</h2>
+    <ul>
+      <li>Say who I am, what I solve and why I can be trusted within the first screen.</li>
+      <li>Use 3D only where it explains something: how offices, devices and tunnels connect.</li>
+      <li>Stay a plain static site on GitHub Pages, with no framework to maintain.</li>
+      <li>Keep every claim traceable to my CV or a public verification link.</li>
+    </ul>
+
+    <h2>Architecture</h2>
+    <div class="arch" role="img" aria-label="Architecture: page sources and a small Python build script produce static HTML pages; GitHub Pages serves them together with CSS, JavaScript modules for the 3D scene, the lab and the knowledge hub, and self-hosted fonts.">
+      <svg viewBox="0 0 640 190" aria-hidden="true">
+        <rect x="10" y="20" width="170" height="56" rx="10"/><text x="95" y="46" text-anchor="middle">Page sources</text><text class="sub" x="95" y="64" text-anchor="middle">_build/pages</text>
+        <rect x="10" y="100" width="170" height="56" rx="10"/><text x="95" y="126" text-anchor="middle">build.py</text><text class="sub" x="95" y="144" text-anchor="middle">header, footer, SEO</text>
+        <path d="M180 48h40l20 40M180 128h40l20-40"/>
+        <rect class="hl" x="240" y="60" width="160" height="60" rx="10"/><text x="320" y="87" text-anchor="middle">Static HTML</text><text class="sub" x="320" y="105" text-anchor="middle">committed output</text>
+        <path d="M400 90h50"/><path d="M440 84l10 6-10 6"/>
+        <rect x="450" y="20" width="180" height="44" rx="10"/><text x="540" y="47" text-anchor="middle">scene.js · 3D</text>
+        <rect x="450" y="70" width="180" height="44" rx="10"/><text x="540" y="97" text-anchor="middle">lab.js · explainers</text>
+        <rect x="450" y="120" width="180" height="44" rx="10"/><text x="540" y="147" text-anchor="middle">hub.js · search</text>
+      </svg>
+    </div>
+
+    <h2>Technology decisions</h2>
+    <ul>
+      <li><strong>No framework.</strong> The content is mostly static. Vanilla HTML, CSS and JavaScript keep the site fast and easy to maintain without a build pipeline on the server.</li>
+      <li><strong>3D without a 3D library.</strong> Three.js would add well over 100 KB of compressed JavaScript for a scene of a few dozen devices. Instead, a small script rotates and projects 3D coordinates itself and draws with Canvas 2D. It works in every modern browser, so there is no separate WebGL fallback to maintain.</li>
+      <li><strong>Data-driven lab.</strong> Each Infrastructure Lab topic is a data object (nodes, links, steps), drawn by one renderer. Adding a topic means adding data, not code.</li>
+      <li><strong>Self-hosted fonts.</strong> Archivo and IBM Plex are served from the site itself: no third-party font requests, and predictable loading.</li>
+      <li><strong>Templated pages.</strong> A short Python script adds the shared header, footer and metadata to each page, then the output is committed. GitHub Pages ignores the underscore folder that holds it.</li>
+    </ul>
+
+    <h2>Performance and accessibility</h2>
+    <ul>
+      <li>The 3D scene pauses when it is off-screen or the tab is hidden, and caps resolution on high-density screens.</li>
+      <li>With reduced motion enabled, the scene and the lab stop animating while staying fully usable.</li>
+      <li>Every interactive element works with a keyboard; the 3D scene has keyboard-accessible highlight controls and a text description.</li>
+      <li>Both themes are designed for readable contrast.</li>
+    </ul>
+
+    <h2>Challenges</h2>
+    <ul>
+      <li>Separating training certificates from vendor certifications, and showing ongoing study honestly as in progress.</li>
+      <li>Making a 3D scene that adds meaning on a phone without draining the battery.</li>
+      <li>Explaining networking concepts with generic examples, never with employer configurations.</li>
+    </ul>
+
+    <h2>Current status</h2>
+    <p>Version 3, released in November 2026. Earlier versions remain in the repository history.</p>
+  </article>
+
+  <aside aria-label="Project facts">
+    <dl>
+      <div><dt>Type</dt><dd>Personal website</dd></div>
+      <div><dt>Hosting</dt><dd>GitHub Pages</dd></div>
+      <div><dt>Stack</dt><dd class="meta"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Canvas 2D</span><span class="tag">Python build</span></dd></div>
+      <div><dt>Dependencies</dt><dd>None at runtime</dd></div>
+      <div><dt>Status</dt><dd><span class="status info">Version 3</span></dd></div>
+    </dl>
+  </aside>
+</div>
+
+<div class="wrap next-proj">
+  <a class="btn" href="../../projects/fixible-it/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg> Fixible IT</a>
+  <a class="btn" href="../../#projects">All projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap foot">
+    <span>&copy; 2026 Md. Hossain. Dhaka, Bangladesh.</span>
+    <nav aria-label="Footer">
+      <a href="../../#projects">Projects</a>
+      <a href="../../knowledge/">Knowledge Hub</a>
+      <a href="../../cv/MD_Hossain_CV.pdf" download>CV (PDF)</a>
+      <a href="https://github.com/mdhossaincloud" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/mdhossain-cloud" rel="noopener">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../../assets/js/site.js?v=3.0.0" defer></script>
+</body>
+</html>

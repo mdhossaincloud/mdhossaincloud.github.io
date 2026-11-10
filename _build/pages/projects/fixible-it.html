@@ -1,0 +1,79 @@
+<!--meta {
+  "path": "projects/fixible-it/",
+  "title": "Fixible IT: technology services and e-commerce platform | Md. Hossain",
+  "description": "Case study: Fixible IT, Md. Hossain's technology services and e-commerce venture in Bangladesh, built on WordPress and WooCommerce with a custom Kadence child theme.",
+  "active": "projects",
+  "trail": [["Home", ""], ["Projects", "#projects"], ["Fixible IT", "projects/fixible-it/"]]
+} -->
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol>
+      <li><a href="{{root}}">Home</a></li><li><a href="{{root}}#projects">Projects</a></li><li><span aria-current="page">Fixible IT</span></li>
+    </ol></nav>
+    <h1>Fixible IT</h1>
+    <p class="lead">My technology services and e-commerce venture in Bangladesh, offering IT support, networking, CCTV, custom PC builds and technology products, with a service-first website to match.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://fixibleit.com/" rel="noopener">Visit fixibleit.com {{icon:external}}</a>
+      <a class="btn" href="https://github.com/mdhossaincloud/FixibleIT-Project" rel="noopener">{{icon:github}} Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap case">
+  <article class="prose">
+    <h2>Overview</h2>
+    <p>Fixible IT brings the work I do professionally (IT support, networking and CCTV) to small businesses and individuals, alongside an online shop for IT products, mobile accessories and gadgets. It is my own business and is separate from my employment.</p>
+
+    <h2>Problem</h2>
+    <p>Customers looking for IT help in Bangladesh often have to go to one place for services and another for hardware. The business needed a website that explains its services clearly, sells products, and still feels trustworthy and easy to use on a phone.</p>
+
+    <h2>Objective</h2>
+    <ul>
+      <li>A service-first website, because services are the larger part of the business.</li>
+      <li>A complete shopping journey: browse, select, cart, checkout.</li>
+      <li>Consistent page names and clean URLs.</li>
+      <li>A clear route from every service to a contact or service request.</li>
+    </ul>
+
+    <h2>Architecture</h2>
+    <div class="arch" role="img" aria-label="Architecture: WordPress with WooCommerce, running a custom Fixible IT child theme on top of the Kadence parent theme, served from cPanel hosting; theme code is version-controlled on GitHub.">
+      <svg viewBox="0 0 640 170" aria-hidden="true">
+        <rect x="10" y="20" width="190" height="56" rx="10"/><text x="105" y="46" text-anchor="middle">Kadence</text><text class="sub" x="105" y="64" text-anchor="middle">parent theme</text>
+        <rect class="hl" x="10" y="96" width="190" height="56" rx="10"/><text x="105" y="122" text-anchor="middle">Fixible IT child theme</text><text class="sub" x="105" y="140" text-anchor="middle">custom design + logic</text>
+        <path d="M200 48h50l20 30M200 124h50l20-30"/>
+        <rect x="270" y="55" width="190" height="60" rx="10"/><text x="365" y="82" text-anchor="middle">WordPress + WooCommerce</text><text class="sub" x="365" y="100" text-anchor="middle">pages, shop, orders</text>
+        <path d="M460 85h50"/><path d="M500 79l10 6-10 6"/>
+        <rect x="510" y="55" width="120" height="60" rx="10"/><text x="570" y="82" text-anchor="middle">fixibleit.com</text><text class="sub" x="570" y="100" text-anchor="middle">cPanel hosting</text>
+      </svg>
+    </div>
+    <p>WordPress and WooCommerce provide content, catalogue and orders. A custom child theme on top of Kadence carries the Fixible IT design and custom functionality, so parent-theme updates do not overwrite it. Theme work happens on a local copy first and is tracked in Git.</p>
+
+    <h2>Implementation</h2>
+    <ul>
+      <li>Custom Fixible IT child theme on the Kadence parent theme.</li>
+      <li>WooCommerce catalogue for IT products, networking, mobile accessories and gadgets.</li>
+      <li>Service pages for IT support, networking, CCTV and PC solutions.</li>
+      <li>Local development and full QA before changes go live.</li>
+    </ul>
+
+    <h2>Current status</h2>
+    <p>The website is live at <a href="https://fixibleit.com/" rel="noopener">fixibleit.com</a>. Work continues on the cart and checkout experience and on the services and contact pages.</p>
+  </article>
+
+  <aside aria-label="Project facts">
+    <dl>
+      <div><dt>Type</dt><dd>Own business venture</dd></div>
+      <div><dt>Market</dt><dd>Bangladesh</dd></div>
+      <div><dt>Stack</dt><dd class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">Kadence</span><span class="tag">PHP</span></dd></div>
+      <div><dt>Status</dt><dd><span class="status">Live</span></dd></div>
+      <div><dt>Links</dt><dd><a href="https://fixibleit.com/" rel="noopener">fixibleit.com</a><br><a href="https://github.com/mdhossaincloud/FixibleIT-Project" rel="noopener">GitHub repository</a></dd></div>
+    </dl>
+  </aside>
+</div>
+
+<div class="wrap next-proj">
+  <a class="btn" href="{{root}}projects/onedesk-cheque-writer/">{{icon:prev}} OneDesk Cheque Writer</a>
+  <a class="btn" href="{{root}}projects/it-command-center/">Next: Personal IT Command Center {{icon:arrow}}</a>
+</div>
+</main>

@@ -1,0 +1,36 @@
+<!--meta {
+  "path": "knowledge/",
+  "title": "Knowledge Hub: networking, Microsoft 365 and IT infrastructure explainers | Md. Hossain",
+  "description": "Searchable, interactive explainers on the OSI model, VLANs, site-to-site VPN, DNS, DHCP, firewalls, Microsoft 365 identity and CCTV/NVR networks.",
+  "active": "knowledge",
+  "scripts": ["lab-data.js", "articles.js", "hub.js"],
+  "trail": [["Home", ""], ["Knowledge Hub", "knowledge/"]]
+} -->
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol>
+      <li><a href="{{root}}">Home</a></li><li><span aria-current="page">Knowledge Hub</span></li>
+    </ol></nav>
+    <h1>Knowledge Hub</h1>
+    <p class="lead">Practical explanations of the networking and systems concepts behind everyday IT support. Start with the interactive explainers; written guides are added as they are published.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="lib-title">
+  <div class="wrap">
+    <h2 id="lib-title" class="sr-only">Library</h2>
+    <div class="hub-tools">
+      <label class="search" for="hub-q">
+        <span class="sr-only">Search the Knowledge Hub</span>
+        {{icon:search}}
+        <input id="hub-q" type="search" placeholder="Search, for example VPN, DNS or VLAN" autocomplete="off">
+      </label>
+    </div>
+    <div class="filters" id="hub-filters" role="group" aria-label="Filter by category"></div>
+    <p class="hub-count" id="hub-count" aria-live="polite"></p>
+    <ul class="hub-list" id="hub-list"></ul>
+    <noscript><p class="hub-empty">Search needs JavaScript. All explainers are in the <a href="{{root}}#lab">Infrastructure Lab</a> on the home page.</p></noscript>
+  </div>
+</section>
+</main>
