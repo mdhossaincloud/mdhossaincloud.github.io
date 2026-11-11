@@ -36,7 +36,7 @@ NAME = "Md. Hossain"
 EMAIL = "mdhossain.cloud@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/mdhossain-cloud"
 GITHUB = "https://github.com/mdhossaincloud"
-VERSION = "6.1.0"
+VERSION = "6.2.0"
 
 # code, label in its own language, BCP 47 tag, URL prefix ("" = default)
 LANGS = [
@@ -159,7 +159,7 @@ def header(depth, lang, home_page, active=None):
     </nav>
     {lang_switcher(lang, depth)}
     <button class="icon-btn theme-btn" id="theme-btn" type="button" data-label-light="{html.escape(t(lang, 'ui.tolight'))}" data-label-dark="{html.escape(t(lang, 'ui.todark'))}" aria-label="{html.escape(t(lang, 'ui.tolight'))}">{ICON['moon']}{ICON['sun']}</button>
-    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-label-open="{html.escape(t(lang, 'ui.menuopen'))}" data-label-close="{html.escape(t(lang, 'ui.menuclose'))}" aria-label="{html.escape(t(lang, 'ui.menuopen'))}">{ICON['menu']}</button>
+    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-label-open="{html.escape(t(lang, 'ui.menuopen'))}" data-label-close="{html.escape(t(lang, 'ui.menuclose'))}" aria-label="{html.escape(t(lang, 'ui.menuopen'))}"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
 </header>
 """
