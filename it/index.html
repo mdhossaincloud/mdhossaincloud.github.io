@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=6.0.0">
+<link rel="stylesheet" href="../assets/css/site.css?v=6.1.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"copied":"Indirizzo e-mail copiato","copyfail":"Copia non riuscita. L’indirizzo è ","step":"Passo {n} di {m}","prev":"Passo precedente","next":"Passo successivo","play":"Riproduci tutti i passi","pause":"Pausa","mailsubject":"Richiesta dal sito web","types":{"cloud":["Servizi cloud","Microsoft 365 e altri servizi online: posta, identità e file, raggiunti tramite internet."],"isp":["Internet / provider","La rete pubblica che collega tutte le sedi. Qui si controllano i collegamenti e le segnalazioni al provider."],"fw":["Firewall e router perimetrale","Filtra il traffico, esegue il NAT e termina i tunnel VPN site-to-site."],"rt":["Router di filiale","Router perimetrale di classe MikroTik: accesso a internet, routing e tunnel VPN verso la sede centrale."],"sw":["Switch core / di accesso","Collega i dispositivi cablati e separa il traffico in VLAN."],"srv":["Server","Servizi locali come condivisioni di file, directory o strumenti di gestione."],"ap":["Access point Wi-Fi","Copertura wireless. Pianificazione dei canali e autenticazione ne determinano l’affidabilità."],"pc":["Postazione di lavoro","Dove si conclude gran parte del supporto: configurazione, accessi, aggiornamenti e risoluzione dei problemi."],"cam":["Telecamera IP","Alimentata tramite Ethernet (PoE), invia il video all’NVR sulla propria VLAN."],"nvr":["NVR","Videoregistratore di rete: registra le telecamere e conserva le immagini per il periodo previsto."]},"sites":["Sede centrale","Filiale A","Filiale B"],"vpn":"VPN site-to-site"};</script>
@@ -420,15 +420,17 @@
     </div>
     <form class="compose" id="compose" novalidate>
       <h3>Scrivimi</h3>
-      <div class="field"><label for="c-name">Il suo nome</label><input id="c-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="c-email">La sua e-mail</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="c-topic">Argomento</label>
-        <select id="c-topic" name="topic">
-          <option>Offerta di lavoro</option><option>Progetto IT</option><option>Assistenza IT mensile</option><option>Altro</option>
-        </select></div>
-      <div class="field"><label for="c-msg">Messaggio</label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+      <fieldset class="topics"><legend>Argomento</legend>
+        <div class="topic-list"><label class="topic"><input type="radio" name="topic" value="Posizione IT a tempo pieno" data-starter="Buongiorno, vorrei parlare di una posizione IT a tempo pieno. " checked><span>Posizione IT a tempo pieno</span></label><label class="topic"><input type="radio" name="topic" value="Lavoro freelance o a contratto" data-starter="Buongiorno, avrei un lavoro IT freelance o a contratto da discutere. "><span>Lavoro freelance o a contratto</span></label><label class="topic"><input type="radio" name="topic" value="Consulenza IT" data-starter="Buongiorno, vorrei una consulenza IT su "><span>Consulenza IT</span></label><label class="topic"><input type="radio" name="topic" value="Progetto IT" data-starter="Buongiorno, ho un progetto IT: "><span>Progetto IT</span></label><label class="topic"><input type="radio" name="topic" value="Supporto IT mensile" data-starter="Buongiorno, cerco un supporto IT mensile per "><span>Supporto IT mensile</span></label><label class="topic"><input type="radio" name="topic" value="Altro" data-starter="Buongiorno, "><span>Altro</span></label></div>
+      </fieldset>
+      <div class="field-row">
+        <div class="field"><label for="c-name">Il suo nome</label><input id="c-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">La sua e-mail</label><input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+      </div>
+      <div class="field"><label for="c-msg">Messaggio</label><textarea id="c-msg" name="message" rows="5" maxlength="1000" required></textarea><small class="count" id="c-count" aria-hidden="true"></small></div>
       <p class="form-error" id="c-error" role="alert" hidden>Inserisca il suo nome, un indirizzo e-mail valido e un messaggio.</p>
       <button class="btn primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> Apri nell’app di posta</button>
+      <div class="form-done" id="c-done" role="status" hidden><p>La sua app di posta dovrebbe essersi aperta con il messaggio pronto. Se non è successo nulla, copi il mio indirizzo e mi scriva direttamente.</p><button class="btn quiet" type="button" data-copy="mdhossain.cloud@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg> Copia</button></div>
       <p class="form-note">Si aprirà la sua app di posta con il messaggio pronto da inviare. Questo sito non salva nulla.</p>
     </form>
   </div>
@@ -476,12 +478,12 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=6.0.0" defer></script>
-<script src="../assets/js/bg.js?v=6.0.0" defer></script>
-<script src="../assets/js/scene.js?v=6.0.0" defer></script>
-<script src="../assets/js/lab-data.js?v=6.0.0" defer></script>
-<script src="../assets/js/lab.js?v=6.0.0" defer></script>
-<script src="../assets/js/rack.js?v=6.0.0" defer></script>
-<script src="../assets/js/fx.js?v=6.0.0" defer></script>
+<script src="../assets/js/site.js?v=6.1.0" defer></script>
+<script src="../assets/js/bg.js?v=6.1.0" defer></script>
+<script src="../assets/js/scene.js?v=6.1.0" defer></script>
+<script src="../assets/js/lab-data.js?v=6.1.0" defer></script>
+<script src="../assets/js/lab.js?v=6.1.0" defer></script>
+<script src="../assets/js/rack.js?v=6.1.0" defer></script>
+<script src="../assets/js/fx.js?v=6.1.0" defer></script>
 </body>
 </html>

@@ -37,7 +37,7 @@
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/hind-siliguri-bn-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=6.0.0">
+<link rel="stylesheet" href="../assets/css/site.css?v=6.1.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"copied":"ইমেইল ঠিকানা কপি হয়েছে","copyfail":"কপি করা যায়নি। ঠিকানাটি হলো ","step":"ধাপ {n} / {m}","prev":"আগের ধাপ","next":"পরের ধাপ","play":"সব ধাপ চালান","pause":"বিরতি","mailsubject":"ওয়েবসাইট থেকে জিজ্ঞাসা","types":{"cloud":["ক্লাউড সেবা","Microsoft 365 ও অন্যান্য অনলাইন সেবা: ইমেইল, পরিচয় যাচাই ও ফাইল, যেগুলো ইন্টারনেটের মাধ্যমে ব্যবহার করা হয়।"],"isp":["ইন্টারনেট / আইএসপি","সব অফিসকে যুক্ত করা পাবলিক নেটওয়ার্ক। সংযোগের অবস্থা দেখা ও আইএসপির কাছে সমস্যা জানানোর কাজ এখানেই।"],"fw":["এজ ফায়ারওয়াল ও রাউটার","ট্রাফিক ছেঁকে দেয়, NAT করে এবং সাইট-টু-সাইট VPN টানেলের প্রান্তবিন্দু হিসেবে কাজ করে।"],"rt":["শাখার রাউটার","MikroTik ধরনের এজ রাউটার: ইন্টারনেট সংযোগ, রাউটিং এবং প্রধান কার্যালয় পর্যন্ত VPN টানেল।"],"sw":["কোর / অ্যাক্সেস সুইচ","তারযুক্ত ডিভাইসগুলোকে যুক্ত করে এবং VLAN দিয়ে ট্রাফিক আলাদা রাখে।"],"srv":["সার্ভার","অফিসের ভেতরে চলা সেবা, যেমন ফাইল শেয়ার, ডিরেক্টরি বা ব্যবস্থাপনার টুল।"],"ap":["ওয়াই-ফাই অ্যাক্সেস পয়েন্ট","বেতার কভারেজ। চ্যানেল পরিকল্পনা ও অথেনটিকেশনের ওপরই নির্ভর করে এটি কতটা নির্ভরযোগ্য মনে হবে।"],"pc":["ওয়ার্কস্টেশন","বেশির ভাগ সাপোর্টের কাজ শেষ হয় এখানে: সেটআপ, অ্যাক্সেস, আপডেট ও সমস্যা নিরসন।"],"cam":["আইপি ক্যামেরা","ইথারনেট কেবলের মাধ্যমেই বিদ্যুৎ পায় (PoE) এবং নিজস্ব VLAN-এ NVR-এ ভিডিও পাঠায়।"],"nvr":["NVR","নেটওয়ার্ক ভিডিও রেকর্ডার: ক্যামেরাগুলোর ফুটেজ রেকর্ড করে এবং নির্ধারিত সময় পর্যন্ত সংরক্ষণ করে।"]},"sites":["প্রধান কার্যালয়","শাখা অফিস ক","শাখা অফিস খ"],"vpn":"সাইট-টু-সাইট VPN"};</script>
@@ -421,15 +421,17 @@
     </div>
     <form class="compose" id="compose" novalidate>
       <h3>আমাকে লিখুন</h3>
-      <div class="field"><label for="c-name">আপনার নাম</label><input id="c-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="c-email">আপনার ইমেইল</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="c-topic">বিষয়</label>
-        <select id="c-topic" name="topic">
-          <option>চাকরির সুযোগ</option><option>আইটি প্রকল্প</option><option>মাসিক আইটি সাপোর্ট</option><option>অন্য কিছু</option>
-        </select></div>
-      <div class="field"><label for="c-msg">বার্তা</label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+      <fieldset class="topics"><legend>বিষয়</legend>
+        <div class="topic-list"><label class="topic"><input type="radio" name="topic" value="পূর্ণকালীন আইটি পদ" data-starter="আসসালামু আলাইকুম, আমি একটি পূর্ণকালীন আইটি পদ নিয়ে কথা বলতে চাই। " checked><span>পূর্ণকালীন আইটি পদ</span></label><label class="topic"><input type="radio" name="topic" value="ফ্রিল্যান্স বা চুক্তিভিত্তিক কাজ" data-starter="আসসালামু আলাইকুম, আমার একটি ফ্রিল্যান্স বা চুক্তিভিত্তিক আইটি কাজ নিয়ে আলোচনা করার আছে। "><span>ফ্রিল্যান্স বা চুক্তিভিত্তিক কাজ</span></label><label class="topic"><input type="radio" name="topic" value="আইটি পরামর্শ" data-starter="আসসালামু আলাইকুম, আমি আইটি পরামর্শ চাইছি এই বিষয়ে: "><span>আইটি পরামর্শ</span></label><label class="topic"><input type="radio" name="topic" value="আইটি প্রকল্প" data-starter="আসসালামু আলাইকুম, আমার একটি আইটি প্রকল্প আছে: "><span>আইটি প্রকল্প</span></label><label class="topic"><input type="radio" name="topic" value="মাসিক আইটি সাপোর্ট" data-starter="আসসালামু আলাইকুম, আমি মাসিক আইটি সাপোর্ট খুঁজছি এর জন্য: "><span>মাসিক আইটি সাপোর্ট</span></label><label class="topic"><input type="radio" name="topic" value="অন্য কিছু" data-starter="আসসালামু আলাইকুম, "><span>অন্য কিছু</span></label></div>
+      </fieldset>
+      <div class="field-row">
+        <div class="field"><label for="c-name">আপনার নাম</label><input id="c-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">আপনার ইমেইল</label><input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+      </div>
+      <div class="field"><label for="c-msg">বার্তা</label><textarea id="c-msg" name="message" rows="5" maxlength="1000" required></textarea><small class="count" id="c-count" aria-hidden="true"></small></div>
       <p class="form-error" id="c-error" role="alert" hidden>অনুগ্রহ করে নাম, সঠিক ইমেইল ঠিকানা ও একটি বার্তা লিখুন।</p>
       <button class="btn primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> ইমেইল অ্যাপে খুলুন</button>
+      <div class="form-done" id="c-done" role="status" hidden><p>আপনার ইমেইল অ্যাপে বার্তাটি তৈরি অবস্থায় খুলে যাওয়ার কথা। কিছু না ঘটলে আমার ঠিকানা কপি করে সরাসরি লিখুন।</p><button class="btn quiet" type="button" data-copy="mdhossain.cloud@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg> কপি</button></div>
       <p class="form-note">এটি আপনার ইমেইল অ্যাপে বার্তাটি পাঠানোর জন্য প্রস্তুত করে খুলে দেবে। এই ওয়েবসাইটে কিছুই জমা থাকে না।</p>
     </form>
   </div>
@@ -477,12 +479,12 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=6.0.0" defer></script>
-<script src="../assets/js/bg.js?v=6.0.0" defer></script>
-<script src="../assets/js/scene.js?v=6.0.0" defer></script>
-<script src="../assets/js/lab-data.js?v=6.0.0" defer></script>
-<script src="../assets/js/lab.js?v=6.0.0" defer></script>
-<script src="../assets/js/rack.js?v=6.0.0" defer></script>
-<script src="../assets/js/fx.js?v=6.0.0" defer></script>
+<script src="../assets/js/site.js?v=6.1.0" defer></script>
+<script src="../assets/js/bg.js?v=6.1.0" defer></script>
+<script src="../assets/js/scene.js?v=6.1.0" defer></script>
+<script src="../assets/js/lab-data.js?v=6.1.0" defer></script>
+<script src="../assets/js/lab.js?v=6.1.0" defer></script>
+<script src="../assets/js/rack.js?v=6.1.0" defer></script>
+<script src="../assets/js/fx.js?v=6.1.0" defer></script>
 </body>
 </html>

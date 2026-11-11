@@ -280,5 +280,18 @@
   "rk.note": "Apparati illustrativi a scopo esplicativo. Non rappresentano alcuna sede di un datore di lavoro.",
   "in.guides": "Inizia da una guida",
   "in.guides.note": "Le guide sono in inglese.",
-  "pj.src": "Il codice sorgente è privato. La struttura delle cartelle è nella pagina di ogni progetto."
+  "pj.src": "Il codice sorgente è privato. La struttura delle cartelle è nella pagina di ogni progetto.",
+  "ct.t1": "Posizione IT a tempo pieno",
+  "ct.s1": "Buongiorno, vorrei parlare di una posizione IT a tempo pieno. ",
+  "ct.t2": "Lavoro freelance o a contratto",
+  "ct.s2": "Buongiorno, avrei un lavoro IT freelance o a contratto da discutere. ",
+  "ct.t3": "Consulenza IT",
+  "ct.s3": "Buongiorno, vorrei una consulenza IT su ",
+  "ct.t4": "Progetto IT",
+  "ct.s4": "Buongiorno, ho un progetto IT: ",
+  "ct.t5": "Supporto IT mensile",
+  "ct.s5": "Buongiorno, cerco un supporto IT mensile per ",
+  "ct.t6": "Altro",
+  "ct.s6": "Buongiorno, ",
+  "ct.form.done": "La sua app di posta dovrebbe essersi aperta con il messaggio pronto. Se non è successo nulla, copi il mio indirizzo e mi scriva direttamente."
 }

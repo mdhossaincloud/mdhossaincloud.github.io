@@ -280,5 +280,18 @@
   "rk.note": "Beispielhafte Geräte zur Erklärung. Kein Standort eines Arbeitgebers.",
   "in.guides": "Mit einem Leitfaden beginnen",
   "in.guides.note": "Die Leitfäden sind auf Englisch.",
-  "pj.src": "Der Quellcode ist privat. Die Ordnerstruktur steht auf jeder Projektseite."
+  "pj.src": "Der Quellcode ist privat. Die Ordnerstruktur steht auf jeder Projektseite.",
+  "ct.t1": "Festanstellung im IT-Bereich",
+  "ct.s1": "Guten Tag, ich möchte über eine Festanstellung im IT-Bereich sprechen. ",
+  "ct.t2": "Freiberufliche oder befristete Aufträge",
+  "ct.s2": "Guten Tag, ich habe einen freiberuflichen oder befristeten IT-Auftrag zu besprechen. ",
+  "ct.t3": "IT-Beratung",
+  "ct.s3": "Guten Tag, ich suche IT-Beratung zu folgendem Thema: ",
+  "ct.t4": "IT-Projekt",
+  "ct.s4": "Guten Tag, ich habe ein IT-Projekt: ",
+  "ct.t5": "Monatlicher IT-Support",
+  "ct.s5": "Guten Tag, ich suche monatlichen IT-Support für ",
+  "ct.t6": "Etwas anderes",
+  "ct.s6": "Guten Tag, ",
+  "ct.form.done": "Ihr E-Mail-Programm sollte sich mit der fertigen Nachricht geöffnet haben. Falls nichts passiert ist, kopieren Sie meine Adresse und schreiben Sie mir direkt."
 }

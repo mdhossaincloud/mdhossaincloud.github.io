@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=6.0.0">
+<link rel="stylesheet" href="../assets/css/site.css?v=6.1.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"copied":"邮箱地址已复制","copyfail":"复制失败。邮箱地址为 ","step":"第 {n} 步，共 {m} 步","prev":"上一步","next":"下一步","play":"播放全部步骤","pause":"暂停","mailsubject":"网站咨询","types":{"cloud":["云服务","Microsoft 365 及其他在线服务：邮件、身份和文件，通过互联网访问。"],"isp":["互联网 / 运营商","连接所有办公室的公共网络，负责链路质量监测和向运营商报障。"],"fw":["边界防火墙与路由器","过滤流量、执行 NAT，并终结站点间 VPN 隧道。"],"rt":["分支路由器","MikroTik 级边界路由器：提供上网、路由以及连接总部的 VPN 隧道。"],"sw":["核心 / 接入交换机","连接有线设备，并用 VLAN 隔离流量。"],"srv":["服务器","本地服务，例如文件共享、目录或管理工具。"],"ap":["Wi-Fi 接入点","无线覆盖。信道规划和认证方式决定了它的可靠程度。"],"pc":["工作站","大多数支持工作的落点：安装配置、权限、更新和故障排查。"],"cam":["IP 摄像机","通过以太网供电（PoE），在独立 VLAN 上向 NVR 传输视频。"],"nvr":["NVR","网络录像机：录制摄像机画面，并按规定的保存期保留录像。"]},"sites":["总部","分支机构 A","分支机构 B"],"vpn":"站点间 VPN"};</script>
@@ -420,15 +420,17 @@
     </div>
     <form class="compose" id="compose" novalidate>
       <h3>给我留言</h3>
-      <div class="field"><label for="c-name">您的姓名</label><input id="c-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="c-email">您的邮箱</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="c-topic">主题</label>
-        <select id="c-topic" name="topic">
-          <option>工作机会</option><option>IT 项目</option><option>按月 IT 支持</option><option>其他</option>
-        </select></div>
-      <div class="field"><label for="c-msg">留言内容</label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+      <fieldset class="topics"><legend>主题</legend>
+        <div class="topic-list"><label class="topic"><input type="radio" name="topic" value="全职 IT 岗位" data-starter="您好，我想谈谈全职 IT 岗位的事。" checked><span>全职 IT 岗位</span></label><label class="topic"><input type="radio" name="topic" value="自由职业或合同工作" data-starter="您好，我有一份自由职业或合同制的 IT 工作想与您商谈。"><span>自由职业或合同工作</span></label><label class="topic"><input type="radio" name="topic" value="IT 咨询" data-starter="您好，我想就以下事项咨询 IT 方面的建议："><span>IT 咨询</span></label><label class="topic"><input type="radio" name="topic" value="IT 项目" data-starter="您好，我有一个 IT 项目："><span>IT 项目</span></label><label class="topic"><input type="radio" name="topic" value="按月 IT 支持" data-starter="您好，我在为以下对象寻找按月 IT 支持："><span>按月 IT 支持</span></label><label class="topic"><input type="radio" name="topic" value="其他事宜" data-starter="您好，"><span>其他事宜</span></label></div>
+      </fieldset>
+      <div class="field-row">
+        <div class="field"><label for="c-name">您的姓名</label><input id="c-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">您的邮箱</label><input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+      </div>
+      <div class="field"><label for="c-msg">留言内容</label><textarea id="c-msg" name="message" rows="5" maxlength="1000" required></textarea><small class="count" id="c-count" aria-hidden="true"></small></div>
       <p class="form-error" id="c-error" role="alert" hidden>请填写您的姓名、有效的邮箱地址和留言内容。</p>
       <button class="btn primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> 在邮件应用中打开</button>
+      <div class="form-done" id="c-done" role="status" hidden><p>您的邮件应用应已打开，邮件内容已准备好。如果没有反应，请复制我的邮箱地址，直接给我写信。</p><button class="btn quiet" type="button" data-copy="mdhossain.cloud@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg> 复制</button></div>
       <p class="form-note">将打开您的邮件应用，邮件内容已准备好发送。本网站不会保存任何信息。</p>
     </form>
   </div>
@@ -476,12 +478,12 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=6.0.0" defer></script>
-<script src="../assets/js/bg.js?v=6.0.0" defer></script>
-<script src="../assets/js/scene.js?v=6.0.0" defer></script>
-<script src="../assets/js/lab-data.js?v=6.0.0" defer></script>
-<script src="../assets/js/lab.js?v=6.0.0" defer></script>
-<script src="../assets/js/rack.js?v=6.0.0" defer></script>
-<script src="../assets/js/fx.js?v=6.0.0" defer></script>
+<script src="../assets/js/site.js?v=6.1.0" defer></script>
+<script src="../assets/js/bg.js?v=6.1.0" defer></script>
+<script src="../assets/js/scene.js?v=6.1.0" defer></script>
+<script src="../assets/js/lab-data.js?v=6.1.0" defer></script>
+<script src="../assets/js/lab.js?v=6.1.0" defer></script>
+<script src="../assets/js/rack.js?v=6.1.0" defer></script>
+<script src="../assets/js/fx.js?v=6.1.0" defer></script>
 </body>
 </html>

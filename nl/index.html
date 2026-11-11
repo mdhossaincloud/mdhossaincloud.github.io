@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=6.0.0">
+<link rel="stylesheet" href="../assets/css/site.css?v=6.1.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"copied":"E-mailadres gekopieerd","copyfail":"Kopiëren mislukt. Het adres is ","step":"Stap {n} van {m}","prev":"Vorige stap","next":"Volgende stap","play":"Alle stappen afspelen","pause":"Pauze","mailsubject":"Vraag via de website","types":{"cloud":["Clouddiensten","Microsoft 365 en andere onlinediensten: e-mail, identiteit en bestanden, bereikbaar via internet."],"isp":["Internet / provider","Het openbare netwerk dat alle vestigingen verbindt. Hier draait het om verbindingskwaliteit en escalaties bij de provider."],"fw":["Firewall & edge-router","Filtert verkeer, doet NAT en beëindigt de site-to-site-VPN-tunnels."],"rt":["Filiaalrouter","Edge-router van MikroTik-klasse: internettoegang, routing en de VPN-tunnel naar het hoofdkantoor."],"sw":["Core-/accessswitch","Verbindt bekabelde apparaten en scheidt verkeer in VLAN’s."],"srv":["Server","Lokale diensten zoals bestandsshares, directory- of beheertools."],"ap":["Wifi-accesspoint","Draadloze dekking. Kanaalplanning en authenticatie bepalen hoe betrouwbaar het voelt."],"pc":["Werkplek","Waar de meeste support eindigt: inrichting, toegang, updates en probleemoplossing."],"cam":["IP-camera","Gevoed via Ethernet (PoE), stuurt beeld naar de NVR via een eigen VLAN."],"nvr":["NVR","Netwerkvideorecorder: neemt de camera’s op en bewaart beelden voor de vastgestelde periode."]},"sites":["Hoofdkantoor","Filiaal A","Filiaal B"],"vpn":"site-to-site-VPN"};</script>
@@ -420,15 +420,17 @@
     </div>
     <form class="compose" id="compose" novalidate>
       <h3>Stuur mij een bericht</h3>
-      <div class="field"><label for="c-name">Uw naam</label><input id="c-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="c-email">Uw e-mailadres</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="c-topic">Onderwerp</label>
-        <select id="c-topic" name="topic">
-          <option>Vacature</option><option>IT-project</option><option>Maandelijkse IT-support</option><option>Iets anders</option>
-        </select></div>
-      <div class="field"><label for="c-msg">Bericht</label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+      <fieldset class="topics"><legend>Onderwerp</legend>
+        <div class="topic-list"><label class="topic"><input type="radio" name="topic" value="Fulltime IT-functie" data-starter="Goedendag, ik wil graag praten over een fulltime IT-functie. " checked><span>Fulltime IT-functie</span></label><label class="topic"><input type="radio" name="topic" value="Freelance- of contractwerk" data-starter="Goedendag, ik heb een freelance of contractopdracht in de IT te bespreken. "><span>Freelance- of contractwerk</span></label><label class="topic"><input type="radio" name="topic" value="IT-advies" data-starter="Goedendag, ik zou graag IT-advies willen over "><span>IT-advies</span></label><label class="topic"><input type="radio" name="topic" value="IT-project" data-starter="Goedendag, ik heb een IT-project: "><span>IT-project</span></label><label class="topic"><input type="radio" name="topic" value="Maandelijkse IT-ondersteuning" data-starter="Goedendag, ik zoek maandelijkse IT-ondersteuning voor "><span>Maandelijkse IT-ondersteuning</span></label><label class="topic"><input type="radio" name="topic" value="Iets anders" data-starter="Goedendag, "><span>Iets anders</span></label></div>
+      </fieldset>
+      <div class="field-row">
+        <div class="field"><label for="c-name">Uw naam</label><input id="c-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">Uw e-mailadres</label><input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+      </div>
+      <div class="field"><label for="c-msg">Bericht</label><textarea id="c-msg" name="message" rows="5" maxlength="1000" required></textarea><small class="count" id="c-count" aria-hidden="true"></small></div>
       <p class="form-error" id="c-error" role="alert" hidden>Vul uw naam, een geldig e-mailadres en een bericht in.</p>
       <button class="btn primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> Openen in e-mailapp</button>
+      <div class="form-done" id="c-done" role="status" hidden><p>Uw e-mailapp zou geopend moeten zijn met het bericht klaar. Is er niets gebeurd, kopieer dan mijn adres en schrijf mij rechtstreeks.</p><button class="btn quiet" type="button" data-copy="mdhossain.cloud@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg> Kopiëren</button></div>
       <p class="form-note">Uw e-mailapp opent met het bericht klaar om te verzenden. Deze website slaat niets op.</p>
     </form>
   </div>
@@ -476,12 +478,12 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=6.0.0" defer></script>
-<script src="../assets/js/bg.js?v=6.0.0" defer></script>
-<script src="../assets/js/scene.js?v=6.0.0" defer></script>
-<script src="../assets/js/lab-data.js?v=6.0.0" defer></script>
-<script src="../assets/js/lab.js?v=6.0.0" defer></script>
-<script src="../assets/js/rack.js?v=6.0.0" defer></script>
-<script src="../assets/js/fx.js?v=6.0.0" defer></script>
+<script src="../assets/js/site.js?v=6.1.0" defer></script>
+<script src="../assets/js/bg.js?v=6.1.0" defer></script>
+<script src="../assets/js/scene.js?v=6.1.0" defer></script>
+<script src="../assets/js/lab-data.js?v=6.1.0" defer></script>
+<script src="../assets/js/lab.js?v=6.1.0" defer></script>
+<script src="../assets/js/rack.js?v=6.1.0" defer></script>
+<script src="../assets/js/fx.js?v=6.1.0" defer></script>
 </body>
 </html>

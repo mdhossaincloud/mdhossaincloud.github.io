@@ -280,5 +280,18 @@
   "rk.note": "Equipamento ilustrativo, apenas para explicação. Não mostra nenhuma instalação de um empregador.",
   "in.guides": "Comece por um guia",
   "in.guides.note": "Os guias estão em inglês.",
-  "pj.src": "O código-fonte é privado. A estrutura de pastas está em cada página de projeto."
+  "pj.src": "O código-fonte é privado. A estrutura de pastas está em cada página de projeto.",
+  "ct.t1": "Posição de TI a tempo inteiro",
+  "ct.s1": "Olá, gostaria de falar sobre uma posição de TI a tempo inteiro. ",
+  "ct.t2": "Trabalho freelance ou por contrato",
+  "ct.s2": "Olá, tenho um trabalho de TI freelance ou por contrato para tratar. ",
+  "ct.t3": "Consultoria de TI",
+  "ct.s3": "Olá, gostaria de uma consultoria de TI sobre ",
+  "ct.t4": "Projeto de TI",
+  "ct.s4": "Olá, tenho um projeto de TI: ",
+  "ct.t5": "Suporte de TI mensal",
+  "ct.s5": "Olá, procuro suporte de TI mensal para ",
+  "ct.t6": "Outro assunto",
+  "ct.s6": "Olá, ",
+  "ct.form.done": "A sua aplicação de email deve ter aberto com a mensagem pronta. Se nada aconteceu, copie o meu endereço e escreva-me diretamente."
 }

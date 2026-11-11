@@ -365,15 +365,17 @@
     </div>
     <form class="compose" id="compose" novalidate>
       <h3>{{t:ct.form.title}}</h3>
-      <div class="field"><label for="c-name">{{t:ct.form.name}}</label><input id="c-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="c-email">{{t:ct.form.email}}</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="c-topic">{{t:ct.form.topic}}</label>
-        <select id="c-topic" name="topic">
-          <option>{{t:ct.form.o1}}</option><option>{{t:ct.form.o2}}</option><option>{{t:ct.form.o3}}</option><option>{{t:ct.form.o4}}</option>
-        </select></div>
-      <div class="field"><label for="c-msg">{{t:ct.form.msg}}</label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+      <fieldset class="topics"><legend>{{t:ct.form.topic}}</legend>
+        <div class="topic-list"><label class="topic"><input type="radio" name="topic" value="{{t:ct.t1}}" data-starter="{{t:ct.s1}}" checked><span>{{t:ct.t1}}</span></label><label class="topic"><input type="radio" name="topic" value="{{t:ct.t2}}" data-starter="{{t:ct.s2}}"><span>{{t:ct.t2}}</span></label><label class="topic"><input type="radio" name="topic" value="{{t:ct.t3}}" data-starter="{{t:ct.s3}}"><span>{{t:ct.t3}}</span></label><label class="topic"><input type="radio" name="topic" value="{{t:ct.t4}}" data-starter="{{t:ct.s4}}"><span>{{t:ct.t4}}</span></label><label class="topic"><input type="radio" name="topic" value="{{t:ct.t5}}" data-starter="{{t:ct.s5}}"><span>{{t:ct.t5}}</span></label><label class="topic"><input type="radio" name="topic" value="{{t:ct.t6}}" data-starter="{{t:ct.s6}}"><span>{{t:ct.t6}}</span></label></div>
+      </fieldset>
+      <div class="field-row">
+        <div class="field"><label for="c-name">{{t:ct.form.name}}</label><input id="c-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">{{t:ct.form.email}}</label><input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+      </div>
+      <div class="field"><label for="c-msg">{{t:ct.form.msg}}</label><textarea id="c-msg" name="message" rows="5" maxlength="1000" required></textarea><small class="count" id="c-count" aria-hidden="true"></small></div>
       <p class="form-error" id="c-error" role="alert" hidden>{{t:ct.form.error}}</p>
       <button class="btn primary" type="submit">{{icon:mail}} {{t:ct.form.send}}</button>
+      <div class="form-done" id="c-done" role="status" hidden><p>{{t:ct.form.done}}</p><button class="btn quiet" type="button" data-copy="mdhossain.cloud@gmail.com">{{icon:copy}} {{t:ct.copy}}</button></div>
       <p class="form-note">{{t:ct.form.note}}</p>
     </form>
   </div>
