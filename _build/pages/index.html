@@ -4,7 +4,7 @@
   "title_key": "meta.title",
   "desc_key": "meta.description",
   "ogtype": "profile",
-  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js", "rack.js"]
+  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js", "rack.js", "fx.js"]
 } -->
 <canvas id="bg" aria-hidden="true"></canvas>
 <main id="main">
@@ -320,11 +320,11 @@
       <p>{{t:ac.sub}}</p>
     </div>
     <dl class="figures">
-      <div><dt>{{t:ac.f1.k}}</dt><dd><b>8+</b> {{t:ac.f1.v}}</dd></div>
-      <div><dt>{{t:ac.f2.k}}</dt><dd><b>150+</b> {{t:ac.f2.v}}</dd></div>
-      <div><dt>{{t:ac.f3.k}}</dt><dd><b>256</b> {{t:ac.f3.v}}</dd></div>
-      <div><dt>{{t:ac.f4.k}}</dt><dd><b>98%+</b> {{t:ac.f4.v}}</dd></div>
-      <div><dt>{{t:ac.f5.k}}</dt><dd><b>99.9%</b> {{t:ac.f5.v}}</dd></div>
+      <div><dt>{{t:ac.f1.k}}</dt><dd><b>{{t:ac.f1.n}}</b> {{t:ac.f1.v}}</dd></div>
+      <div><dt>{{t:ac.f2.k}}</dt><dd><b>{{t:ac.f2.n}}</b> {{t:ac.f2.v}}</dd></div>
+      <div><dt>{{t:ac.f3.k}}</dt><dd><b>{{t:ac.f3.n}}</b> {{t:ac.f3.v}}</dd></div>
+      <div><dt>{{t:ac.f4.k}}</dt><dd><b>{{t:ac.f4.n}}</b> {{t:ac.f4.v}}</dd></div>
+      <div><dt>{{t:ac.f5.k}}</dt><dd><b>{{t:ac.f5.n}}</b> {{t:ac.f5.v}}</dd></div>
     </dl>
     <h3 class="creds-title">{{t:ac.creds}}</h3>
     <div class="creds">
@@ -378,5 +378,7 @@
     </form>
   </div>
 </section>
+
+<a class="fab" id="fab" href="#contact" tabindex="-1">{{icon:mail}}<span>{{t:hero.cta2}}</span></a>
 
 </main>

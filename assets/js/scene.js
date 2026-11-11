@@ -288,7 +288,7 @@
     });
 
     // site labels on top, with a halo so they stay readable over devices
-    ctx.font = '500 12px "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif';
+    ctx.font = '500 12px "IBM Plex Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", "Hind Siliguri", "Nirmala UI", "Noto Sans Bengali", system-ui, sans-serif';
     ctx.textAlign = 'center';
     ctx.lineJoin = 'round';
     platforms.forEach((pl) => {

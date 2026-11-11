@@ -160,7 +160,8 @@
     function go(i) {
       step = Math.max(0, Math.min(t.steps.length - 1, i));
       const s = t.steps[step];
-      count.textContent = L.step.replace('{n}', step + 1).replace('{m}', t.steps.length);
+      const nf = new Intl.NumberFormat(document.documentElement.lang || 'en');  /* ৩ / ৭ on Bengali pages */
+      count.textContent = L.step.replace('{n}', nf.format(step + 1)).replace('{m}', nf.format(t.steps.length));
       title.textContent = s.title;
       body.textContent = s.text;
       bPrev.disabled = step === 0;
