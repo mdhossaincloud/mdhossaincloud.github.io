@@ -119,17 +119,47 @@
   const form = d.getElementById('compose');
   if (form) {
     const err = d.getElementById('c-error');
+    const done = d.getElementById('c-done');
+    const count = d.getElementById('c-count');
+    const msgEl = form.elements.message;
+    const nf = new Intl.NumberFormat(root.lang || 'en', { useGrouping: false });
+    const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    const checks = { name: (v) => !!v.trim(), email: (v) => isEmail(v.trim()), message: (v) => !!v.trim() };
+
+    /* Topic chips: each one drops a short opening line into the message, until the visitor has written their own */
+    let starter = '';
+    const applyStarter = () => {
+      const radio = form.querySelector('input[name="topic"]:checked');
+      if (!radio) return;
+      const next = radio.dataset.starter || '';
+      if (!msgEl.value.trim() || msgEl.value === starter) { msgEl.value = next; starter = next; updateCount(); }
+    };
+    form.querySelectorAll('input[name="topic"]').forEach((r) => r.addEventListener('change', applyStarter));
+
+    /* Live character count and inline validation as the visitor moves through the fields */
+    function updateCount() { count.textContent = nf.format(msgEl.value.length) + ' / ' + nf.format(msgEl.maxLength); }
+    msgEl.addEventListener('input', updateCount);
+    Object.keys(checks).forEach((f) => {
+      const el = form.elements[f];
+      el.addEventListener('blur', () => { if (el.value) el.setAttribute('aria-invalid', String(!checks[f](el.value))); });
+      el.addEventListener('input', () => {
+        if (el.getAttribute('aria-invalid') === 'true' && checks[f](el.value)) el.setAttribute('aria-invalid', 'false');
+        if (done) done.hidden = true;
+      });
+    });
+    applyStarter();
+    updateCount();
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = form.elements.name.value.trim();
       const email = form.elements.email.value.trim();
-      const topic = form.elements.topic.value;
-      const msg = form.elements.message.value.trim();
-      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      [['name', !!name], ['email', validEmail], ['message', !!msg]].forEach(([f, ok]) =>
-        form.elements[f].setAttribute('aria-invalid', String(!ok)));
-      if (!name || !validEmail || !msg) {
+      const topic = form.querySelector('input[name="topic"]:checked').value;
+      const msg = msgEl.value.trim();
+      Object.keys(checks).forEach((f) => form.elements[f].setAttribute('aria-invalid', String(!checks[f](form.elements[f].value))));
+      if (!checks.name(name) || !checks.email(email) || !checks.message(msg)) {
         err.hidden = false;
+        if (done) done.hidden = true;
         form.querySelector('[aria-invalid="true"]')?.focus();
         return;
       }
@@ -137,6 +167,7 @@
       const subject = `${L.mailsubject}: ${topic}`;
       const body = `${msg}\n\n${name}\n${email}`;
       location.href = `mailto:mdhossain.cloud@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if (done) done.hidden = false;  /* mail apps are not set up on every device: offer the address to copy */
     });
   }
 

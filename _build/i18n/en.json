@@ -286,5 +286,18 @@
   "rk.note": "Illustrative equipment for explanation only. It does not show any employer’s site.",
   "in.guides": "Start with a written guide",
   "in.guides.note": "",
-  "pj.src": "Source code is private. Folder structure is shown on each project page."
+  "pj.src": "Source code is private. Folder structure is shown on each project page.",
+  "ct.t1": "Full-time IT role",
+  "ct.s1": "Hello, I would like to talk about a full-time IT role. ",
+  "ct.t2": "Freelance or contract work",
+  "ct.s2": "Hello, I have a freelance or contract IT job to discuss. ",
+  "ct.t3": "IT consulting",
+  "ct.s3": "Hello, I would like IT consulting on ",
+  "ct.t4": "IT project",
+  "ct.s4": "Hello, I have an IT project: ",
+  "ct.t5": "Monthly IT support",
+  "ct.s5": "Hello, I am looking for monthly IT support for ",
+  "ct.t6": "Something else",
+  "ct.s6": "Hello, ",
+  "ct.form.done": "Your email app should have opened with the message ready. If nothing happened, copy my address and write to me directly."
 }

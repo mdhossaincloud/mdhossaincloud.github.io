@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=6.0.0">
+<link rel="stylesheet" href="assets/css/site.css?v=6.1.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://mdhossaincloud.github.io/#person","name":"Md. Hossain","alternateName":"Md Hossain","url":"https://mdhossaincloud.github.io/","email":"mailto:mdhossain.cloud@gmail.com","jobTitle":"Senior IT Officer","worksFor":{"@type":"Organization","name":"MKR Group"},"founder":{"@type":"Organization","name":"Fixible IT","url":"https://fixibleit.com/"},"address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressCountry":"BD"},"knowsLanguage":["bn","en"],"knowsAbout":["IT support","Systems administration","Network administration","Microsoft 365 administration","Active Directory","Group Policy","MikroTik","Site-to-site VPN","VLAN","IP CCTV and NVR","IT asset management","PowerShell","WordPress","WooCommerce"],"sameAs":["https://www.linkedin.com/in/mdhossain-cloud","https://github.com/mdhossaincloud"]},{"@type":"WebSite","@id":"https://mdhossaincloud.github.io/#website","url":"https://mdhossaincloud.github.io/","name":"Md. Hossain","inLanguage":["en","de","fr","es","it","pt","nl","zh-Hans","bn"],"publisher":{"@id":"https://mdhossaincloud.github.io/#person"}},{"@type":"ProfilePage","url":"https://mdhossaincloud.github.io/","inLanguage":"en","mainEntity":{"@id":"https://mdhossaincloud.github.io/#person"}}]}</script>
@@ -419,15 +419,17 @@
     </div>
     <form class="compose" id="compose" novalidate>
       <h3>Write to me</h3>
-      <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="c-email">Your email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
-      <div class="field"><label for="c-topic">Topic</label>
-        <select id="c-topic" name="topic">
-          <option>Job opportunity</option><option>IT project</option><option>Monthly IT support</option><option>Something else</option>
-        </select></div>
-      <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="5" required></textarea></div>
+      <fieldset class="topics"><legend>Topic</legend>
+        <div class="topic-list"><label class="topic"><input type="radio" name="topic" value="Full-time IT role" data-starter="Hello, I would like to talk about a full-time IT role. " checked><span>Full-time IT role</span></label><label class="topic"><input type="radio" name="topic" value="Freelance or contract work" data-starter="Hello, I have a freelance or contract IT job to discuss. "><span>Freelance or contract work</span></label><label class="topic"><input type="radio" name="topic" value="IT consulting" data-starter="Hello, I would like IT consulting on "><span>IT consulting</span></label><label class="topic"><input type="radio" name="topic" value="IT project" data-starter="Hello, I have an IT project: "><span>IT project</span></label><label class="topic"><input type="radio" name="topic" value="Monthly IT support" data-starter="Hello, I am looking for monthly IT support for "><span>Monthly IT support</span></label><label class="topic"><input type="radio" name="topic" value="Something else" data-starter="Hello, "><span>Something else</span></label></div>
+      </fieldset>
+      <div class="field-row">
+        <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">Your email</label><input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+      </div>
+      <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" rows="5" maxlength="1000" required></textarea><small class="count" id="c-count" aria-hidden="true"></small></div>
       <p class="form-error" id="c-error" role="alert" hidden>Please add your name, a valid email address and a message.</p>
       <button class="btn primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> Open in email app</button>
+      <div class="form-done" id="c-done" role="status" hidden><p>Your email app should have opened with the message ready. If nothing happened, copy my address and write to me directly.</p><button class="btn quiet" type="button" data-copy="mdhossain.cloud@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></svg> Copy</button></div>
       <p class="form-note">This opens your email app with the message ready to send. Nothing is stored on this website.</p>
     </form>
   </div>
@@ -475,12 +477,12 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="assets/js/site.js?v=6.0.0" defer></script>
-<script src="assets/js/bg.js?v=6.0.0" defer></script>
-<script src="assets/js/scene.js?v=6.0.0" defer></script>
-<script src="assets/js/lab-data.js?v=6.0.0" defer></script>
-<script src="assets/js/lab.js?v=6.0.0" defer></script>
-<script src="assets/js/rack.js?v=6.0.0" defer></script>
-<script src="assets/js/fx.js?v=6.0.0" defer></script>
+<script src="assets/js/site.js?v=6.1.0" defer></script>
+<script src="assets/js/bg.js?v=6.1.0" defer></script>
+<script src="assets/js/scene.js?v=6.1.0" defer></script>
+<script src="assets/js/lab-data.js?v=6.1.0" defer></script>
+<script src="assets/js/lab.js?v=6.1.0" defer></script>
+<script src="assets/js/rack.js?v=6.1.0" defer></script>
+<script src="assets/js/fx.js?v=6.1.0" defer></script>
 </body>
 </html>

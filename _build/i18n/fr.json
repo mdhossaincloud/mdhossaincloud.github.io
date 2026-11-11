@@ -280,5 +280,18 @@
   "rk.note": "Équipement illustratif, à titre explicatif. Il ne représente aucun site d’employeur.",
   "in.guides": "Commencer par un guide",
   "in.guides.note": "Les guides sont rédigés en anglais.",
-  "pj.src": "Le code source est privé. L’arborescence est présentée sur chaque page projet."
+  "pj.src": "Le code source est privé. L’arborescence est présentée sur chaque page projet.",
+  "ct.t1": "Poste informatique à temps plein",
+  "ct.s1": "Bonjour, je souhaite discuter d’un poste informatique à temps plein. ",
+  "ct.t2": "Mission freelance ou contrat",
+  "ct.s2": "Bonjour, j’ai une mission informatique en freelance ou sous contrat à vous proposer. ",
+  "ct.t3": "Conseil informatique",
+  "ct.s3": "Bonjour, je souhaite un conseil informatique sur ",
+  "ct.t4": "Projet informatique",
+  "ct.s4": "Bonjour, j’ai un projet informatique : ",
+  "ct.t5": "Support informatique mensuel",
+  "ct.s5": "Bonjour, je cherche un support informatique mensuel pour ",
+  "ct.t6": "Autre sujet",
+  "ct.s6": "Bonjour, ",
+  "ct.form.done": "Votre messagerie devrait s’être ouverte avec le message prêt. Si rien ne s’est passé, copiez mon adresse et écrivez-moi directement."
 }

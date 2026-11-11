@@ -280,5 +280,18 @@
   "rk.note": "Illustratieve apparatuur ter uitleg. Geen locatie van een werkgever.",
   "in.guides": "Begin met een gids",
   "in.guides.note": "De gidsen zijn in het Engels.",
-  "pj.src": "De broncode is privé. De mapstructuur staat op elke projectpagina."
+  "pj.src": "De broncode is privé. De mapstructuur staat op elke projectpagina.",
+  "ct.t1": "Fulltime IT-functie",
+  "ct.s1": "Goedendag, ik wil graag praten over een fulltime IT-functie. ",
+  "ct.t2": "Freelance- of contractwerk",
+  "ct.s2": "Goedendag, ik heb een freelance of contractopdracht in de IT te bespreken. ",
+  "ct.t3": "IT-advies",
+  "ct.s3": "Goedendag, ik zou graag IT-advies willen over ",
+  "ct.t4": "IT-project",
+  "ct.s4": "Goedendag, ik heb een IT-project: ",
+  "ct.t5": "Maandelijkse IT-ondersteuning",
+  "ct.s5": "Goedendag, ik zoek maandelijkse IT-ondersteuning voor ",
+  "ct.t6": "Iets anders",
+  "ct.s6": "Goedendag, ",
+  "ct.form.done": "Uw e-mailapp zou geopend moeten zijn met het bericht klaar. Is er niets gebeurd, kopieer dan mijn adres en schrijf mij rechtstreeks."
 }

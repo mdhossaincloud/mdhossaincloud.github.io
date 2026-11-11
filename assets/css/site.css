@@ -733,6 +733,29 @@ html:not(.js) .scene-note { margin-top: var(--s3); }
 .field [aria-invalid="true"] { border-color: #e5484d; }
 .form-error { margin: 0; color: #e5484d; font-size: .9rem; }
 .compose .btn { justify-self: start; }
+
+/* v4 contact box: topic chips, paired fields, counter, success state */
+.topics { border: 0; margin: 0; padding: 0; min-width: 0; }
+.topics legend { padding: 0; margin-bottom: .55rem; font-size: .88rem; font-weight: 600; }
+.topic-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+.topic { position: relative; cursor: pointer; }
+.topic input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.topic span {
+  display: inline-block; padding: .45rem .85rem; border-radius: 999px; border: 1px solid var(--ln-2); background: var(--bg-2);
+  color: var(--mu); font-size: .9rem; line-height: 1.4; transition: background .2s, border-color .2s, color .2s, box-shadow .2s;
+}
+.topic:hover span { border-color: var(--mu); color: var(--ink); }
+.topic input:checked + span { background: color-mix(in srgb, var(--acc) 16%, var(--bg-2)); border-color: var(--acc); color: var(--ink); box-shadow: 0 0 0 3px var(--glow); }
+.topic input:focus-visible + span { outline: 2px solid var(--cy); outline-offset: 2px; }
+.field-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--s4); }
+.field-row .field { min-width: 0; }
+.field input:focus, .field textarea:focus { border-color: var(--cy); }
+.field .count { justify-self: end; font: 400 .76rem var(--f-mono); color: var(--mu); font-variant-numeric: tabular-nums; }
+.form-done { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; padding: .75rem 1rem; border-radius: var(--r-sm); border: 1px solid color-mix(in srgb, var(--ok) 45%, var(--ln-2)); background: color-mix(in srgb, var(--ok) 9%, transparent); }
+.form-done[hidden], .form-error[hidden] { display: none; }
+.form-done p { margin: 0; font-size: .9rem; flex: 1 1 14rem; }
+@media (max-width: 560px) { .compose .btn.primary { justify-self: stretch; justify-content: center; } }
+@media (prefers-reduced-motion: no-preference) { .form-done:not([hidden]), .form-error:not([hidden]) { animation: rise .45s var(--ease) both; } }
 .form-note { margin: 0; font-size: .82rem; color: var(--mu); }
 
 @media (max-width: 1080px) { .lang ul { right: -3.2rem; } }
