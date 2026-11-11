@@ -38,6 +38,7 @@
   const setMenu = (open) => {
     if (!menuBtn || !nav) return;
     nav.classList.toggle('open', open);
+    d.body.classList.toggle('nav-lock', open);
     menuBtn.setAttribute('aria-expanded', String(open));
     menuBtn.setAttribute('aria-label', open
       ? (menuBtn.dataset.labelClose || 'Close menu')
@@ -54,7 +55,7 @@
     if (lang?.open) { lang.open = false; lang.querySelector('summary')?.focus(); }
     if (nav?.classList.contains('open')) { setMenu(false); menuBtn.focus(); }
   });
-  matchMedia('(min-width: 1081px)').addEventListener?.('change', (m) => { if (m.matches) setMenu(false); });
+  matchMedia('(min-width: 1221px)').addEventListener?.('change', (m) => { if (m.matches) setMenu(false); });
 
   /* ---------- Header state + scroll progress ---------- */
   const header = d.querySelector('.site-header');
