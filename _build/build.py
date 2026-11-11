@@ -36,7 +36,7 @@ NAME = "Md. Hossain"
 EMAIL = "mdhossain.cloud@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/mdhossain-cloud"
 GITHUB = "https://github.com/mdhossaincloud"
-VERSION = "5.0.0"
+VERSION = "6.0.0"
 
 # code, label in its own language, BCP 47 tag, URL prefix ("" = default)
 LANGS = [
@@ -48,6 +48,7 @@ LANGS = [
     ("pt", "Português", "pt", "pt/"),
     ("nl", "Nederlands", "nl", "nl/"),
     ("zh", "中文", "zh-Hans", "zh/"),
+    ("bn", "বাংলা", "bn", "bn/"),
 ]
 NAV = ["about", "experience", "expertise", "services", "projects", "insights", "contact"]
 
@@ -85,7 +86,9 @@ def head(meta, depth, lang, alternates):
     js_dict = ""
     if meta.get("i18n") and lang != "en":
         js_dict = "<script>window.I18N=" + json.dumps(DICTS[lang].get("js", {}), ensure_ascii=False, separators=(",", ":")) + ";</script>\n"
-    og_locale = {"en": "en_US", "de": "de_DE", "fr": "fr_FR", "es": "es_ES", "it": "it_IT", "pt": "pt_PT", "nl": "nl_NL", "zh": "zh_CN"}[lang]
+    og_locale = {"en": "en_US", "de": "de_DE", "fr": "fr_FR", "es": "es_ES", "it": "it_IT", "pt": "pt_PT", "nl": "nl_NL", "zh": "zh_CN", "bn": "bn_BD"}[lang]
+    bn_preload = (f'<link rel="preload" href="{r}assets/fonts/hind-siliguri-bn-400.woff2" as="font" type="font/woff2" crossorigin>\n'
+                  if lang == "bn" else "")
     return f"""<!DOCTYPE html>
 <html lang="{tag}">
 <head>
@@ -114,7 +117,7 @@ def head(meta, depth, lang, alternates):
 <link rel="apple-touch-icon" href="{r}assets/img/apple-touch-icon.png">
 <link rel="preload" href="{r}assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{r}assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{r}assets/css/site.css?v={VERSION}">
+{bn_preload}<link rel="stylesheet" href="{r}assets/css/site.css?v={VERSION}">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){{var d=document.documentElement;d.classList.add('js');try{{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}}catch(e){{}}}})();</script>
 {js_dict}{ld_html}</head>

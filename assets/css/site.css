@@ -31,6 +31,22 @@
   font-weight: 400;
   font-display: swap;
 }
+/* Bengali script (Hind Siliguri, Indian Type Foundry, SIL OFL). The unicode-range keeps it
+   from downloading on pages that contain no Bengali. */
+@font-face {
+  font-family: "Hind Siliguri";
+  src: url("../fonts/hind-siliguri-bn-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+20B9, U+25CC;
+}
+@font-face {
+  font-family: "Hind Siliguri";
+  src: url("../fonts/hind-siliguri-bn-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0964-0965, U+0980-09FE, U+200C-200D, U+20B9, U+25CC;
+}
 
 /* ---------- Tokens ---------- */
 :root {
@@ -610,6 +626,22 @@ html:not(.js) .scene-note { margin-top: var(--s3); }
 :lang(zh-Hans) h1, :lang(zh-Hans) h2, :lang(zh-Hans) h3 { letter-spacing: 0; }
 :lang(zh-Hans) .hero h1 { line-height: 1.15; }
 
+/* Bengali: Latin faces (names, product terms) come first, Hind Siliguri supplies the script.
+   Bengali has tall matras and deep descenders, so it needs looser leading and no negative tracking. */
+:lang(bn) { --f-body: "IBM Plex Sans", "Hind Siliguri", "Nirmala UI", "Noto Sans Bengali", "Kohinoor Bangla", system-ui, sans-serif;
+  --f-display: "Archivo", "Hind Siliguri", "Nirmala UI", "Noto Sans Bengali", "Kohinoor Bangla", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", "Hind Siliguri", "Nirmala UI", ui-monospace, Consolas, monospace; }
+:lang(bn) body { line-height: 1.75; }
+:lang(bn) h1, :lang(bn) h2, :lang(bn) h3, :lang(bn) h4,
+:lang(bn) .h-name, :lang(bn) .h-role, :lang(bn) .philosophy p { letter-spacing: 0; }
+:lang(bn) h1, :lang(bn) h2 { line-height: 1.3; }
+:lang(bn) h3, :lang(bn) h4 { line-height: 1.4; }
+:lang(bn) .hero h1 { line-height: 1.2; }
+:lang(bn) .h-role { line-height: 1.4; }
+:lang(bn) .lead, :lang(bn) .prose p, :lang(bn) .section-head p, :lang(bn) .svc p { line-height: 1.85; }
+:lang(bn) .btn, :lang(bn) .chip, :lang(bn) .tag, :lang(bn) .status { line-height: 1.5; }
+:lang(bn) .site-nav a { white-space: nowrap; }
+
 /* Language menu */
 .lang { position: relative; }
 .lang summary {
@@ -963,3 +995,109 @@ html:not(.js) .rack-story { grid-template-columns: 1fr; }
 @media (max-width: 560px) { .repo-head { padding: var(--s3) var(--s4); } .repo-head .btn { margin-left: 0; } .repo-tree { font-size: .8rem; } }
 .hub-item, .hub-item a { min-width: 0; } .hub-item h3, .hub-item p { overflow-wrap: anywhere; }
 @media (max-width: 700px) { .hub-list { grid-template-columns: minmax(0, 1fr); } }
+
+
+/* ==========================================================================
+   v6 motion polish (assets/js/fx.js). Decoration only; all motion sits inside
+   prefers-reduced-motion: no-preference and degrades to the plain v5 look.
+   ========================================================================== */
+
+/* Cursor spotlight: a soft glow that follows the pointer inside a card */
+.svc, .skill-group, .project, .cred, .figures > div { position: relative; isolation: isolate; }
+.svc::before, .skill-group::before, .project::before, .cred::before, .figures > div::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none; opacity: 0;
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--acc) 17%, transparent), color-mix(in srgb, var(--cy) 6%, transparent) 45%, transparent 70%);
+  transition: opacity .35s var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .svc:hover::before, .skill-group:hover::before, .project:hover::before, .cred:hover::before, .figures > div:hover::before { opacity: 1; }
+}
+
+/* Live dot on the "live" project status */
+.status:not(.dev):not(.info)::before { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 60%, transparent); }
+
+/* Floating contact button (reuses the hero's "get in touch" label) */
+.fab {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 90; display: inline-flex; align-items: center; gap: .55rem;
+  padding: .72rem 1.15rem; border-radius: 999px; background: var(--acc); color: var(--acc-ink);
+  font-weight: 600; font-size: .95rem; text-decoration: none; line-height: 1.4;
+  box-shadow: 0 12px 30px -12px color-mix(in srgb, var(--acc) 75%, transparent);
+  opacity: 0; transform: translateY(14px); visibility: hidden; pointer-events: none;
+  transition: opacity .3s, transform .35s var(--ease), visibility 0s .35s;
+}
+.fab svg { width: 17px; height: 17px; flex: none; }
+.fab.show { opacity: 1; transform: none; visibility: visible; pointer-events: auto; transition-delay: 0s; }
+.fab:hover { text-decoration: none; background: color-mix(in srgb, var(--acc) 86%, white); }
+.fab:focus-visible { outline: 2px solid var(--cy); outline-offset: 3px; }
+html:not(.js) .fab { display: none; }
+@media print { .fab { display: none !important; } .fx-in, .fx-in > * { opacity: 1 !important; transform: none !important; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero: a single light sweep across the name, a rotating signal ring on the avatar, a scanning rule under the role */
+  .js .h-name {
+    background: linear-gradient(100deg, var(--ink) 0 42%, var(--cy) 50%, var(--ink) 58% 100%);
+    background-size: 280% 100%; background-position: 100% 0;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+    animation: sheen 2.6s .5s var(--ease) 1 both;
+  }
+  .hero-id { position: relative; }
+  .hero-id::before {
+    content: ""; position: absolute; left: -5px; top: 50%; width: 62px; height: 62px; margin-top: -31px; border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0 55%, var(--cy) 82%, var(--acc) 100%);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px));
+    animation: spin 4.5s linear infinite; pointer-events: none;
+  }
+  .h-role::after {
+    content: ""; display: block; margin-top: 1rem; height: 2px; width: min(15rem, 70%); border-radius: 2px; opacity: .9;
+    background: linear-gradient(90deg, transparent, var(--cy), var(--acc), transparent); background-size: 220% 100%;
+    animation: scan 3.6s linear infinite;
+  }
+  .status:not(.dev):not(.info)::before { animation: pulse 2.4s ease-out infinite; }
+
+  /* Magnetic buttons */
+  .btn[data-mag] { transform: translate(var(--tx, 0px), var(--ty, 0px)); }
+  .btn[data-mag]:active { transform: translate(var(--tx, 0px), calc(var(--ty, 0px) + 1px)); }
+
+  /* Staggered entrance (classes are added and removed by fx.js) */
+  .js .fx-in:not(.fx-inner) {
+    opacity: 0; transform: translateY(22px);
+    transition: opacity .7s var(--ease) var(--d, 0s), transform .7s var(--ease) var(--d, 0s);
+  }
+  .js .fx-in:not(.fx-inner).fx-on { opacity: 1; transform: none; }
+  .js .fx-inner > * {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .6s var(--ease) calc(var(--d, 0s) + var(--k, 0) * .07s), transform .6s var(--ease) calc(var(--d, 0s) + var(--k, 0) * .07s);
+  }
+  .js .fx-inner > :nth-child(2) { --k: 1; } .js .fx-inner > :nth-child(3) { --k: 2; } .js .fx-inner > :nth-child(4) { --k: 3; }
+  .js .fx-inner.fx-on > * { opacity: 1; transform: none; }
+
+  /* Skills "boot up": each row flashes once as its group appears */
+  .skill-group.boot li { animation: boot 1s var(--ease) both; animation-delay: calc(.35s + var(--i, 0) * .09s); }
+  .skill-group.boot li .lv { animation: pop .55s var(--ease) both; animation-delay: calc(.35s + var(--i, 0) * .09s); }
+
+  /* Timeline rail fills as you scroll, dots light up when reached */
+  .js .timeline::after {
+    content: ""; position: absolute; left: 11rem; margin-left: -.5px; top: .6rem; width: 2px; border-radius: 2px; pointer-events: none;
+    height: calc((100% - 1.2rem) * var(--p, 0)); background: linear-gradient(var(--cy), var(--acc));
+    box-shadow: 0 0 12px color-mix(in srgb, var(--cy) 70%, transparent);
+  }
+  .js .role::before { transition: background .4s, border-color .4s, box-shadow .4s; }
+  .js .role.passed::before { border-color: var(--cy); }
+  .js .role.passed:not(.current)::before { background: var(--cy); box-shadow: 0 0 0 4px color-mix(in srgb, var(--cy) 22%, transparent); }
+
+  /* Floating button: a slow ping ring while visible */
+  .fab.show::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 2px solid var(--acc); animation: ping 3.2s ease-out infinite; pointer-events: none; }
+}
+@media (prefers-reduced-motion: no-preference) and (max-width: 720px) { .js .timeline::after { left: 5px; } }
+
+@keyframes sheen { to { background-position: 0 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes scan { from { background-position: 220% 0; } to { background-position: -120% 0; } }
+@keyframes boot {
+  0% { background: color-mix(in srgb, var(--cy) 20%, transparent); box-shadow: inset 2px 0 0 var(--cy); }
+  100% { background: transparent; box-shadow: inset 0 0 0 transparent; }
+}
+@keyframes pop { 0% { transform: scale(.4); } 60% { transform: scale(1.5); box-shadow: 0 0 0 6px color-mix(in srgb, var(--cy) 25%, transparent); } 100% { transform: none; box-shadow: none; } }
+@keyframes ping { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(1.35, 1.7); opacity: 0; } }

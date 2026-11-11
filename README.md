@@ -8,7 +8,7 @@ Personal website of **Md. Hossain**, IT Infrastructure Specialist in Dhaka, Bang
 
 | Path | Purpose |
 |---|---|
-| `index.html`, `de/` `fr/` `es/` `it/` `pt/` `nl/` `zh/` | Home page in 8 languages: hero with 3D network, about with scroll-assembled portrait, experience, expertise, services, Fixible IT feature, insights lab, achievements, contact |
+| `index.html`, `de/` `fr/` `es/` `it/` `pt/` `nl/` `zh/` `bn/` | Home page in 9 languages (Bengali is written as natural standard Bengali, not a word-for-word translation): hero with 3D network, about with scroll-assembled portrait, experience, expertise, services, Fixible IT feature, insights lab, achievements, contact |
 | `projects/*/index.html` | Case studies: Hossain OneDesk, OneDesk Cheque Writer, Fixible IT, this website |
 | `knowledge/index.html` | Knowledge Hub: learning paths, searchable library, IT glossary |
 | `knowledge/<slug>/` | Written guides, generated from `_build/articles/*.md` |
@@ -21,9 +21,10 @@ Personal website of **Md. Hossain**, IT Infrastructure Specialist in Dhaka, Bang
 | `assets/js/bg.js` | Background data sphere that dissolves into binary on scroll |
 | `assets/js/rack.js` | Scroll-driven 3D server rack that dissolves into binary |
 | `assets/js/calc.js` | CCTV storage calculator used by one guide |
+| `assets/js/fx.js` | Motion polish: card spotlight, staggered entrances, count-up figures, scroll-drawn timeline, floating contact button (all off under reduced motion) |
 | `assets/media/` | 8-second motion loop (MP4) and poster |
 | `assets/img/hossain-*.jpg` | Portrait and avatar |
-| `assets/fonts/` | Self-hosted Archivo and IBM Plex, Latin subset (SIL Open Font License) |
+| `assets/fonts/` | Self-hosted Archivo and IBM Plex (Latin subset) and Hind Siliguri (Bengali subset, loaded only on pages that contain Bengali); SIL Open Font License |
 | `_build/i18n/*.json` | Translations; English is the source and fallback |
 | `cv/MD_Hossain_CV.pdf` | Downloadable CV |
 | `_build/` | Page sources and `build.py` (not published by GitHub Pages) |
