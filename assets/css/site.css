@@ -1181,14 +1181,6 @@ html:not(.js) .fab { display: none; }
 @media (prefers-reduced-motion: reduce) { .svc, .project, .skill-group, .cred, .guide-cards a { transition: none; } }
 
 /* ---- Hero objects (desktop only; hidden by the existing 900px rule) ---- */
-.hero-obj { position: absolute; will-change: transform, opacity; pointer-events: none; }
-.hero-obj canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
-.hero-obj svg { transition: opacity .22s; }
-.hero-obj svg { width: 100%; height: auto; overflow: visible; }
-.hero-obj .dx-lead { stroke: var(--cy); stroke-dasharray: 2 4; stroke-width: 1; }
-.hero-obj.ho-a { left: 0; right: 0; top: 0; }
-.hero-obj.ho-b { left: -4%; bottom: -8%; width: 44%; }
-.hero-obj.ho-c { right: -2%; bottom: -10%; width: 44%; }
 
 /* ---- Device Explorer ---- */
 .dx-shell { display: grid; grid-template-columns: 13rem minmax(0, 1fr); grid-template-areas: "tabs main" "tabs bar" "tabs parts"; gap: var(--s4) var(--s5); }
@@ -1363,3 +1355,6 @@ html[lang="bn-BD"] .foot-cta-k { letter-spacing: 0; text-transform: none; font-f
 .dx-credit { margin: var(--s4) 0 0; font-size: .8rem; color: var(--mu); max-width: 90ch; }
 .dx-credit a { color: var(--mu); }
 @media (prefers-reduced-motion: reduce) { .dx-stage.is-loading::after, .dx-spot::after { animation: none; } }
+
+/* ---- Hero particle cloud (v4.7) ---- */
+.hero-cloud { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }

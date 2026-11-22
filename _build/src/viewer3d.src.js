@@ -1,15 +1,16 @@
 /* Device Explorer 3D viewer (v4.6). Bundled with esbuild into assets/js/viewer3d.js:
      cd _build/src && npm i three esbuild && npx esbuild viewer3d.src.js --bundle --minify --format=esm --outfile=../../assets/js/viewer3d.js
    Drag to rotate, hover to inspect a part, slider to explode. Renders only while visible. */
-import { WebGLRenderer, Scene, PerspectiveCamera, PMREMGenerator, DirectionalLight, HemisphereLight, Group, Box3, Vector3, Raycaster, Vector2, Color, SRGBColorSpace, ACESFilmicToneMapping } from 'three';
+import { WebGLRenderer, Scene, PerspectiveCamera, PMREMGenerator, DirectionalLight, HemisphereLight, Group, Box3, Vector3, Raycaster, Vector2, Color, Mesh, BufferAttribute, SRGBColorSpace, ACESFilmicToneMapping } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 export function createViewer(host, hooks = {}) {
   const renderer = new WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
   renderer.outputColorSpace = SRGBColorSpace; renderer.toneMapping = ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
   const cv = renderer.domElement; cv.className = 'dx-gl'; cv.setAttribute('aria-hidden', 'true'); host.append(cv);
   const scene = new Scene();
@@ -27,6 +28,7 @@ export function createViewer(host, hooks = {}) {
   const hl = new Color(0x3dd6e6);
 
   function clear() {
+    holder.traverse(o => { if (o.isMesh) { o.geometry.dispose(); [].concat(o.material).forEach(mt => { for (const k in mt) { if (mt[k] && mt[k].isTexture) mt[k].dispose(); } mt.dispose(); }); } });
     holder.clear(); groups = []; meshes = []; spots = []; spotEls.forEach(e => e.remove()); spotEls = [];
   }
   async function load(url, cfg) {
@@ -35,17 +37,29 @@ export function createViewer(host, hooks = {}) {
     if (my !== token) return false;
     const root = gltf.scene; holder.add(root); root.updateMatrixWorld(true);
     const list = []; root.traverse(o => { if (o.isMesh) list.push(o); });
-    const gs = {};
+    const gs = {}, buckets = new Map();
     list.forEach(m => {
       const mat = Array.isArray(m.material) ? m.material[0] : m.material, mname = (mat && mat.name) || '';
       const gc = (cfg.groups || []).find(g => g.test(m.name, mname)) || { id: cfg.fallback || 'body', dir: [0, 0, 0] };
-      m.material = Array.isArray(m.material) ? m.material.map(x => x.clone()) : m.material.clone();
-      holder.attach(m); m.userData.gid = gc.id;
       const dir = typeof gc.dir === 'function' ? gc.dir(m.name) : gc.dir;
-      (gs[gc.id] ||= { id: gc.id, meshes: [], dir }); gs[gc.id].meshes.push(m);
-      m.userData.dir = dir; m.userData.base = m.position.clone();
-      meshes.push(m);
+      const geo = m.geometry.clone();
+      ['position', 'normal', 'uv'].forEach(n => { const at = geo.attributes[n]; if (at && !(at.array instanceof Float32Array)) { const f = new Float32Array(at.count * at.itemSize); for (let i = 0; i < at.count; i++) for (let k = 0; k < at.itemSize; k++) f[i * at.itemSize + k] = at.getComponent(i, k); geo.setAttribute(n, new BufferAttribute(f, at.itemSize)); } });
+      geo.applyMatrix4(m.matrixWorld);
+      const bk = gc.id + '|' + JSON.stringify(dir) + '|' + mat.uuid;
+      let bu = buckets.get(bk); if (!bu) { bu = { gid: gc.id, dir, mat, geos: [] }; buckets.set(bk, bu); }
+      bu.geos.push(geo);
     });
+    /* one draw call per (group, material): keeps hover and explode fast even for 1,000-part models */
+    buckets.forEach(bu => {
+      bu.geos.forEach(g => { Object.keys(g.attributes).forEach(n => { if (n !== 'position' && n !== 'normal' && n !== 'uv') g.deleteAttribute(n); }); if (!g.attributes.normal) g.computeVertexNormals(); if (!g.attributes.uv) g.setAttribute('uv', new BufferAttribute(new Float32Array(g.attributes.position.count * 2), 2)); });
+      const idx = bu.geos.filter(g => g.index).length; if (idx && idx !== bu.geos.length) bu.geos = bu.geos.map(g => g.index ? g.toNonIndexed() : g);
+      const geo = bu.geos.length === 1 ? bu.geos[0] : mergeGeometries(bu.geos, false); if (!geo) return;
+      const mt = bu.mat.clone();
+      if (mt.transmission > 0) { mt.transmission = 0; mt.transparent = true; mt.opacity = .22; mt.depthWrite = false; }
+      const mesh = new Mesh(geo, mt); mesh.userData.gid = bu.gid; mesh.userData.dir = bu.dir; mesh.userData.base = mesh.position.clone();
+      holder.add(mesh); meshes.push(mesh); (gs[bu.gid] ||= { id: bu.gid, meshes: [], dir: bu.dir }).meshes.push(mesh);
+    });
+    list.forEach(m => m.geometry.dispose());
     root.removeFromParent();
     if (cfg.rot) holder.rotation.set(...cfg.rot); else holder.rotation.set(0, 0, 0);
     holder.scale.setScalar(1); holder.position.set(0, 0, 0); holder.updateMatrixWorld(true);
@@ -84,7 +98,7 @@ export function createViewer(host, hooks = {}) {
     if (hit) setActive(hit.object.userData.gid); else if (!spotEls.some(e => e.matches(':hover'))) setActive(null);
   }
   let pending = null;
-  cv.addEventListener('pointermove', (ev) => { pending = ev; if (!hold) hold = requestAnimationFrame(() => { hold = 0; pick(pending); }); });
+  cv.addEventListener('pointermove', (ev) => { pending = ev; if (!hold) hold = setTimeout(() => { hold = 0; requestAnimationFrame(() => pick(pending)); }, 45); });
   cv.addEventListener('pointerleave', () => { if (!dragging) setActive(null); });
   cv.addEventListener('pointerdown', () => { dragging = true; cv.classList.add('is-drag'); controls.autoRotate = false; });
   addEventListener('pointerup', () => { if (dragging) { dragging = false; cv.classList.remove('is-drag'); controls.autoRotate = !reduce && !activeId; } });
