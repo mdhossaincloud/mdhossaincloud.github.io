@@ -1,0 +1,32 @@
+<!--meta {
+  "path": "knowledge/tools/",
+  "title": "Free IT tools: subnet, CCTV storage, RAID, uptime, hash and more | Md. Hossain",
+  "description": "Twelve free browser-based IT tools: subnet calculator, CCTV storage, RAID capacity, uptime/SLA, file transfer time, hash, password generator, JSON, Base64, timestamps and a ports lookup. Nothing is uploaded.",
+  "active": "knowledge",
+  "scripts": ["tools.js"],
+  "trail": [["Home", ""], ["Knowledge Hub", "knowledge/"], ["IT tools", "knowledge/tools/"]]
+} -->
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol>
+      <li><a href="{{root}}">Home</a></li><li><a href="{{root}}knowledge/">Knowledge Hub</a></li><li><span aria-current="page">IT tools</span></li>
+    </ol></nav>
+    <h1>Free IT tools</h1>
+    <p class="lead">Twelve small tools I reach for in day-to-day IT work, from planning a subnet to sizing CCTV storage. They run entirely in your browser: nothing you type is uploaded or stored.</p>
+    <div class="tools-find">
+      <label for="tools-q" class="sr-only">Filter tools</label>
+      <input id="tools-q" type="search" placeholder="Filter: subnet, password, camera…" autocomplete="off">
+      <span id="tools-count" aria-live="polite">12 of 12</span>
+    </div>
+  </div>
+</section>
+<section class="section tools-sec">
+  <div class="wrap">
+    <div class="tools-grid" id="tools-grid"></div>
+    <p id="tools-none" hidden>No tool matches that filter.</p>
+    <noscript><p>These tools need JavaScript.</p></noscript>
+    <p class="lab-disclaimer">Results are estimates for planning. Always confirm real designs against the vendor’s specifications.</p>
+  </div>
+</section>
+</main>

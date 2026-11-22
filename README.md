@@ -19,6 +19,8 @@ Personal website of **Md. Hossain**, IT Infrastructure Specialist in Dhaka, Bang
 | `assets/js/lab-data.js`, `lab.js` | Infrastructure Lab content and renderer |
 | `assets/js/articles.js`, `hub.js` | Published guides list and Knowledge Hub search |
 | `assets/js/bg.js` | Background data sphere that dissolves into binary on scroll |
+| `assets/js/explorer.js` | Device Explorer (v4.5): isometric exploded views of a router, PoE switch, access point and IP camera with a drag bar and per-part details; also the three hero objects that open on hover and explode and vanish on scroll |
+| `assets/js/tools.js` | Twelve free browser-only IT tools on `knowledge/tools/` (subnet, CCTV storage, RAID, SLA, hash, passwords and more) |
 | `assets/js/rack.js` | Scroll-driven 3D server rack that dissolves into binary |
 | `assets/js/calc.js` | CCTV storage calculator used by one guide |
 | `assets/js/fx.js` | Motion polish: card spotlight, staggered entrances, count-up figures, scroll-drawn timeline, floating contact button (all off under reduced motion) |

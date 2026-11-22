@@ -36,7 +36,7 @@ NAME = "Md. Hossain"
 EMAIL = "mdhossain.cloud@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/mdhossain-cloud"
 GITHUB = "https://github.com/mdhossaincloud"
-VERSION = "6.2.0"
+VERSION = "4.5.0"
 
 # code, label in its own language, BCP 47 tag, URL prefix ("" = default)
 LANGS = [
@@ -191,6 +191,8 @@ def footer(depth, lang, scripts, site_root, home_page=False):
       <ul>
         <li><a href="{sr}knowledge/">{e('ui.hub')}</a></li>
         <li><a href="{home}#insights">{e('foot.lab')}</a></li>
+        <li><a href="{home}#explorer">{e('foot.explorer')}</a></li>
+        <li><a href="{sr}knowledge/tools/">{e('foot.tools')}</a></li>
         <li><a href="{sr}knowledge/#paths">{e('foot.paths')}</a></li>
         <li><a href="{sr}knowledge/#glossary">{e('foot.glossary')}</a></li>
       </ul>

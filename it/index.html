@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=6.2.0">
+<link rel="stylesheet" href="../assets/css/site.css?v=4.5.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"copied":"Indirizzo e-mail copiato","copyfail":"Copia non riuscita. L’indirizzo è ","step":"Passo {n} di {m}","prev":"Passo precedente","next":"Passo successivo","play":"Riproduci tutti i passi","pause":"Pausa","mailsubject":"Richiesta dal sito web","types":{"cloud":["Servizi cloud","Microsoft 365 e altri servizi online: posta, identità e file, raggiunti tramite internet."],"isp":["Internet / provider","La rete pubblica che collega tutte le sedi. Qui si controllano i collegamenti e le segnalazioni al provider."],"fw":["Firewall e router perimetrale","Filtra il traffico, esegue il NAT e termina i tunnel VPN site-to-site."],"rt":["Router di filiale","Router perimetrale di classe MikroTik: accesso a internet, routing e tunnel VPN verso la sede centrale."],"sw":["Switch core / di accesso","Collega i dispositivi cablati e separa il traffico in VLAN."],"srv":["Server","Servizi locali come condivisioni di file, directory o strumenti di gestione."],"ap":["Access point Wi-Fi","Copertura wireless. Pianificazione dei canali e autenticazione ne determinano l’affidabilità."],"pc":["Postazione di lavoro","Dove si conclude gran parte del supporto: configurazione, accessi, aggiornamenti e risoluzione dei problemi."],"cam":["Telecamera IP","Alimentata tramite Ethernet (PoE), invia il video all’NVR sulla propria VLAN."],"nvr":["NVR","Videoregistratore di rete: registra le telecamere e conserva le immagini per il periodo previsto."]},"sites":["Sede centrale","Filiale A","Filiale B"],"vpn":"VPN site-to-site"};</script>
@@ -340,6 +340,46 @@
   </div>
 </section>
 
+<!-- Device explorer: exploded views (v4.5) -->
+<section class="section dx" id="explorer" aria-labelledby="dx-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="dx-title">Device Explorer: see inside the hardware</h2>
+      <p>Pick a router, switch, Wi-Fi access point or IP camera, drag the bar at the bottom to the right to pull it apart, then hover over (or tap) any part to see what it does and what I check on it.</p>
+    </div>
+    <div class="dx-shell" id="dx-app">
+      <div class="dx-tabs" role="tablist" aria-label="Choose a device" id="dx-tabs"></div>
+      <div class="dx-main">
+        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="Exploded view of a network device"></svg></div>
+        <aside class="dx-panel is-idle" id="dx-panel" aria-live="polite"><p class="dx-hint">Drag the bar to pull the device apart, then hover or tap a part to see what it does.</p></aside>
+      </div>
+      <div class="dx-bar">
+        <span>Assembled</span>
+        <input type="range" id="dx-range" min="0" max="100" value="0" aria-label="Drag to explode the device">
+        <span>Exploded</span>
+      </div>
+      <ul class="dx-parts" id="dx-parts" aria-label="Parts"></ul>
+      <noscript><p class="dx-noscript">Il laboratorio interattivo richiede JavaScript.</p></noscript>
+    </div>
+    <p class="en-note"></p>
+    <div class="dx-tools">
+      <div>
+        <h3>Free IT tools</h3>
+        <p>Subnet, CCTV storage, RAID, uptime and passwords: twelve small tools that run in your browser. Nothing is sent anywhere.</p>
+      </div>
+      <ul class="dx-tool-chips">
+        <li><a href="../knowledge/tools/#subnet" lang="en">Subnet calculator</a></li>
+        <li><a href="../knowledge/tools/#cctv" lang="en">CCTV storage</a></li>
+        <li><a href="../knowledge/tools/#raid" lang="en">RAID capacity</a></li>
+        <li><a href="../knowledge/tools/#sla" lang="en">Uptime / SLA</a></li>
+        <li><a href="../knowledge/tools/#password" lang="en">Password generator</a></li>
+        <li><a href="../knowledge/tools/#ports" lang="en">Ports lookup</a></li>
+      </ul>
+      <a class="btn primary" href="../knowledge/tools/">Open all 12 tools <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
 <!-- Server rack: scroll-driven 3D walkthrough -->
 <section class="section rack" id="rack" aria-labelledby="rk-title">
   <div class="wrap">
@@ -456,6 +496,8 @@
       <ul>
         <li><a href="../knowledge/">Centro conoscenze</a></li>
         <li><a href="#insights">Laboratorio infrastruttura</a></li>
+        <li><a href="#explorer">Device Explorer</a></li>
+        <li><a href="../knowledge/tools/">IT tools</a></li>
         <li><a href="../knowledge/#paths">Percorsi di apprendimento</a></li>
         <li><a href="../knowledge/#glossary">Glossario IT</a></li>
       </ul>
@@ -478,12 +520,13 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=6.2.0" defer></script>
-<script src="../assets/js/bg.js?v=6.2.0" defer></script>
-<script src="../assets/js/scene.js?v=6.2.0" defer></script>
-<script src="../assets/js/lab-data.js?v=6.2.0" defer></script>
-<script src="../assets/js/lab.js?v=6.2.0" defer></script>
-<script src="../assets/js/rack.js?v=6.2.0" defer></script>
-<script src="../assets/js/fx.js?v=6.2.0" defer></script>
+<script src="../assets/js/site.js?v=4.5.0" defer></script>
+<script src="../assets/js/bg.js?v=4.5.0" defer></script>
+<script src="../assets/js/scene.js?v=4.5.0" defer></script>
+<script src="../assets/js/lab-data.js?v=4.5.0" defer></script>
+<script src="../assets/js/lab.js?v=4.5.0" defer></script>
+<script src="../assets/js/explorer.js?v=4.5.0" defer></script>
+<script src="../assets/js/rack.js?v=4.5.0" defer></script>
+<script src="../assets/js/fx.js?v=4.5.0" defer></script>
 </body>
 </html>

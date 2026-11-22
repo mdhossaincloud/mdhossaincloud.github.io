@@ -4,7 +4,7 @@
   "title_key": "meta.title",
   "desc_key": "meta.description",
   "ogtype": "profile",
-  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js", "rack.js", "fx.js"]
+  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js", "explorer.js", "rack.js", "fx.js"]
 } -->
 <canvas id="bg" aria-hidden="true"></canvas>
 <main id="main">
@@ -281,6 +281,46 @@
         <li><a href="{{root}}knowledge/cctv-storage-planning/" lang="en"><span>IT infrastructure</span><b>How much storage does a CCTV system need? With a calculator</b></a></li>
       </ul>
       <a class="btn" href="{{root}}knowledge/">{{t:in.hub}} {{icon:arrow}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Device explorer: exploded views (v4.5) -->
+<section class="section dx" id="explorer" aria-labelledby="dx-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="dx-title">{{t:dx.title}}</h2>
+      <p>{{t:dx.sub}}</p>
+    </div>
+    <div class="dx-shell" id="dx-app">
+      <div class="dx-tabs" role="tablist" aria-label="{{t:dx.tabs}}" id="dx-tabs"></div>
+      <div class="dx-main">
+        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="{{t:dx.aria}}"></svg></div>
+        <aside class="dx-panel is-idle" id="dx-panel" aria-live="polite"><p class="dx-hint">{{t:dx.hint}}</p></aside>
+      </div>
+      <div class="dx-bar">
+        <span>{{t:dx.assembled}}</span>
+        <input type="range" id="dx-range" min="0" max="100" value="0" aria-label="{{t:dx.bar}}">
+        <span>{{t:dx.exploded}}</span>
+      </div>
+      <ul class="dx-parts" id="dx-parts" aria-label="{{t:dx.parts}}"></ul>
+      <noscript><p class="dx-noscript">{{t:in.noscript}}</p></noscript>
+    </div>
+    <p class="en-note">{{t:dx.note}}</p>
+    <div class="dx-tools">
+      <div>
+        <h3>{{t:dx.tools.title}}</h3>
+        <p>{{t:dx.tools.sub}}</p>
+      </div>
+      <ul class="dx-tool-chips">
+        <li><a href="{{root}}knowledge/tools/#subnet" lang="en">Subnet calculator</a></li>
+        <li><a href="{{root}}knowledge/tools/#cctv" lang="en">CCTV storage</a></li>
+        <li><a href="{{root}}knowledge/tools/#raid" lang="en">RAID capacity</a></li>
+        <li><a href="{{root}}knowledge/tools/#sla" lang="en">Uptime / SLA</a></li>
+        <li><a href="{{root}}knowledge/tools/#password" lang="en">Password generator</a></li>
+        <li><a href="{{root}}knowledge/tools/#ports" lang="en">Ports lookup</a></li>
+      </ul>
+      <a class="btn primary" href="{{root}}knowledge/tools/">{{t:dx.tools.btn}} {{icon:arrow}}</a>
     </div>
   </div>
 </section>
