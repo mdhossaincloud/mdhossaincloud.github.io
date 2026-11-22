@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/site.css?v=4.7.0">
+<link rel="stylesheet" href="assets/css/site.css?v=5.0.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://mdhossaincloud.github.io/#person","name":"Md. Hossain","alternateName":"Md Hossain","url":"https://mdhossaincloud.github.io/","email":"mailto:mdhossain.cloud@gmail.com","jobTitle":"Senior IT Officer","worksFor":{"@type":"Organization","name":"MKR Group"},"founder":{"@type":"Organization","name":"Fixible IT","url":"https://fixibleit.com/"},"address":{"@type":"PostalAddress","addressLocality":"Dhaka","addressCountry":"BD"},"knowsLanguage":["bn","en"],"knowsAbout":["IT support","Systems administration","Network administration","Microsoft 365 administration","Active Directory","Group Policy","MikroTik","Site-to-site VPN","VLAN","IP CCTV and NVR","IT asset management","PowerShell","WordPress","WooCommerce"],"sameAs":["https://www.linkedin.com/in/mdhossain-cloud","https://github.com/mdhossaincloud"]},{"@type":"WebSite","@id":"https://mdhossaincloud.github.io/#website","url":"https://mdhossaincloud.github.io/","name":"Md. Hossain","inLanguage":["en","de","fr","es","it","pt","nl","zh-Hans","bn"],"publisher":{"@id":"https://mdhossaincloud.github.io/#person"}},{"@type":"ProfilePage","url":"https://mdhossaincloud.github.io/","inLanguage":"en","mainEntity":{"@id":"https://mdhossaincloud.github.io/#person"}}]}</script>
@@ -214,6 +214,7 @@
 <!-- Services -->
 <section class="section services" id="services" aria-labelledby="sv-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="server" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="sv-title">Services for businesses in Bangladesh</h2>
       <p>The work I do every day for a multi-site group, available to offices, factories, shops and homes in Bangladesh.</p>
@@ -251,6 +252,7 @@
 <!-- Projects -->
 <section class="section" id="projects" aria-labelledby="proj-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="nvr" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="proj-title">Projects</h2>
       <p>What I build outside my day job, kept separate from my employment.</p>
@@ -354,7 +356,7 @@
     <div class="dx-shell" id="dx-app">
       <div class="dx-tabs" role="tablist" aria-label="Choose a device" id="dx-tabs"></div>
       <div class="dx-main">
-        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="Exploded view of a network device"></svg><div class="dx-gl-host" id="dx-gl" hidden></div></div>
+        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="Exploded view of a network device"></svg></div>
         <aside class="dx-panel is-idle" id="dx-panel" aria-live="polite"><p class="dx-hint">Drag the bar to pull the device apart, then hover or tap a part to see what it does.</p></aside>
       </div>
       <div class="dx-bar">
@@ -366,13 +368,6 @@
       <noscript><p class="dx-noscript">The interactive lab needs JavaScript.</p></noscript>
     </div>
     <p class="en-note"></p>
-    <p class="dx-credit" lang="en">3D models (Sketchfab; compressed and re-arranged for the exploded view):
-      <a href="https://sketchfab.com/3d-models/dream-computer-setup-82f78bbaf2d34f01af854a52151dbf49" rel="noopener">Dream Computer Setup</a> by Daniel Cardona,
-      <a href="https://sketchfab.com/3d-models/macbook-laptop-7ceb46a1425b475fa7f6bf192e01ed74" rel="noopener">MacBook Laptop</a> by Issac Ghazanfar,
-      <a href="https://sketchfab.com/3d-models/low-poly-mobile-phone-4ff99cf17b164e7b9790638c5d2ef4ce" rel="noopener">Low Poly Mobile Phone</a> by k.,
-      <a href="https://sketchfab.com/3d-models/cctv-5306b34cf29c4dde8b75c638d5e005ac" rel="noopener">CCTV</a> by movahed.
-      <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">License</a>.
-      Router: <a href="https://sketchfab.com/3d-models/router-93c561886acc48bab5a34d02f0a463e5" rel="noopener">Router</a> by DailyArt, <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noopener">CC BY-NC 4.0</a>. Switch and access point models are original.</p>
   </div>
 </section>
 
@@ -434,6 +429,7 @@
 <!-- Achievements -->
 <section class="section" id="achievements" aria-labelledby="ac-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="ups" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="ac-title">Achievements</h2>
       <p>Milestones from my work, as stated in my CV, and credentials with public verification links.</p>
@@ -551,14 +547,13 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="assets/js/site.js?v=4.7.0" defer></script>
-<script src="assets/js/bg.js?v=4.7.0" defer></script>
-<script src="assets/js/scene.js?v=4.7.0" defer></script>
-<script src="assets/js/lab-data.js?v=4.7.0" defer></script>
-<script src="assets/js/lab.js?v=4.7.0" defer></script>
-<script src="assets/js/explorer-models.js?v=4.7.0" defer></script>
-<script src="assets/js/explorer.js?v=4.7.0" defer></script>
-<script src="assets/js/rack.js?v=4.7.0" defer></script>
-<script src="assets/js/fx.js?v=4.7.0" defer></script>
+<script src="assets/js/site.js?v=5.0.0" defer></script>
+<script src="assets/js/bg.js?v=5.0.0" defer></script>
+<script src="assets/js/scene.js?v=5.0.0" defer></script>
+<script src="assets/js/lab-data.js?v=5.0.0" defer></script>
+<script src="assets/js/lab.js?v=5.0.0" defer></script>
+<script src="assets/js/explorer.js?v=5.0.0" defer></script>
+<script src="assets/js/rack.js?v=5.0.0" defer></script>
+<script src="assets/js/fx.js?v=5.0.0" defer></script>
 </body>
 </html>

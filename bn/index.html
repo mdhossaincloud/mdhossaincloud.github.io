@@ -37,7 +37,7 @@
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/hind-siliguri-bn-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=4.7.0">
+<link rel="stylesheet" href="../assets/css/site.css?v=5.0.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"exTabs":"একটি ডিভাইস বেছে নিন","exAssembled":"জোড়া","exExploded":"খোলা","exBar":"ডিভাইস খুলতে টানুন","exHint":"বারটি টেনে ডিভাইসটি খুলুন, তারপর কোনো অংশের ওপর মাউস নিন বা ট্যাপ করুন।","exWhat":"কী করে","exCheck":"আমি যা পরীক্ষা করি","copied":"ইমেইল ঠিকানা কপি হয়েছে","copyfail":"কপি করা যায়নি। ঠিকানাটি হলো ","step":"ধাপ {n} / {m}","prev":"আগের ধাপ","next":"পরের ধাপ","play":"সব ধাপ চালান","pause":"বিরতি","mailsubject":"ওয়েবসাইট থেকে জিজ্ঞাসা","types":{"cloud":["ক্লাউড সেবা","Microsoft 365 ও অন্যান্য অনলাইন সেবা: ইমেইল, পরিচয় যাচাই ও ফাইল, যেগুলো ইন্টারনেটের মাধ্যমে ব্যবহার করা হয়।"],"isp":["ইন্টারনেট / আইএসপি","সব অফিসকে যুক্ত করা পাবলিক নেটওয়ার্ক। সংযোগের অবস্থা দেখা ও আইএসপির কাছে সমস্যা জানানোর কাজ এখানেই।"],"fw":["এজ ফায়ারওয়াল ও রাউটার","ট্রাফিক ছেঁকে দেয়, NAT করে এবং সাইট-টু-সাইট VPN টানেলের প্রান্তবিন্দু হিসেবে কাজ করে।"],"rt":["শাখার রাউটার","MikroTik ধরনের এজ রাউটার: ইন্টারনেট সংযোগ, রাউটিং এবং প্রধান কার্যালয় পর্যন্ত VPN টানেল।"],"sw":["কোর / অ্যাক্সেস সুইচ","তারযুক্ত ডিভাইসগুলোকে যুক্ত করে এবং VLAN দিয়ে ট্রাফিক আলাদা রাখে।"],"srv":["সার্ভার","অফিসের ভেতরে চলা সেবা, যেমন ফাইল শেয়ার, ডিরেক্টরি বা ব্যবস্থাপনার টুল।"],"ap":["ওয়াই-ফাই অ্যাক্সেস পয়েন্ট","বেতার কভারেজ। চ্যানেল পরিকল্পনা ও অথেনটিকেশনের ওপরই নির্ভর করে এটি কতটা নির্ভরযোগ্য মনে হবে।"],"pc":["ওয়ার্কস্টেশন","বেশির ভাগ সাপোর্টের কাজ শেষ হয় এখানে: সেটআপ, অ্যাক্সেস, আপডেট ও সমস্যা নিরসন।"],"cam":["আইপি ক্যামেরা","ইথারনেট কেবলের মাধ্যমেই বিদ্যুৎ পায় (PoE) এবং নিজস্ব VLAN-এ NVR-এ ভিডিও পাঠায়।"],"nvr":["NVR","নেটওয়ার্ক ভিডিও রেকর্ডার: ক্যামেরাগুলোর ফুটেজ রেকর্ড করে এবং নির্ধারিত সময় পর্যন্ত সংরক্ষণ করে।"]},"sites":["প্রধান কার্যালয়","শাখা অফিস ক","শাখা অফিস খ"],"vpn":"সাইট-টু-সাইট VPN"};</script>
@@ -216,6 +216,7 @@
 <!-- Services -->
 <section class="section services" id="services" aria-labelledby="sv-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="server" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="sv-title">বাংলাদেশের ব্যবসার জন্য সেবা</h2>
       <p>একটি বহু-শাখার গ্রুপে প্রতিদিন যে কাজ করি, তা এখন বাংলাদেশের অফিস, কারখানা, দোকান ও বাসাবাড়ির জন্যও পাওয়া যাবে।</p>
@@ -253,6 +254,7 @@
 <!-- Projects -->
 <section class="section" id="projects" aria-labelledby="proj-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="nvr" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="proj-title">প্রকল্প</h2>
       <p>মূল পেশার বাইরে আমি যা তৈরি করি, চাকরি থেকে সম্পূর্ণ আলাদা রেখে।</p>
@@ -356,7 +358,7 @@
     <div class="dx-shell" id="dx-app">
       <div class="dx-tabs" role="tablist" aria-label="একটি ডিভাইস বেছে নিন" id="dx-tabs"></div>
       <div class="dx-main">
-        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="নেটওয়ার্ক ডিভাইসের খুলে দেখানো রূপ"></svg><div class="dx-gl-host" id="dx-gl" hidden></div></div>
+        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="নেটওয়ার্ক ডিভাইসের খুলে দেখানো রূপ"></svg></div>
         <aside class="dx-panel is-idle" id="dx-panel" aria-live="polite"><p class="dx-hint">বারটি টেনে ডিভাইসটি খুলুন, তারপর কোনো অংশের ওপর মাউস নিন বা ট্যাপ করুন; সেটি কী কাজ করে দেখতে পাবেন।</p></aside>
       </div>
       <div class="dx-bar">
@@ -368,13 +370,6 @@
       <noscript><p class="dx-noscript">ইন্টারঅ্যাকটিভ ল্যাব চালাতে JavaScript লাগবে।</p></noscript>
     </div>
     <p class="en-note">অংশগুলোর বিবরণ ইংরেজিতে লেখা।</p>
-    <p class="dx-credit" lang="en">3D models (Sketchfab; compressed and re-arranged for the exploded view):
-      <a href="https://sketchfab.com/3d-models/dream-computer-setup-82f78bbaf2d34f01af854a52151dbf49" rel="noopener">Dream Computer Setup</a> by Daniel Cardona,
-      <a href="https://sketchfab.com/3d-models/macbook-laptop-7ceb46a1425b475fa7f6bf192e01ed74" rel="noopener">MacBook Laptop</a> by Issac Ghazanfar,
-      <a href="https://sketchfab.com/3d-models/low-poly-mobile-phone-4ff99cf17b164e7b9790638c5d2ef4ce" rel="noopener">Low Poly Mobile Phone</a> by k.,
-      <a href="https://sketchfab.com/3d-models/cctv-5306b34cf29c4dde8b75c638d5e005ac" rel="noopener">CCTV</a> by movahed.
-      <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">License</a>.
-      Router: <a href="https://sketchfab.com/3d-models/router-93c561886acc48bab5a34d02f0a463e5" rel="noopener">Router</a> by DailyArt, <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noopener">CC BY-NC 4.0</a>. Switch and access point models are original.</p>
   </div>
 </section>
 
@@ -436,6 +431,7 @@
 <!-- Achievements -->
 <section class="section" id="achievements" aria-labelledby="ac-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="ups" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="ac-title">অর্জন</h2>
       <p>আমার সিভিতে উল্লিখিত কাজের মাইলফলক এবং প্রকাশ্যে যাচাইযোগ্য সনদ।</p>
@@ -553,14 +549,13 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=4.7.0" defer></script>
-<script src="../assets/js/bg.js?v=4.7.0" defer></script>
-<script src="../assets/js/scene.js?v=4.7.0" defer></script>
-<script src="../assets/js/lab-data.js?v=4.7.0" defer></script>
-<script src="../assets/js/lab.js?v=4.7.0" defer></script>
-<script src="../assets/js/explorer-models.js?v=4.7.0" defer></script>
-<script src="../assets/js/explorer.js?v=4.7.0" defer></script>
-<script src="../assets/js/rack.js?v=4.7.0" defer></script>
-<script src="../assets/js/fx.js?v=4.7.0" defer></script>
+<script src="../assets/js/site.js?v=5.0.0" defer></script>
+<script src="../assets/js/bg.js?v=5.0.0" defer></script>
+<script src="../assets/js/scene.js?v=5.0.0" defer></script>
+<script src="../assets/js/lab-data.js?v=5.0.0" defer></script>
+<script src="../assets/js/lab.js?v=5.0.0" defer></script>
+<script src="../assets/js/explorer.js?v=5.0.0" defer></script>
+<script src="../assets/js/rack.js?v=5.0.0" defer></script>
+<script src="../assets/js/fx.js?v=5.0.0" defer></script>
 </body>
 </html>

@@ -1338,24 +1338,6 @@ html[lang="bn-BD"] .foot-cta-k { letter-spacing: 0; text-transform: none; font-f
 @media (prefers-reduced-motion: reduce) { .project, .learn-card, .foot-col a { transition: none; } }
 
 
-/* ---- 3D viewer inside the Device Explorer (v4.6) ---- */
-.dx-stage { position: relative; }
-.dx-gl-host { position: absolute; inset: 0; }
-.dx-gl-host[hidden], .dx-stage svg[hidden] { display: none; }
-.dx-gl { width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; outline: none; }
-.dx-gl.is-drag { cursor: grabbing; }
-.dx-stage.is-loading::after { content: ""; position: absolute; left: 50%; top: 50%; width: 34px; height: 34px; margin: -17px; border-radius: 50%; border: 3px solid var(--ln-2); border-top-color: var(--cy); animation: dx-spin .8s linear infinite; }
-@keyframes dx-spin { to { transform: rotate(360deg); } }
-.dx-spot { position: absolute; left: 0; top: 0; width: 26px; height: 26px; margin: -13px 0 0 -13px; padding: 0; border-radius: 50%; border: 2px solid var(--cy); background: color-mix(in srgb, var(--cy) 28%, transparent); cursor: pointer; transition: opacity .2s; }
-.dx-spot::after { content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 1px solid var(--cy); opacity: .5; animation: dx-pulse 2.2s ease-out infinite; }
-.dx-spot.is-on { background: var(--cy); }
-@keyframes dx-pulse { from { transform: scale(.6); opacity: .7; } to { transform: scale(1.4); opacity: 0; } }
-.dx-bar.is-locked { opacity: .5; }
-.dx-bar.is-locked input { cursor: not-allowed; }
-.dx-credit { margin: var(--s4) 0 0; font-size: .8rem; color: var(--mu); max-width: 90ch; }
-.dx-credit a { color: var(--mu); }
-@media (prefers-reduced-motion: reduce) { .dx-stage.is-loading::after, .dx-spot::after { animation: none; } }
-
 /* ---- Hero devices: clear isometric models that dissolve to dust on hover (v4.7) ---- */
 .hero-obj { position: absolute; will-change: transform, opacity; pointer-events: none; }
 .hero-obj canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
@@ -1363,3 +1345,30 @@ html[lang="bn-BD"] .foot-cta-k { letter-spacing: 0; text-transform: none; font-f
 .hero-obj.ho-a { left: -12%; top: -6%; width: 74%; }
 .hero-obj.ho-b { right: -16%; top: 6%; width: 70%; }
 .hero-obj.ho-c { left: 10%; bottom: -14%; width: 78%; }
+
+
+/* ==========================================================================
+   v5.0: line-art devices (technical drawings, no shading), compact tabs,
+   scroll-linked floating devices. Light on the GPU: plain SVG, no WebGL.
+   ========================================================================== */
+:root { --dx-line: #5a8dff; --dx-top: #17294d; --dx-left: #10203f; --dx-right: #0b1730; --dx-deco: #050b18; }
+:root[data-theme="light"] { --dx-line: #1f4fd6; --dx-top: #ffffff; --dx-left: #eaf0fc; --dx-right: #d6e1f6; --dx-deco: #c2d2f2; }
+.dx-part polygon, .hero-obj polygon, .dx-float polygon { stroke: var(--dx-line); stroke-width: 1.1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.dx-f-top { fill: var(--dx-top); } .dx-f-left { fill: var(--dx-left); } .dx-f-right { fill: var(--dx-right); }
+.dx-deco { fill: var(--dx-deco); stroke-width: .8; } polygon.dx-led { stroke: none; fill-opacity: .95; }
+.dx-part.is-on polygon, .dx-part:focus-visible polygon { filter: none; stroke: var(--cy); stroke-width: 2; }
+.dx-part.is-on .dx-f-top { fill: color-mix(in srgb, var(--cy) 22%, var(--dx-top)); }
+.dx-lead, .dx-con { stroke: var(--dx-line); opacity: .7; }
+.dx-tabs button { padding: .5rem .8rem; min-height: 0; }
+.dx-tabs { max-height: calc(100vh - 7rem); overflow-y: auto; scrollbar-width: thin; }
+
+/* decorative devices that open as you scroll (desktop only) */
+#services > .wrap, #projects > .wrap, #achievements > .wrap { position: relative; }
+.dx-float { position: absolute; right: 0; top: -4.5rem; width: min(32%, 360px); pointer-events: none; z-index: 0; }
+.dx-float svg { width: 100%; height: auto; overflow: visible; }
+.dx-float polygon { opacity: .95; }
+@media (max-width: 1099px) { .dx-float { display: none; } }
+@media (print) { .dx-float { display: none; } }
+.dx-shell { grid-template-rows: auto auto 1fr; align-content: start; }
+.dx-bar { align-self: start; }
+@media (max-width: 1020px) { .dx-shell { grid-template-rows: none; } .dx-tabs { max-height: none; overflow: visible; } }

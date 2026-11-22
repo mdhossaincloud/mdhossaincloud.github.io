@@ -4,15 +4,11 @@
    Dependency-free SVG. Generic educational models; no real configuration is shown. */
 (() => {
   'use strict';
-  const BASE = document.currentScript ? document.currentScript.src.replace(/[^/]*$/, '') : 'assets/js/';
-  const MODELS = window.DX_MODELS || {};
-  let glMod = null;
-  const hasGL = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; } })();
   const NS = 'http://www.w3.org/2000/svg';
   const L = Object.assign({
     exTabs: 'Choose a device', exAssembled: 'Assembled', exExploded: 'Exploded', exBar: 'Drag to explode the device',
     exHint: 'Drag the bar to pull the device apart, then hover or tap a part to see what it does.',
-    exWhat: 'What it does', exCheck: 'What I check', exParts: 'Parts', exHint3d: 'Drag to rotate. Hover a part to see what it does.', exLocked3d: 'Drag to rotate. Hover the glowing dots to explore.', exLoading: 'Loading the 3D model…'
+    exWhat: 'What it does', exCheck: 'What I check', exParts: 'Parts'
   }, window.I18N || {});
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const C = 0.866, H = 0.5;                       /* isometric constants */
@@ -190,6 +186,45 @@
       { id: 'glass', n: 'Cover glass', b: [3.4, 6.8, .22], p: [0, 0, .95], e: [0, 0, 9.6], c: '#8c9ec2',
         w: 'Hardened glass that protects the display and forms the front of the phone.',
         k: 'Use a tempered-glass protector and avoid keeping keys in the same pocket.' }
+    ] },
+    server: { name: 'Rack server', short: 'Compute', parts: [
+      { id: 'base', n: 'Chassis', b: [10, 5, .5], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191', w: 'A 1U steel case that bolts into the rack and guides cool air from the front fans to the back.', k: 'Rail fit and free airflow in front and behind. Blocked air shortens a server’s life.' },
+      { id: 'psu', n: 'Redundant power supply', b: [2.6, 2.2, 1.0], p: [.4, .4, .5], e: [-1.4, 1.6, 1.4], c: '#c9862e', w: 'Converts mains power for the board. Servers usually carry two, so one can fail without downtime.', k: 'Both supplies lit and on separate power feeds (or a UPS).' },
+      { id: 'drives', n: 'Drive bays', b: [5.2, 1.1, 1.0], p: [1.0, 3.7, .5], e: [0, 1.6, 3.0], c: '#8b9cff', w: 'Hot-swap slots for SSDs or hard disks, usually grouped in a RAID set.', k: 'Drive lights and RAID health. Replace a failed disk before a second one fails.' },
+      { id: 'pcb', n: 'Mainboard', b: [9.2, 4.4, .25], p: [.4, .3, 1.5], e: [0, 0, 3.2], c: '#2f8f6b', w: 'Carries the CPU sockets, memory slots, storage controller and network ports.', k: 'Firmware and BIOS version, and that all memory and drives are detected.' },
+      { id: 'cpu', n: 'CPU and heat sink', b: [2.2, 2.2, .9], p: [3.2, .8, 1.75], e: [0, 0, 5.4], c: '#4d8dff', w: 'The processor that runs every service, with a finned heat sink that carries heat to the airflow.', k: 'Temperature and load. High idle temperature means dust or dried thermal paste.' },
+      { id: 'ram', n: 'Memory modules', b: [2.8, 1.6, .6], p: [6.2, .8, 1.75], e: [1.2, 0, 4.4], c: '#3dd6e6', w: 'Fast working memory. Servers use error-correcting (ECC) memory that repairs single-bit faults.', k: 'Memory errors in the log. A repeating error points to one bad stick.' },
+      { id: 'cover', n: 'Top cover and fans', b: [10, 5, .5], p: [0, 0, 2.8], e: [0, 0, 9.6], c: '#6c7e9f', w: 'Closes the case and holds the fan wall that pulls air across the hot parts.', k: 'Fan speed and noise. A fan that stops causes thermal shutdown within minutes.' }
+    ] },
+    nvr: { name: 'NVR recorder', short: 'CCTV storage', parts: [
+      { id: 'base', n: 'Chassis', b: [8, 5, .5], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191', w: 'A compact metal case that holds the disks and board and shields them from dust.', k: 'Ventilation. An NVR in a closed cupboard overheats and drops recordings.' },
+      { id: 'psu', n: 'Power supply', b: [2.2, 1.6, .8], p: [.5, .5, .5], e: [-1.2, 1.4, 1.4], c: '#c9862e', w: 'Supplies the disks and board. Often an internal adapter with a small fan.', k: 'Stable power or a UPS. Power cuts are the main cause of corrupted recordings.' },
+      { id: 'disks', n: 'Surveillance disks', b: [5.4, 2.2, 1.0], p: [1.0, 2.2, .5], e: [0, 1.4, 3.0], c: '#8b9cff', w: 'Hard disks built for constant writing, storing every camera’s video for the retention period.', k: 'Disk health and free space. Retention days = disk space ÷ daily recording size.' },
+      { id: 'pcb', n: 'Mainboard', b: [7.2, 4.2, .25], p: [.4, .4, 1.5], e: [0, 0, 3.2], c: '#2f8f6b', w: 'Joins the video processor, memory and the PoE or network ports for the cameras.', k: 'Firmware version. Updates fix many playback and camera-compatibility faults.' },
+      { id: 'soc', n: 'Video processor', b: [2.0, 2.0, .7], p: [2.8, 1.0, 1.75], e: [0, 0, 5.2], c: '#4d8dff', w: 'Decodes and records many camera streams at once and serves live view to apps.', k: 'CPU load and the stream settings. Too many high-bitrate cameras overload it.' },
+      { id: 'cover', n: 'Top cover and LEDs', b: [8, 5, .6], p: [0, 0, 2.8], e: [0, 0, 9.2], c: '#6c7e9f', w: 'The front LEDs show power, network and disk activity.', k: 'A blinking disk LED means it is recording. Steady or dark is a reason to investigate.' }
+    ] },
+    ups: { name: 'UPS', short: 'Power backup', parts: [
+      { id: 'base', n: 'Housing base', b: [5, 4.6, .5], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191', w: 'The sturdy base that carries the heavy batteries.', k: 'Place it on a hard, level surface with air space around it.' },
+      { id: 'batt', n: 'Battery pack', b: [4.2, 3.4, 2.4], p: [.4, .3, .5], e: [0, 0, 2.0], c: '#c9862e', w: 'Sealed lead-acid or lithium cells that keep devices running during a power cut.', k: 'Battery age. They last three to five years; test runtime yearly.' },
+      { id: 'inv', n: 'Inverter board', b: [4.2, 3.2, .3], p: [.4, .4, 2.9], e: [0, 0, 3.6], c: '#2f8f6b', w: 'Turns battery DC back into clean AC and switches over in milliseconds.', k: 'Self-test result and any overload alarm.' },
+      { id: 'trans', n: 'Transformer', b: [2.0, 2.0, 1.3], p: [.8, .8, 3.2], e: [0, 0, 5.2], c: '#4d8dff', w: 'Steps the voltage up or down and smooths sags and surges from the supply.', k: 'Heat and humming. A hot, loud transformer means overload.' },
+      { id: 'panel', n: 'Display panel', b: [3.2, .6, 1.3], p: [.9, 3.7, .6], e: [0, 1.8, 2.6], c: '#8b9cff', w: 'Shows load, battery level and alarms.', k: 'Load percentage. Stay under about 80 percent for headroom.' },
+      { id: 'cover', n: 'Top cover', b: [5, 4.6, .5], p: [0, 0, 4.6], e: [0, 0, 8.4], c: '#6c7e9f', w: 'Encloses everything and vents heat.', k: 'Keep the vents clear.' }
+    ] },
+    printer: { name: 'Office printer', short: 'Print and scan', parts: [
+      { id: 'tray', n: 'Paper tray and base', b: [8, 6, .9], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191', w: 'Holds the paper stack and feeds one sheet at a time.', k: 'Paper type and tray guides. Most paper jams are the wrong paper or a loose guide.' },
+      { id: 'toner', n: 'Toner cartridge', b: [2.6, 2.4, 1.3], p: [.6, .8, .9], e: [-1.4, 1.2, 2.8], c: '#e0556b', w: 'Holds the powder that is fused to the page to make the print.', k: 'Toner level, and use matching cartridges to avoid streaks.' },
+      { id: 'fuser', n: 'Fuser unit', b: [3.6, 2.4, 1.3], p: [3.8, .8, .9], e: [1.2, 1.2, 2.8], c: '#c9862e', w: 'Heated rollers that melt toner into the paper.', k: 'Smeared prints or wrinkles point to a worn fuser. Let it cool before touching.' },
+      { id: 'feed', n: 'Feed rollers', b: [7, 1.2, .7], p: [.5, 3.8, .9], e: [0, 1.6, 4.6], c: '#8b9cff', w: 'Rubber rollers that pull paper from the tray into the machine.', k: 'Clean or replace glazed rollers when it pulls two sheets or none.' },
+      { id: 'scan', n: 'Scanner bed and feeder', b: [8, 6, .9], p: [0, 0, 2.4], e: [0, 0, 7.4], c: '#6c7e9f', w: 'A glass scanner bed with an automatic feeder that copies and scans documents.', k: 'Clean the glass. Streaks on every copy are usually a dirty strip.' }
+    ] },
+    onu: { name: 'Fibre modem (ONU)', short: 'ISP link', parts: [
+      { id: 'base', n: 'Base', b: [5, 4, .4], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191', w: 'Holds the board and stands or wall-mounts the unit.', k: 'Keep it cool and away from the router’s Wi-Fi.' },
+      { id: 'pcb', n: 'Mainboard', b: [4.4, 3.4, .22], p: [.3, .3, .4], e: [0, 0, 1.8], c: '#2f8f6b', w: 'Joins the optical module, processor and Ethernet ports.', k: 'Reboot only after checking the lights; many ISPs lock the config.' },
+      { id: 'optic', n: 'Optical module', b: [2.2, 1.0, .6], p: [.6, 2.4, .62], e: [0, 1.6, 3.2], c: '#3dd6e6', w: 'Converts light pulses on the fibre into electrical data and back.', k: 'The PON and LOS lights. A red LOS light means no light from the street: check the fibre.' },
+      { id: 'soc', n: 'Processor', b: [1.6, 1.6, .5], p: [2.8, 1.0, .62], e: [0, 0, 4.2], c: '#4d8dff', w: 'Handles the connection to the ISP and passes traffic to your router.', k: 'Firmware is managed by the ISP; report persistent faults to them.' },
+      { id: 'cover', n: 'Cover and LEDs', b: [5, 4, .9], p: [0, 0, 1.4], e: [0, 0, 6.8], c: '#6c7e9f', w: 'The case with LEDs for power, PON, LOS and LAN.', k: 'Read the LEDs first: PON steady, LOS off, LAN blinking.' }
     ] }
   };
 
@@ -201,6 +236,11 @@
     camera: { lens: [{ f: 'T', n: 1, a: [.18, .82], b: [.18, .82], c: '#06090f' }], ir: [{ f: 'T', n: 5, a: [.2, .8], b: [.1, .9], c: '#f2b0b8' }], sd: [{ f: 'T', n: 1, a: [.2, .8], b: [.15, .85], c: '#0a101e' }], dome: [{ f: 'T', n: 1, a: [.3, .7], b: [.3, .7], c: '#10192e' }] },
     pc: { cpu: [{ f: 'T', n: 4, a: [.12, .88], b: [.12, .88], c: '#0a101e' }], gpu: [{ f: 'L', n: 3, a: [.1, .9], b: [.2, .8], c: '#0a101e' }], lid: [{ f: 'T', n: 6, a: [.12, .88], b: [.2, .8], c: '#0a101e' }, { f: 'L', n: 2, a: [.05, .2], b: [.3, .6], c: '#4fd39d' }], ram: [{ f: 'R', n: 1, a: [.1, .9], b: [.3, .8], c: '#0a101e' }] },
     laptop: { deck: [{ f: 'T', n: 12, a: [.06, .94], b: [.08, .5], c: '#0a101e' }, { f: 'T', n: 1, a: [.36, .64], b: [.62, .92], c: '#1a2540' }], lid: [{ f: 'L', n: 1, a: [.05, .95], b: [.06, .94], c: '#0a1224' }], cpu: [{ f: 'T', n: 1, a: [.2, .8], b: [.2, .8], c: '#0a101e' }] },
+    server: { drives: [{ f: 'L', n: 6, a: [.05, .95], b: [.2, .8], c: '#0a101e' }], cpu: [{ f: 'T', n: 5, a: [.12, .88], b: [.1, .9], c: '#0a101e' }], ram: [{ f: 'T', n: 4, a: [.08, .92], b: [.15, .85], c: '#0a101e' }], cover: [{ f: 'T', n: 9, a: [.1, .9], b: [.15, .85], c: '#0a101e' }, { f: 'L', n: 3, a: [.04, .2], b: [.3, .6], c: '#4fd39d' }] },
+    nvr: { disks: [{ f: 'T', n: 2, a: [.06, .94], b: [.12, .88], c: '#0a101e' }], soc: [{ f: 'T', n: 3, a: [.15, .85], b: [.15, .85], c: '#0a101e' }], cover: [{ f: 'T', n: 7, a: [.12, .88], b: [.2, .8], c: '#0a101e' }, { f: 'L', n: 4, a: [.05, .3], b: [.3, .6], c: '#4fd39d' }] },
+    ups: { trans: [{ f: 'T', n: 4, a: [.12, .88], b: [.12, .88], c: '#0a101e' }], panel: [{ f: 'L', n: 3, a: [.08, .5], b: [.3, .7], c: '#4fd39d' }, { f: 'L', n: 1, a: [.56, .94], b: [.25, .75], c: '#0a101e' }], cover: [{ f: 'T', n: 6, a: [.15, .85], b: [.2, .8], c: '#0a101e' }] },
+    printer: { tray: [{ f: 'L', n: 1, a: [.1, .9], b: [.35, .6], c: '#0a101e' }], feed: [{ f: 'L', n: 4, a: [.04, .96], b: [.25, .75], c: '#0a101e' }], scan: [{ f: 'T', n: 1, a: [.08, .92], b: [.1, .9], c: '#0a101e' }, { f: 'L', n: 1, a: [.75, .92], b: [.3, .7], c: '#4fd39d' }] },
+    onu: { optic: [{ f: 'L', n: 1, a: [.2, .8], b: [.25, .75], c: '#0a101e' }], cover: [{ f: 'T', n: 4, a: [.15, .85], b: [.3, .7], c: '#4fd39d' }, { f: 'L', n: 3, a: [.1, .4], b: [.3, .7], c: '#4d8dff' }] },
     phone: { glass: [{ f: 'T', n: 1, a: [.07, .93], b: [.04, .96], c: '#0a1224' }], cam: [{ f: 'T', n: 2, a: [.15, .85], b: [.15, .85], c: '#06090f' }], disp: [{ f: 'T', n: 1, a: [.04, .96], b: [.03, .97], c: '#16213a' }] }
   };
   Object.keys(DECOS).forEach(k => DEVICES[k].parts.forEach(pt => { if (DECOS[k][pt.id]) pt.d = DECOS[k][pt.id]; }));
@@ -240,13 +280,12 @@
     const items = dev.parts.map(pt => {
       const g = mk('g', { 'class': 'dx-part', 'data-id': pt.id, tabindex: opt.interactive ? '0' : '-1' });
       if (opt.interactive) { g.setAttribute('role', 'button'); g.setAttribute('aria-label', pt.n); }
-      const top = mk('polygon', { fill: shade(pt.c, 1.3) }), left = mk('polygon', { fill: pt.c }), right = mk('polygon', { fill: shade(pt.c, .68) });
-      [top, left, right].forEach(p => { p.setAttribute('stroke', 'rgba(5,12,28,.55)'); p.setAttribute('stroke-width', '.8'); p.setAttribute('stroke-linejoin', 'round'); });
+      const top = mk('polygon', { 'class': 'dx-f-top' }), left = mk('polygon', { 'class': 'dx-f-left' }), right = mk('polygon', { 'class': 'dx-f-right' });
       g.append(left, right, top);
       const decos = [];
       (pt.d || []).forEach(dc => {
         const cell = (1 - 0) / dc.n, polys = [];
-        for (let i = 0; i < dc.n; i++) { const q = mk('polygon', { fill: dc.c, 'fill-opacity': '.92' }); g.append(q); polys.push(q); }
+        for (let i = 0; i < dc.n; i++) { const q = mk('polygon', dc.c === '#0a101e' ? { 'class': 'dx-deco' } : { 'class': 'dx-deco dx-led', fill: dc.c }); g.append(q); polys.push(q); }
         decos.push({ dc, polys, cell });
       });
       const lead = mk('line', { 'class': 'dx-lead' });
@@ -312,36 +351,27 @@
   function initExplorer() {
     const tabs = document.getElementById('dx-tabs'), svg = document.getElementById('dx-svg'),
       panel = document.getElementById('dx-panel'), range = document.getElementById('dx-range'),
-      list = document.getElementById('dx-parts'), stage = document.getElementById('dx-stage'), glHost = document.getElementById('dx-gl'),
-      bar = range && range.closest('.dx-bar');
+      list = document.getElementById('dx-parts'), stage = document.getElementById('dx-stage');
     if (!tabs || !svg || !panel || !range || !list) return;
-    let key = 'router', t = 0, active = null, model = null, touched = false, pinned = null, viewer = null, mode3d = false, serial = 0;
-    const is3d = (k) => hasGL && glHost && MODELS[k];
-    const partsOf = () => (mode3d ? MODELS[key].info : DEVICES[key].parts);
+    let key = 'router', t = 0, active = null, model = null, touched = false, pinned = null;
 
     const setPanel = (id) => {
-      const pt = id && partsOf().find(p => p.id === id);
+      const pt = id && DEVICES[key].parts.find(p => p.id === id);
       panel.classList.toggle('is-idle', !pt);
       panel.innerHTML = '';
-      if (!pt) { const h = document.createElement('p'); h.className = 'dx-hint'; h.textContent = mode3d ? (MODELS[key].static ? L.exLocked3d : L.exHint3d) : L.exHint; panel.append(h); return; }
+      if (!pt) { const h = document.createElement('p'); h.className = 'dx-hint'; h.textContent = L.exHint; panel.append(h); return; }
       const h = document.createElement('h3'); h.textContent = pt.n;
       const a = document.createElement('p'); a.innerHTML = '<b></b> '; a.firstChild.textContent = L.exWhat; a.append(pt.w);
       const b = document.createElement('p'); b.innerHTML = '<b></b> '; b.firstChild.textContent = L.exCheck; b.append(pt.k);
       panel.append(h, a, b);
     };
-    const mark = (id) => list.querySelectorAll('button').forEach(bt => bt.classList.toggle('is-on', bt.dataset.id === id));
-    const setActive = (id) => {
-      active = id; setPanel(id); mark(id);
-      if (mode3d) { if (viewer && viewer.active !== id) viewer.setActive(id); } else model.render(t, active);
-    };
-    const setT = (v) => {
-      t = clamp(v); range.value = Math.round(t * 100); range.style.setProperty('--p', Math.round(t * 100) + '%');
-      if (mode3d) { if (viewer) viewer.setExplode(t); } else model.render(t, active);
-    };
-    const legend = () => {
+    const setActive = (id) => { active = id; setPanel(id); model.render(t, active); list.querySelectorAll('button').forEach(bt => bt.classList.toggle('is-on', bt.dataset.id === id)); };
+    const setT = (v) => { t = clamp(v); range.value = Math.round(t * 100); range.style.setProperty('--p', Math.round(t * 100) + '%'); model.render(t, active); };
+
+    function build() {
+      model = createModel(svg, key, { w: 760, h: 520, labels: true, interactive: true });
       list.textContent = '';
-      const arr = partsOf().slice(); if (!mode3d) arr.reverse();
-      arr.forEach(pt => {
+      DEVICES[key].parts.slice().reverse().forEach(pt => {
         const li = document.createElement('li'), bt = document.createElement('button');
         bt.type = 'button'; bt.dataset.id = pt.id; bt.textContent = pt.n;
         bt.addEventListener('mouseenter', () => setActive(pt.id));
@@ -350,33 +380,6 @@
         bt.addEventListener('click', () => { pinned = pt.id; setActive(pt.id); });
         li.append(bt); list.append(li);
       });
-    };
-    async function ensureViewer() {
-      if (viewer) return viewer;
-      glMod = glMod || import(BASE + 'viewer3d.js'); const mod = await glMod;
-      viewer = mod.createViewer(glHost, { onActive: (id) => { active = id; setPanel(id || pinned); mark(id || pinned); }, onPick: (id) => { pinned = id; setPanel(id); mark(id); } });
-      return viewer;
-    }
-    function build3d() {
-      const my = ++serial; mode3d = true;
-      svg.setAttribute('hidden', ''); glHost.hidden = false; stage.classList.add('is-3d');
-      const cfg = MODELS[key]; const locked = !!cfg.static;
-      range.disabled = locked; bar && bar.classList.toggle('is-locked', locked);
-      legend(); active = null; pinned = null; setPanel(null);
-      panel.classList.add('is-idle'); panel.innerHTML = ''; const h = document.createElement('p'); h.className = 'dx-hint'; h.textContent = L.exLoading; panel.append(h);
-      stage.classList.add('is-loading');
-      ensureViewer().then(v => v.load(cfg.file ? BASE + '../models/' + cfg.file : null, cfg)).then(ok => {
-        if (my !== serial || ok === false) return;
-        stage.classList.remove('is-loading'); setPanel(null); setT(locked ? 0 : t);
-      }).catch(() => { if (my !== serial) return; stage.classList.remove('is-loading'); MODELS[key] = null; build(); });
-    }
-    function build2d() {
-      serial++; mode3d = false;
-      svg.removeAttribute('hidden'); if (glHost) glHost.hidden = true; stage.classList.remove('is-3d', 'is-loading');
-      range.disabled = false; bar && bar.classList.remove('is-locked');
-      if (viewer) viewer.setActive(null);
-      model = createModel(svg, key, { w: 760, h: 520, labels: true, interactive: true });
-      legend();
       model.items.forEach(it => {
         it.g.addEventListener('mouseenter', () => setActive(it.pt.id));
         it.g.addEventListener('focus', () => setActive(it.pt.id));
@@ -386,15 +389,12 @@
       active = null; pinned = null; setPanel(null); model.render(t, null);
       svg.setAttribute('aria-label', DEVICES[key].name + ': ' + L.exBar);
     }
-    function build() { if (is3d(key)) build3d(); else build2d(); }
 
-    const warm = (k) => { if (!is3d(k)) return; glMod = glMod || import(BASE + 'viewer3d.js'); if (MODELS[k].file) fetch(BASE + '../models/' + MODELS[k].file).catch(() => { }); };
-    if (hasGL && 'IntersectionObserver' in window) new IntersectionObserver(([en]) => { if (en.isIntersecting) { glMod = glMod || import(BASE + 'viewer3d.js'); } }, { rootMargin: '900px' }).observe(stage);
     Object.keys(DEVICES).forEach((k, i, arr) => {
       const b = document.createElement('button');
       b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'dx-tab-' + k; b.setAttribute('aria-selected', k === key ? 'true' : 'false'); b.tabIndex = k === key ? 0 : -1;
-      b.innerHTML = '<span></span><small></small>'; b.firstChild.textContent = DEVICES[k].name; b.lastChild.textContent = DEVICES[k].short + (is3d(k) ? ' · 3D' : '');
-      b.addEventListener('click', () => select(k)); b.addEventListener('pointerenter', () => warm(k)); b.addEventListener('focus', () => warm(k));
+      b.innerHTML = '<span></span><small></small>'; b.firstChild.textContent = DEVICES[k].name; b.lastChild.textContent = DEVICES[k].short;
+      b.addEventListener('click', () => select(k));
       b.addEventListener('keydown', (e) => {
         const d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
         if (!d) return; e.preventDefault();
@@ -407,11 +407,7 @@
       build();
     }
     range.addEventListener('input', () => { touched = true; setT(range.value / 100); });
-    /* the 3D engine only loads when the section is about to be seen, so the first page load stays light */
-    if (is3d(key) && 'IntersectionObserver' in window) {
-      build2d(); setT(0);
-      const lazy = new IntersectionObserver(([en]) => { if (en.isIntersecting) { lazy.disconnect(); build(); setT(t); } }, { rootMargin: '500px' }); lazy.observe(stage);
-    } else { build(); setT(0); }
+    build(); setT(0);
 
     /* gentle first-view hint: open to ~40% once, unless the visitor already used the bar */
     if (!reduce.matches && 'IntersectionObserver' in window) {
@@ -425,12 +421,35 @@
     }
   }
 
+  /* ---------- Decorative devices further down the page: they open up as you scroll past ---------- */
+  function initFloaters() {
+    const els = document.querySelectorAll('[data-dx-float]');
+    if (!els.length || !matchMedia('(min-width: 1100px)').matches) return;
+    const items = [...els].map(el => {
+      const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false'); el.append(svg);
+      const m = createModel(svg, el.dataset.dxFloat, { w: 560, h: 440, labels: false, interactive: false, fitT: [0, .95] }); m.render(0, null);
+      return { el, m, t: -1 };
+    });
+    const vis = new Set(); let raf = 0;
+    const io = new IntersectionObserver(en => en.forEach(e => { if (e.isIntersecting) vis.add(e.target); else vis.delete(e.target); }), { rootMargin: '120px' });
+    items.forEach(i => io.observe(i.el));
+    const upd = () => {
+      raf = 0; const vh = innerHeight;
+      items.forEach(i => {
+        if (!vis.has(i.el)) return;
+        const r = i.el.getBoundingClientRect(), p = clamp((vh * .92 - r.top) / (vh * .75)), t = reduce.matches ? .3 : ease(p) * .95;
+        if (Math.abs(t - i.t) > .004) { i.t = t; i.m.render(t, null); }
+      });
+    };
+    addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(upd); }, { passive: true }); upd();
+  }
+
   /* ---------- Hero objects: assemble from dust, turn to dust on hover, explode and vanish on scroll ---------- */
   function initHero() {
     const host = document.querySelector('.hero-visual');
     if (!host || !matchMedia('(min-width: 901px)').matches) return;
-    const spec = [['pc', 'ho-a', 760, 520, 2200], ['laptop', 'ho-b', 760, 520, 2200], ['router', 'ho-c', 760, 520, 2200]];
-    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const spec = [['pc', 'ho-a', 760, 520, 1100], ['laptop', 'ho-b', 760, 520, 1100], ['router', 'ho-c', 760, 520, 1100]];
+    const dpr = Math.min(devicePixelRatio || 1, 1.25);
     const objs = spec.map(([k, cls, w, h, count]) => {
       const wrap = document.createElement('div'); wrap.className = 'hero-obj ' + cls;
       const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
@@ -441,7 +460,7 @@
       /* sample dust particles from the assembled faces (area-weighted) */
       const tris = []; let area = 0, bx0 = 1e9, bx1 = -1e9, by0 = 1e9, by1 = -1e9;
       m.items.forEach(it => [it.left, it.right, it.top].concat(it.decos.flatMap(d => d.polys)).forEach(poly => {
-        const v = poly.getAttribute('points').split(' ').map(q => q.split(',').map(Number)), col = poly.getAttribute('fill');
+        const v = poly.getAttribute('points').split(' ').map(q => q.split(',').map(Number)), col = getComputedStyle(poly).fill || '#5a8dff';
         v.forEach(([x, y]) => { bx0 = Math.min(bx0, x); bx1 = Math.max(bx1, x); by0 = Math.min(by0, y); by1 = Math.max(by1, y); });
         [[v[0], v[1], v[2]], [v[0], v[2], v[3]]].forEach(t => { const ar = Math.abs((t[1][0] - t[0][0]) * (t[2][1] - t[0][1]) - (t[2][0] - t[0][0]) * (t[1][1] - t[0][1])) / 2; if (ar > 0) { tris.push({ t, ar, col }); area += ar; } });
       }));
@@ -505,6 +524,6 @@
     objs.forEach((o, i) => { o.formed = true; setTimeout(kick, 120 + i * 180); }); kick();
   }
 
-  const start = () => { initExplorer(); initHero(); };
+  const start = () => { initExplorer(); initHero(); initFloaters(); };
   if (document.readyState !== 'loading') start(); else document.addEventListener('DOMContentLoaded', start);
 })();

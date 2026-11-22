@@ -25,11 +25,12 @@
   const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
 
   /* ---------- Particles on a Fibonacci sphere, plus two orbit rings ---------- */
+  const lowEnd = (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
   let parts = [];
   function build() {
     seed = 20180701;
     parts = [];
-    const n = mobile ? 360 : 720;
+    const n = mobile ? 200 : lowEnd ? 380 : 720;
     const golden = Math.PI * (3 - Math.sqrt(5));
     const push = (x, y, z, ring) => {
       const ox = x + (rnd() - 0.5) * 0.9 + 0.45, oy = y + (rnd() - 0.5) * 0.9 + 0.35, oz = z + (rnd() - 0.5) * 0.9;
@@ -50,7 +51,7 @@
       const th = golden * i;
       push(Math.cos(th) * r, y, Math.sin(th) * r, 0);
     }
-    const ringN = mobile ? 70 : 140;
+    const ringN = mobile ? 40 : lowEnd ? 80 : 140;
     for (let i = 0; i < ringN; i++) {
       const a = (i / ringN) * Math.PI * 2;
       push(Math.cos(a) * 1.45, Math.sin(a) * 0.18, Math.sin(a) * 1.45, 1);
@@ -69,7 +70,7 @@
   }
 
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+    dpr = Math.min(window.devicePixelRatio || 1, (lowEnd || innerWidth < 900) ? 1 : 1.75);
     W = innerWidth; H = innerHeight;
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -126,6 +127,7 @@
   let raf = 0, last = 0, running = false;
   function tick(ts) {
     raf = 0;
+    if ((mobile || lowEnd) && last && ts - last < 32) { if (running) raf = requestAnimationFrame(tick); return; }   /* 30 fps on phones and low-end PCs */
     const dt = Math.min(50, ts - (last || ts));
     last = ts;
     yaw += dt * 0.00011;

@@ -19,8 +19,7 @@ Personal website of **Md. Hossain**, IT Infrastructure Specialist in Dhaka, Bang
 | `assets/js/lab-data.js`, `lab.js` | Infrastructure Lab content and renderer |
 | `assets/js/articles.js`, `hub.js` | Published guides list and Knowledge Hub search |
 | `assets/js/bg.js` | Background data sphere that dissolves into binary on scroll |
-| `assets/js/explorer.js` | Device Explorer (v4.5): isometric exploded views of a router, PoE switch, access point and IP camera with a drag bar and per-part details; also the three hero objects that open on hover and explode and vanish on scroll |
-| `assets/js/explorer-models.js`, `assets/js/viewer3d.js`, `assets/models/*.glb` | Real 3D models in the Device Explorer (drag to rotate, hover to inspect, slider to explode). `viewer3d.js` is bundled from `_build/src/viewer3d.src.js` (three.js, esbuild; command in the file header). Models are CC BY 4.0 from Sketchfab, credited on the page |
+| `assets/js/explorer.js` | Device Explorer (v5): twelve isometric line-art devices (router, switch, access point, IP camera, PC, laptop, phone, server, NVR, UPS, printer, fibre modem) drawn in SVG from boxes; a drag bar explodes them, hovering a part explains it. Also the hero devices (gather from dust, dissolve on hover) and the scroll-linked floating devices. No WebGL, no third-party models |
 | `assets/js/tools.js` | Twelve free browser-only IT tools on `knowledge/tools/` (subnet, CCTV storage, RAID, SLA, hash, passwords and more) |
 | `assets/js/rack.js` | Scroll-driven 3D server rack that dissolves into binary |
 | `assets/js/calc.js` | CCTV storage calculator used by one guide |

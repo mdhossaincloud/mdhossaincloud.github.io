@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=4.7.0">
+<link rel="stylesheet" href="../assets/css/site.css?v=5.0.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"copied":"Dirección de correo copiada","copyfail":"No se pudo copiar. La dirección es ","step":"Paso {n} de {m}","prev":"Paso anterior","next":"Paso siguiente","play":"Reproducir todos los pasos","pause":"Pausa","mailsubject":"Consulta desde el sitio web","types":{"cloud":["Servicios en la nube","Microsoft 365 y otros servicios en línea: correo, identidad y archivos, accesibles por internet."],"isp":["Internet / proveedor","La red pública que une todas las sedes. Aquí se vigila la calidad del enlace y se escala al proveedor."],"fw":["Cortafuegos y router perimetral","Filtra el tráfico, hace NAT y termina los túneles VPN entre sedes."],"rt":["Router de sucursal","Router perimetral tipo MikroTik: acceso a internet, enrutamiento y túnel VPN hacia la sede central."],"sw":["Switch central / de acceso","Conecta los equipos por cable y separa el tráfico en VLAN."],"srv":["Servidor","Servicios locales como recursos compartidos, directorio o herramientas de gestión."],"ap":["Punto de acceso Wi-Fi","Cobertura inalámbrica. La planificación de canales y la autenticación definen su fiabilidad."],"pc":["Estación de trabajo","Donde termina la mayor parte del soporte: configuración, accesos, actualizaciones y diagnóstico."],"cam":["Cámara IP","Alimentada por Ethernet (PoE), envía vídeo al NVR por su propia VLAN."],"nvr":["NVR","Grabador de vídeo en red: graba las cámaras y conserva las imágenes durante el periodo previsto."]},"sites":["Oficina central","Sucursal A","Sucursal B"],"vpn":"VPN entre sedes"};</script>
@@ -215,6 +215,7 @@
 <!-- Services -->
 <section class="section services" id="services" aria-labelledby="sv-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="server" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="sv-title">Servicios para empresas en Bangladés</h2>
       <p>El trabajo que hago cada día para un grupo con varias sedes, disponible para oficinas, fábricas, tiendas y hogares en Bangladés.</p>
@@ -252,6 +253,7 @@
 <!-- Projects -->
 <section class="section" id="projects" aria-labelledby="proj-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="nvr" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="proj-title">Proyectos</h2>
       <p>Lo que construyo fuera de mi empleo, separado de mi empleador.</p>
@@ -355,7 +357,7 @@
     <div class="dx-shell" id="dx-app">
       <div class="dx-tabs" role="tablist" aria-label="Choose a device" id="dx-tabs"></div>
       <div class="dx-main">
-        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="Exploded view of a network device"></svg><div class="dx-gl-host" id="dx-gl" hidden></div></div>
+        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="Exploded view of a network device"></svg></div>
         <aside class="dx-panel is-idle" id="dx-panel" aria-live="polite"><p class="dx-hint">Drag the bar to pull the device apart, then hover or tap a part to see what it does.</p></aside>
       </div>
       <div class="dx-bar">
@@ -367,13 +369,6 @@
       <noscript><p class="dx-noscript">El laboratorio interactivo necesita JavaScript.</p></noscript>
     </div>
     <p class="en-note"></p>
-    <p class="dx-credit" lang="en">3D models (Sketchfab; compressed and re-arranged for the exploded view):
-      <a href="https://sketchfab.com/3d-models/dream-computer-setup-82f78bbaf2d34f01af854a52151dbf49" rel="noopener">Dream Computer Setup</a> by Daniel Cardona,
-      <a href="https://sketchfab.com/3d-models/macbook-laptop-7ceb46a1425b475fa7f6bf192e01ed74" rel="noopener">MacBook Laptop</a> by Issac Ghazanfar,
-      <a href="https://sketchfab.com/3d-models/low-poly-mobile-phone-4ff99cf17b164e7b9790638c5d2ef4ce" rel="noopener">Low Poly Mobile Phone</a> by k.,
-      <a href="https://sketchfab.com/3d-models/cctv-5306b34cf29c4dde8b75c638d5e005ac" rel="noopener">CCTV</a> by movahed.
-      <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">License</a>.
-      Router: <a href="https://sketchfab.com/3d-models/router-93c561886acc48bab5a34d02f0a463e5" rel="noopener">Router</a> by DailyArt, <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="noopener">CC BY-NC 4.0</a>. Switch and access point models are original.</p>
   </div>
 </section>
 
@@ -435,6 +430,7 @@
 <!-- Achievements -->
 <section class="section" id="achievements" aria-labelledby="ac-title">
   <div class="wrap">
+    <div class="dx-float" data-dx-float="ups" aria-hidden="true"></div>
     <div class="section-head">
       <h2 id="ac-title">Logros</h2>
       <p>Hitos de mi trabajo, tal como figuran en mi CV, y credenciales con enlaces públicos de verificación.</p>
@@ -552,14 +548,13 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=4.7.0" defer></script>
-<script src="../assets/js/bg.js?v=4.7.0" defer></script>
-<script src="../assets/js/scene.js?v=4.7.0" defer></script>
-<script src="../assets/js/lab-data.js?v=4.7.0" defer></script>
-<script src="../assets/js/lab.js?v=4.7.0" defer></script>
-<script src="../assets/js/explorer-models.js?v=4.7.0" defer></script>
-<script src="../assets/js/explorer.js?v=4.7.0" defer></script>
-<script src="../assets/js/rack.js?v=4.7.0" defer></script>
-<script src="../assets/js/fx.js?v=4.7.0" defer></script>
+<script src="../assets/js/site.js?v=5.0.0" defer></script>
+<script src="../assets/js/bg.js?v=5.0.0" defer></script>
+<script src="../assets/js/scene.js?v=5.0.0" defer></script>
+<script src="../assets/js/lab-data.js?v=5.0.0" defer></script>
+<script src="../assets/js/lab.js?v=5.0.0" defer></script>
+<script src="../assets/js/explorer.js?v=5.0.0" defer></script>
+<script src="../assets/js/rack.js?v=5.0.0" defer></script>
+<script src="../assets/js/fx.js?v=5.0.0" defer></script>
 </body>
 </html>
