@@ -4,7 +4,7 @@
   "title_key": "meta.title",
   "desc_key": "meta.description",
   "ogtype": "profile",
-  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js", "explorer.js", "rack.js", "fx.js"]
+  "scripts": ["bg.js", "scene.js", "lab-data.js", "lab.js", "explorer-models.js", "explorer.js", "rack.js", "fx.js"]
 } -->
 <canvas id="bg" aria-hidden="true"></canvas>
 <main id="main">
@@ -300,7 +300,7 @@
     <div class="dx-shell" id="dx-app">
       <div class="dx-tabs" role="tablist" aria-label="{{t:dx.tabs}}" id="dx-tabs"></div>
       <div class="dx-main">
-        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="{{t:dx.aria}}"></svg></div>
+        <div class="dx-stage" id="dx-stage"><svg id="dx-svg" role="group" aria-label="{{t:dx.aria}}"></svg><div class="dx-gl-host" id="dx-gl" hidden></div></div>
         <aside class="dx-panel is-idle" id="dx-panel" aria-live="polite"><p class="dx-hint">{{t:dx.hint}}</p></aside>
       </div>
       <div class="dx-bar">
@@ -312,6 +312,12 @@
       <noscript><p class="dx-noscript">{{t:in.noscript}}</p></noscript>
     </div>
     <p class="en-note">{{t:dx.note}}</p>
+    <p class="dx-credit" lang="en">3D models (CC BY 4.0, Sketchfab; compressed and re-arranged for the exploded view):
+      <a href="https://sketchfab.com/3d-models/dream-computer-setup-82f78bbaf2d34f01af854a52151dbf49" rel="noopener">Dream Computer Setup</a> by Daniel Cardona,
+      <a href="https://sketchfab.com/3d-models/macbook-laptop-7ceb46a1425b475fa7f6bf192e01ed74" rel="noopener">MacBook Laptop</a> by Issac Ghazanfar,
+      <a href="https://sketchfab.com/3d-models/low-poly-mobile-phone-4ff99cf17b164e7b9790638c5d2ef4ce" rel="noopener">Low Poly Mobile Phone</a> by k.,
+      <a href="https://sketchfab.com/3d-models/cctv-5306b34cf29c4dde8b75c638d5e005ac" rel="noopener">CCTV</a> by movahed.
+      <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">License</a>.</p>
   </div>
 </section>
 

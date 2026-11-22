@@ -4,11 +4,15 @@
    Dependency-free SVG. Generic educational models; no real configuration is shown. */
 (() => {
   'use strict';
+  const BASE = document.currentScript ? document.currentScript.src.replace(/[^/]*$/, '') : 'assets/js/';
+  const MODELS = window.DX_MODELS || {};
+  let glMod = null;
+  const hasGL = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch (e) { return false; } })();
   const NS = 'http://www.w3.org/2000/svg';
   const L = Object.assign({
     exTabs: 'Choose a device', exAssembled: 'Assembled', exExploded: 'Exploded', exBar: 'Drag to explode the device',
     exHint: 'Drag the bar to pull the device apart, then hover or tap a part to see what it does.',
-    exWhat: 'What it does', exCheck: 'What I check', exParts: 'Parts'
+    exWhat: 'What it does', exCheck: 'What I check', exParts: 'Parts', exHint3d: 'Drag to rotate. Hover a part to see what it does.', exLocked3d: 'Drag to rotate. Hover the glowing dots to explore.', exLoading: 'Loading the 3D model…'
   }, window.I18N || {});
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const C = 0.866, H = 0.5;                       /* isometric constants */
@@ -308,50 +312,86 @@
   function initExplorer() {
     const tabs = document.getElementById('dx-tabs'), svg = document.getElementById('dx-svg'),
       panel = document.getElementById('dx-panel'), range = document.getElementById('dx-range'),
-      list = document.getElementById('dx-parts'), stage = document.getElementById('dx-stage');
+      list = document.getElementById('dx-parts'), stage = document.getElementById('dx-stage'), glHost = document.getElementById('dx-gl'),
+      bar = range && range.closest('.dx-bar');
     if (!tabs || !svg || !panel || !range || !list) return;
-    let key = 'router', t = 0, active = null, model = null, touched = false, pinned = null;
+    let key = 'router', t = 0, active = null, model = null, touched = false, pinned = null, viewer = null, mode3d = false, serial = 0;
+    const is3d = (k) => hasGL && glHost && MODELS[k];
+    const partsOf = () => (mode3d ? MODELS[key].info : DEVICES[key].parts);
 
     const setPanel = (id) => {
-      const pt = id && DEVICES[key].parts.find(p => p.id === id);
+      const pt = id && partsOf().find(p => p.id === id);
       panel.classList.toggle('is-idle', !pt);
-      if (!pt) { panel.innerHTML = ''; const h = document.createElement('p'); h.className = 'dx-hint'; h.textContent = L.exHint; panel.append(h); return; }
       panel.innerHTML = '';
+      if (!pt) { const h = document.createElement('p'); h.className = 'dx-hint'; h.textContent = mode3d ? (MODELS[key].static ? L.exLocked3d : L.exHint3d) : L.exHint; panel.append(h); return; }
       const h = document.createElement('h3'); h.textContent = pt.n;
-      const a = document.createElement('p'); a.innerHTML = '<b></b> ';
-      a.firstChild.textContent = L.exWhat; a.append(pt.w);
-      const b = document.createElement('p'); b.innerHTML = '<b></b> ';
-      b.firstChild.textContent = L.exCheck; b.append(pt.k);
+      const a = document.createElement('p'); a.innerHTML = '<b></b> '; a.firstChild.textContent = L.exWhat; a.append(pt.w);
+      const b = document.createElement('p'); b.innerHTML = '<b></b> '; b.firstChild.textContent = L.exCheck; b.append(pt.k);
       panel.append(h, a, b);
     };
-    const setActive = (id) => { active = id; setPanel(id); model.render(t, active); list.querySelectorAll('button').forEach(bt => bt.classList.toggle('is-on', bt.dataset.id === id)); };
-    const setT = (v) => { t = clamp(v); range.value = Math.round(t * 100); range.style.setProperty('--p', Math.round(t * 100) + '%'); model.render(t, active); };
-
-    function build() {
-      model = createModel(svg, key, { w: 760, h: 520, labels: true, interactive: true });
+    const mark = (id) => list.querySelectorAll('button').forEach(bt => bt.classList.toggle('is-on', bt.dataset.id === id));
+    const setActive = (id) => {
+      active = id; setPanel(id); mark(id);
+      if (mode3d) { if (viewer && viewer.active !== id) viewer.setActive(id); } else model.render(t, active);
+    };
+    const setT = (v) => {
+      t = clamp(v); range.value = Math.round(t * 100); range.style.setProperty('--p', Math.round(t * 100) + '%');
+      if (mode3d) { if (viewer) viewer.setExplode(t); } else model.render(t, active);
+    };
+    const legend = () => {
       list.textContent = '';
-      DEVICES[key].parts.slice().reverse().forEach(pt => {
+      const arr = partsOf().slice(); if (!mode3d) arr.reverse();
+      arr.forEach(pt => {
         const li = document.createElement('li'), bt = document.createElement('button');
         bt.type = 'button'; bt.dataset.id = pt.id; bt.textContent = pt.n;
         bt.addEventListener('mouseenter', () => setActive(pt.id));
         bt.addEventListener('focus', () => setActive(pt.id));
+        bt.addEventListener('mouseleave', () => setActive(pinned));
         bt.addEventListener('click', () => { pinned = pt.id; setActive(pt.id); });
         li.append(bt); list.append(li);
       });
+    };
+    async function ensureViewer() {
+      if (viewer) return viewer;
+      glMod = glMod || await import(BASE + 'viewer3d.js');
+      viewer = glMod.createViewer(glHost, { onActive: (id) => { active = id; setPanel(id || pinned); mark(id || pinned); }, onPick: (id) => { pinned = id; setPanel(id); mark(id); } });
+      return viewer;
+    }
+    function build3d() {
+      const my = ++serial; mode3d = true;
+      svg.setAttribute('hidden', ''); glHost.hidden = false; stage.classList.add('is-3d');
+      const cfg = MODELS[key]; const locked = !!cfg.static;
+      range.disabled = locked; bar && bar.classList.toggle('is-locked', locked);
+      legend(); active = null; pinned = null; setPanel(null);
+      panel.classList.add('is-idle'); panel.innerHTML = ''; const h = document.createElement('p'); h.className = 'dx-hint'; h.textContent = L.exLoading; panel.append(h);
+      stage.classList.add('is-loading');
+      ensureViewer().then(v => v.load(BASE + '../models/' + cfg.file, cfg)).then(ok => {
+        if (my !== serial || ok === false) return;
+        stage.classList.remove('is-loading'); setPanel(null); setT(locked ? 0 : t);
+      }).catch(() => { if (my !== serial) return; stage.classList.remove('is-loading'); MODELS[key] = null; build(); });
+    }
+    function build2d() {
+      serial++; mode3d = false;
+      svg.removeAttribute('hidden'); if (glHost) glHost.hidden = true; stage.classList.remove('is-3d', 'is-loading');
+      range.disabled = false; bar && bar.classList.remove('is-locked');
+      if (viewer) viewer.setActive(null);
+      model = createModel(svg, key, { w: 760, h: 520, labels: true, interactive: true });
+      legend();
       model.items.forEach(it => {
         it.g.addEventListener('mouseenter', () => setActive(it.pt.id));
         it.g.addEventListener('focus', () => setActive(it.pt.id));
         it.g.addEventListener('click', () => { pinned = it.pt.id; setActive(it.pt.id); });
       });
-      svg.addEventListener('mouseleave', () => setActive(pinned));
+      svg.onmouseleave = () => setActive(pinned);
       active = null; pinned = null; setPanel(null); model.render(t, null);
       svg.setAttribute('aria-label', DEVICES[key].name + ': ' + L.exBar);
     }
+    function build() { if (is3d(key)) build3d(); else build2d(); }
 
     Object.keys(DEVICES).forEach((k, i, arr) => {
       const b = document.createElement('button');
       b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'dx-tab-' + k; b.setAttribute('aria-selected', k === key ? 'true' : 'false'); b.tabIndex = k === key ? 0 : -1;
-      b.innerHTML = '<span></span><small></small>'; b.firstChild.textContent = DEVICES[k].name; b.lastChild.textContent = DEVICES[k].short;
+      b.innerHTML = '<span></span><small></small>'; b.firstChild.textContent = DEVICES[k].name; b.lastChild.textContent = DEVICES[k].short + (is3d(k) ? ' · 3D' : '');
       b.addEventListener('click', () => select(k));
       b.addEventListener('keydown', (e) => {
         const d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
