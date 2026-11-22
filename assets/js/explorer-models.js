@@ -82,14 +82,19 @@ window.DX_MODELS = {
 
 /* Procedural 3D devices built in viewer3d.js (no third-party model, no licence strings attached). */
 Object.assign(window.DX_MODELS, {
-  router: { build: 'router', cam: [4.6, 3.0, 5.6], fallback: 'base', groups: [], info: [
-    { id: 'antennas', n: 'Wi-Fi antennas', w: 'Dipole antennas that send and receive the wireless signal. Their angle and height change how far and where the Wi-Fi reaches.', k: 'Keep them upright and away from metal. Weak Wi-Fi is often a placement problem, not a router fault.' },
-    { id: 'cover', n: 'Top cover, vents and LEDs', w: 'The shell shows power, internet and Wi-Fi activity on LEDs, and its vents let heat out.', k: 'Read the LEDs first: steady link, blinking activity, no amber warning. Keep the vents clear.' },
-    { id: 'cpu', n: 'CPU and heat sink', w: 'The processor runs the operating system, routing, NAT, the firewall and VPN encryption. Fins on the heat sink carry its heat away.', k: 'CPU load. On RouterOS: /system resource print. High load often comes from firewall rules that skip the fast path.' },
-    { id: 'ports', n: 'Ethernet ports', w: 'RJ45 sockets: one connects to the internet (WAN), the rest to your devices (LAN). They negotiate speed and duplex automatically.', k: 'Link lights, cable and negotiated speed. A link stuck at 100 Mbps usually means a bad cable or crimp.' },
-    { id: 'pcb', n: 'Mainboard (PCB)', w: 'The board that carries the processor, memory, flash storage and the switch chip, joined by copper traces.', k: 'Board faults mean replacement, so keep a tested configuration backup ready.' },
-    { id: 'base', n: 'Base and feet', w: 'The lower shell holds the board in place, carries heat and keeps the router stable on a shelf.', k: 'Ventilation and mounting. In a hot cabinet, temperature is the first thing to check.' }
-  ] },
+  router: { file: 'router.glb', fallback: 'body',
+    groups: [
+      { id: 'antennas', test: (n) => n === 'Object_6', dir: [0, 1.3, -.4] },
+      { id: 'leds', test: (n) => /^Object_(18|21|24|27|30|33|36|39|42|45|48|51|54|57)$/.test(n), dir: [0, .5, 1.1] },
+      { id: 'ports', test: (n) => /^Object_(9|63|66)$/.test(n), dir: [.3, .1, 1.5] },
+      { id: 'body', test: (n) => /^Object_(12|15|60)$/.test(n), dir: [0, -.25, 0] }
+    ],
+    info: [
+      { id: 'antennas', n: 'Top cover and Wi-Fi antennas', w: 'The upper shell with its antennas, which send and receive the wireless signal. Antenna angle and height change how far and where the Wi-Fi reaches.', k: 'Keep the antennas upright and away from metal. Weak Wi-Fi is often a placement problem, not a router fault.' },
+      { id: 'leds', n: 'Status LEDs', w: 'A row of lights for power, internet, each LAN port and Wi-Fi activity: the quickest health check there is.', k: 'Read the LEDs first: steady link, blinking activity, no amber warning, before logging in.' },
+      { id: 'ports', n: 'WAN and power connectors', w: 'Where the internet cable and the power adapter plug in. A router has one uplink (WAN) and several LAN ports.', k: 'Link light, cable and adapter. A loose power plug or bad cable explains many “router is dead” calls.' },
+      { id: 'body', n: 'Housing, ports and board', w: 'The shell holds the mainboard with the processor, memory and the Ethernet ports, and lets heat escape through its vents.', k: 'Ventilation and placement. In a hot cabinet, temperature is the first thing to check.' }
+    ] },
   switch: { build: 'switch', cam: [5.2, 3.2, 6.0], fallback: 'base', groups: [], info: [
     { id: 'cover', n: 'Top cover and vents', w: 'A metal case that bolts into the rack and shapes airflow from front to back.', k: 'Rack screws, clear vents and cable strain relief. Blocked airflow shortens a switch’s life.' },
     { id: 'ports', n: 'RJ45 PoE ports', w: 'Copper ports that carry data and, on PoE ports, electrical power for cameras, phones and access points over the same cable.', k: 'Port status, speed, PoE draw and errors. Rising CRC errors point to a bad cable.' },
