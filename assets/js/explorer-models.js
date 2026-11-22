@@ -79,3 +79,31 @@ window.DX_MODELS = {
     ]
   }
 };
+
+/* Procedural 3D devices built in viewer3d.js (no third-party model, no licence strings attached). */
+Object.assign(window.DX_MODELS, {
+  router: { build: 'router', cam: [4.6, 3.0, 5.6], fallback: 'base', groups: [], info: [
+    { id: 'antennas', n: 'Wi-Fi antennas', w: 'Dipole antennas that send and receive the wireless signal. Their angle and height change how far and where the Wi-Fi reaches.', k: 'Keep them upright and away from metal. Weak Wi-Fi is often a placement problem, not a router fault.' },
+    { id: 'cover', n: 'Top cover, vents and LEDs', w: 'The shell shows power, internet and Wi-Fi activity on LEDs, and its vents let heat out.', k: 'Read the LEDs first: steady link, blinking activity, no amber warning. Keep the vents clear.' },
+    { id: 'cpu', n: 'CPU and heat sink', w: 'The processor runs the operating system, routing, NAT, the firewall and VPN encryption. Fins on the heat sink carry its heat away.', k: 'CPU load. On RouterOS: /system resource print. High load often comes from firewall rules that skip the fast path.' },
+    { id: 'ports', n: 'Ethernet ports', w: 'RJ45 sockets: one connects to the internet (WAN), the rest to your devices (LAN). They negotiate speed and duplex automatically.', k: 'Link lights, cable and negotiated speed. A link stuck at 100 Mbps usually means a bad cable or crimp.' },
+    { id: 'pcb', n: 'Mainboard (PCB)', w: 'The board that carries the processor, memory, flash storage and the switch chip, joined by copper traces.', k: 'Board faults mean replacement, so keep a tested configuration backup ready.' },
+    { id: 'base', n: 'Base and feet', w: 'The lower shell holds the board in place, carries heat and keeps the router stable on a shelf.', k: 'Ventilation and mounting. In a hot cabinet, temperature is the first thing to check.' }
+  ] },
+  switch: { build: 'switch', cam: [5.2, 3.2, 6.0], fallback: 'base', groups: [], info: [
+    { id: 'cover', n: 'Top cover and vents', w: 'A metal case that bolts into the rack and shapes airflow from front to back.', k: 'Rack screws, clear vents and cable strain relief. Blocked airflow shortens a switch’s life.' },
+    { id: 'ports', n: 'RJ45 PoE ports', w: 'Copper ports that carry data and, on PoE ports, electrical power for cameras, phones and access points over the same cable.', k: 'Port status, speed, PoE draw and errors. Rising CRC errors point to a bad cable.' },
+    { id: 'sfp', n: 'SFP+ uplink cages', w: 'Slots for fibre or direct-attach modules, used for fast uplinks to other switches or the router.', k: 'Module type and light levels. Mixed or unsupported modules are a common cause of “no link”.' },
+    { id: 'asic', n: 'Switching chip and heat sink', w: 'Forwards frames at wire speed and keeps the MAC address table, the list of which device sits behind which port.', k: 'The MAC table when a device “disappears”: find the port, then check cable and VLAN.' },
+    { id: 'psu', n: 'Power supply and PoE budget', w: 'Converts mains power for the electronics and supplies the PoE budget shared by all powered ports.', k: 'PoE budget. One camera too many makes ports drop or stay dark.' },
+    { id: 'pcb', n: 'Mainboard (PCB)', w: 'Connects the switching chip, management CPU, memory and every port circuit.', k: 'Keep a configuration backup; board faults are replacement jobs.' },
+    { id: 'base', n: 'Chassis base', w: 'The steel base that holds the board and mounts into the rack.', k: 'Firm rack mounting and free space front and back.' }
+  ] },
+  ap: { build: 'ap', cam: [4.8, 3.2, 5.8], fallback: 'base', groups: [], info: [
+    { id: 'cover', n: 'Cover and status LED', w: 'The plastic dome is transparent to radio waves, and the LED ring shows boot, ready and fault states.', k: 'The LED state, then the controller’s view of the device.' },
+    { id: 'antennas', n: 'Antenna array', w: 'Internal antennas that shape where the signal goes. A ceiling unit radiates mostly downward.', k: 'Orientation and obstructions. Never hide it above a metal ceiling tile or inside a cabinet.' },
+    { id: 'soc', n: 'SoC and radios', w: 'The controller chip runs client association, roaming, VLAN tagging and security, with 2.4 GHz and 5 GHz radios.', k: 'Connected-client count. Too many clients on one AP is a capacity problem, not a signal problem.' },
+    { id: 'pcb', n: 'Mainboard (PCB)', w: 'Carries the processor, radios and the wired Ethernet and PoE connection.', k: 'Firmware version and uptime; frequent reboots usually trace back to power or firmware.' },
+    { id: 'base', n: 'Mounting plate', w: 'Fixes the unit to a ceiling or wall and sets its height, which matters as much as settings for coverage.', k: 'Mount high and central, clear of metal.' }
+  ] }
+});

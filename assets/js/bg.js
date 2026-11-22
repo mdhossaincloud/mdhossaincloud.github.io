@@ -87,9 +87,9 @@
     const p = reduce ? (scrollY > H * 0.6 ? 1 : 0) : scrollP();
     if (p >= 1) return;
     const e0 = p * p;
-    const cx = (mobile ? W * 0.5 : W * 0.74) + e0 * W * 0.06;
+    const cx = (mobile ? W * 0.5 : W * 0.8) + e0 * W * 0.06;
     const cy = mobile ? H * 0.3 : H * 0.5;
-    const R = mobile ? Math.min(W, H) * 0.36 : Math.min(W * 0.2, H * 0.34);
+    const R = mobile ? Math.min(W, H) * 0.36 : Math.min(W * 0.15, H * 0.27);
     const base = mobile ? 0.38 : 0.9;
     const font = `${mobile ? 9 : 11}px "IBM Plex Mono", ui-monospace, monospace`;
     ctx.font = font;

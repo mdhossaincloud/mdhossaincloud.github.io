@@ -1356,5 +1356,10 @@ html[lang="bn-BD"] .foot-cta-k { letter-spacing: 0; text-transform: none; font-f
 .dx-credit a { color: var(--mu); }
 @media (prefers-reduced-motion: reduce) { .dx-stage.is-loading::after, .dx-spot::after { animation: none; } }
 
-/* ---- Hero particle cloud (v4.7) ---- */
-.hero-cloud { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+/* ---- Hero devices: clear isometric models that dissolve to dust on hover (v4.7) ---- */
+.hero-obj { position: absolute; will-change: transform, opacity; pointer-events: none; }
+.hero-obj canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
+.hero-obj svg { width: 100%; height: auto; overflow: visible; transition: opacity .22s; }
+.hero-obj.ho-a { left: -12%; top: -6%; width: 74%; }
+.hero-obj.ho-b { right: -16%; top: 6%; width: 70%; }
+.hero-obj.ho-c { left: 10%; bottom: -14%; width: 78%; }

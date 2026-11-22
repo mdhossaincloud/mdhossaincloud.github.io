@@ -365,7 +365,7 @@
       legend(); active = null; pinned = null; setPanel(null);
       panel.classList.add('is-idle'); panel.innerHTML = ''; const h = document.createElement('p'); h.className = 'dx-hint'; h.textContent = L.exLoading; panel.append(h);
       stage.classList.add('is-loading');
-      ensureViewer().then(v => v.load(BASE + '../models/' + cfg.file, cfg)).then(ok => {
+      ensureViewer().then(v => v.load(cfg.file ? BASE + '../models/' + cfg.file : null, cfg)).then(ok => {
         if (my !== serial || ok === false) return;
         stage.classList.remove('is-loading'); setPanel(null); setT(locked ? 0 : t);
       }).catch(() => { if (my !== serial) return; stage.classList.remove('is-loading'); MODELS[key] = null; build(); });
@@ -388,7 +388,7 @@
     }
     function build() { if (is3d(key)) build3d(); else build2d(); }
 
-    const warm = (k) => { if (!is3d(k)) return; glMod = glMod || import(BASE + 'viewer3d.js'); fetch(BASE + '../models/' + MODELS[k].file).catch(() => { }); };
+    const warm = (k) => { if (!is3d(k)) return; glMod = glMod || import(BASE + 'viewer3d.js'); if (MODELS[k].file) fetch(BASE + '../models/' + MODELS[k].file).catch(() => { }); };
     if (hasGL && 'IntersectionObserver' in window) new IntersectionObserver(([en]) => { if (en.isIntersecting) { glMod = glMod || import(BASE + 'viewer3d.js'); } }, { rootMargin: '900px' }).observe(stage);
     Object.keys(DEVICES).forEach((k, i, arr) => {
       const b = document.createElement('button');
@@ -407,8 +407,11 @@
       build();
     }
     range.addEventListener('input', () => { touched = true; setT(range.value / 100); });
-    build();
-    setT(0);
+    /* the 3D engine only loads when the section is about to be seen, so the first page load stays light */
+    if (is3d(key) && 'IntersectionObserver' in window) {
+      build2d(); setT(0);
+      const lazy = new IntersectionObserver(([en]) => { if (en.isIntersecting) { lazy.disconnect(); build(); setT(t); } }, { rootMargin: '500px' }); lazy.observe(stage);
+    } else { build(); setT(0); }
 
     /* gentle first-view hint: open to ~40% once, unless the visitor already used the bar */
     if (!reduce.matches && 'IntersectionObserver' in window) {
@@ -422,72 +425,84 @@
     }
   }
 
-  /* ---------- Hero: DAO-style particle objects (v4.7) ----------
-     A computer, a router and a laptop made of ~7,000 dust particles. They gather on load, drift apart around the
-     cursor like a splash, dissolve while you hover, and melt away as you scroll. One 2D canvas, paused off screen. */
+  /* ---------- Hero objects: assemble from dust, turn to dust on hover, explode and vanish on scroll ---------- */
   function initHero() {
-    const host = document.querySelector('.hero-visual'), D = window.HERO_PTS;
-    if (!host || !D || !matchMedia('(min-width: 901px)').matches) return;
-    const dec = (o) => { const raw = (str) => Uint8Array.from(atob(str), c => c.charCodeAt(0)); return { n: o.n, P: new Int16Array(raw(o.p).buffer), C: raw(o.c) }; };
-    const LAY = [['pc', .24, .34, .44, .22, -.55], ['laptop', .79, .37, .40, -.20, .7], ['router', .52, .80, .40, .27, .2]];
-    const cv = document.createElement('canvas'); cv.className = 'hero-cloud'; cv.setAttribute('aria-hidden', 'true'); host.append(cv);
-    const ctx = cv.getContext('2d'); const dpr = Math.min(devicePixelRatio || 1, 1.5);
-    const objs = []; let N = 0;
-    LAY.forEach(([k, cx, cy, size, sp, a0]) => { const d = dec(D[k]); objs.push({ k, d, cx, cy, size, sp, a0, off: N, hot: 0 }); N += d.n; });
-    const ox = new Float32Array(N), oy = new Float32Array(N), vx = new Float32Array(N), vy = new Float32Array(N), kk = new Float32Array(N), sc = new Float32Array(N), scx = new Float32Array(N), scy = new Float32Array(N), sz = new Float32Array(N), X = new Float32Array(N), Y = new Float32Array(N), key = new Uint16Array(N), own = new Uint8Array(N);
-    const colors = []; 
-    for (let o = 0; o < objs.length; o++) { const { d, off } = objs[o]; for (let i = 0; i < d.n; i++) { const g = off + i; own[g] = o;
-      const r = d.C[i*3] >> 5, gg = d.C[i*3+1] >> 5, b = d.C[i*3+2] >> 5; key[g] = (r << 6) | (gg << 3) | b; colors[key[g]] = `rgb(${(r << 5) + 16},${(gg << 5) + 16},${(b << 5) + 16})`;
-      const an = Math.random() * 6.283, dist = 40 + Math.random() * 170; scx[g] = Math.cos(an) * dist; scy[g] = Math.sin(an) * dist * .8 - 30 - Math.random() * 60;
-      kk[g] = .012 + Math.random() * .03; sz[g] = 1.7 + Math.random() * 1.5;
-      ox[g] = (Math.random() - .5) * 700; oy[g] = (Math.random() - .5) * 520; } }
-    const order = Array.from({ length: N }, (_, i) => i).sort((a, b) => key[a] - key[b]);
-    let W = 0, H = 0, mx = -1e4, my = -1e4, par = 0, melt = 0, raf = 0, last = 0, clock = 0, onScreen = true, still = reduce.matches || (() => { try { return localStorage.getItem('dx-still') === '1'; } catch (e) { return false; } })();
-    const size = () => { W = host.clientWidth; H = host.clientHeight; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
-    size(); new ResizeObserver(() => { size(); kick(); }).observe(host);
-    const pitch = -.2, cp = Math.cos(pitch), spn = Math.sin(pitch);
-    function frame(now) {
-      raf = 0; const dt = Math.min(.05, (now - (last || now)) / 1000) || .016; last = now; clock += dt;
-      ctx.clearRect(0, 0, W, H);
-      const R = 95, R2 = R * R, fade = 1 - clamp((melt - .35) / .65);
-      if (fade <= 0.01) { return; }
-      /* links between the three devices: a tiny network */
-      const C = objs.map(o => [o.cx * W, o.cy * H]);
-      ctx.save(); ctx.globalAlpha = fade * .55; ctx.strokeStyle = 'rgba(61,214,230,.5)'; ctx.lineWidth = 1; ctx.setLineDash([3, 7]); ctx.lineDashOffset = -clock * 18;
-      [[2, 0], [2, 1]].forEach(([a, b]) => { ctx.beginPath(); ctx.moveTo(C[a][0], C[a][1] - H * .08); ctx.lineTo(C[b][0], C[b][1] + H * .2); ctx.stroke(); });
-      ctx.setLineDash([]); ctx.fillStyle = '#3dd6e6';
-      [[2, 0, 0], [2, 1, .5]].forEach(([a, b, ph]) => { const t = (clock * .35 + ph) % 1; ctx.fillRect(C[a][0] + (C[b][0] - C[a][0]) * t - 1.5, C[a][1] - H * .08 + (C[b][1] + H * .2 - C[a][1] + H * .08) * t - 1.5, 3, 3); });
-      ctx.restore();
-      for (const o of objs) {
-        const ang = o.a0 + (still ? 0 : clock * o.sp) + par * .5, ca = Math.cos(ang), sa = Math.sin(ang), S = o.size * W, cx = o.cx * W, cy = o.cy * H;
-        const inside = Math.hypot(mx - cx, my - cy) < S * .5; o.hot += ((inside ? 1 : 0) - o.hot) * Math.min(1, dt * (inside ? 1.6 : 2.2));
-        const { d } = o, P = d.P, off = o.off, scatter = still ? 0 : Math.max(melt * 1.5, o.hot * .9);
-        for (let i = 0; i < d.n; i++) {
-          const g = off + i, hx = P[i*3] / 30000, hy = P[i*3+1] / 30000, hz = P[i*3+2] / 30000;
-          const x = hx * ca + hz * sa, z = -hx * sa + hz * ca, y = hy * cp - z * spn;
-          const bx = cx + x * S, by = cy - y * S; let px = bx + ox[g], py = by + oy[g];
-          const dx = px - mx, dy = py - my, d2 = dx * dx + dy * dy;
-          if (d2 < R2 && !still) { const dd = Math.sqrt(d2) + .001, f = (1 - dd / R); const push = f * f * 2.2; vx[g] += dx / dd * push; vy[g] += dy / dd * push; }
-          const tx = scx[g] * scatter, ty = scy[g] * scatter - melt * 90;
-          vx[g] += (tx - ox[g]) * kk[g]; vy[g] += (ty - oy[g]) * kk[g]; vx[g] *= .88; vy[g] *= .88; ox[g] += vx[g]; oy[g] += vy[g];
-          X[g] = bx + ox[g]; Y[g] = by + oy[g];
-        }
+    const host = document.querySelector('.hero-visual');
+    if (!host || !matchMedia('(min-width: 901px)').matches) return;
+    const spec = [['pc', 'ho-a', 760, 520, 2200], ['laptop', 'ho-b', 760, 520, 2200], ['router', 'ho-c', 760, 520, 2200]];
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const objs = spec.map(([k, cls, w, h, count]) => {
+      const wrap = document.createElement('div'); wrap.className = 'hero-obj ' + cls;
+      const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+      const cv = document.createElement('canvas'); cv.setAttribute('aria-hidden', 'true');
+      wrap.append(svg, cv); host.append(wrap);
+      const m = createModel(svg, k, { w, h, labels: false, interactive: false, fitT: [0, .5] });
+      m.render(0, null);
+      /* sample dust particles from the assembled faces (area-weighted) */
+      const tris = []; let area = 0, bx0 = 1e9, bx1 = -1e9, by0 = 1e9, by1 = -1e9;
+      m.items.forEach(it => [it.left, it.right, it.top].concat(it.decos.flatMap(d => d.polys)).forEach(poly => {
+        const v = poly.getAttribute('points').split(' ').map(q => q.split(',').map(Number)), col = poly.getAttribute('fill');
+        v.forEach(([x, y]) => { bx0 = Math.min(bx0, x); bx1 = Math.max(bx1, x); by0 = Math.min(by0, y); by1 = Math.max(by1, y); });
+        [[v[0], v[1], v[2]], [v[0], v[2], v[3]]].forEach(t => { const ar = Math.abs((t[1][0] - t[0][0]) * (t[2][1] - t[0][1]) - (t[2][0] - t[0][0]) * (t[1][1] - t[0][1])) / 2; if (ar > 0) { tris.push({ t, ar, col }); area += ar; } });
+      }));
+      const parts = [];
+      tris.forEach(tr => { const n = Math.max(1, Math.round(count * tr.ar / area)); for (let i = 0; i < n; i++) {
+        let r1 = Math.random(), r2 = Math.random(); if (r1 + r2 > 1) { r1 = 1 - r1; r2 = 1 - r2; }
+        const [A, B, C] = tr.t, hx = A[0] + r1 * (B[0] - A[0]) + r2 * (C[0] - A[0]), hy = A[1] + r1 * (B[1] - A[1]) + r2 * (C[1] - A[1]), a = Math.random() * 6.283, dist = 50 + Math.random() * 190;
+        parts.push({ hx, hy, vx: Math.cos(a) * dist, vy: Math.sin(a) * dist * .7 - 40 - Math.random() * 70, e: 1, del: Math.random() * .28 + (hx - bx0) / (bx1 - bx0 + 1) * .22, rate: .6 + Math.random() * 1.1, ph: Math.random() * 6.283, sz: .9 + Math.random() * 1.5, col: tr.col, tm: 0 });
+      } });
+      return { wrap, svg, cv, ctx: cv.getContext('2d'), m, parts, w, h, t: 0, dust: false, formed: false, box: [bx0, by0, bx1, by1] };
+    });
+    let prog = 0, raf = 0, last = 0, clock = 0;
+    const size = () => objs.forEach(o => { const r = o.wrap.getBoundingClientRect(); o.cv.width = Math.round(r.width * dpr); o.cv.height = Math.round(r.height * dpr); o.sc = o.cv.width / o.w; });
+    const draw = (o, dt) => {
+      const { ctx, cv, parts } = o; ctx.clearRect(0, 0, cv.width, cv.height);
+      let moving = false;
+      for (const q of parts) {
+        const goal = o.dust ? 1 : 0;
+        if (goal === 1) { q.tm += dt; if (q.tm > q.del) q.e = Math.min(1, q.e + dt * q.rate * 1.5); }
+        else { q.tm = 0; q.e = Math.max(0, q.e - dt * q.rate * 1.1); }
+        if (q.e > 0 && q.e < 1) moving = true; else if (q.e === 1 && goal === 0) moving = true;
+        const E = 1 - Math.pow(1 - q.e, 3), wob = Math.sin(clock * 3 + q.ph) * 4 * E;
+        const x = q.hx + q.vx * E + wob, y = q.hy + q.vy * E - E * E * 40;
+        ctx.globalAlpha = 1 - .65 * E; ctx.fillStyle = q.col;
+        const z = q.sz * o.sc * (1 - .45 * E); ctx.fillRect(x * o.sc, y * o.sc, z, z);
       }
-      ctx.globalAlpha = fade; let cur = -1;
-      for (let j = 0; j < N; j++) { const g = order[j]; if (key[g] !== cur) { cur = key[g]; ctx.fillStyle = colors[cur]; } const s = sz[g]; ctx.fillRect(X[g] - s / 2, Y[g] - s / 2, s, s); }
-      ctx.globalAlpha = 1;
-      if (onScreen && !document.hidden) raf = requestAnimationFrame(frame);
-    }
-    const kick = () => { if (!raf && onScreen && !document.hidden) { last = 0; raf = requestAnimationFrame(frame); } };
-    host.addEventListener('pointermove', (e) => { const r = cv.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; par = clamp((mx / (W || 1)) - .5, -.5, .5); });
-    host.addEventListener('pointerleave', () => { mx = my = -1e4; par = 0; });
-    host.addEventListener('pointerdown', (e) => { const r = cv.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top; for (let g = 0; g < N; g++) { const dx = X[g] - px, dy = Y[g] - py, d = Math.hypot(dx, dy); if (d < 160) { const f = (1 - d / 160) * 14; vx[g] += dx / (d + 1) * f; vy[g] += dy / (d + 1) * f; } } });
-    const onScroll = () => { const hero = host.closest('.hero') || host; const m = clamp(scrollY / (hero.offsetHeight * .75)); if (m !== melt) { melt = m; kick(); } };
+      ctx.globalAlpha = 1; return moving || o.dust;
+    };
+    const loop = (now) => {
+      raf = 0; const dt = Math.min(.1, (now - (last || now)) / 1000); last = now; clock += dt; let busy = false;
+      objs.forEach(o => {
+        const want = reduce.matches ? 0 : (prog < .12 && o.hover);
+        o.dust = !!want;
+        const d = prog - o.t; o.t = reduce.matches ? prog : (Math.abs(d) < .002 ? prog : o.t + d * .14);
+        if (Math.abs(prog - o.t) > .002) busy = true;
+        if (o.t > .004 || !o.formed) o.m.render(o.t, null);
+        const moving = draw(o, dt); if (moving) busy = true;
+        const resting = !moving && !o.dust;
+        o.svg.style.opacity = resting ? '1' : '0'; o.cv.style.opacity = resting ? '0' : '1';
+        o.wrap.style.opacity = (1 - clamp((prog - .45) / .5)).toFixed(3);
+        o.wrap.style.transform = `translateY(${(-prog * 36).toFixed(1)}px)`;
+      });
+      if (busy) raf = requestAnimationFrame(loop);
+    };
+    const kick = () => { if (!raf) { last = 0; raf = requestAnimationFrame(loop); } };
+    size(); addEventListener('resize', () => { size(); kick(); });
+    /* hit test against each object's footprint so empty space does not trigger it */
+    host.addEventListener('mousemove', (ev) => {
+      let any = false;
+      objs.slice().reverse().forEach(o => {
+        const r = o.wrap.getBoundingClientRect(), k = r.width / o.w, x = (ev.clientX - r.left) / k, y = (ev.clientY - r.top) / k;
+        const inside = !any && x > o.box[0] - 6 && x < o.box[2] + 6 && y > o.box[1] - 6 && y < o.box[3] + 6;
+        if (inside) any = true; if (inside !== !!o.hover) { o.hover = inside; kick(); }
+      });
+    });
+    host.addEventListener('mouseleave', () => { objs.forEach(o => { if (o.hover) { o.hover = false; kick(); } }); });
+    const onScroll = () => { const hero = host.closest('.hero') || host; const p = clamp(scrollY / (hero.offsetHeight * .8)); if (p !== prog) { prog = p; kick(); } };
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
-    new IntersectionObserver(([en]) => { onScreen = en.isIntersecting; if (onScreen) kick(); }).observe(host);
-    document.addEventListener('visibilitychange', kick);
-    if (still) { objs.forEach(o => { for (let i = 0; i < o.d.n; i++) { ox[o.off + i] = 0; oy[o.off + i] = 0; } }); }
-    kick();
+    /* entrance: the devices assemble out of dust (instant when reduced motion is on) */
+    if (reduce.matches) objs.forEach(o => o.parts.forEach(q => q.e = 0));
+    objs.forEach((o, i) => { o.formed = true; setTimeout(kick, 120 + i * 180); }); kick();
   }
 
   const start = () => { initExplorer(); initHero(); };

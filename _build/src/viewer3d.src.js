@@ -6,7 +6,43 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
+import { MeshStandardMaterial, CylinderGeometry } from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+
+
+/* ---------- procedural 3D devices (own work, no third-party model) ---------- */
+const MAT = (c, o = {}) => { const m = new MeshStandardMaterial({ color: c, roughness: o.r ?? .5, metalness: o.m ?? .1, emissive: o.e || 0, emissiveIntensity: o.ei || 0 }); m.userData.e0 = [m.emissive.clone(), m.emissiveIntensity]; return m; };
+const bx = (w, h, d, mt, x, y, z, r = .04) => { const m = new Mesh(new RoundedBoxGeometry(w, h, d, 3, Math.min(r, w / 2.2, h / 2.2, d / 2.2)), mt); m.position.set(x, y, z); return m; };
+const cy = (rt, rb, h, mt, x, y, z, n = 28) => { const m = new Mesh(new CylinderGeometry(rt, rb, h, n), mt); m.position.set(x, y, z); return m; };
+const put = (L, gid, dir, ...ms) => ms.forEach(m => { m.userData.gid = gid; m.userData.dir = dir; m.userData.base = m.position.clone(); L.push(m); });
+function buildDevice(kind) {
+  const L = [], white = MAT(0xeef2f9, { r: .32 }), dark = MAT(0x1c2536, { r: .55 }), green = MAT(0x2f8f6b), silver = MAT(0xc3ccdc, { m: .75, r: .3 }), black = MAT(0x090d16, { r: .7 }),
+    led = MAT(0x1dd6a0, { e: 0x1dd6a0, ei: 1.6 }), ledB = MAT(0x4d8dff, { e: 0x4d8dff, ei: 1.6 }), gold = MAT(0xc9862e, { m: .4, r: .4 });
+  if (kind === 'router') {
+    put(L, 'base', [0, -.55, 0], bx(6, .22, 4, dark, 0, -.5, 0, .1), ...[[-2.5, -1.6], [2.5, -1.6], [-2.5, 1.6], [2.5, 1.6]].map(([x, z]) => cy(.22, .26, .1, black, x, -.66, z, 16)));
+    put(L, 'pcb', [0, .4, 0], bx(5.5, .08, 3.5, green, 0, -.3, 0, .02), ...[[-1.8, .8, .8, .5], [1.6, -.9, .7, .6], [-.4, -1.1, .5, .4], [2.0, 1.0, .6, .5]].map(([x, z, w, d]) => bx(w, .08, d, black, x, -.22, z, .02)));
+    put(L, 'cpu', [0, 1.0, 0], bx(1.1, .07, 1.3, silver, -.5, -.18, 0, .02), ...Array.from({ length: 8 }, (_, i) => bx(.06, .28, 1.2, silver, -.95 + i * .13, 0, 0, .02)));
+    put(L, 'ports', [0, .3, 1.0], bx(3.7, .4, .5, black, -.3, -.05, 1.62, .05), ...Array.from({ length: 5 }, (_, i) => bx(.52, .26, .1, i ? silver : MAT(0xf2b44c, { m: .4 }), -1.85 + i * .68, -.05, 1.9, .03)), ...Array.from({ length: 5 }, (_, i) => bx(.08, .05, .05, i < 3 ? led : ledB, -1.85 + i * .68, .14, 1.9, .01)));
+    put(L, 'antennas', [0, 1.5, -.6], ...[-2.2, 0, 2.2].flatMap(x => [bx(.22, .22, .22, dark, x, .25, -1.9, .06), cy(.09, .11, 2.2, black, x, 1.35, -1.95, 14)]));
+    put(L, 'cover', [0, 1.7, 0], bx(6, .42, 4, white, 0, .1, 0, .16), ...Array.from({ length: 9 }, (_, i) => bx(3.4, .02, .09, dark, 0, .32, -.9 + i * .22, .01)), ...Array.from({ length: 4 }, (_, i) => bx(.1, .06, .02, i < 3 ? led : ledB, -2.3 + i * .35, .1, 2.02, .01)));
+  } else if (kind === 'switch') {
+    put(L, 'base', [0, -.5, 0], bx(8, .2, 3.2, dark, 0, -.5, 0, .08));
+    put(L, 'pcb', [0, .35, 0], bx(7.4, .07, 2.7, green, 0, -.3, 0, .02), ...[[-2.2, .4, 1, .7], [1.4, -.5, .8, .6]].map(([x, z, w, d]) => bx(w, .08, d, black, x, -.22, z, .02)));
+    put(L, 'psu', [-1.6, .9, .6], bx(1.9, .5, 1.5, gold, -2.7, -.0, -.5, .06), cy(.5, .5, .12, black, -2.7, .28, -.5, 18));
+    put(L, 'asic', [0, 1.1, 0], bx(1.5, .08, 1.5, silver, .6, -.18, -.2, .02), ...Array.from({ length: 9 }, (_, i) => bx(.05, .3, 1.4, silver, -.1 + i * .17, .0, -.2, .02)));
+    put(L, 'sfp', [1.2, .5, 1.1], ...[0, 1].map(i => bx(.7, .34, .6, silver, 3.0, -.05, 1.1 - i * .0 + 0, .03)).map((m, i) => { m.position.x = 2.5 + i * .85; m.position.z = 1.15; return m; }));
+    put(L, 'ports', [0, .3, 1.1], ...Array.from({ length: 12 }, (_, i) => bx(.42, .32, .3, black, -3.3 + i * .5, -.05, 1.55, .03)), ...Array.from({ length: 12 }, (_, i) => bx(.07, .04, .04, i % 3 ? led : ledB, -3.3 + i * .5, .14, 1.72, .01)));
+    put(L, 'cover', [0, 1.6, 0], bx(8, .4, 3.2, white, 0, .1, 0, .14), ...Array.from({ length: 12 }, (_, i) => bx(4.6, .02, .08, dark, -.6, .31, -1.2 + i * .2, .01)));
+  } else {
+    put(L, 'base', [0, -.5, 0], cy(2, 2, .18, dark, 0, -.5, 0, 48));
+    put(L, 'pcb', [0, .35, 0], cy(1.75, 1.75, .07, green, 0, -.3, 0, 48), bx(.8, .08, .8, black, -.5, -.22, .3, .02), bx(.7, .08, .6, black, .7, -.22, -.4, .02));
+    put(L, 'soc', [0, 1.0, 0], bx(.9, .14, .9, silver, -.4, -.12, .2, .03), bx(.5, .1, .5, MAT(0x3dd6e6, { m: .3 }), .9, -.14, -.5, .03));
+    put(L, 'antennas', [0, 1.5, 0], ...[0, 1, 2].map(i => { const a = i * 2.094 + .4, m = bx(1.2, .06, .35, MAT(0xb8c2d4, { m: .6 }), Math.cos(a) * 1.15, -.1, Math.sin(a) * 1.15, .02); m.rotation.y = -a; return m; }));
+    put(L, 'cover', [0, 2.0, 0], cy(1.9, 2.05, .55, white, 0, .05, 0, 56), cy(.34, .34, .06, led, 0, .35, 0, 24));
+  }
+  return L;
+}
 
 export function createViewer(host, hooks = {}) {
   const renderer = new WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
@@ -33,11 +69,13 @@ export function createViewer(host, hooks = {}) {
   }
   async function load(url, cfg) {
     const my = ++token; clear();
-    const gltf = await loader.loadAsync(url);
+    const proc = cfg.build ? buildDevice(cfg.build) : null;
+    const gltf = proc ? null : await loader.loadAsync(url);
     if (my !== token) return false;
-    const root = gltf.scene; holder.add(root); root.updateMatrixWorld(true);
-    const list = []; root.traverse(o => { if (o.isMesh) list.push(o); });
+    const root = proc ? new Group() : gltf.scene; holder.add(root); root.updateMatrixWorld(true);
+    const list = []; if (!proc) root.traverse(o => { if (o.isMesh) list.push(o); });
     const gs = {}, buckets = new Map();
+    if (proc) proc.forEach(m => { holder.add(m); meshes.push(m); (gs[m.userData.gid] ||= { id: m.userData.gid, meshes: [], dir: m.userData.dir }).meshes.push(m); });
     list.forEach(m => {
       const mat = Array.isArray(m.material) ? m.material[0] : m.material, mname = (mat && mat.name) || '';
       const gc = (cfg.groups || []).find(g => g.test(m.name, mname)) || { id: cfg.fallback || 'body', dir: [0, 0, 0] };
@@ -85,7 +123,7 @@ export function createViewer(host, hooks = {}) {
   }
   function setActive(id, fromUI) {
     if (id === activeId) return; activeId = id;
-    meshes.forEach(m => { const on = id && m.userData.gid === id; (Array.isArray(m.material) ? m.material : [m.material]).forEach(mt => { if (mt.emissive) { mt.emissive.copy(on ? hl : new Color(0)); mt.emissiveIntensity = on ? .55 : 0; } }); });
+    meshes.forEach(m => { const on = id && m.userData.gid === id; (Array.isArray(m.material) ? m.material : [m.material]).forEach(mt => { if (mt.emissive) { const e0 = mt.userData.e0; mt.emissive.copy(on ? hl : (e0 ? e0[0] : new Color(0))); mt.emissiveIntensity = on ? .55 : (e0 ? e0[1] : 0); } }); });
     spotEls.forEach(e => e.classList.toggle('is-on', e.dataset.id === id));
     controls.autoRotate = !reduce && !id && !dragging;
     hooks.onActive && hooks.onActive(id); kick();
