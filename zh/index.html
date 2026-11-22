@@ -36,7 +36,7 @@
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=4.5.0">
+<link rel="stylesheet" href="../assets/css/site.css?v=4.6.0">
 <script>/* theme before paint: dark by default, remembered choice wins */
 (function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('mh-theme');if(t==='light'||t==='dark')d.dataset.theme=t;}catch(e){}})();</script>
 <script>window.I18N={"copied":"邮箱地址已复制","copyfail":"复制失败。邮箱地址为 ","step":"第 {n} 步，共 {m} 步","prev":"上一步","next":"下一步","play":"播放全部步骤","pause":"暂停","mailsubject":"网站咨询","types":{"cloud":["云服务","Microsoft 365 及其他在线服务：邮件、身份和文件，通过互联网访问。"],"isp":["互联网 / 运营商","连接所有办公室的公共网络，负责链路质量监测和向运营商报障。"],"fw":["边界防火墙与路由器","过滤流量、执行 NAT，并终结站点间 VPN 隧道。"],"rt":["分支路由器","MikroTik 级边界路由器：提供上网、路由以及连接总部的 VPN 隧道。"],"sw":["核心 / 接入交换机","连接有线设备，并用 VLAN 隔离流量。"],"srv":["服务器","本地服务，例如文件共享、目录或管理工具。"],"ap":["Wi-Fi 接入点","无线覆盖。信道规划和认证方式决定了它的可靠程度。"],"pc":["工作站","大多数支持工作的落点：安装配置、权限、更新和故障排查。"],"cam":["IP 摄像机","通过以太网供电（PoE），在独立 VLAN 上向 NVR 传输视频。"],"nvr":["NVR","网络录像机：录制摄像机画面，并按规定的保存期保留录像。"]},"sites":["总部","分支机构 A","分支机构 B"],"vpn":"站点间 VPN"};</script>
@@ -263,6 +263,11 @@
         <div><div class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span></div><span class="status">已上线：fixibleit.com</span></div>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
+      <a class="project" href="../projects/onedesk-business/">
+        <div><h3>OneDesk Business</h3><p>A business and accounting platform in the making: a modern, premium workspace designed for an unlimited product catalogue, starting with two integrated products.</p></div>
+        <div><div class="meta"><span class="tag">Business</span><span class="tag">Accounting</span></div><span class="status dev">In development</span></div>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
       <a class="project" href="../projects/hossain-onedesk/">
         <div><h3>Hossain OneDesk</h3><p>离线优先的 Windows 效率与 IT 任务管理应用。</p></div>
         <div><div class="meta"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span></div><span class="status">可用版本，个人日常使用</span></div>
@@ -362,20 +367,33 @@
       <noscript><p class="dx-noscript">交互式实验室需要启用 JavaScript。</p></noscript>
     </div>
     <p class="en-note"></p>
-    <div class="dx-tools">
-      <div>
-        <h3>Free IT tools</h3>
-        <p>Subnet, CCTV storage, RAID, uptime and passwords: twelve small tools that run in your browser. Nothing is sent anywhere.</p>
-      </div>
-      <ul class="dx-tool-chips">
-        <li><a href="../knowledge/tools/#subnet" lang="en">Subnet calculator</a></li>
-        <li><a href="../knowledge/tools/#cctv" lang="en">CCTV storage</a></li>
-        <li><a href="../knowledge/tools/#raid" lang="en">RAID capacity</a></li>
-        <li><a href="../knowledge/tools/#sla" lang="en">Uptime / SLA</a></li>
-        <li><a href="../knowledge/tools/#password" lang="en">Password generator</a></li>
-        <li><a href="../knowledge/tools/#ports" lang="en">Ports lookup</a></li>
-      </ul>
-      <a class="btn primary" href="../knowledge/tools/">Open all 12 tools <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- Learn and tools: large calls to action (v4.6) -->
+<section class="section learn" id="learn" aria-label="Knowledge Hub, Free IT tools">
+  <div class="wrap">
+    <div class="learn-grid">
+      <article class="learn-card">
+        <span class="learn-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+        <p class="learn-k">Knowledge Hub</p>
+        <h3>Learn IT the practical way</h3>
+        <p class="learn-d">Step-by-step guides on Microsoft 365, Active Directory, networking, MikroTik, CCTV and backups, plus learning paths and a plain-English glossary.</p>
+        <a class="btn primary big" href="../knowledge/">Open the Knowledge Hub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="learn-card">
+        <span class="learn-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19a3 3 0 0 1-3 3h-3"/></svg></span>
+        <p class="learn-k">Free IT tools</p>
+        <h3>Twelve tools for everyday IT work</h3>
+        <p class="learn-d">Subnet calculator, CCTV storage, RAID capacity, uptime, hash, password generator and more. They run in your browser; nothing is uploaded.</p>
+        <ul class="dx-tool-chips">
+          <li><a href="../knowledge/tools/#subnet" lang="en">Subnet</a></li>
+          <li><a href="../knowledge/tools/#cctv" lang="en">CCTV storage</a></li>
+          <li><a href="../knowledge/tools/#raid" lang="en">RAID</a></li>
+          <li><a href="../knowledge/tools/#password" lang="en">Passwords</a></li>
+        </ul>
+        <a class="btn primary big" href="../knowledge/tools/">Open the IT tools <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
     </div>
   </div>
 </section>
@@ -481,10 +499,17 @@
 </main>
 <footer class="site-footer">
   <div class="foot-signal" aria-hidden="true"><span>01010010 01000101 01001100 01001001 01000001 01000010 01001100 01000101 00100000 01001001 01010100 00101100 00100000 01010001 01010101 01001001 01000101 01010100 01001100 01011001 00100000 01010010 01010101 01001110 01001110 01001001 01001110 01000111 00100000 01010010 01000101 01001100 01001001 01000001 01000010 01001100 01000101 00100000 01001001 01010100 00101100 00100000 01010001 01010101 01001001 01000101 01010100 01001100 01011001 00100000 01010010 01010101 01001110 01001110 01001001 01001110 01000111 00100000</span></div>
+  <div class="wrap foot-cta">
+    <div><p class="foot-cta-k"><i aria-hidden="true"></i>欢迎工作机会与项目合作</p><h2>立足达卡，为成长型企业提供 IT 基础设施、Microsoft 365 与网络服务。</h2></div>
+    <div class="btns">
+      <a class="btn primary big" href="mailto:mdhossain.cloud@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg> 与我联系</a>
+      <a class="btn big" href="../knowledge/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg> 知识中心</a>
+      <a class="btn big" href="../knowledge/tools/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19a3 3 0 0 1-3 3h-3"/></svg> IT tools</a>
+    </div>
+  </div>
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <a class="brand" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="8" fill="var(--sf-2)" stroke="var(--ln-2)"/><path d="M6 22V10l4.5 6 4.5-6v12" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M19 10v12M26 10v12M19 16h7" fill="none" stroke="var(--acc)" stroke-width="2.2" stroke-linecap="round"/></svg><span>Md. Hossain<small>IT 基础设施专家</small></span></a>
-      <p>立足达卡，为成长型企业提供 IT 基础设施、Microsoft 365 与网络服务。</p>
       <p class="foot-avail"><i aria-hidden="true"></i>欢迎工作机会与项目合作</p>
     </div>
     <nav class="foot-col" aria-label="浏览">
@@ -520,13 +545,13 @@
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="../assets/js/site.js?v=4.5.0" defer></script>
-<script src="../assets/js/bg.js?v=4.5.0" defer></script>
-<script src="../assets/js/scene.js?v=4.5.0" defer></script>
-<script src="../assets/js/lab-data.js?v=4.5.0" defer></script>
-<script src="../assets/js/lab.js?v=4.5.0" defer></script>
-<script src="../assets/js/explorer.js?v=4.5.0" defer></script>
-<script src="../assets/js/rack.js?v=4.5.0" defer></script>
-<script src="../assets/js/fx.js?v=4.5.0" defer></script>
+<script src="../assets/js/site.js?v=4.6.0" defer></script>
+<script src="../assets/js/bg.js?v=4.6.0" defer></script>
+<script src="../assets/js/scene.js?v=4.6.0" defer></script>
+<script src="../assets/js/lab-data.js?v=4.6.0" defer></script>
+<script src="../assets/js/lab.js?v=4.6.0" defer></script>
+<script src="../assets/js/explorer.js?v=4.6.0" defer></script>
+<script src="../assets/js/rack.js?v=4.6.0" defer></script>
+<script src="../assets/js/fx.js?v=4.6.0" defer></script>
 </body>
 </html>

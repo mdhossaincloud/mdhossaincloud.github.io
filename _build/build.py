@@ -36,7 +36,7 @@ NAME = "Md. Hossain"
 EMAIL = "mdhossain.cloud@gmail.com"
 LINKEDIN = "https://www.linkedin.com/in/mdhossain-cloud"
 GITHUB = "https://github.com/mdhossaincloud"
-VERSION = "4.5.0"
+VERSION = "4.6.0"
 
 # code, label in its own language, BCP 47 tag, URL prefix ("" = default)
 LANGS = [
@@ -176,10 +176,17 @@ def footer(depth, lang, scripts, site_root, home_page=False):
     binary = " ".join(format(ord(c), "08b") for c in "RELIABLE IT, QUIETLY RUNNING ")
     return f"""<footer class="site-footer">
   <div class="foot-signal" aria-hidden="true"><span>{binary} {binary}</span></div>
+  <div class="wrap foot-cta">
+    <div><p class="foot-cta-k"><i aria-hidden="true"></i>{e('spec.avail.v')}</p><h2>{e('foot.tag')}</h2></div>
+    <div class="btns">
+      <a class="btn primary big" href="mailto:{EMAIL}">{ICON['mail']} {e('hero.cta2')}</a>
+      <a class="btn big" href="{sr}knowledge/">{ICON['file']} {e('ui.hub')}</a>
+      <a class="btn big" href="{sr}knowledge/tools/">{ICON['support']} {e('foot.tools')}</a>
+    </div>
+  </div>
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <a class="brand" href="{home or './'}">{MONOGRAM}<span>Md. Hossain<small>{e('ui.brandline')}</small></span></a>
-      <p>{e('foot.tag')}</p>
       <p class="foot-avail"><i aria-hidden="true"></i>{e('spec.avail.v')}</p>
     </div>
     <nav class="foot-col" aria-label="{e('foot.explore')}">

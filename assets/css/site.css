@@ -1181,9 +1181,10 @@ html:not(.js) .fab { display: none; }
 @media (prefers-reduced-motion: reduce) { .svc, .project, .skill-group, .cred, .guide-cards a { transition: none; } }
 
 /* ---- Hero objects (desktop only; hidden by the existing 900px rule) ---- */
-.hero-obj { position: absolute; will-change: transform, opacity; }
+.hero-obj { position: absolute; will-change: transform, opacity; pointer-events: none; }
+.hero-obj canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
+.hero-obj svg { transition: opacity .22s; }
 .hero-obj svg { width: 100%; height: auto; overflow: visible; }
-.hero-obj .dx-part { pointer-events: all; }
 .hero-obj .dx-lead { stroke: var(--cy); stroke-dasharray: 2 4; stroke-width: 1; }
 .hero-obj.ho-a { left: 0; right: 0; top: 0; }
 .hero-obj.ho-b { left: -4%; bottom: -8%; width: 44%; }
@@ -1279,3 +1280,67 @@ html[lang="bn-BD"] .dx-bar { font-family: var(--f-body); font-size: .85rem; }
 .tool .ports th, .tool .ports td { text-align: left; padding: .3rem .4rem; border-bottom: 1px solid var(--ln); }
 .tool .ports th { font-family: var(--f-mono); color: var(--cy); width: 4.5rem; }
 @media (max-width: 860px) { .tools-grid { grid-template-columns: 1fr; } .tool-d { min-height: 0; } .tool .out > div { grid-template-columns: 7.5rem minmax(0, 1fr); } }
+
+
+/* ==========================================================================
+   v4.6: slim scrolling header, large learn/tools cards, premium footer
+   ========================================================================== */
+
+/* ---- Header: full size at the very top, slim once the page scrolls ---- */
+.site-header { transition: border-color .25s, background-color .3s, box-shadow .35s; }
+.bar { transition: min-height .35s var(--ease); }
+.brand > span { display: block; max-width: 18rem; white-space: nowrap; overflow: hidden; transition: max-width .45s var(--ease), opacity .25s; }
+.brand svg { transition: width .35s var(--ease), height .35s var(--ease); }
+.site-header.scrolled { background: color-mix(in srgb, var(--bg) 78%, transparent); box-shadow: 0 14px 34px -22px rgba(0, 0, 0, .65); }
+.site-header.scrolled .bar { min-height: 3.4rem; }
+.site-header.scrolled .brand { gap: 0; }
+.site-header.scrolled .brand > span { max-width: 0; opacity: 0; }
+.site-header.scrolled .brand svg { width: 30px; height: 30px; }
+.site-header.scrolled .nav-links a { padding-block: .28rem; }
+@media (prefers-reduced-motion: reduce) { .bar, .brand > span, .brand svg { transition: none; } }
+
+/* ---- Buttons ---- */
+.btn.big { padding: .95rem 1.55rem; font-size: 1.05rem; border-radius: 12px; }
+.btn.primary { position: relative; overflow: hidden; box-shadow: 0 10px 26px -12px color-mix(in srgb, var(--acc) 80%, transparent); }
+.btn.primary::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%); transform: translateX(-120%); transition: transform .7s var(--ease); }
+.btn.primary:hover::after { transform: translateX(120%); }
+
+/* ---- Learn and tools cards (home) ---- */
+.learn { padding-block: var(--s7) var(--s6); }
+.learn-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5); }
+.learn-card { position: relative; display: grid; grid-template-rows: auto auto auto 1fr auto auto; align-content: start; gap: var(--s3); min-height: 24rem; padding: clamp(1.5rem, 3vw, 2.4rem); border: 1px solid var(--ln); border-radius: 22px; overflow: hidden;
+  background: linear-gradient(160deg, var(--sf), var(--sf-2)); box-shadow: var(--shadow); transition: transform .4s var(--ease), border-color .3s, box-shadow .4s var(--ease); }
+.learn-card::before { content: ""; position: absolute; right: -20%; top: -35%; width: 80%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(closest-side, var(--glow), transparent 70%); pointer-events: none; }
+.learn-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--acc) 55%, var(--ln)); box-shadow: 0 28px 50px -28px color-mix(in srgb, var(--acc) 60%, transparent); }
+.learn-card > * { position: relative; }
+.learn-ic { width: 58px; height: 58px; border-radius: 16px; display: grid; place-items: center; color: var(--cy); background: color-mix(in srgb, var(--cy) 12%, var(--sf)); border: 1px solid color-mix(in srgb, var(--cy) 35%, var(--ln)); }
+.learn-ic svg { width: 28px; height: 28px; }
+.learn-k { margin: .4rem 0 0; font: 500 .8rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cy); }
+html[lang="bn-BD"] .learn-k { letter-spacing: 0; text-transform: none; font-family: var(--f-body); font-size: .95rem; }
+.learn-card h3 { font-size: clamp(1.5rem, 2.6vw, 2.05rem); margin: 0; }
+.learn-d { color: var(--mu); margin: 0; max-width: 46ch; }
+.learn-card .dx-tool-chips { align-self: end; }
+.learn-card .btn { justify-self: start; margin-top: var(--s2); }
+@media (max-width: 860px) { .learn-grid { grid-template-columns: 1fr; } .learn-card { min-height: 0; } }
+
+/* ---- Footer: call-to-action band ---- */
+.foot-cta { display: grid; grid-template-columns: minmax(0, 1.2fr) auto; gap: var(--s5) var(--s6); align-items: center; padding-block: var(--s7) var(--s5); border-bottom: 1px solid var(--ln); }
+.foot-cta h2 { font-size: clamp(1.4rem, 2.8vw, 2.2rem); line-height: 1.2; max-width: 26ch; margin: .5rem 0 0; color: var(--ink); }
+.foot-cta-k { display: inline-flex; align-items: center; gap: .55rem; margin: 0; font: 500 .8rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--cy); }
+html[lang="bn-BD"] .foot-cta-k { letter-spacing: 0; text-transform: none; font-family: var(--f-body); font-size: .95rem; }
+.foot-cta-k i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 22%, transparent); }
+.foot-cta .btns { justify-content: flex-end; }
+@media (max-width: 960px) { .foot-cta { grid-template-columns: 1fr; } .foot-cta .btns { justify-content: flex-start; } }
+.site-footer { background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg-2) 70%, transparent)); }
+.foot-col a { transition: color .2s, transform .25s var(--ease); }
+.foot-col a:hover { transform: translateX(3px); }
+.foot-top { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .8rem; border: 1px solid var(--ln); border-radius: 99px; transition: border-color .2s, color .2s; }
+.foot-top:hover { border-color: var(--acc); }
+
+/* ---- Premium polish ---- */
+.section-head h2 { letter-spacing: -.02em; }
+.project { transition: transform .35s var(--ease), border-color .25s, box-shadow .35s var(--ease); }
+.project:hover { transform: translateY(-3px); box-shadow: 0 22px 44px -26px color-mix(in srgb, var(--acc) 55%, transparent); }
+.dx-stage { box-shadow: var(--shadow); }
+.dx-tabs button { transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s; }
+@media (prefers-reduced-motion: reduce) { .project, .learn-card, .foot-col a { transition: none; } }

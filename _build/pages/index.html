@@ -208,6 +208,11 @@
         <div><div class="meta"><span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span></div><span class="status">{{t:pj.fx.s}}</span></div>
         <span class="go" aria-hidden="true">{{icon:arrow}}</span>
       </a>
+      <a class="project" href="{{root}}projects/onedesk-business/">
+        <div><h3>OneDesk Business</h3><p>{{t:pj.ob}}</p></div>
+        <div><div class="meta"><span class="tag">Business</span><span class="tag">Accounting</span></div><span class="status dev">{{t:pj.ob.s}}</span></div>
+        <span class="go" aria-hidden="true">{{icon:arrow}}</span>
+      </a>
       <a class="project" href="{{root}}projects/hossain-onedesk/">
         <div><h3>Hossain OneDesk</h3><p>{{t:pj.od}}</p></div>
         <div><div class="meta"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">SQLite</span></div><span class="status">{{t:pj.od.s}}</span></div>
@@ -307,20 +312,33 @@
       <noscript><p class="dx-noscript">{{t:in.noscript}}</p></noscript>
     </div>
     <p class="en-note">{{t:dx.note}}</p>
-    <div class="dx-tools">
-      <div>
-        <h3>{{t:dx.tools.title}}</h3>
-        <p>{{t:dx.tools.sub}}</p>
-      </div>
-      <ul class="dx-tool-chips">
-        <li><a href="{{root}}knowledge/tools/#subnet" lang="en">Subnet calculator</a></li>
-        <li><a href="{{root}}knowledge/tools/#cctv" lang="en">CCTV storage</a></li>
-        <li><a href="{{root}}knowledge/tools/#raid" lang="en">RAID capacity</a></li>
-        <li><a href="{{root}}knowledge/tools/#sla" lang="en">Uptime / SLA</a></li>
-        <li><a href="{{root}}knowledge/tools/#password" lang="en">Password generator</a></li>
-        <li><a href="{{root}}knowledge/tools/#ports" lang="en">Ports lookup</a></li>
-      </ul>
-      <a class="btn primary" href="{{root}}knowledge/tools/">{{t:dx.tools.btn}} {{icon:arrow}}</a>
+  </div>
+</section>
+
+<!-- Learn and tools: large calls to action (v4.6) -->
+<section class="section learn" id="learn" aria-label="{{t:lr.hub.k}}, {{t:lr.tools.k}}">
+  <div class="wrap">
+    <div class="learn-grid">
+      <article class="learn-card">
+        <span class="learn-ic" aria-hidden="true">{{icon:file}}</span>
+        <p class="learn-k">{{t:lr.hub.k}}</p>
+        <h3>{{t:lr.hub.t}}</h3>
+        <p class="learn-d">{{t:lr.hub.d}}</p>
+        <a class="btn primary big" href="{{root}}knowledge/">{{t:lr.hub.btn}} {{icon:arrow}}</a>
+      </article>
+      <article class="learn-card">
+        <span class="learn-ic" aria-hidden="true">{{icon:support}}</span>
+        <p class="learn-k">{{t:lr.tools.k}}</p>
+        <h3>{{t:lr.tools.t}}</h3>
+        <p class="learn-d">{{t:lr.tools.d}}</p>
+        <ul class="dx-tool-chips">
+          <li><a href="{{root}}knowledge/tools/#subnet" lang="en">Subnet</a></li>
+          <li><a href="{{root}}knowledge/tools/#cctv" lang="en">CCTV storage</a></li>
+          <li><a href="{{root}}knowledge/tools/#raid" lang="en">RAID</a></li>
+          <li><a href="{{root}}knowledge/tools/#password" lang="en">Passwords</a></li>
+        </ul>
+        <a class="btn primary big" href="{{root}}knowledge/tools/">{{t:lr.tools.btn}} {{icon:arrow}}</a>
+      </article>
     </div>
   </div>
 </section>

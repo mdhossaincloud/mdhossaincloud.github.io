@@ -92,7 +92,7 @@
         w: 'The plastic cover is transparent to radio waves; the LED shows boot, ready and fault states.',
         k: 'The LED state, then the controller’s view of the device.' }
     ] },
-    camera: { name: 'IP camera (dome)', short: 'CCTV', parts: [
+    camera: { name: 'IP camera', short: 'CCTV', parts: [
       { id: 'base', n: 'Mount base and cable entry', b: [5, 5, .5], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191',
         w: 'Attaches to the ceiling or wall and holds the network cable. A weather seal keeps moisture out.',
         k: 'Seal and cable gland. Water in the housing kills more outdoor cameras than anything else.' },
@@ -114,8 +114,92 @@
       { id: 'dome', n: 'Dome cover', b: [5, 5, .6], p: [0, 0, 2.5], e: [0, 0, 8.2], c: '#6c7e9f',
         w: 'A clear, impact-resistant dome that protects the lens and hides which way the camera points.',
         k: 'Scratches and condensation. Clean it as part of preventive maintenance.' }
+    ] },
+    pc: { name: 'Desktop PC', short: 'Workstation', parts: [
+      { id: 'case', n: 'Case and chassis', b: [9, 6, .5], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191',
+        w: 'The steel frame that holds every component, shields the electronics and guides airflow from the front fans to the rear.',
+        k: 'Dust. A clogged filter or fan is the most common reason an office PC runs hot and slows down.' },
+      { id: 'psu', n: 'Power supply (PSU)', b: [3, 2.6, 1.6], p: [.4, .4, .5], e: [-1.6, 1.6, 1.4], c: '#c9862e',
+        w: 'Converts mains AC into the low DC voltages the board, drives and graphics card use, and protects them from surges.',
+        k: 'Wattage headroom and age. An ageing supply causes random shutdowns under load.' },
+      { id: 'drive', n: 'SSD / hard drive', b: [2.4, 1.6, .6], p: [.6, 3.6, .5], e: [-1.4, 1.2, 3.0], c: '#8b9cff',
+        w: 'Permanent storage for the operating system and files. An SSD has no moving parts and boots in seconds.',
+        k: 'SMART health and free space. A failing drive warns first: slow boots, freezes, clicking.' },
+      { id: 'mobo', n: 'Motherboard', b: [7.6, 5.0, .25], p: [.6, .5, 2.1], e: [0, 0, 4.6], c: '#2f8f6b',
+        w: 'The main circuit board that links the CPU, memory, storage, graphics and every port.',
+        k: 'BIOS version and that the board sees all RAM and drives.' },
+      { id: 'cpu', n: 'CPU and cooler', b: [2.2, 2.2, 1.2], p: [2.4, 1.2, 2.35], e: [0, 0, 7.0], c: '#4d8dff',
+        w: 'The processor that runs every program, topped by a heat sink and fan that carry heat away.',
+        k: 'Temperature and thermal paste. High idle temperatures usually mean a loose cooler or dried paste.' },
+      { id: 'ram', n: 'Memory (RAM) sticks', b: [.5, 2.6, 1.0], p: [5.4, 1.2, 2.35], e: [1.4, -.6, 6.2], c: '#3dd6e6',
+        w: 'Fast working memory for open programs. More RAM means more things open at once before the PC slows.',
+        k: 'Reseat the sticks first if the PC beeps or will not start.' },
+      { id: 'gpu', n: 'Graphics card', b: [4.6, 1.1, .8], p: [2.0, 3.4, 2.35], e: [-.4, 1.8, 8.4], c: '#e0556b',
+        w: 'Draws the picture on the screen. Office PCs often use the graphics built into the CPU instead of a separate card.',
+        k: 'Display cable and driver. Black screen with fans running often means a loose card or monitor input.' },
+      { id: 'lid', n: 'Side panel and front fans', b: [9, 6, .5], p: [0, 0, 3.8], e: [0, 0, 11.0], c: '#6c7e9f',
+        w: 'The removable panel gives access; fans pull cool air through the front and push warm air out the back.',
+        k: 'Free space around the case. A PC pushed against a wall or inside a cupboard overheats.' }
+    ] },
+    laptop: { name: 'Laptop', short: 'Mobile', parts: [
+      { id: 'base', n: 'Bottom case', b: [9, 6, .4], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191',
+        w: 'The underside holds the rubber feet and vents, and has service hatches on many business models.',
+        k: 'Vents on a soft surface cause overheating. A hard desk or a cooling stand helps.' },
+      { id: 'batt', n: 'Battery', b: [5.2, 2.6, .5], p: [.8, 3.0, .4], e: [0, 1.6, 1.4], c: '#c9862e',
+        w: 'A lithium-ion pack that powers the laptop away from a socket. It wears out with charge cycles.',
+        k: 'Battery health report (powercfg /batteryreport). A swollen battery is replaced immediately.' },
+      { id: 'mobo', n: 'Motherboard', b: [7.8, 2.6, .25], p: [.6, .4, .8], e: [0, 0, 3.0], c: '#2f8f6b',
+        w: 'One compact board carries CPU, memory, ports and wireless. It is the most expensive part to replace.',
+        k: 'Test with the charger only (battery removed) to separate board faults from battery faults.' },
+      { id: 'cpu', n: 'CPU and cooling fan', b: [2.2, 2.0, .7], p: [4.6, .6, 1.05], e: [1.0, 0, 4.6], c: '#4d8dff',
+        w: 'The processor and a small fan with a heat pipe that moves heat to the vents.',
+        k: 'Fan noise and temperature. Cleaning the fan restores performance on many old laptops.' },
+      { id: 'ssd', n: 'SSD and Wi-Fi card', b: [1.8, 1.0, .35], p: [1.2, .6, 1.05], e: [-1.0, 0, 4.6], c: '#8b9cff',
+        w: 'The SSD stores everything; the small Wi-Fi card connects to wireless networks.',
+        k: 'Drive health, and the Wi-Fi driver when the laptop cannot see networks.' },
+      { id: 'deck', n: 'Keyboard and touchpad', b: [9, 5.4, .5], p: [0, 0, 1.4], e: [0, 0, 6.4], c: '#7d8fb3',
+        w: 'The top deck with keys, touchpad and palm rests, wired to the board by thin ribbon cables.',
+        k: 'Spilled drinks. Power off at once, then clean and dry before turning it on.' },
+      { id: 'lid', n: 'Display lid and screen', b: [9, .45, 5.4], p: [0, 0, 1.9], e: [0, -1.6, 4.4], o: -50, c: '#4a5a78',
+        w: 'The LCD panel with a webcam and antennas in the frame. The hinge carries the display cable.',
+        k: 'Cracked panel or flicker is usually the screen cable at the hinge, not the board.' }
+    ] },
+    phone: { name: 'Mobile phone', short: 'Smartphone', parts: [
+      { id: 'back', n: 'Back cover', b: [3.4, 6.8, .22], p: [0, 0, 0], e: [0, 0, 0], c: '#5f7191',
+        w: 'Glass or polymer back. It holds the NFC and wireless-charging coils on many phones.',
+        k: 'Cracks let in water. A case and screen protector are the cheapest repair plan.' },
+      { id: 'batt', n: 'Battery', b: [2.8, 3.4, .3], p: [.3, .3, .22], e: [0, 0, 1.6], c: '#c9862e',
+        w: 'A flat lithium-polymer cell that takes up about half of the phone’s volume.',
+        k: 'Battery health in settings. Heat and full discharge cycles wear it fastest.' },
+      { id: 'pcb', n: 'Mainboard', b: [2.8, 2.9, .2], p: [.3, 3.8, .22], e: [0, .6, 3.2], c: '#2f8f6b',
+        w: 'A tiny board folded around the battery, carrying the processor, memory and radios.',
+        k: 'Liquid damage shows on a small indicator inside the SIM tray.' },
+      { id: 'soc', n: 'Chip (SoC) and modem', b: [1.4, 1.4, .3], p: [.9, 4.4, .42], e: [0, .4, 4.9], c: '#4d8dff',
+        w: 'One chip that combines CPU, graphics, AI engine and the cellular modem and Wi-Fi radios.',
+        k: 'Updates. System updates fix most speed and battery complaints.' },
+      { id: 'cam', n: 'Camera module', b: [1.5, 1.5, .35], p: [1.6, 5.2, .42], e: [.4, 0, 6.4], c: '#3dd6e6',
+        w: 'Lenses, a small image sensor and stabiliser. Phone cameras rely heavily on software processing.',
+        k: 'Clean the lens first; most “blurry camera” faults are a smudge.' },
+      { id: 'disp', n: 'Display panel', b: [3.2, 6.4, .2], p: [.1, .2, .75], e: [0, 0, 8.0], c: '#3b4a68',
+        w: 'The OLED or LCD layer plus the touch sensor that reads your finger.',
+        k: 'Ghost touches usually mean a damaged digitiser or a poor screen protector.' },
+      { id: 'glass', n: 'Cover glass', b: [3.4, 6.8, .22], p: [0, 0, .95], e: [0, 0, 9.6], c: '#8c9ec2',
+        w: 'Hardened glass that protects the display and forms the front of the phone.',
+        k: 'Use a tempered-glass protector and avoid keeping keys in the same pocket.' }
     ] }
   };
+
+  /* ---------- surface details (ports, vents, LEDs, lenses) ---------- */
+  const DECOS = {
+    router: { eth: [{ f: 'L', n: 5, a: [.06, .94], b: [.18, .72], c: '#0a101e' }], cover: [{ f: 'T', n: 7, a: [.18, .82], b: [.2, .8], c: '#0a101e' }, { f: 'L', n: 4, a: [.06, .32], b: [.3, .6], c: '#4fd39d' }] },
+    switch: { ports: [{ f: 'L', n: 12, a: [.04, .96], b: [.2, .75], c: '#0a101e' }], sfp: [{ f: 'L', n: 2, a: [.08, .92], b: [.25, .7], c: '#0a101e' }], cover: [{ f: 'T', n: 9, a: [.12, .88], b: [.18, .82], c: '#0a101e' }, { f: 'L', n: 6, a: [.04, .3], b: [.3, .6], c: '#4fd39d' }] },
+    ap: { dome: [{ f: 'T', n: 1, a: [.42, .58], b: [.42, .58], c: '#4fd39d' }], ant: [{ f: 'T', n: 3, a: [.1, .9], b: [.2, .8], c: '#0a101e' }] },
+    camera: { lens: [{ f: 'T', n: 1, a: [.18, .82], b: [.18, .82], c: '#06090f' }], ir: [{ f: 'T', n: 5, a: [.2, .8], b: [.1, .9], c: '#f2b0b8' }], sd: [{ f: 'T', n: 1, a: [.2, .8], b: [.15, .85], c: '#0a101e' }], dome: [{ f: 'T', n: 1, a: [.3, .7], b: [.3, .7], c: '#10192e' }] },
+    pc: { cpu: [{ f: 'T', n: 4, a: [.12, .88], b: [.12, .88], c: '#0a101e' }], gpu: [{ f: 'L', n: 3, a: [.1, .9], b: [.2, .8], c: '#0a101e' }], lid: [{ f: 'T', n: 6, a: [.12, .88], b: [.2, .8], c: '#0a101e' }, { f: 'L', n: 2, a: [.05, .2], b: [.3, .6], c: '#4fd39d' }], ram: [{ f: 'R', n: 1, a: [.1, .9], b: [.3, .8], c: '#0a101e' }] },
+    laptop: { deck: [{ f: 'T', n: 12, a: [.06, .94], b: [.08, .5], c: '#0a101e' }, { f: 'T', n: 1, a: [.36, .64], b: [.62, .92], c: '#1a2540' }], lid: [{ f: 'L', n: 1, a: [.05, .95], b: [.06, .94], c: '#0a1224' }], cpu: [{ f: 'T', n: 1, a: [.2, .8], b: [.2, .8], c: '#0a101e' }] },
+    phone: { glass: [{ f: 'T', n: 1, a: [.07, .93], b: [.04, .96], c: '#0a1224' }], cam: [{ f: 'T', n: 2, a: [.15, .85], b: [.15, .85], c: '#06090f' }], disp: [{ f: 'T', n: 1, a: [.04, .96], b: [.03, .97], c: '#16213a' }] }
+  };
+  Object.keys(DECOS).forEach(k => DEVICES[k].parts.forEach(pt => { if (DECOS[k][pt.id]) pt.d = DECOS[k][pt.id]; }));
 
   /* ---------- geometry ---------- */
   const proj = (x, y, z) => [(x - y) * C, (x + y) * H - z];
@@ -155,6 +239,12 @@
       const top = mk('polygon', { fill: shade(pt.c, 1.3) }), left = mk('polygon', { fill: pt.c }), right = mk('polygon', { fill: shade(pt.c, .68) });
       [top, left, right].forEach(p => { p.setAttribute('stroke', 'rgba(5,12,28,.55)'); p.setAttribute('stroke-width', '.8'); p.setAttribute('stroke-linejoin', 'round'); });
       g.append(left, right, top);
+      const decos = [];
+      (pt.d || []).forEach(dc => {
+        const cell = (1 - 0) / dc.n, polys = [];
+        for (let i = 0; i < dc.n; i++) { const q = mk('polygon', { fill: dc.c, 'fill-opacity': '.92' }); g.append(q); polys.push(q); }
+        decos.push({ dc, polys, cell });
+      });
       const lead = mk('line', { 'class': 'dx-lead' });
       gLead.append(lead);
       let lab = null, con = null;
@@ -165,11 +255,11 @@
         lab.textContent = pt.n;
         gLab.append(lab);
       }
-      return { pt, g, top, left, right, lead, lab, con };
+      return { pt, g, top, left, right, lead, lab, con, decos };
     });
     let order = '';
     function render(t, active) {
-      const sorted = items.map(it => { const [x, y, z] = cur(it.pt, t); return { it, k: z * 3 + (x + y) * .9 + it.pt.b[2] * .2 }; })
+      const sorted = items.map(it => { const [x, y, z] = cur(it.pt, t); return { it, k: z * 3 + (x + y) * .9 + it.pt.b[2] * .2 + (it.pt.o || 0) }; })
         .sort((a, b) => a.k - b.k);
       const o = sorted.map(s => s.it.pt.id).join();
       if (o !== order) { order = o; sorted.forEach(s => gParts.append(s.it.g)); }
@@ -179,6 +269,17 @@
         it.top.setAttribute('points', pts([P(x, y, z + h), P(x + w, y, z + h), P(x + w, y + d, z + h), P(x, y + d, z + h)], f.s, f.ox, f.oy));
         it.left.setAttribute('points', pts([P(x, y + d, z + h), P(x + w, y + d, z + h), P(x + w, y + d, z), P(x, y + d, z)], f.s, f.ox, f.oy));
         it.right.setAttribute('points', pts([P(x + w, y, z + h), P(x + w, y + d, z + h), P(x + w, y + d, z), P(x + w, y, z)], f.s, f.ox, f.oy));
+        it.decos.forEach(({ dc, polys }) => {
+          const n = polys.length, span = dc.a[1] - dc.a[0], step = span / n, gap = Math.min(step * .28, .05);
+          polys.forEach((q, i) => {
+            const u0 = dc.a[0] + step * i + gap / 2, u1 = dc.a[0] + step * (i + 1) - gap / 2, v0 = dc.b[0], v1 = dc.b[1];
+            let c;
+            if (dc.f === 'T') { const X0 = x + w * u0, X1 = x + w * u1, Y0 = y + d * v0, Y1 = y + d * v1, Z = z + h + .01; c = [P(X0, Y0, Z), P(X1, Y0, Z), P(X1, Y1, Z), P(X0, Y1, Z)]; }
+            else if (dc.f === 'L') { const X0 = x + w * u0, X1 = x + w * u1, Y = y + d + .01, Z0 = z + h * (1 - v1), Z1 = z + h * (1 - v0); c = [P(X0, Y, Z1), P(X1, Y, Z1), P(X1, Y, Z0), P(X0, Y, Z0)]; }
+            else { const Y0 = y + d * u0, Y1 = y + d * u1, X = x + w + .01, Z0 = z + h * (1 - v1), Z1 = z + h * (1 - v0); c = [P(X, Y0, Z1), P(X, Y1, Z1), P(X, Y1, Z0), P(X, Y0, Z0)]; }
+            q.setAttribute('points', pts(c, f.s, f.ox, f.oy));
+          });
+        });
         const c0 = proj(it.pt.p[0] + w / 2, it.pt.p[1] + d / 2, it.pt.p[2] + h / 2), c1 = proj(x + w / 2, y + d / 2, z + h / 2);
         it.lead.setAttribute('x1', (c0[0] * f.s + f.ox).toFixed(1)); it.lead.setAttribute('y1', (c0[1] * f.s + f.oy).toFixed(1));
         it.lead.setAttribute('x2', (c1[0] * f.s + f.ox).toFixed(1)); it.lead.setAttribute('y2', (c1[1] * f.s + f.oy).toFixed(1));
@@ -279,46 +380,84 @@
     }
   }
 
-  /* ---------- Hero objects: hover to open, scroll to explode and vanish ---------- */
+  /* ---------- Hero objects: assemble from dust, turn to dust on hover, explode and vanish on scroll ---------- */
   function initHero() {
     const host = document.querySelector('.hero-visual');
     if (!host || !matchMedia('(min-width: 901px)').matches) return;
-    const spec = [['router', 'ho-a', 760, 520], ['camera', 'ho-b', 520, 420], ['ap', 'ho-c', 520, 420]];
-    const objs = spec.map(([k, cls, w, h]) => {
+    const spec = [['router', 'ho-a', 760, 520, 2600], ['camera', 'ho-b', 520, 420, 1500], ['ap', 'ho-c', 520, 420, 1500]];
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    const objs = spec.map(([k, cls, w, h, count]) => {
       const wrap = document.createElement('div'); wrap.className = 'hero-obj ' + cls;
       const svg = document.createElementNS(NS, 'svg'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
-      wrap.append(svg); host.append(wrap);
+      const cv = document.createElement('canvas'); cv.setAttribute('aria-hidden', 'true');
+      wrap.append(svg, cv); host.append(wrap);
       const m = createModel(svg, k, { w, h, labels: false, interactive: false, fitT: [0, .5] });
-      const o = { wrap, m, t: 0, target: 0, hover: false };
-      wrap.addEventListener('mouseenter', () => { o.hover = true; kick(); });
-      wrap.addEventListener('mouseleave', () => { o.hover = false; kick(); });
       m.render(0, null);
-      return o;
+      /* sample dust particles from the assembled faces (area-weighted) */
+      const tris = []; let area = 0, bx0 = 1e9, bx1 = -1e9, by0 = 1e9, by1 = -1e9;
+      m.items.forEach(it => [it.left, it.right, it.top].concat(it.decos.flatMap(d => d.polys)).forEach(poly => {
+        const v = poly.getAttribute('points').split(' ').map(q => q.split(',').map(Number)), col = poly.getAttribute('fill');
+        v.forEach(([x, y]) => { bx0 = Math.min(bx0, x); bx1 = Math.max(bx1, x); by0 = Math.min(by0, y); by1 = Math.max(by1, y); });
+        [[v[0], v[1], v[2]], [v[0], v[2], v[3]]].forEach(t => { const ar = Math.abs((t[1][0] - t[0][0]) * (t[2][1] - t[0][1]) - (t[2][0] - t[0][0]) * (t[1][1] - t[0][1])) / 2; if (ar > 0) { tris.push({ t, ar, col }); area += ar; } });
+      }));
+      const parts = [];
+      tris.forEach(tr => { const n = Math.max(1, Math.round(count * tr.ar / area)); for (let i = 0; i < n; i++) {
+        let r1 = Math.random(), r2 = Math.random(); if (r1 + r2 > 1) { r1 = 1 - r1; r2 = 1 - r2; }
+        const [A, B, C] = tr.t, hx = A[0] + r1 * (B[0] - A[0]) + r2 * (C[0] - A[0]), hy = A[1] + r1 * (B[1] - A[1]) + r2 * (C[1] - A[1]), a = Math.random() * 6.283, dist = 50 + Math.random() * 190;
+        parts.push({ hx, hy, vx: Math.cos(a) * dist, vy: Math.sin(a) * dist * .7 - 40 - Math.random() * 70, e: 1, del: Math.random() * .28 + (hx - bx0) / (bx1 - bx0 + 1) * .22, rate: .6 + Math.random() * 1.1, ph: Math.random() * 6.283, sz: .9 + Math.random() * 1.5, col: tr.col, tm: 0 });
+      } });
+      return { wrap, svg, cv, ctx: cv.getContext('2d'), m, parts, w, h, t: 0, dust: false, formed: false, box: [bx0, by0, bx1, by1] };
     });
-    let prog = 0, raf = 0;
-    const loop = () => {
-      raf = 0; let busy = false;
+    let prog = 0, raf = 0, last = 0, clock = 0;
+    const size = () => objs.forEach(o => { const r = o.wrap.getBoundingClientRect(); o.cv.width = Math.round(r.width * dpr); o.cv.height = Math.round(r.height * dpr); o.sc = o.cv.width / o.w; });
+    const draw = (o, dt) => {
+      const { ctx, cv, parts } = o; ctx.clearRect(0, 0, cv.width, cv.height);
+      let moving = false;
+      for (const q of parts) {
+        const goal = o.dust ? 1 : 0;
+        if (goal === 1) { q.tm += dt; if (q.tm > q.del) q.e = Math.min(1, q.e + dt * q.rate * 1.5); }
+        else { q.tm = 0; q.e = Math.max(0, q.e - dt * q.rate * 1.1); }
+        if (q.e > 0 && q.e < 1) moving = true; else if (q.e === 1 && goal === 0) moving = true;
+        const E = 1 - Math.pow(1 - q.e, 3), wob = Math.sin(clock * 3 + q.ph) * 4 * E;
+        const x = q.hx + q.vx * E + wob, y = q.hy + q.vy * E - E * E * 40;
+        ctx.globalAlpha = 1 - .65 * E; ctx.fillStyle = q.col;
+        const z = q.sz * o.sc * (1 - .45 * E); ctx.fillRect(x * o.sc, y * o.sc, z, z);
+      }
+      ctx.globalAlpha = 1; return moving || o.dust;
+    };
+    const loop = (now) => {
+      raf = 0; const dt = Math.min(.1, (now - (last || now)) / 1000); last = now; clock += dt; let busy = false;
       objs.forEach(o => {
-        const goal = Math.max(o.hover ? .5 : 0, prog);
-        const d = goal - o.t;
-        o.t = reduce.matches ? goal : (Math.abs(d) < .002 ? goal : o.t + d * .14);
-        if (Math.abs(goal - o.t) > .002) busy = true;
-        o.m.render(o.t, null);
+        const want = reduce.matches ? 0 : (prog < .12 && o.hover);
+        o.dust = !!want;
+        const d = prog - o.t; o.t = reduce.matches ? prog : (Math.abs(d) < .002 ? prog : o.t + d * .14);
+        if (Math.abs(prog - o.t) > .002) busy = true;
+        if (o.t > .004 || !o.formed) o.m.render(o.t, null);
+        const moving = draw(o, dt); if (moving) busy = true;
+        const resting = !moving && !o.dust;
+        o.svg.style.opacity = resting ? '1' : '0'; o.cv.style.opacity = resting ? '0' : '1';
         o.wrap.style.opacity = (1 - clamp((prog - .45) / .5)).toFixed(3);
         o.wrap.style.transform = `translateY(${(-prog * 36).toFixed(1)}px)`;
-        o.wrap.style.pointerEvents = prog > .85 ? 'none' : '';
       });
       if (busy) raf = requestAnimationFrame(loop);
     };
-    const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
-    const onScroll = () => {
-      const hero = host.closest('.hero') || host;
-      const p = clamp(scrollY / (hero.offsetHeight * .8));
-      if (p !== prog) { prog = p; kick(); }
-    };
+    const kick = () => { if (!raf) { last = 0; raf = requestAnimationFrame(loop); } };
+    size(); addEventListener('resize', () => { size(); kick(); });
+    /* hit test against each object's footprint so empty space does not trigger it */
+    host.addEventListener('mousemove', (ev) => {
+      let any = false;
+      objs.slice().reverse().forEach(o => {
+        const r = o.wrap.getBoundingClientRect(), k = r.width / o.w, x = (ev.clientX - r.left) / k, y = (ev.clientY - r.top) / k;
+        const inside = !any && x > o.box[0] - 6 && x < o.box[2] + 6 && y > o.box[1] - 6 && y < o.box[3] + 6;
+        if (inside) any = true; if (inside !== !!o.hover) { o.hover = inside; kick(); }
+      });
+    });
+    host.addEventListener('mouseleave', () => { objs.forEach(o => { if (o.hover) { o.hover = false; kick(); } }); });
+    const onScroll = () => { const hero = host.closest('.hero') || host; const p = clamp(scrollY / (hero.offsetHeight * .8)); if (p !== prog) { prog = p; kick(); } };
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
-    /* gentle entrance so the objects read as live */
-    if (!reduce.matches) { objs.forEach((o, i) => setTimeout(() => { o.t = .0; o.hover = true; kick(); setTimeout(() => { o.hover = false; kick(); }, 700); }, 500 + i * 260)); }
+    /* entrance: the devices assemble out of dust (instant when reduced motion is on) */
+    if (reduce.matches) objs.forEach(o => o.parts.forEach(q => q.e = 0));
+    objs.forEach((o, i) => { o.formed = true; setTimeout(kick, 120 + i * 180); }); kick();
   }
 
   const start = () => { initExplorer(); initHero(); };
